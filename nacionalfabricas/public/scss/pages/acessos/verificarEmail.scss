@@ -1,0 +1,66 @@
+@import "../../variaveis.scss";
+
+.verificar-email{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .conteudo{
+
+        width: 35%;
+        border: 1px solid $cinzaClaro;
+        box-shadow: 0 7px 7px -4px rgba($preto,.57);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid $cinzaClaro;
+
+        .texto-principal,.texto-secundario{
+
+            text-align: justify;
+        }
+
+        .bloco-acoes{
+
+            display: flex;
+            flex-direction: column;
+
+            .formulario{
+
+                button{
+
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    width: 100%;
+
+                }
+            }
+
+            .acoes-usuario{
+
+                display: flex;
+                justify-content: space-around;
+                padding-top: 10px;
+
+                a, button{
+
+                    border: 1px solid $verdePrincipal;
+                    text-decoration: none;
+                    width: 120px;
+                    text-align: center;
+                    color:$verdePrincipal;
+                    font-weight: 600;
+                    padding: 4px 10px;
+                    transition: .3s;
+                    border-radius: 5px;
+
+                    &:hover{
+
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                    }
+                }
+            }
+        }
+    }
+}

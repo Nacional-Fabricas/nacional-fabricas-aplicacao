@@ -1,0 +1,36 @@
+@import "../../variaveis.scss";
+
+.naoEncontrado{
+
+    background-image: url(/icons/close.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+
+    .dados{
+
+        height: 100%;
+        background-color: rgba($branco, .95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+
+        h1{
+
+            color: $preto;
+            font-size: $fs48;
+            font-weight: 800;
+            border-bottom: 3px solid $verdePrincipal;
+        }
+
+        span{
+
+            font-size: $fs26;
+            font-weight: 600;
+        }
+    }
+
+}

@@ -1,0 +1,230 @@
+@import "../../variaveis.scss";
+
+.suporte{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .cabecalho{
+
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h1{
+
+            font-size: $fs40;
+            font-weight: 600;
+        }
+
+        h3{
+
+            font-size: $fs18;
+            font-weight: 500;
+        }
+    }
+
+    .corpoSuporte{
+
+        width: 100%;
+        max-width: 80%;
+        display: flex;
+        justify-content: space-between;
+
+        .todosChamados{
+
+            width: 47%;
+
+            .blocoChamados{
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .cabecalho{
+
+                    h2{
+
+                        text-align: center;
+                        font-size: $fs24;
+                        font-weight: 500;
+                    }
+                }
+
+                .pesquisaChamado{
+
+                    .pesquisa{
+
+                        width: 100%;
+                        border: 1px solid $cinzaBorda;
+                        border-radius: 5px;
+                        padding: 4px 10px;
+                    }
+                }
+
+                .chamados{
+
+                    tr{
+
+                        display: flex;
+                        justify-content: space-between;
+                        cursor: pointer;
+
+                        th,td{
+
+                            text-align: center;
+                            width: 25%;
+                        }
+
+                        .Aberto{
+
+                            background-color: $vermelhoEscuro;
+                            color: $branco;
+                            padding: 5px;
+                            border-radius: 5px;
+                        }
+
+                        .Fechado{
+
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                            padding: 5px;
+                            border-radius: 5px;
+                        }
+
+                        th{
+
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .formulario-suporte{
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: -1px 0 7px 1px rgba( $preto , .3);
+            padding: 10px;
+            border-radius: 10px;
+            width: 47%;
+
+            .grupo{
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h2{
+
+                    text-align: center;
+                    font-size: $fs24;
+                    font-weight: 500;
+                }
+
+                input, select, textarea{
+
+                    width: 100%;
+                    border: 1px solid $cinzaBorda;
+                    padding: 2px 5px;
+                    color: $cinza;
+                    font-size: $fs14;
+                    border-radius: 5px;
+
+                    &:focus-visible{
+
+                        outline: none;
+                    }
+                }
+
+                .btnChamado{
+
+                    color: $verdePrincipal;
+                    border: 1px solid $verdePrincipal;
+                    padding: 4px 15px;
+                    border-radius: 5px;
+                    transition: .3s;
+
+                    &:hover{
+
+                        transform: scale(1.05);
+                        color: $branco;
+                        background-color: $verdePrincipal;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .suporte{
+
+        .cabecalho{
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            h1{
+
+                font-size: $fs40;
+                font-weight: 600;
+            }
+
+            h3{
+
+                font-size: $fs18;
+                font-weight: 500;
+            }
+        }
+
+        .corpoSuporte{
+
+            flex-direction: column;
+
+            .todosChamados{
+
+                width: 100%;
+
+                .blocoChamados{
+
+                    .chamados{
+
+                        .mobile{
+
+                            display: none;
+                        }
+
+                        tr{
+
+                            th,td{
+
+                                text-align: center;
+                                width: 33%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .formulario-suporte{
+
+                width: 100%;
+
+            }
+        }
+    }
+
+}

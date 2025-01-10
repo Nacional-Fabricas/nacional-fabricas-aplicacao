@@ -1,0 +1,99 @@
+@import "../../variaveis.scss";
+
+.chamado-page{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .chamado{
+
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        box-shadow: 8px 7px 7px -4px rgba( $preto ,.57);
+
+        .chamado-header{
+
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: $verdePrincipal;
+            color: $branco;
+            padding: 10px;
+
+            .grupo{
+
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+
+        .chamado-conteudo{
+
+            display: flex;
+
+            .mensagem{
+
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                padding: 15px;
+
+                .descricao{
+
+                    width: 100%;
+                }
+            }
+
+            .status{
+
+                display: flex;
+                flex-direction: column;
+                padding: 20px 0;
+                width: 50%;
+                gap: 20px;
+                align-items: center;
+
+                a{
+
+                    width: 60%;
+                    padding: 4px 15px;
+                    border-radius: 5px;
+                    text-align: center;
+                    text-decoration: none;
+                    transition: .3s;
+                    font-weight: 700;
+                }
+
+                .btn-sucesso{
+
+                    border: 1px solid $verdePrincipal;
+                    color: $verdePrincipal;
+
+                    &:hover{
+
+                        background-color: $verdeLimao;
+                        color: $branco;
+
+                    }
+                }
+
+                .btn-erro{
+
+                    border: 1px solid $vermelhoEscuro;
+                    color: $vermelhoEscuro;
+
+                    &:hover{
+
+                        background-color: $vermelhoEscuro;
+                        color: $branco;
+
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+@import "../../variaveis.scss";
+
+.notificacoesPage{
+
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .listaNotificacoes{
+
+        width: 100%;
+        max-width: 85%;
+        box-shadow: -1px 0 7px 1px rgba($preto,.3);
+        padding: 25px 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        tr{
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            th,td{
+
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+
+                h2{
+
+                    font-size: $fs18;
+                    font-weight: 600;
+                    padding: 10px;
+
+                }
+
+                .minhasCompras{
+
+                    background-color: rgba($azulBebe, .7);
+                    color: $branco;
+                }
+
+                .minhasVendas{
+
+                    background-color: rgba($verdePrincipal, .7);
+                    color: $branco;
+
+                }
+
+                a{
+
+
+                    padding: 8px 10px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    transition: .3s;
+
+                    &:hover{
+
+                        transform: scale(1.05);
+                    }
+                }
+
+                .compraBtn{
+
+                    background-color: $azulBebe;
+                    color: $branco;
+                    border: 1px solid $azulBebe;
+
+                    &:hover{
+
+                        background-color:$branco ;
+                        color: $azulBebe;
+                    }
+                }
+
+                .vendaBtn{
+
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    border: 1px solid $verdePrincipal;
+
+                    &:hover{
+
+                        background-color:$branco ;
+                        color: $verdePrincipal;
+                    }
+                }
+            }
+
+            th{
+
+                border-bottom-width: 0;
+            }
+
+            &:last-child{
+
+                border-style: none;
+            }
+        }
+    }
+
+    .semNoti{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1{
+
+            font-weight: 700;
+            color: $verdePrincipal;
+        }
+
+        img{
+
+            width: 100%;
+            max-width: 500px;
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .notificacoesPage{
+
+        .listaNotificacoes{
+
+            tr{
+
+                .mobile{
+
+                    display: none;
+                }
+            }
+        }
+    }
+}

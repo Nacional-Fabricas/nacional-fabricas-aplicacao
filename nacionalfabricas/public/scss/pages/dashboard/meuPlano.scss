@@ -1,0 +1,280 @@
+@import "../../variaveis.scss";
+
+.meuPlano{
+
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    .cardPlano{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+        width: 100%;
+        max-width: 650px;
+        border: 1px solid $cinzaClaro;
+        border-radius: 10px;
+
+        .headerCard{
+
+            background-color: $verdePrincipal;
+            color: $branco;
+            padding: 10px;
+            height: 50%;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .bodyCard{
+
+            display: flex;
+            flex-direction: column;
+
+            .linha{
+
+                display: flex;
+                gap: 10px;
+                font-size: $fs20;
+                border-bottom: 1px solid $cinzaClaro;
+
+                .label{
+
+                    width: 48%;
+                    font-weight: bold;
+                    background-color: $verdeClaro;
+                    padding: 15px;
+                    align-items: center;
+                    display: flex;
+                }
+
+                .value{
+
+                    width: 48%;
+                    padding: 15px;
+                    align-items: center;
+                    display: flex;
+
+                }
+
+                &:last-child{
+
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .listPlanos{
+
+        width: 100%;
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 20px;
+
+        h1{
+
+            text-align: center;
+            color: $verdePrincipal;
+            font-weight: 700;
+        }
+
+        .row{
+
+            background-color: $branco;
+            display: flex;
+            padding: 22px 48px;
+            justify-content: space-between;
+            border-radius: 20px;
+            box-shadow: 0 0 7px 1px rgba(0,0,0,.25);
+
+            .info{
+
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+                max-width: 48%;
+                justify-content: space-between;
+                padding: 0;
+
+                h1{
+
+                    font-size: $fs35;
+                    font-weight: 700;
+                }
+
+                span{
+
+                    font-size: $fs20;
+                    font-weight: 500;
+                    color: $cinza;
+                }
+
+            }
+
+            .actions{
+
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+                max-width: 40%;
+                justify-content: space-between;
+                text-align: center;
+                align-items: center;
+                padding: 0;
+
+                .price{
+
+                    font-size: $fs32;
+                    font-weight: 700;
+                }
+
+                a{
+
+                    text-decoration: none;
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    font-size: $fs18;
+                    font-weight: 700;
+                    width: 60%;
+                    border-radius: 8px;
+                    padding: 8px 10px;
+                    transition: .3s;
+
+                    &:hover{
+
+                        background-color: $verdeLimao;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+        }
+
+        .active{
+
+            background-color: $verdePrincipal;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 770px) {
+
+    .meuPlano {
+
+        padding: 0;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+
+        .cardPlano {
+
+            max-width: 98%;
+
+            .headerCard {
+
+                background-color: $verdePrincipal;
+                color: $branco;
+                padding: 10px;
+
+            }
+
+            .bodyCard {
+
+                .linha {
+
+                    font-size: $fs16;
+
+                    .label {
+
+                        padding: 10px;
+                    }
+
+                    .value {
+
+                        padding: 10px;
+
+                    }
+
+                    &:last-child {
+
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        .listPlanos{
+
+            max-width: 98%;
+
+            .row{
+
+                flex-direction: column;
+                gap: 20px;
+                padding: 22px 5px;
+
+                .info{
+
+                    max-width: 100%;
+                    text-align: center;
+
+                    h1{
+
+                        font-size: $fs26;
+                    }
+
+                    span{
+
+                        font-size: $fs16;
+                    }
+
+                }
+
+                .actions{
+
+                    max-width: 100%;
+
+                    .price{
+
+                        font-size: $fs24;
+                    }
+
+                    a{
+
+                        text-decoration: none;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs18;
+                        font-weight: 700;
+                        width: 60%;
+                        border-radius: 8px;
+                        padding: 8px 10px;
+                        transition: .3s;
+
+                        &:hover{
+
+                            background-color: $verdeLimao;
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+
+            }
+
+            .active{
+
+                background-color: $verdePrincipal;
+            }
+        }
+
+    }
+}

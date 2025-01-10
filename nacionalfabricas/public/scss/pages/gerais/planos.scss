@@ -1,0 +1,306 @@
+@import "../../variaveis.scss";
+
+.planos{
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+
+    .cabecalho{
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h1{
+
+            font-size: $fs40;
+            font-weight: 800;
+        }
+
+        .sub-titulo{
+
+            color: $cinza;
+            font-size: $fs16;
+            font-weight: 600;
+        }
+    }
+
+    .bloco-planos{
+
+        display: flex;
+        width: 100%;
+        gap: 40px;
+
+        .informacao{
+
+            width: 100%;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: space-between;
+
+            img{
+
+                width: 100%;
+                max-width: 700px;
+            }
+
+            p{
+
+                color: $cinza;
+                font-size: $fs16;
+                text-align: justify;
+
+            }
+        }
+
+        .lista-planos{
+
+            width: 100%;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 20px;
+
+            #check-periodo{
+                //display: none;
+            }
+
+            .switch {
+                position: relative;
+                background-color: $verdeLimao;
+                width: 120px;
+                height: 60px;
+                border-radius: 40px;
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                transition: all .5s ease-in-out;
+                cursor: pointer;
+            }
+
+            .slider {
+                position: absolute;
+                background-color: white;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                transition: all .5s ease-in-out;
+            }
+
+            #check-periodo:checked ~ .switch {
+                background-color: $verdePrincipal;
+            }
+
+            #check-periodo:checked ~ .switch .slider {
+                transform: translateX(60px);
+            }
+
+            .linha{
+
+                background-color: $branco;
+                display: flex;
+                padding: 22px 48px;
+                justify-content: space-between;
+                border-radius: 20px;
+                box-shadow: 0 0 7px 1px rgba(0,0,0,.25);
+
+                .info{
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 100%;
+                    max-width: 50%;
+                    justify-content: space-between;
+                    padding: 0;
+
+                    h1{
+
+                        font-size: $fs35;
+                        font-weight: 700;
+                    }
+
+                    span{
+
+                        font-size: $fs20;
+                        font-weight: 500;
+                        color: $cinza;
+                    }
+
+                }
+
+                .acoes{
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 100%;
+                    max-width: 40%;
+                    justify-content: space-between;
+                    text-align: center;
+                    align-items: center;
+                    padding: 0;
+
+                    .preco{
+
+                        font-size: $fs32;
+                        font-weight: 700;
+                    }
+
+                    a{
+
+                        text-decoration: none;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs18;
+                        font-weight: 700;
+                        width: 60%;
+                        border-radius: 8px;
+                        padding: 8px 10px;
+                        transition: .3s;
+
+                        &:hover{
+
+                            background-color: $verdeLimao;
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+
+            }
+
+            .ativo{
+
+                background-color: $verdePrincipal;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .planos{
+
+        align-items: center;
+
+        .cabecalho{
+
+            max-width: 90%;
+
+            h1{
+
+                font-size: $fs26;
+
+            }
+
+            .sub-titulo{
+
+                font-size: $fs16;
+            }
+        }
+
+        .bloco-planos{
+
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 90%;
+
+            .informacao{
+
+                flex-direction: column;
+                background-image: url(/images/planos.png);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+                gap: 0;
+
+                img{
+
+                    display: none;
+                }
+
+                p{
+
+                    color: $preto;
+                    font-size: $fs16;
+                    text-align: justify;
+                    background-color: rgba($branco, 0.85);
+                    padding: 15px 0;
+                }
+            }
+
+            .lista-planos{
+
+                max-width: 100%;
+
+                .linha{
+
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 22px 5px;
+
+                    .info{
+
+                        max-width: 100%;
+                        text-align: center;
+
+                        h1{
+
+                            font-size: $fs26;
+                        }
+
+                        span{
+
+                            font-size: $fs16;
+                        }
+
+                    }
+
+                    .acoes{
+
+                        max-width: 100%;
+
+                        .preco{
+
+                            font-size: $fs24;
+                        }
+
+                        .btn-assinar{
+
+                            text-decoration: none;
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                            font-size: $fs18;
+                            font-weight: 700;
+                            width: 60%;
+                            border-radius: 8px;
+                            padding: 8px 10px;
+                            transition: .3s;
+
+                            &:hover{
+
+                                background-color: $verdeLimao;
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+                }
+
+                .ativo{
+
+                    background-color: $verdePrincipal;
+                }
+            }
+        }
+    }
+}

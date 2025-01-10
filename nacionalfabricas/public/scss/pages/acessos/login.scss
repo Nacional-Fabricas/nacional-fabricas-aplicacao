@@ -1,0 +1,686 @@
+@import "../../variaveis.scss";
+
+.login{
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    .login-content{
+
+        width: 100%;
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .formulario-login{
+
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            .form-header{
+
+                width: 100%;
+
+                h1{
+
+                    font-size: $fs48;
+                    font-weight: 700;
+                    text-align: left;
+                    max-width: 75%;
+                }
+
+                span{
+
+                    font-weight: 500;
+                    text-align: left;
+                    color: $cinza;
+                    font-size: $fs24;
+                }
+
+            }
+
+            .group{
+
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+                gap: 5px;
+
+                a{
+
+                    font-weight: 700;
+                    text-align: right;
+                    text-decoration: none;
+                    color: $preto;
+                }
+
+                label{
+
+                    font-size: $fs16;
+                    font-weight: 700;
+                }
+
+                input{
+
+                    border: 2px solid $cinza !important;
+                    border-radius: 0.5rem;
+                    height: 45px!important;
+                    padding: 0 8px;
+                }
+
+            }
+
+            .form-footer{
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                text-align: center;
+
+
+
+                .btnLogin{
+
+                    border-radius: 0.75rem!important;
+                    color: $branco;
+                    background-color: $verdePrincipal;
+                    width: 100%;
+                    border: none;
+                    padding: 0.5rem 1rem;
+                    font-size: $fs18;
+                    font-weight: 600;
+
+                    &:hover{
+
+                        background-color: $verdeLimao;
+                    }
+                }
+
+                span{
+
+                    color: $preto;
+                    font-size: $fs16;
+                    font-weight: 400;
+
+                    a{
+
+                        color: $preto;
+                        font-weight: 500;
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+    .login-background{
+
+        width: 100%;
+        max-width: 50%;
+        background-image: url('../../images/login.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+}
+
+#register{
+
+    display: none;
+    position: absolute;
+    background-color:  rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    backdrop-filter: blur(3px);
+    top: 0;
+
+    .close-icon{
+
+        position: absolute;
+        top: 20.4%;
+        left: 76%;
+        align-items: center;
+        background-color: $branco;
+        border-radius: 7px;
+        box-shadow: 0 0 15px rgba(0,0,0,.2);
+        display: flex;
+        height: 30px;
+        color: $cinza;
+        justify-content: center;
+        transition: .1s;
+        padding: 5px;
+        width: 30px;
+
+        &:hover{
+
+            transform: scale(1.15);
+        }
+    }
+
+    .content-register{
+
+        width: 100%;
+        max-width: 1050px;
+        display: flex;
+        background-color: $branco;
+        border-radius: 5rem 2rem 2rem 2rem;
+
+
+        .banner{
+
+            background-color: $verdePrincipal;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 35%;
+            padding: 5rem 2rem;
+            border-radius: 5rem 2rem 2rem 2rem;
+            justify-content: center;
+            height: 550px;
+            gap: 5px;
+
+            h1{
+
+                font-size: $fs35;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .white{
+
+                text-decoration: underline;
+                color: $branco;
+            }
+
+            span{
+
+                font-size: $fs16;
+                color: $branco;
+                font-weight: 600;
+                text-align: justify;
+                width: 90%;
+            }
+
+        }
+
+        .formulario-registro{
+
+            width: 100%;
+            max-width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .form-content{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 70%;
+                gap: 10px;
+
+                .form-header{
+
+                    text-align: center;
+                    font-size:  $fs30;
+                    font-weight: 700;
+                }
+
+                .linha{
+
+                    width: 90%;
+
+                    .group{
+
+
+                        width: 48%;
+                        padding: 0;
+                    }
+
+                }
+
+                .group{
+
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+
+                    label{
+
+                        font-size: $fs16;
+                        font-weight: 600;
+                        color: $preto;
+                    }
+
+                    input{
+
+                        border: 2px solid $cinza !important;
+                        border-radius: 0.5rem;
+                        height: 40px!important;
+                        padding: 0 8px;
+                    }
+                }
+
+                .form-footer{
+
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+
+                    .btnRegister{
+
+                        border-radius: 0.75rem!important;
+                        font-size: $fs16;
+                        color: $branco;
+                        background-color: $verdePrincipal;
+                        width: 100%;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        font-size: $fs18;
+                        font-weight: 600;
+
+
+
+                        &:hover{
+
+                            background-color: $verdeLimao;
+                        }
+                    }
+
+                    span{
+
+                        color: $preto;
+
+                        a{
+
+                            color: $preto;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.esqueceu-senha{
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    .conteudo-esqueceu{
+
+        width: 100%;
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .form-esqueceu{
+
+            width: 100%;
+            max-width: 80%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 50px;
+            background-color: $cinzaClaro;
+            box-shadow: 0 7px 7px -4px rgba($preto,.57);
+
+            .bloco{
+
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+                gap: 5px;
+
+                h1{
+
+                    color: $verdePrincipal;
+                    font-weight: 700;
+                }
+
+                a{
+
+                    font-weight: 700;
+                    text-align: right;
+                    text-decoration: none;
+                    color: $preto;
+                }
+
+                label{
+
+                    font-size: $fs16;
+                    font-weight: 700;
+                }
+
+                input{
+
+                    border: 2px solid $cinza !important;
+                    border-radius: 0.5rem;
+                    height: 45px!important;
+                    padding: 0 8px;
+                }
+
+            }
+
+            .btn-esqueci{
+
+                border-radius: 0.75rem!important;
+                color: $branco;
+                background-color: $verdePrincipal;
+                width: 100%;
+                border: none;
+                padding: 0.5rem 1rem;
+                font-size: $fs18;
+                font-weight: 600;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+            }
+        }
+    }
+
+    .login-background{
+
+        width: 100%;
+        max-width: 50%;
+        background-image: url('../../images/login.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+}
+
+@media only screen and (max-width: 770px) {
+
+    .login{
+
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+
+        .login-content{
+
+            width: 100%;
+            max-width: 100% ;
+            position: absolute;
+            height: 100%;
+            background-image: url('../../images/login.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .formulario-login{
+
+                background-color: $branco;
+                padding: 20px;
+                width: 100%;
+                border-radius: 5px;
+                max-width: 95% !important;
+                position: absolute;
+
+                .form-header{
+
+                    width: 100%;
+
+                    h1{
+
+                        font-size: $fs30;
+                        width: 100%;
+
+                    }
+
+                    span{
+
+                        font-size: $fs18;
+                    }
+
+                }
+
+                .group{
+
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 100%;
+                    gap: 5px;
+
+                    a{
+
+                        font-weight: 700;
+                        text-align: right;
+                        text-decoration: none;
+                        color: $preto;
+                    }
+
+                    label{
+
+                        font-size: $fs16;
+                        font-weight: 700;
+                    }
+
+                    input{
+
+                        border: 2px solid $cinza !important;
+                        border-radius: 0.5rem;
+                        height: 45px!important;
+                        padding: 0 8px;
+                    }
+
+                }
+
+                .form-footer{
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 100%;
+                    text-align: center;
+
+
+
+                    .btnLogin{
+
+                        border-radius: 0.75rem!important;
+                        font-size: $fs16;
+                        color: $branco;
+                        background-color: $verdePrincipal;
+                        width: 100%;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        font-size: $fs18;
+                        font-weight: 600;
+
+
+
+                        &:hover{
+
+                            background-color: $verdeLimao;
+                        }
+                    }
+
+                    span{
+
+                        color: $preto;
+                        font-size: $fs16;
+                        font-weight: 400;
+
+                        a{
+
+                            color: $preto;
+                            font-weight: 500;
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+        .login-background{
+
+           display: none;
+
+        }
+
+    }
+
+    #register{
+
+        .close-icon{
+
+            top: 20px !important;
+            left: 20px !important;
+
+            &:hover{
+
+                transform: scale(1.15);
+            }
+        }
+
+        .content-register{
+
+            width: 100%;
+            max-width: 95% !important;
+            display: flex;
+            background-color: $branco;
+            padding: 10px 0;
+            border-radius: 10px !important;
+
+            .banner{
+
+                display: none !important;
+
+            }
+
+            .formulario-registro{
+
+                width: 100%;
+                max-width: 100% !important;
+
+
+                .form-content{
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 70%;
+                    gap: 10px;
+
+                    .form-header{
+
+                        text-align: center;
+                        font-size:  $fs30;
+                        font-weight: 700;
+                    }
+
+                    .linha{
+
+                        width: 90%;
+
+                        .group{
+
+
+                            width: 48%;
+                            padding: 0;
+                        }
+
+                    }
+
+                    .group{
+
+                        display: flex;
+                        flex-direction: column;
+                        width: 90%;
+
+                        label{
+
+                            font-size: $fs16;
+                            font-weight: 600;
+                            color: $preto;
+                        }
+
+                        input{
+
+                            border: 2px solid $cinza !important;
+                            border-radius: 0.5rem;
+                            height: 40px!important;
+                            padding: 0 8px;
+                        }
+                    }
+
+                    .form-footer{
+
+                        width: 90%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .btnRegister{
+
+                            border-radius: 0.75rem!important;
+                            font-size: $fs16;
+                            color: $branco;
+                            background-color: $verdePrincipal;
+                            width: 100%;
+                            border: none;
+                            padding: 0.5rem 1rem;
+                            font-weight: 600;
+
+
+
+                            &:hover{
+
+                                background-color: $verdeLimao;
+                            }
+                        }
+
+                        span{
+
+                            color: $preto;
+                            font-size: $fs12;
+
+                            a{
+
+                                color: $preto;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

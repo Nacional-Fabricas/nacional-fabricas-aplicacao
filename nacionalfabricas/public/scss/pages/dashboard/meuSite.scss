@@ -1,0 +1,395 @@
+@import "../../variaveis.scss";
+
+.meu-site{
+
+    padding: 0 48px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .secao-imagens{
+
+        box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+        padding: 24px 0;
+        border-radius: 42px;
+        width: 100%;
+        max-width: 90%;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+
+        .cabecalho-form{
+
+            padding: 0 48px;
+        }
+
+        .linha{
+
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 80%;
+
+            .grupo{
+
+                width: 100%;
+                max-width: 50%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                justify-content: space-between;
+                align-items: center;
+
+                label{
+
+                    margin: 0;
+                }
+
+                .banner{
+
+                    width: 650px;
+                    height: 120px;
+                    border: 2px dashed rgba($cinza, .5);
+                }
+
+                .logo{
+
+                    width: 120px;
+                    height: 120px;
+                    border: 2px dashed rgba($cinza, .5);
+                }
+
+                .nossa-fabrica{
+
+                    width: 250px;
+                    height: 357px;
+                    border: 2px dashed rgba($cinza, .5);
+                }
+            }
+        }
+
+        .btn-crop{
+
+            width: 100%;
+            background-color: $verdePrincipal;
+            color: $branco;
+            font-size: $fs20;
+            padding: 15px 0;
+
+
+        }
+
+    }
+
+    .formulario{
+
+        box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+        padding: 24px 0;
+        border-radius: 42px;
+        width: 100%;
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .cabecalho-form{
+
+            padding: 0 48px;
+        }
+
+        .formContent{
+
+            padding: 0 48px;
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            max-width: 1400px;
+            width: 100%;
+
+            .block{
+
+                display: flex;
+                width: 100%;
+                gap: 20px;
+                justify-content: space-between;
+
+                .locationFields{
+
+                    display: flex;
+                    width: 100%;
+                    max-width: 35%;
+
+                    .group{
+
+                        display: flex;
+                        width: 100%;
+
+                        .field{
+
+                            display: flex;
+                            width: 100%;
+
+                            label{
+
+                                font-size: $fs14;
+                                font-weight: 400;
+                                color: $cinza;
+                            }
+
+                            input{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                padding: 2px 5px;
+                                color: $cinza;
+                                font-size: $fs14;
+                                border-radius: 2px;
+
+                                &:focus{
+
+                                    outline: none;
+                                }
+                            }
+                        }
+
+                        .alerta{
+
+                            display: flex;
+                            font-size: $fs14;
+                            color: $cinza;
+                            gap: 5px;
+
+                        }
+                    }
+                }
+
+                .group{
+
+                    width: 100%;
+                    display: flex;
+                    gap: 10px;
+
+                    .row{
+
+                        display: flex;
+                        width: 100%;
+                        gap: 15px;
+
+                        .logoField{
+
+                            width: 100%;
+                            max-width: 300px;
+
+                            .logo{
+
+                                height: 265px;
+                                width: 100%;
+                                max-width: 100%;
+                                border: 2px dashed $cinza;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: $fs26;
+                                color: $cinza;
+                                background-size: contain;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                        }
+
+                        .field{
+
+                            padding: 0;
+                            display: flex;
+                            justify-content: space-between;
+
+                            label{
+
+                                font-size: $fs14;
+                                font-weight: 400;
+                                color: $cinza;
+                            }
+
+                            input, textarea, select{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                padding: 2px 5px;
+                                color: $cinza;
+                                font-size: $fs14;
+                                border-radius: 2px;
+                                height:27px;
+
+                                &:focus{
+
+                                    outline: none;
+                                }
+                            }
+
+                            .banner{
+
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                height: 350px;
+                                width: 100%;
+                                border: 2px dashed $cinza;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: $fs26;
+                                color: $cinza;
+                            }
+                        }
+                    }
+                }
+
+                .mapaArea{
+
+                    width: 100%;
+                    max-width: 60%;
+
+                    .mapa{
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        #map {
+                            height: 500px;
+                            width: 100%;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .botoes{
+
+            justify-content: flex-end;
+            display: flex;
+            width: 100%;
+            padding: 10px 48px;
+            max-width: 1400px;
+            gap: 15px;
+
+            .btnSimples{
+
+                padding: 8px 24px;
+                background-color: $verdePrincipal;
+                color: $branco;
+                font-size: $fs14;
+                width: 100%;
+                max-width: 170px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 0.3rem;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+
+            }
+
+            .btnAcessar{
+
+                padding: 8px 24px;
+                background-color: $azulBebe;
+                color: $branco;
+                font-size: $fs14;
+                width: 100%;
+                max-width: 170px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 0.3rem;
+
+                &:hover{
+
+                    background-color: $azulBebehover;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .meuSite {
+
+        padding: 0;
+
+        .formulario {
+
+            max-width: 100%;
+
+            .cabecalho-form {
+
+                padding: 0 5px;
+            }
+
+            .formContent {
+
+                padding: 0 15px;
+
+                .block {
+
+                    flex-direction: column;
+                    align-items: center;
+
+                    .locationFields {
+
+                        max-width: 100%;
+
+                        .group {
+
+                            justify-content: center;
+
+                        }
+                    }
+
+                    .group {
+
+                        justify-content: center;
+
+                        .row {
+
+                            flex-direction: column;
+
+                        }
+                    }
+
+                    .mapa {
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        #map {
+                            height: 500px;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .botoes {
+
+               flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+
+                .btnSimples {
+
+                    max-width: 100%;
+
+                }
+            }
+        }
+    }
+}

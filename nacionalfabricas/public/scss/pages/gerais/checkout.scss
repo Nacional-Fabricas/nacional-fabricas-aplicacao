@@ -1,0 +1,201 @@
+@import "../../variaveis.scss";
+
+.checkoutPage{
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 8px 7px 7px -4px rgba( $preto ,.57);
+
+    .cabecalho{
+
+        background-color: $verdeClaro;
+        font-size: $fs35;
+        color: $preto;
+        padding: 10px;
+    }
+
+    .checkout{
+
+        display: flex;
+        //border-radius: 5px 55px 5px 55px;
+        justify-content: space-between;
+        align-items: center;
+
+        .endereco{
+
+            width: 100%;
+            max-width: 32%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            //border-radius: 5px 55px 5px 55px;
+            border-radius: 5px;
+            //box-shadow: 8px 7px 7px -4px rgba( $preto ,.57);
+            background-color: $cinzaCards;
+            padding: 20px 0;
+            gap: 30px;
+
+            .grupo{
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 10px;
+                border-radius: 5px;
+
+                h1, .pagMet{
+
+                    font-size: $fs24;
+                    font-weight: 700;
+                    color: $verdePrincipal;
+                    padding: 0;
+
+                }
+
+                #metodoSelecionado{
+
+                    display: flex;
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    font-size: $fs14;
+                    width: 200px;
+                    padding: 5px;
+                    font-weight: 600;
+                    border-radius: 5px;
+                    text-transform: capitalize;
+
+                }
+
+                .linha{
+
+                    .label{
+
+                        font-size: $fs20;
+                        font-weight: 600;
+                    }
+
+                    .value{
+
+                        font-size: $fs18;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .pagamento{
+
+            width: 68%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px 10px;
+            height: 100%;
+
+            .Button--pay{
+
+                display: none !important;
+            }
+
+            #boleto{
+
+                display: flex;
+            }
+
+            #cartao{
+
+                display: none;
+            }
+
+            .btnPagar{
+
+                background-color: $verdePrincipal;
+                color: $branco;
+                border: 1px solid $verdePrincipal;
+                width: 60%;
+                padding: 5px;
+                display: flex;
+                justify-content: center;
+                text-decoration: none;
+                font-size: $fs26;
+                border-radius: 5px;
+                transition: .3s;
+                align-self: center;
+
+                &:hover{
+
+                    transform: scale(1.05);
+                    background-color: $verdeLimao;
+                    color: $branco;
+                }
+            }
+
+            .payment-form{
+
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 50px;
+                border: none !important;
+
+                .acao{
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+
+                }
+
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .checkoutPage{
+
+        .cabecalho{
+
+            font-size: $fs24;
+
+        }
+
+        .checkout{
+
+            flex-direction: column;
+
+            .endereco{
+
+                max-width: 100%;
+                align-items: center;
+
+                .grupo{
+
+                    width: 100%;
+
+                }
+            }
+
+            .pagamento{
+
+                width: 100%;
+
+                .payment-form{
+
+                    .acao{
+
+                        .btnSimples{
+
+                            width: 100%;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

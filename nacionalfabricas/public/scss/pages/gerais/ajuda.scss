@@ -1,0 +1,272 @@
+@import "../../variaveis.scss";
+
+.ajuda{
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+
+
+    .ajudaHeader{
+
+        border-bottom: 3px solid $verdePrincipal;
+        display: flex;
+        justify-content: center;
+        width: 13%;
+        padding-bottom: 15px;
+
+
+        h1{
+
+            font-size: $fs44;
+            font-weight: 800;
+        }
+
+    }
+
+    .ajudaBody{
+
+        display: flex;
+        gap: 20px;
+
+    .search{
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 48%;
+        gap: 20px;
+        align-items: center;
+
+        h1{
+
+            font-size: $fs32;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        input{
+
+            background-color: transparent;
+            border: transparent;
+            width: 100%;
+            color: $cinzaInput;
+            font-size: $fs14;
+            padding-left: 10px;
+            border: 2px solid $cinzaBorda;
+            outline: none;
+            border-radius: 8px;
+            height: 35px;
+        }
+
+        img{
+
+            width: 100%;
+            max-width: 700px;
+        }
+
+
+    }
+
+    .questions{
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 52%;
+        gap: 20px;
+
+        h1{
+
+            font-size: $fs26;
+            font-weight: 400;
+        }
+
+        .accordion{
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .accordion-item{
+
+                border: none !important;
+
+
+                .collapsed{
+
+                    border: 1px solid $verdePrincipal;
+                    background-color: $branco !important;
+                    color: $verdePrincipal !important;
+                    border-radius: 16px;
+                    color: $branco;
+                    padding: 8px 16px;
+                    transition: all .2s;
+
+                    &:hover{
+
+                        background-color: $verdePrincipal !important;
+                        color: $branco !important;
+                    }
+                }
+
+                .accordion-header{
+
+                    .accordion-button{
+
+                        font-size: $fs16;
+                        font-weight: 700;
+                        height: 40px;
+                        padding: 25px 30px;
+                        border: 1px solid $verdePrincipal;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        border-radius: 16px;
+
+                        &:hover{
+
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                        }
+
+
+                        &:focus{
+
+                            box-shadow: none !important;
+                        }
+                    }
+
+                }
+
+                .accordion-body{
+
+                    color: $cinza;
+                    font-weight: 400;
+                    padding: 16px;
+                }
+
+            }
+        }
+    }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .ajuda{
+
+
+        .ajudaHeader{
+
+            h1{
+
+                font-size: $fs26;
+            }
+
+        }
+
+        .ajudaBody{
+
+            flex-direction: column;
+            background-image: url(/images/help-faq.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            gap: 0;
+
+            .search{
+
+                max-width: 100%;
+                background-color: rgba($branco, 0.8);
+                padding: 30px;
+
+                img{
+
+                    display: none;
+                }
+            }
+
+            .questions{
+
+                max-width: 100%;
+                background-color: rgba($branco, 0.8);
+
+                h1{
+
+                    font-size: $fs26;
+                    font-weight: 400;
+                    text-align: center;
+
+                }
+
+                .accordion{
+
+                    max-width: 95%;
+                    align-self: center;
+
+                    .accordion-item{
+
+                        border: none !important;
+                        border-radius: 20px;
+
+                        .collapsed{
+
+                            border: 1px solid $verdePrincipal;
+                            background-color: $branco !important;
+                            color: $verdePrincipal !important;
+                            border-radius: 16px;
+                            color: $branco;
+                            padding: 8px 16px;
+                            transition: all .2s;
+
+                            &:hover{
+
+                                background-color: $verdePrincipal !important;
+                                color: $branco !important;
+                            }
+                        }
+
+                        .accordion-header{
+
+                            .accordion-button{
+
+                                font-size: $fs16;
+                                font-weight: 700;
+                                height: 40px;
+                                padding: 25px 30px;
+                                border: 1px solid $verdePrincipal;
+                                background-color: $verdePrincipal;
+                                color: $branco;
+                                border-radius: 16px;
+
+                                &:hover{
+
+                                    background-color: $verdePrincipal;
+                                    color: $branco;
+                                }
+
+
+                                &:focus{
+
+                                    box-shadow: none !important;
+                                }
+                            }
+
+                        }
+
+                        .accordion-body{
+
+                            color: $cinza;
+                            font-weight: 400;
+                            padding: 16px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+}

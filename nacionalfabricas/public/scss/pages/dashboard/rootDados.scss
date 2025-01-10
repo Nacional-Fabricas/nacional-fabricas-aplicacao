@@ -1,0 +1,85 @@
+@import "../../variaveis.scss";
+
+.dados-root{
+
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .info{
+
+        width: 100%;
+        max-width: 70%;
+
+        .dados{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .cabecalho{
+
+                text-align: center;
+
+                h1{
+
+                    color: $verdePrincipal;
+                    font-size: $fs48;
+                    font-weight: 700;
+
+                }
+            }
+
+            .pesquisa{
+
+                input{
+
+                    width: 100%;
+                    border: 1px solid $cinzaBorda;
+                    padding: 5px 10px;
+                    font-size: $fs18;
+                    border-radius: 10px;
+                }
+
+            }
+
+            .listaDados{
+
+                th,td{
+
+                    text-align: center;
+                    vertical-align: middle;
+
+                    a{
+
+                        text-decoration: none;
+                        color: $verdePrincipal;
+                        border: 1px solid $verdePrincipal;
+                        padding: 5px 8px;
+                        transition: .3s;
+                        border-radius: 2px;
+
+                        &:hover{
+
+                            color: $branco;
+                            background-color: $verdePrincipal;
+                        }
+                    }
+
+                    img{
+
+                        height: 50px;
+                    }
+                }
+
+                th{
+
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                }
+
+            }
+        }
+    }
+}

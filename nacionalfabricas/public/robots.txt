@@ -1,0 +1,27 @@
+User-agent: *
+
+Allow:  /$
+Allow:  /funcionalidades
+Allow:  /ajuda
+Allow:  /contato
+Allow:  /planos
+Allow:  /login
+Allow:  /register
+Allow:  /busca-geral
+Allow:  /produto
+Allow:  /industria
+
+Disallow: /dashboard
+Disallow: /configuracoes
+Disallow: /painel
+Disallow: /minhas-compras
+Disallow: /lista-de-produtos
+Disallow: /criar-produtos
+Disallow: /criar-categoria
+Disallow: /categoria
+Disallow: /editar-produto
+Disallow: /meu-site
+Disallow: /meu-plano
+Disallow: /suporte
+Disallow: /dados-cadastrais
+Disallow: /lista-orcamentos

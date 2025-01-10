@@ -1,0 +1,29 @@
+@import "../../variaveis.scss";
+
+.termosUso, .politicaPrivacidade{
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    .grupo{
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        ul{
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        h2, h3, p {
+
+            color: $preto;
+            text-align: justify;
+        }
+    }
+}

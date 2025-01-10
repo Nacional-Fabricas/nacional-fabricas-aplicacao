@@ -1,0 +1,11 @@
+<svg id="Icon_stopwatch-2" data-name="Icon/stopwatch" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Icon_stopwatch" data-name="Icon/stopwatch" d="M0,11.653A8.179,8.179,0,0,1,8,3.306a8.179,8.179,0,0,1,8,8.348A8.179,8.179,0,0,1,8,20,8.179,8.179,0,0,1,0,11.653ZM7.133,1.818H5.624A.89.89,0,0,1,4.753.909.89.89,0,0,1,5.624,0h4.752a.89.89,0,0,1,.871.909.89.89,0,0,1-.871.909H8.868a.869.869,0,0,1-1.735,0Z" transform="translate(2)"/>
+    </clipPath>
+  </defs>
+  <rect id="Box" width="20" height="20" fill="none"/>
+  <g id="Grupo_4" data-name="Grupo 4">
+    <path id="Icon_stopwatch-3" data-name="Icon/stopwatch" d="M0,11.653A8.179,8.179,0,0,1,8,3.306a8.179,8.179,0,0,1,8,8.348A8.179,8.179,0,0,1,8,20,8.179,8.179,0,0,1,0,11.653ZM7.133,1.818H5.624A.89.89,0,0,1,4.753.909.89.89,0,0,1,5.624,0h4.752a.89.89,0,0,1,.871.909.89.89,0,0,1-.871.909H8.868a.869.869,0,0,1-1.735,0Z" transform="translate(2)"/>
+  </g>
+</svg>

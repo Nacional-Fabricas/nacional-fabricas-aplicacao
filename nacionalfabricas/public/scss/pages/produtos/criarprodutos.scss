@@ -1,0 +1,551 @@
+@import "../../variaveis.scss";
+
+.criarProdutos{
+
+    padding: 50px;
+
+    .formulario{
+
+        box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+        padding: 40px 0;
+        border-radius: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .block{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .blockHeader{
+
+                width: 100%;
+                padding: 0 30px;
+                background-color: $cinzaCards;
+
+                h1{
+
+                    font-size: $fs24;
+                    font-weight: 700;
+                    color: $preto;
+                }
+
+            }
+
+            .blockContent{
+
+                display: flex;
+                width: 100%;
+                padding: 0 30px;
+
+                .imgsInput{
+
+                    width: 100%;
+                    max-width: 320px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .thumbnail{
+
+                        width: 100%;
+                        max-width: 300px;
+
+                        .thumbInput{
+
+                            height: 265px;
+                            width: 100%;
+                            max-width: 100%;
+                            border: 2px dashed $cinza;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: $fs26;
+                            color: $cinza;
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+
+                    }
+
+                    .galeria{
+
+                        width: 100%;
+
+                        .linha{
+
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            justify-content: stretch;
+
+                            .addFoto{
+
+                                background-color: $verdePrincipal;
+                                color: $branco;
+                                font-size: $fs40;
+                                width: 100%;
+                                width: 65px;
+                                height: 65px;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                align-items: center;
+                                justify-content: center;
+                                display: flex;
+
+                            }
+
+                            .thumbnail{
+
+                                width: 100%;
+                                max-width: 65px;
+
+                                .albumInput{
+
+                                    height: 100%;
+                                    width: 100%;
+                                    width: 65px;
+                                    padding: 2px;
+                                    border-radius: 5px;
+                                    height: 65px;
+                                    border: 1px solid $cinzaBorda;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: $fs14;
+                                    color: $cinza;
+                                    background-size: contain;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
+                .textsInputs{
+
+                    width: 100%;
+                    max-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    .row{
+
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+
+                        .input{
+
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 3px;
+
+                            .sub-grupo{
+
+                                display: flex;
+
+                                input{
+
+                                    width: 65%;
+
+                                    &:focus-visible{
+
+                                        outline: none;
+                                    }
+                                }
+
+                                select{
+
+                                    width: 35%;
+                                    text-align: center;
+                                    padding: 0;
+
+                                }
+                            }
+
+                            label{
+
+                                font-size: $fs12;
+                                color: $cinza;
+                                font-weight: 400;
+                                display: flex;
+                                gap: 10px;
+                                align-items: center;
+                            }
+
+                            input,select{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                color: $cinza;
+                                font-size: $fs14;
+                                height: 35px;
+                                padding-left: 10px;
+                            }
+
+                            textarea{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                color: $cinza;
+                                font-size: $fs14;
+                                padding-left: 10px;
+                            }
+                        }
+
+                        .newCategory{
+
+                            height: 100%;
+                            display: flex;
+                            align-items: flex-end;
+
+                            a{
+
+                                background-color: $branco ;
+                                color:$verdePrincipal ;
+                                padding: 10px;
+                                border-radius: 5px;
+                                transition: .3s;
+                                border: 1px solid $verdePrincipal;
+                                text-decoration: none;
+
+                                &:hover{
+
+                                    background-color: $verdePrincipal;
+                                    color: $branco;
+                                }
+                            }
+                        }
+
+                        .category{
+
+                            max-width: 840px;
+                        }
+
+                        .lg{
+
+                            max-width: 100%;
+
+                        }
+
+                        .md{
+
+
+                            max-width: 25%;
+                        }
+
+                        .sm{
+
+                            max-width: 15%;
+                        }
+                    }
+
+                    .categoriasContent{
+
+                        ul{
+
+                            border: 2px solid $cinzaBorda;
+                            border-radius: 8px;
+                            margin: 15px;
+                            max-height: 350px;
+                            overflow-y: scroll;
+                            padding: 0;
+
+                            li{
+
+                                border-bottom: 1px solid $cinzaBorda;
+                                padding: 4px 15px;
+                                display: flex;
+                                gap: 10px;
+
+                                label{
+
+                                    text-transform: capitalize;
+                                    font-size: $fs14;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .botoes{
+
+            display: flex;
+            align-items: flex-end;
+            padding: 0 35px;
+
+            button{
+
+                padding: 8px 24px;
+                background-color: $verdePrincipal;
+                color: $branco;
+                font-size: $fs14;
+                width: 100%;
+                max-width: 170px;
+                text-align: center;
+                border-radius: 0.3rem;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .criarProdutos{
+
+        padding: 0;
+
+        .formulario{
+
+            .block{
+
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .blockHeader{
+
+                    text-align: center;
+                    padding: 5px 0;
+
+                }
+
+                .blockContent{
+
+                    padding: 0 10px;
+                    flex-direction: column;
+
+                    .imgsInput{
+
+                        align-items: center;
+
+                        .thumbnail{
+
+                            width: 100%;
+                            max-width: 300px;
+
+                            .thumbInput{
+
+                                height: 265px;
+                                width: 100%;
+                                max-width: 100%;
+                                border: 2px dashed $cinza;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: $fs26;
+                                color: $cinza;
+                                background-size: contain;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        .galeria{
+
+                            width: 100%;
+
+                            .linha{
+
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 10px;
+                                justify-content: stretch;
+
+                                .addFoto{
+
+                                    background-color: $verdePrincipal;
+                                    color: $branco;
+                                    font-size: $fs40;
+                                    width: 65px;
+                                    height: 65px;
+                                    border-radius: 5px;
+                                    text-decoration: none;
+                                    align-items: center;
+                                    justify-content: center;
+                                    display: flex;
+                                }
+
+                                .thumbnail{
+
+                                    width: 100%;
+                                    max-width: 65px;
+
+                                    .albumInput{
+
+
+                                        width: 65px;
+                                        padding: 2px;
+                                        border-radius: 5px;
+                                        height: 65px;
+                                        border: 1px solid $cinzaBorda;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-size: $fs14;
+                                        color: $cinza;
+                                        background-size: contain;
+                                        background-position: center;
+                                        background-repeat: no-repeat;
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    .textsInputs{
+
+                        align-items: center;
+
+                        .row{
+
+                            flex-direction: column;
+                            gap: 10px;
+
+                            .inputField{
+
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 3px;
+
+                                label{
+
+                                    font-size: $fs12;
+                                    color: $cinza;
+                                    font-weight: 400;
+                                }
+
+                                input,select{
+
+                                    width: 100%;
+                                    border: 1px solid $cinzaBorda;
+                                    color: $cinza;
+                                    font-size: $fs14;
+                                    height: 35px;
+                                    padding-left: 10px;
+                                }
+
+                                textarea{
+
+                                    width: 100%;
+                                    border: 1px solid $cinzaBorda;
+                                    color: $cinza;
+                                    font-size: $fs14;
+                                    padding-left: 10px;
+                                }
+
+                            }
+
+                            .newCategory{
+
+                                height: 100%;
+                                display: flex;
+                                align-items: flex-end;
+
+                                a{
+
+                                    background-color: $branco ;
+                                    color:$verdePrincipal ;
+                                    padding: 10px;
+                                    border-radius: 5px;
+                                    transition: .3s;
+                                    border: 1px solid $verdePrincipal;
+                                    text-decoration: none;
+                                    text-align: center;
+                                    width: 100%;
+
+                                    &:hover{
+
+                                        background-color: $verdePrincipal;
+                                        color: $branco;
+                                    }
+                                }
+                            }
+
+                            .category{
+
+                                max-width: 840px;
+                            }
+
+                            .lg{
+
+                                max-width: 100%;
+
+                            }
+
+                            .md{
+
+
+                                max-width: 100%;
+                            }
+
+                            .sm{
+
+                                max-width: 100%;
+                            }
+                        }
+
+                        .categoriasContent{
+
+                            width: 100%;
+                            max-width: 100%;
+
+                            ul{
+
+                                width: 100%;
+                                max-width: 100%;
+                                padding: 0 12px;
+
+                                li{
+
+                                    width: 100%;
+                                    max-width: 100%;
+
+                                    label{
+
+                                        text-transform: capitalize;
+                                        font-size: $fs14;
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .botoes{
+
+
+                button{
+
+                    max-width: 100%;
+                    font-size: $fs12;
+
+
+                }
+            }
+        }
+    }
+
+}

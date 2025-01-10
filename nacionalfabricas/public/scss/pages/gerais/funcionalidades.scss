@@ -1,0 +1,282 @@
+@import "../../variaveis.scss";
+
+.funcionalidades{
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 1300px;
+    max-width: 100%;
+
+    .explicacao{
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .conteudo{
+
+            width: 100%;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .cabecalho{
+
+                h1{
+
+                    color: $preto;
+                    font-size: $fs40;
+                    font-weight: 800;
+
+                }
+            }
+
+            .texto-explicacao{
+
+                p{
+
+                    color: $cinza;
+                    font-weight: 500;
+                    line-height: 1.75em;
+                    font-size: $fs16;
+                }
+            }
+        }
+
+        img{
+
+            width: 100%;
+            max-width: 500px;
+        }
+    }
+
+    .bloco-ajuda{
+
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .cabecalho{
+
+            h1{
+
+                text-align: center;
+                font-size: $fs36;
+                font-weight: 800;
+                color: $preto;
+            }
+        }
+
+        .cards{
+
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            gap: 30px;
+
+            .card{
+
+                border-radius: 64px;
+                box-shadow: 0 3px 10px -2px rgba(0,0,0,.59);
+                height: 100%;
+                margin: 0 auto;
+                max-width: 450px;
+                padding: 48px 62px 34px;
+                width: 100%;
+                align-items: center;
+                min-height: 650px;
+                justify-content: flex-start;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+
+                img{
+
+                    width: 100%;
+                    max-width: 238px;
+                    height: 238px;
+                }
+
+                h2{
+
+                    font-size: $fs28;
+                    font-weight: 700;
+                }
+
+                span{
+
+                    font-size: $fs18;
+                    color: $cinza;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.rodape-funcionalidades{
+
+    background-color: $verdePrincipal;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 48px 0;
+    width: 100%;
+
+    .informacao{
+
+        h1{
+
+            color: $preto;
+            font-size: $fs42;
+            font-weight: 800;
+
+            .branco{
+
+                color: $branco;
+                text-decoration: underline;
+            }
+
+        }
+
+        a{
+
+            border-radius: 24px;
+            font-size: $fs20;
+            font-weight: 600;
+            padding: 16px 40px;
+            background-color: $preto;
+            color: $branco !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 770px){
+
+    .funcionalidades{
+
+        .explicacao{
+
+            flex-direction: column;
+            align-items: center;
+            background-image: url(/images/features.png);
+            background-size: cover;
+            background-position:center ;
+            background-repeat: no-repeat;
+
+            .conteudo{
+
+                max-width: 100%;
+                padding: 0 10px;
+                gap: 30px;
+                background-color: rgba($branco, 0.8);
+
+                .cabecalho{
+
+                    h1{
+
+                        font-size: $fs26;
+
+                    }
+                }
+
+                .texto-explicacao{
+
+                    p{
+
+                        font-size: $fs14;
+                        text-align: justify;
+                        color: $preto;
+                    }
+                }
+            }
+
+            img{
+
+                display: none;
+            }
+        }
+
+        .bloco-ajuda{
+
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .cabecalho{
+
+                h1{
+
+                    font-size: $fs26;
+
+                }
+            }
+
+            .cards{
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .card{
+
+                    max-width: 90%;
+                    gap: 30px;
+                    min-height: 350px;
+
+                    img{
+
+                        width: 100%;
+                        max-width: 138px;
+                        height: 138px;
+                    }
+
+                    h2{
+
+                        font-size: $fs20;
+                        font-weight: 700;
+                    }
+
+                    span{
+
+                        font-size: $fs16;
+                        color: $cinza;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .rodape-funcionalidades{
+
+        flex-direction: column;
+        gap: 50px;
+
+        .informacao{
+
+            h1{
+
+                font-size: $fs26;
+
+                .branco{
+
+                    color: $branco;
+                    text-decoration: underline;
+                }
+
+            }
+
+            a{
+
+                font-size: $fs20;
+
+            }
+        }
+    }
+}

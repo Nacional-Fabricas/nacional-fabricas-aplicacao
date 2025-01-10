@@ -1,0 +1,175 @@
+@import "../variaveis.scss";
+
+.contatoFooter{
+
+    background-color: $verdePrincipal;
+    border-radius: 48px 48px 0 0;
+    display: flex;
+    padding: 78px 84px 20px 84px;
+    justify-content: space-between;
+
+    .block{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        align-self: center;
+
+        .listIcons{
+
+            padding: 0;
+            align-items: center;
+            gap: 10px;
+
+            .icons{
+
+                a{
+
+                    img{
+
+                        width: 30px;
+                    }
+                }
+            }
+        }
+
+        .followUs{
+
+            display: flex;
+            height: 100%;
+            align-items: center;
+            gap: 30px;
+
+            h1{
+
+                font-size: $fs22;
+                font-weight: 700;
+            }
+
+        }
+
+        h1{
+
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .group{
+
+            display: flex;
+            flex-direction: column;
+
+            h2{
+
+                a{
+
+                    font-size: $fs18;
+                    color: $preto;
+                    font-weight: 700;
+                    text-decoration: none;
+                }
+            }
+
+            .infoField{
+
+                display: flex;
+                flex-direction: column;
+
+                .info{
+
+                    color: $branco;
+                    font-size: $fs14;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .listIcons{
+
+            display: flex;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .contatoFooter{
+
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 10px;
+
+        .block{
+
+            width: 100%;
+            max-width: 90%;
+
+            .listIcons{
+
+                padding: 0;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .followUs{
+
+                justify-content: center;
+                align-self: center;
+
+                h1{
+
+                    font-size: $fs20;
+                    color: $branco;
+                }
+
+            }
+
+            h1{
+
+                display: flex;
+                align-content: center;
+                flex-direction: column;
+                height: 100%;
+                justify-content: center;
+            }
+
+            .group{
+
+                display: flex;
+                flex-direction: column;
+
+                h2{
+
+                    font-size: $fs18;
+                    color: $preto;
+                    font-weight: 700;
+                }
+
+                .infoField{
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .info{
+
+                        color: $branco;
+                        font-size: $fs14;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            .listIcons{
+
+
+                justify-content: center;
+
+            }
+        }
+    }
+}

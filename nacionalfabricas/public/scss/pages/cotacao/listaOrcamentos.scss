@@ -1,0 +1,284 @@
+@import "../../variaveis.scss";
+
+@keyframes fadeIn {
+
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.listarOrcamentos{
+
+    width: 100%;
+
+    .listaOrcamento{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+
+        .bloco{
+
+            width: 100%;
+            max-width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+
+            .cotacaoBlock{
+
+                width: 1000px;
+                display: flex;
+                flex-direction: column;
+                box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+                border-radius: 25px;
+
+
+
+                .headerCotacao{
+
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 55px;
+
+                    .info{
+
+
+
+                        .field{
+
+                            font-size: $fs24;
+                            font-weight: 600;
+                        }
+
+                        h2{
+
+                            font-size: $fs40;
+                            font-weight: 800;
+                        }
+                    }
+
+                    a{
+
+                        display: flex;
+
+                        img{
+
+                            width: 30px;
+                        }
+
+                    }
+
+                }
+
+                #bodyCotacao{
+
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px 55px;
+                    gap: 10px;
+
+
+                    .text{
+
+                        width: 100%;
+                        background-color: $cinzaClaro;
+                    }
+
+                    .dadosCotacao{
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border: 1px solid $cinzaBorda;
+                        padding: 10px 70px 10px 10px;
+                        border-radius: 10px;
+
+                        .info{
+
+                            display: flex;
+                            gap: 20px;
+
+                            .thumb{
+
+                                width: 150px;
+                                height: 150px;
+                            }
+
+                            .content{
+
+                                display: flex;
+                                flex-direction: column;
+                                align-self: center;
+                                gap: 10px;
+
+                                h3{
+
+                                    font-size: $fs35;
+                                    font-weight: 700;
+
+                                }
+
+                                .reg{
+
+                                    display: flex;
+                                    justify-content: space-between;
+
+
+                                    .codigo{
+
+                                        display: flex;
+
+                                    }
+                                }
+
+                            }
+                        }
+
+
+                        #cotacao{
+
+                            display: none;
+                            position: absolute;
+                            justify-content: flex-end;
+                            background-color:  rgba(0, 0, 0, 0.5);
+                            width: 100%;
+                            height: 100%;
+                            justify-content: center;
+                            align-items: center;
+                            visibility: visible;
+                            backdrop-filter: blur(3px);
+                            top: 0;
+                            left: 0;
+                            justify-content: flex-end;
+                            animation: fadeIn 2s;
+
+                            .chatBlock{
+
+                                width: 100%;
+                                max-width: 1100px;
+                                height: 100%;
+                                background-color: $branco;
+                                padding: 50px;
+                                gap: 50px;
+                                display: flex;
+                                flex-direction: column;
+
+                                .chat{
+
+                                    gap: 50px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    overflow: scroll;
+
+                                    .corpoMsg{
+
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 20px;
+
+                                        .listaPedido,.obs, .msg{
+
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 5px;
+                                            padding: 20px;
+                                            width: 100%;
+                                            max-width: 450px;
+
+                                            .pedido{
+
+                                                display: flex;
+                                                gap: 10px;
+                                                justify-content: space-between;
+
+
+                                            }
+                                        }
+                                    }
+
+                                    .envio{
+
+                                        align-items: flex-end;
+
+                                        .listaPedido,.obs, .msg{
+
+                                            background-color: $azulBebe;
+                                            border-radius:15px 0px  15px 15px;
+                                            color: $branco;
+
+                                        }
+                                    }
+
+                                    .recebe{
+
+                                        align-items: flex-start;
+
+                                        .listaPedido,.obs, .msg{
+
+                                            background-color: $cinzaChat;
+                                            border-radius: 0px 15px 15px 15px;
+
+                                        }
+                                    }
+
+                                }
+
+                                .formularioMsg{
+
+                                    display: flex;
+                                    justify-content: space-between;
+                                    width: 100%;
+
+
+                                    .group{
+
+                                        display: flex;
+                                        justify-content: space-between;
+                                        width: 100%;
+
+                                        input{
+
+                                            width: 100%;
+                                            max-width: 80%;
+                                            border: 1px solid $cinzaBorda;
+                                            background-color: $cinzaClaro;
+                                            border-radius: 20px 0px 0px 20px;
+                                            padding: 10px;
+
+                                        }
+
+                                        button{
+
+                                            width: 100%;
+                                            max-width: 20%;
+                                            background-color: $verdePrincipal;
+                                            padding: 10px 15px;
+                                            font-size: $fs16;
+                                            font-weight: 600;
+                                            color: $branco;
+                                            border-radius:  0px 20px 20px 0px;
+                                        }
+
+                                    }
+
+
+                                }
+                            }
+                        }
+
+                    }
+
+                    .setaAcesso{
+
+                        width: 20px;
+                    }
+
+                }
+            }
+        }
+
+    }
+}

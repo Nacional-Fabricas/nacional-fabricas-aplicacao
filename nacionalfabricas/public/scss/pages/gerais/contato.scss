@@ -1,0 +1,180 @@
+@import "../../variaveis.scss";
+
+.contato{
+
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 1300px;
+    max-width: 100%;
+
+    .conteudo{
+
+        width: 100%;
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        h1{
+
+            font-size: $fs48;
+            font-weight: 800;
+            color: $preto;
+        }
+
+        .descricao{
+
+            font-size: $fs16;
+            color: $preto;
+        }
+
+        img{
+
+            width: 100%;
+            max-width: 434px;
+        }
+    }
+
+    .formulario{
+
+        width: 100%;
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        background-color: $branco;
+        border: 3px solid $preto;
+        border-radius: 52px;
+        height: calc(100% + 180px);
+        padding: 96px 64px;
+        align-items: center;
+        gap: 80px;
+        z-index: 1;
+        position: relative;
+
+        .group{
+
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            width: 100%;
+
+            .row{
+
+                input, textarea{
+
+                    border: none;
+                    border-bottom: 1px solid $preto;
+                    padding-bottom: 7px;
+
+                    &:focus{
+
+                        outline: none;
+                    }
+                }
+            }
+        }
+
+        button{
+
+            background-color: $verdePrincipal;
+            color: $branco;
+            border-radius: 48px;
+            font-size: 18px;
+            font-weight: 700;
+            max-width: 350px;
+            padding: 12px 16px;
+            text-align: center;
+            width: 100%;
+            transition: .3s;
+
+            &:hover{
+
+                background-color: $verdeLimao;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .contato{
+
+        flex-direction: column;
+        align-items: center;
+
+        .conteudo{
+
+            width: 100%;
+            max-width: 95%;
+            text-align: center;
+
+            h1{
+
+                font-size: $fs26;
+            }
+
+            .descricao{
+
+                font-size: $fs16;
+                color: $preto;
+            }
+
+            img{
+
+                display: none;
+            }
+        }
+
+        .formulario{
+
+            max-width: 80%;
+            background-image: url(/images/contact-us.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 96px 30px;
+            background-color: $branco;
+
+            .group{
+
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+                width: 100%;
+
+                .row{
+
+                    input{
+
+                        border: none;
+                        border-bottom: 1px solid $preto;
+                        padding-bottom: 7px;
+
+                    }
+                }
+            }
+
+            a{
+
+                background-color: $verdePrincipal;
+                color: $branco;
+                border-radius: 48px;
+                font-size: $fs16;
+                font-weight: 700;
+                max-width: 70%;
+                padding: 12px 16px;
+                text-align: center;
+                width: 100%;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+            }
+        }
+    }
+}

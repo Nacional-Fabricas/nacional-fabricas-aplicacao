@@ -1,0 +1,495 @@
+@import "../../variaveis.scss";
+
+.editar-perfil{
+
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .formulario{
+
+        width: 100%;
+        max-width: 94%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .secoes{
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .botoes{
+
+                width: 100%;
+                max-width: 35%;
+
+                button{
+
+                    width: 200px;
+                    border-radius: 0.75rem;
+                    padding: 0.5rem 1rem;
+                    transition: 0.3s;
+                    text-align: center;
+                    font-size: $fs20;
+                    font-weight: 600;
+                }
+
+                .inativo{
+
+                    background-color: $cinzaEscuro;
+                    color: $branco;
+                }
+
+                .finalizar-registro{
+
+                    background-color: $verdePrincipal;
+                    color: $branco;
+
+                    &:hover{
+
+                        background-color: $verdeLimao;
+                    }
+                }
+            }
+
+            h1{
+
+                font-size: $fs40;
+                font-weight: 700;
+                color: $preto;
+
+                span{
+
+                    color: $verdePrincipal;
+                    text-decoration: underline;
+                }
+            }
+
+            h2{
+
+                font-size: $fs26;
+                font-weight: 700;
+                color: $preto;
+            }
+
+            .linha{
+
+                display: flex;
+                gap: 20px;
+                width: 100%;
+                justify-content: flex-start;
+
+                .group{
+
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 300px;
+                    gap: 10px;
+
+                    h3{
+
+                        font-size: $fs18;
+                        text-align: left;
+                        width: 100%;
+                    }
+
+                    #cnaeContainer{
+
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        width: 100%;
+                        padding-top: 10px;
+
+                        .linha-cnae{
+
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+                            max-width: 500px;
+
+                            .dado{
+
+                                background-color: $verdePrincipal;
+                                color: $branco;
+                                font-size: $fs14;
+                                padding: 8px 15px;
+                                border-radius: 5px;
+                                width: 100%;
+                                max-width: 340px;
+
+                            }
+
+                            .removerButton{
+
+                                background-color: $vermelhoEscuro;
+                                color: $branco;
+                                padding: 8px 10px;
+                                font-size: $fs16;
+                                font-weight: 700;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                align-self: center;
+
+                                &:hover{
+
+                                    transform: scale(1.05);
+                                }
+                            }
+                        }
+                    }
+
+                    .campos{
+
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        gap: 20px;
+
+                        .inputField{
+
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            width: 100%;
+                        }
+
+                        .addCnae{
+
+                            width: 100%;
+                            color: $verdePrincipal;
+                            font-weight: 600;
+                            height: 100%;
+                            display: flex;
+                            align-items: flex-end;
+                        }
+
+                        .md{
+
+                            width: 100%;
+                            max-width: 546px;
+                        }
+                    }
+
+                    label{
+
+                        font-size: $fs14;
+                        font-weight: 600;
+                        width: 100%;
+                    }
+
+                    input, select{
+
+                        height: 40px;
+                        border: 1.5px solid $cinza ;
+                        border-radius: 0.5rem;
+                        width: 100%;
+                        padding: 0 10px;
+                        outline: none;
+
+                        option{
+
+                            width: 60%;
+                        }
+                    }
+
+                }
+
+                .check{
+
+                    align-items: flex-start;
+
+                }
+                .xlg{
+
+                    width: 100%;
+                    max-width: 1050px;
+                }
+
+                .lg{
+
+                    width: 100%;
+                    max-width: 720px;
+                }
+
+                .md{
+
+                    width: 100%;
+                    max-width: 570px;
+                }
+
+                .sm{
+
+                    width: 100%;
+                    max-width: 275px;
+                }
+            }
+
+            .linhaFinal{
+
+                justify-content: space-between !important;
+
+            }
+        }
+    }
+
+    .cnaes{
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 94%;
+
+        h1{
+
+            font-size: $fs40;
+            font-weight: 700;
+            color: $preto;
+
+            span{
+
+                color: $verdePrincipal;
+                text-decoration: underline;
+            }
+        }
+
+        h2{
+
+            font-size: $fs26;
+            font-weight: 700;
+            color: $preto;
+        }
+
+        .linha{
+
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: flex-start;
+
+            .group{
+
+                width: 100%;
+
+                .meus-cnaes{
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 0;
+                    width: 100%;
+
+                    .cnae{
+
+                        form{
+
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: row;
+                            width: 70%;
+
+
+                            span{
+
+                                width: 85%;
+                                padding: 5px;
+                                border-radius: 5px;
+                                background-color: $verdePrincipal;
+                                color: $branco;
+                            }
+
+                            .btn-remover{
+
+                                background-color: $vermelhoEscuro;
+                                color: $branco;
+                                padding: 5px;
+                                align-self: center;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                transition: .3s;
+
+                                &:hover{
+
+                                    background-color: $vermelhoClaro;
+                                    transform: scale(1.05);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .editar-perfil{
+
+        form{
+
+            .secoes{
+
+                h1{
+
+                    font-size: $fs26;
+                }
+
+                h2{
+
+                    font-size: $fs20;
+                }
+
+                .linha{
+
+                    .group{
+
+                        .campos{
+
+                            .inputField{
+
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                width: 100%;
+                            }
+
+                            .addCnae{
+
+                                width: 100%;
+                                color: $verdePrincipal;
+                                font-weight: 600;
+                                height: 100%;
+                                display: flex;
+                                align-items: flex-end;
+                            }
+
+                            .md{
+
+                                width: 100%;
+                                max-width: 546px;
+                            }
+                        }
+
+                        label{
+
+                            font-size: $fs16;
+                            font-weight: 600;
+                            width: 100%;
+                        }
+
+                        input{
+
+                            height: 30px;
+                            border: 1.5px solid $cinza ;
+                            border-radius: 0.5rem;
+                            width: 100%;
+                            padding: 0 10px;
+                            outline: none;
+                        }
+
+                    }
+
+                    .check{
+
+                        align-items: flex-start;
+
+                        input{
+
+                            width: 40px;
+                            max-width: 100%;
+                        }
+                    }
+                    .xlg{
+
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .lg{
+
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .md{
+
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .sm{
+
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                }
+
+                .botoes{
+
+                    width: 100%;
+                    max-width: 100%;
+                    gap: 10px;
+                    display: flex;
+                    flex-direction: column;
+
+                    button{
+
+                        width: 100%;
+                        max-width: 100%;
+
+                    }
+                }
+
+            }
+        }
+
+        .cnaes{
+
+            max-width: 100%;
+
+            .linha{
+
+                display: flex;
+                gap: 20px;
+                width: 100%;
+                justify-content: flex-start;
+
+                .group{
+
+                    width: 100%;
+
+                    .meus-cnaes{
+
+                        .cnae{
+
+                            form{
+
+                                flex-direction: column;
+                                width: 100%;
+                                max-width: 100%;
+                                gap: 10px;
+
+                                span{
+
+                                    width: 100%;
+                                    text-align: justify;
+                                    font-size: $fs14;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

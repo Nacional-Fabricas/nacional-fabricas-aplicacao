@@ -1,0 +1,224 @@
+@import "../../variaveis.scss";
+
+.configuracoes{
+
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+
+    .bloco{
+
+        border: 1px solid $cinzaBorda;
+        border-radius: 10px;
+        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+        padding: 30px;
+        width: 100%;
+        max-width: 1200px;
+
+        .convites{
+
+            display: flex;
+            gap: 10px;
+            background-color: $verdeClaro;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            color: $preto;
+            font-weight: 600;
+            font-size: $fs20;
+            border-radius: 5px;
+
+            button{
+
+                color: $branco;
+                background-color: $vermelhoEscuro;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+        }
+
+        .listaMembros{
+
+            display: flex;
+            gap: 10px;
+            background: linear-gradient( 45deg, $branco, $verdeClaro);
+            border: 1px solid $verdePrincipal;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            color: $preto;
+            font-weight: 600;
+            font-size: $fs20;
+            border-radius: 5px;
+
+            .funcao{
+
+                color: $preto;
+                background-color: $branco;
+                padding: 5px 10px;
+                border-radius: 5px;
+                border: 1px solid $verdePrincipal;
+
+            }
+
+            .remover{
+
+                color: $vermelhoEscuro;
+                background-color:$branco ;
+                border: 1px solid $vermelhoEscuro;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: .3s;
+
+                &:hover{
+
+                    transform: scale(1.05);
+                    color: $branco;
+                    background-color: $vermelhoEscuro;
+                }
+            }
+        }
+
+        svg{
+
+            width: 50px;
+        }
+
+        .fields{
+
+            width: 80%;
+        }
+
+        .grupo{
+
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 700px;
+        }
+
+        .sessoesLog{
+
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: -1px 0 7px 1px rgba( $cinza , .3);
+            transition: .3s;
+
+            &:hover{
+
+                transform: scale(1.05);
+            }
+        }
+
+        input{
+
+            border: 1px solid $cinzaBorda;
+            border-radius: 5px;
+            padding: 4px 10px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .acoes{
+
+            align-self: center;
+
+            button{
+
+                background-color: $verdePrincipal;
+                padding: 5px 15px;
+                border-radius: 5px;
+                transition: .3s;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+            }
+
+        }
+
+        .logout{
+
+            background-color:$branco;
+            color: $vermelhoEscuro !important;
+            border-radius: 5px;
+            border: 1px solid $vermelhoEscuro !important;
+            transition: .3s;
+
+            &:hover{
+
+                background-color: $vermelhoEscuro;
+                color: $branco !important;
+                transform: scale(1.05);
+
+            }
+        }
+
+        form, .secao{
+
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .configuracoes{
+
+        padding: 0;
+
+        .bloco{
+
+            max-width: 100%;
+
+            svg{
+
+                width: 50px;
+            }
+
+            .fields{
+
+                width: 80%;
+            }
+
+            .grupo{
+
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+            }
+
+            .sessoesLog{
+
+                width: 100%;
+
+            }
+
+
+
+            button{
+
+                width: 100%;
+
+            }
+
+
+
+            form, .secao{
+
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    }
+
+}

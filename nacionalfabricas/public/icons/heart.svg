@@ -1,0 +1,13 @@
+<svg id="Add_to_cart" data-name="Add to cart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.002" height="20" viewBox="0 0 20.002 20">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Icon_heart-2" data-name="Icon/heart-2" d="M9.356,18.717l-7.637-8.1a6.487,6.487,0,0,1,0-8.8A5.635,5.635,0,0,1,10,1.8a5.636,5.636,0,0,1,8.282.018,6.489,6.489,0,0,1,0,8.8l-7.64,8.1a.873.873,0,0,1-1.285,0Z" transform="translate(0.002 0.5)"/>
+    </clipPath>
+  </defs>
+  <g id="Icon_bag-16" data-name="Icon/bag-16">
+    <rect id="Box" width="20" height="20" fill="none"/>
+    <g id="Grupo_13" data-name="Grupo 13">
+      <path fill="#2e2e2e" id="Icon_heart-2-2" data-name="Icon/heart-2" d="M9.356,18.717l-7.637-8.1a6.487,6.487,0,0,1,0-8.8A5.635,5.635,0,0,1,10,1.8a5.636,5.636,0,0,1,8.282.018,6.489,6.489,0,0,1,0,8.8l-7.64,8.1a.873.873,0,0,1-1.285,0Z" transform="translate(0.002 0.5)"/>
+    </g>
+  </g>
+</svg>

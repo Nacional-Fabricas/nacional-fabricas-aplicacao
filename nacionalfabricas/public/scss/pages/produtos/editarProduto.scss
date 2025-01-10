@@ -1,0 +1,467 @@
+@import "../../variaveis.scss";
+
+.editarProduto{
+
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .bloco-crop{
+
+        .conteudos-crop{
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .linha{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-crop{
+
+                width: 100%;
+                background-color: $verdePrincipal;
+                color: $branco;
+                font-size: $fs20;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    .formulario{
+
+        box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+        padding: 40px 0;
+        border-radius: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .img-principal{
+
+            img{
+
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        .block{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .galeria{
+
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 10px 30px;
+
+                .foto{
+
+                    width: 70px;
+                    height: 70px;
+
+                    .lixo{
+
+                        position: relative;
+                        background-color: $vermelhoEscuro;
+                        padding: 2px;
+                        border-radius: 5px;
+                        width: 30px;
+                        top: -85px;
+                        left: 50px;
+                        transition: .3s;
+
+                        &:hover{
+
+                            background-color: $vermelhoClaro;
+                        }
+
+                    }
+
+                    .imagem{
+
+                        width: 100%;
+                        height: 100%;
+                        background-position: center;
+                        background-size: cover;
+                        border-radius: 5px;
+                        background-repeat: no-repeat;
+                        border: 1px solid $cinzaBorda;
+
+                    }
+                }
+
+                .linha{
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: stretch;
+
+                    .addFoto{
+
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs40;
+                        width: 65px;
+                        height: 65px;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        align-items: center;
+                        justify-content: center;
+                        display: flex;
+
+                    }
+
+                    .thumbnail{
+
+                        width: 100%;
+                        max-width: 65px;
+
+                        .albumInput{
+
+
+                            width: 65px;
+                            padding: 2px;
+                            border-radius: 5px;
+                            height: 65px;
+                            border: 1px solid $cinzaBorda;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: $fs14;
+                            color: $cinza;
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+
+                    }
+                }
+
+            }
+
+            .blockHeader{
+
+                width: 100%;
+                padding: 0 30px;
+                background-color: $cinzaCards;
+
+                h1{
+
+                    font-size: $fs24;
+                    font-weight: 700;
+                    color: $preto;
+                }
+
+            }
+
+            .blockContent{
+
+                display: flex;
+                width: 100%;
+                padding: 0 30px;
+
+                .imgsInput{
+
+                    width: 100%;
+                    max-width: 320px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .thumbnail{
+
+                        width: 100%;
+                        max-width: 300px;
+
+                        .thumbInput{
+
+                            height: 300px;
+                            width: 100%;
+                            max-width: 100%;
+                            border: 2px dashed $cinza;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: $fs26;
+                            margin: 0;
+                            color: $cinza;
+                            background-size: contain;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+
+                    }
+
+                    .galeria{
+
+                        width: 100%;
+
+                        .linha{
+
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            justify-content: stretch;
+
+                            .addFoto{
+
+                                background-color: $verdePrincipal;
+                                color: $branco;
+                                font-size: $fs40;
+                                width: 100%;
+                                width: 65px;
+                                height: 65px;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                align-items: center;
+                                justify-content: center;
+                                display: flex;
+
+                            }
+
+                            .thumbnail{
+
+                                width: 100%;
+                                max-width: 65px;
+
+                                .albumInput{
+
+                                    height: 100%;
+                                    width: 100%;
+                                    width: 65px;
+                                    padding: 2px;
+                                    border-radius: 5px;
+                                    height: 65px;
+                                    border: 1px solid $cinzaBorda;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: $fs14;
+                                    color: $cinza;
+                                    background-size: contain;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .textsInputs{
+
+                    width: 100%;
+                    max-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    .row{
+
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+
+                        .inputField{
+
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 3px;
+
+                            label{
+
+                                font-size: $fs12;
+                                color: $cinza;
+                                font-weight: 400;
+                                display: flex;
+                                gap: 15px;
+                                align-items: center;
+                            }
+
+                            input,select{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                color: $cinza;
+                                font-size: $fs14;
+                                height: 35px;
+                                padding-left: 10px;
+                            }
+
+                            textarea{
+
+                                width: 100%;
+                                border: 1px solid $cinzaBorda;
+                                color: $cinza;
+                                font-size: $fs14;
+                                padding-left: 10px;
+                            }
+                        }
+
+                        .newCategory{
+
+                            height: 100%;
+                            display: flex;
+                            align-items: flex-end;
+                        }
+
+                        .category{
+
+                            max-width: 840px;
+                        }
+
+                        .lg{
+
+                            max-width: 100%;
+                        }
+
+                        .md{
+
+                            max-width: 25%;
+                        }
+
+                        .sm{
+
+                            max-width: 15%;
+                        }
+                    }
+
+                    .categoriasContent{
+
+                        ul{
+
+                            border: 2px solid $cinzaBorda;
+                            border-radius: 8px;
+                            margin: 15px;
+                            max-height: 350px;
+                            overflow-y: scroll;
+                            padding: 0;
+
+                            li{
+
+                                border-bottom: 1px solid $cinzaBorda;
+                                padding: 4px 15px;
+                                display: flex;
+                                gap: 10px;
+
+                                label{
+
+                                    text-transform: capitalize;
+                                    font-size: $fs14;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+            }
+
+        }
+
+        .botoes{
+
+            display: flex;
+            align-items: flex-end;
+            padding: 0 35px;
+
+            button{
+
+                padding: 8px 24px;
+                background-color: $verdePrincipal;
+                color: $branco;
+                font-size: $fs14;
+                width: 100%;
+                max-width: 170px;
+                text-align: center;
+                border-radius: 0.3rem;
+
+                &:hover{
+
+                    background-color: $verdeLimao;
+                }
+            }
+        }
+    }
+}
+
+#blocoAviso{
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 7px 7px -4px rgba($preto,.57);
+    background-color:  rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    backdrop-filter: blur(3px);
+    top: 0;
+
+    .bloco-aviso{
+
+        background-color: $branco;
+        width: 50%;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .aviso-header{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{
+
+                width: 50px;
+            }
+        }
+
+        .conteudo{
+
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button{
+
+            background-color: $branco;
+            color: $verdePrincipal;
+            border: 1px solid $verdePrincipal;
+            font-size: $fs20;
+            transition: .3s;
+            border-radius: 5px;
+            width: 50%;
+            align-self: center;
+            padding: 10px 0;
+
+            &:hover{
+
+                background-color: $verdePrincipal;
+                color: $branco;
+            }
+        }
+    }
+
+}

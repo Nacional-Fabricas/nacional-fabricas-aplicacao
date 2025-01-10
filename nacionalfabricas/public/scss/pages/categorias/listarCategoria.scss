@@ -1,0 +1,246 @@
+@import "../../variaveis.scss";
+
+
+.listarCategorias{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .block{
+
+        width: 100%;
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .categoriaHeader{
+
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+
+
+            h4{
+
+                font-size: $fs16;
+                font-weight: 600;
+            }
+
+            h1{
+
+                font-size: $fs28;
+                font-weight: 700;
+            }
+        }
+
+        .listarContent{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .pesquisa{
+
+                display: flex;
+                width: 100%;
+                gap: 10px;
+
+                .textSearch{
+
+                    align-items: center;
+                    background-color: $branco;
+                    border: 2px solid $cinzaBorda;
+                    border-radius: 8px;
+                    display: flex;
+                    overflow: hidden;
+                    width: 100%;
+                    max-width: 700px;
+                    padding: 10px ;
+                }
+
+                .filterSearch{
+
+                    align-items: center;
+                    background-color: $branco;
+                    border: 2px solid $cinza;
+                    color: $cinza;
+                    display: flex;
+                    width: 100%;
+                    max-width: 120px;
+                    border-radius: 8px;
+
+                }
+
+                .addCat{
+
+                    border-radius: 8px;
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    font-size: $fs14;
+                    text-align: center;
+                    text-decoration: none;
+                    padding: 10px 25px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .tabela{
+
+                border: 1px solid $cinzaBorda;
+                border-radius: 0 0 10px 10px;
+
+                thead{
+
+                    background-color: $cinzaCards;
+                    border-bottom: 1px solid $cinzaBorda;
+
+                    tr{
+
+                        th{
+
+                            height: 50px;
+                            padding: 0 15px;
+                            color: $azulTable;
+                            font-size: $fs14;
+                            font-weight: 500;
+                            text-align: center;
+
+                        }
+
+                    }
+                }
+
+
+                tbody{
+
+                    border: none;
+
+                    tr{
+
+                        td{
+
+                            height: 50px;
+                            padding: 0 15px;
+                            border-bottom: 1px solid $cinzaBorda;
+                            color: $cinzaTable;
+                            font-size: $fs14;
+                            font-weight: 400;
+                            text-transform: capitalize;
+                            text-align: center;
+
+
+
+                            .ativo{
+
+                                background-color: $verdeClaro;
+                                border: none;
+                                padding: 8px 12px;
+                                color: $azulTable;
+                                font-weight: 700;
+                                border-radius: 5px;
+
+                            }
+
+                            .inativo{
+
+                                background-color: $vermelhoClaro;
+                                border: none;
+                                padding: 8px 12px;
+                                color: $branco;
+                                font-weight: 700;
+                                border-radius: 5px;
+
+                            }
+
+
+                            a{
+
+                                text-decoration: none;
+                                color: $branco !important;
+                                background-color: $verdeLimao;
+                                padding: 8px 12px;
+                                border-radius: 5px;
+                            }
+
+
+                        }
+
+                        &:hover{
+
+                            background-color: $cinzaCards;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    .listarCategorias{
+
+        .block{
+
+            width: 100%;
+            max-width: 100%;
+
+            .listarContent{
+
+                .pesquisa{
+
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 10px;
+
+                    .filterSearch{
+
+                        height: 48px;
+                        width: 100%;
+                        max-width: 100%;
+
+                    }
+                }
+
+                .tabela{
+
+                    thead{
+
+                        tr{
+
+                            th{
+
+                                font-size: $fs12;
+                            }
+
+                            .mobile{
+
+                                display: none;
+                            }
+
+                        }
+                    }
+
+                    tbody{
+
+
+                        tr{
+
+
+                            .mobile{
+
+                                display: none;
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

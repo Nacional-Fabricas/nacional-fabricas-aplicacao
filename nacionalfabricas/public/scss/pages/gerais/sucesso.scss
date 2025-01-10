@@ -1,0 +1,80 @@
+@import "../../variaveis.scss";
+
+.sucesso{
+
+    display: flex;
+    width: 100%;
+
+    .conteudo{
+
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+
+        .like{
+
+            width: 100%;
+            max-width: 100px;
+            align-self: center;
+
+        }
+
+        h1{
+
+            font-size: $fs44;
+            font-weight: 700;
+        }
+
+        span{
+
+            font-size: $fs24;
+            font-weight: 400;
+        }
+    }
+
+    .fundoFabrica{
+
+        width: 100%;
+        max-width: 600px;
+        opacity: 0.6;
+    }
+}
+
+
+@media only screen and (max-width: 770px) {
+
+    .sucesso{
+
+        background-image: url(/icons/factory.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        .conteudo{
+
+            background-color: rgba($branco, .95);
+
+            .like{
+
+                max-width: 50px;
+
+            }
+
+            h1{
+
+                font-size: $fs40;
+            }
+
+            span{
+
+                text-align: justify;
+            }
+        }
+
+        .fundoFabrica{
+
+            display: none;
+        }
+    }
+
+}

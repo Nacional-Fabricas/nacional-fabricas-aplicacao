@@ -59,19 +59,18 @@ Route::middleware(['auth'])->group(function () {
     //Route::post('/rating', [ManipulationController::class, 'postStar'])->name('rating');
     //Route::post('/comentar', [ManipulationController::class, 'comentar'])->name('comentar');
 
+    /** Assinaturas */
+    Route::get('/checkout/{plano}-{customer_id}-{cadastro_id}', [AssinaturaController::class, 'checkout'])->name('checkout');
+    Route::post('/processar-checkout/{plano}', [AssinaturaController::class, 'processarCheckout'])->name('processar');
+    Route::get('/sucesso', [AssinaturaController::class, 'sucesso'])->name('sucesso');
+
 });
 
 Route::middleware(['auth', 'cadastroFinalizado'])->group(function () {
 
-
-    Route::get('/checkout/{plano}-{customer_id}', [AssinaturaController::class, 'checkout'])->name('checkout');
-    Route::post('/checkout/{plano}', [AssinaturaController::class, 'processarCheckout'])->name('processar');
-    Route::get('/sucesso', [AssinaturaController::class, 'sucesso'])->name('sucesso');
-
     /** Assinaturas
     Route::get('/checkout-{stripe_customer_id}-{id_preco}', [AssinaturaController::class, 'create'])->name('checkout');
     Route::get('/subscription/complete', [AssinaturaController::class, 'finalizaPagamento'])->name('completa_assinatura');
-    Route::get('/meu-plano', [AssinaturaController::class, 'meuPlano'])->name('meu_plano');
     Route::get('/fatura/{id}', [FaturaController::class, 'handleAction'])->name('faturas.handle');
 
     Notificações */
@@ -83,6 +82,9 @@ Route::middleware(['auth', 'cadastroFinalizado'])->group(function () {
 });
 
 Route::middleware(['auth', 'cadastroFinalizado','temPlano', 'verified'])->group(function () {
+
+    /** Assinaturas */
+    Route::get('/meu-plano', [AssinaturaController::class, 'meuPlano'])->name('meu_plano');
 
     /** Dashboard */
     Route::get('/painel', [EventController::class, 'painel'])->name('painel');

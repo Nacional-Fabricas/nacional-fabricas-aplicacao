@@ -24,7 +24,7 @@
 
                 <a href="/"><img src="{{asset('/images/logo.svg')}}" width="180" alt=""></a>
 
-                <span class="welcome">Olá,<span class="name">{{$user -> name}}</span></span>
+                <span class="welcome">Olá,<span class="name">{{$usuario -> name}}</span></span>
 
             </div>
         </header>

@@ -57,7 +57,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                    @if(Auth::user()-> nivel_usuario > 10)
+                    @if($cadastro)
 
                         <livewire:layout.acesso-rapido/>
 
@@ -77,16 +77,19 @@
                     </form>
 
                 </div>
+
             </div>
 
         @elseguest
 
             <ul class="d-flex noLogged">
+
                 <li class="nav-item hiddenMobile">
 
                     <a class="btnRegister" onclick="registrar()">Experimentar Grátis</a>
 
                 </li>
+
                 <li class="nav-item hidden-desk">
 
                     <a href="{{route('home')}}" ><img src="{{asset('images/logo.svg')}}" width="180" alt=""></a>

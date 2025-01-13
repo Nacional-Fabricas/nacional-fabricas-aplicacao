@@ -37,7 +37,7 @@
                     @if($dadosPlano && $dadosPlano->id == $plano->id)
                         <a class="btn-assinar">Seu plano</a>
                     @elseif($cliente)
-                        <a href="{{ route('checkout', ['plano' => $plano->id, 'customer_id' => $cliente -> id ]) }}" class="btn-assinar">Assinar</a>
+                        <a href="{{ route('checkout', ['plano' => $plano->id, 'customer_id' => $cliente -> asaas_id, 'cadastro_id' => $cadastro -> id  ]) }}" class="btn-assinar">Assinar</a>
                     @else
                         <a href="{{ route('meu_plano') }}" class="btn-assinar">Assinar</a>
                     @endif

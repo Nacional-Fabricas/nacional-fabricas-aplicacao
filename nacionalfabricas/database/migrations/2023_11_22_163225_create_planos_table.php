@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('recorrencia');
             $table->integer('max_usuarios');
             $table->integer('max_produtos');
-            $table->decimal('preco', 10, 2);
+            $table->decimal('valor', 10, 2);
             $table->text('descricao');
             $table->timestamps();
         });

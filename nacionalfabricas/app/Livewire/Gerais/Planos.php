@@ -23,14 +23,17 @@ class Planos extends Component
 
     public function render()
     {
+
         $user = Auth::user();
 
         if($this -> periodo == false){
 
             $periodo = "YEARLY";
+
         }else{
 
             $periodo = "MONTHLY";
+
         }
 
         $planos = Plano::where('recorrencia', $periodo)->get();
@@ -38,6 +41,7 @@ class Planos extends Component
         $periodo = $this->periodo;
 
         $dadosPlano = null;
+
         $cliente = null;
 
         if ($user) {
@@ -49,6 +53,7 @@ class Planos extends Component
             }else{
 
                 $usuarioId = $user -> id;
+
             }
 
             $cadastro = Cadastro::where('id_conta', $usuarioId)->first();
@@ -56,6 +61,8 @@ class Planos extends Component
             $cliente = Customer::where('cadastro_id', $cadastro -> id)->first();
 
             if (!$cliente) {
+
+                //dd($cadastro);
 
                 $apiKey = '$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjI1YjBmM2RmLTEwZmItNGZiOC05NmE0LTZlZWZiM2FhNzJmNjo6JGFhY2hfYmM4ZGNjOWYtNThlYy00YjE0LWFlM2UtMjhhMWJiODVkYmY2';
                 $apiUrl = 'https://sandbox.asaas.com/api/v3';
@@ -66,7 +73,7 @@ class Planos extends Component
                         'access_token' => $apiKey
                     ])->post($apiUrl . '/customers', [
                         'name' => $cadastro -> nome_empresa,
-                        'email' => $cadastro -> email,
+                        'email' => $cadastro -> email_contato,
                         'cpfCnpj' => '50347150829',
                         'postalCode' => $cadastro -> cep,
                         'address' => $cadastro -> endereco,
@@ -75,31 +82,35 @@ class Planos extends Component
                         "mobilePhone" => $cadastro ->celular_contato,
                     ]);
 
+                    //dd($response->json());
+
                     $customer = $response->json();
 
                     $cliente = New Customer();
-                    $cliente -> cadastro_id = $cadastro -> id;
-                    $cliente -> asaas_id = $customer -> id;
-                    $cliente -> nome = $customer -> name;
-                    $cliente -> email = $customer -> email;
-                    $cliente -> tipo_pessoa = $customer -> personType;
-                    $cliente -> cpf_cnpj = $customer -> cpfCnpj;
-                    $cliente -> telefone = $customer -> phone;
-                    $cliente -> celular = $customer -> mobilePhone;
-                    $cliente -> cep = $customer -> postalCode;
-                    $cliente -> endereco = $customer -> address;
-                    $cliente -> numero = $customer -> addressNumber;
-                    $cliente -> complemento = $customer -> complement;
-                    $cliente -> bairro = $customer -> province;
-                    $cliente -> cidade = $customer -> cityName;
-                    $cliente -> estado = $customer -> state;
-                    $cliente -> pais = $customer -> country;
-                    $cliente -> save();
 
+                    $cliente -> cadastro_id = $cadastro -> id;
+                    $cliente -> asaas_id = $customer['id'];
+                    $cliente -> nome = $customer['name'];
+                    $cliente -> email = $customer['email'];
+                    $cliente -> tipo_pessoa = $customer['personType'];
+                    $cliente -> cpf_cnpj = $customer['cpfCnpj'];
+                    $cliente -> telefone = $customer['phone'];
+                    $cliente -> celular = $customer['mobilePhone'];
+                    $cliente -> cep = $customer['postalCode'];
+                    $cliente -> endereco = $customer['address'];
+                    $cliente -> numero = $customer['addressNumber'];
+                    $cliente -> complemento = $customer['complement'];
+                    $cliente -> bairro = $customer['province'];
+                    $cliente -> cidade = $customer['cityName'];
+                    $cliente -> estado = $customer['state'];
+                    $cliente -> pais = $customer['country'];
+                    $cliente -> save();
 
                 } catch (\Exception $e) {
                     // Log do erro
-                    Log::error('Erro ao processar o pagamento: ' . $e->getMessage());
+                    //\Log::error('Erro ao processar o pagamento: ' . $e->getMessage());
+
+                    return back()->withErrors(['erro' => 'Erro ao adquirir o plano: ' . $e->getMessage()]);
                 }
 
             } else {
@@ -107,17 +118,16 @@ class Planos extends Component
                 $cliente = $cliente;
             }
 
-            dd($cliente);
+            //dd($cliente -> id);
 
             $assinatura = Assinatura::where('id_plano', $cliente -> plano)->first();
 
             if($assinatura){
 
                 $dadosPlano = Plano::where('price_id', $assinatura->id_plano)->first();
-
             }
         }
 
-        return view('livewire.gerais.planos', compact('planos', 'dadosPlano', 'periodo', 'cliente'));
+        return view('livewire.gerais.planos', compact('planos', 'dadosPlano', 'periodo', 'cliente', 'cadastro'));
     }
 }

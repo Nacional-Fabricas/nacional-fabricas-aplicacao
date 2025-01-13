@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -26,20 +27,13 @@ class EventController extends Controller
 
     public function painel (){
 
-        $user = Auth::user() ;
+        $usuario = Auth::user();
 
-        if($user -> current_team_id){
-
-            $usuarioId = $user -> current_team_id;
-
-        }else{
-
-            $usuarioId = $user -> id;
-        }
+        $usuarioId = $usuario -> current_team_id ?? $usuario -> id;
 
         $assinatura = Assinatura::where('id_conta', $usuarioId)->first();
 
-        $nomeCompleto = Auth::user()->name;
+        $nomeCompleto = $usuario ->name;
 
         $produto = Produto::where('id_conta', $usuarioId)
             ->orderBy('visualizacoes', 'desc')
@@ -191,6 +185,8 @@ class EventController extends Controller
         $produtos = Produto::where('ativo', 'Sim') -> inRandomOrder()->limit(5)->get();
 
         $depoimentos = 0;
+
+        //dd(URL::previous());
 
         return view ('pages.gerais.home', compact('user', 'produtos', 'depoimentos', 'estados', 'segmentos'));
     }

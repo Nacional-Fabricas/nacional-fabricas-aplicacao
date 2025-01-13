@@ -21,8 +21,18 @@ class PossuiPlano
     public function handle(Request $request, Closure $next): Response
     {
 
-        $plano = Assinatura::where('id_conta', Auth::id())->where('status', '!=' ,'failed')->first();
+        $user = Auth::user();
 
+        if($user -> current_team_id){
+
+            $usuarioId = $user -> current_team_id;
+
+        }else{
+
+            $usuarioId = $user -> id;
+        }
+
+        $plano = Assinatura::where('id_conta', $usuarioId )->first();
 
         if (!$plano){
 

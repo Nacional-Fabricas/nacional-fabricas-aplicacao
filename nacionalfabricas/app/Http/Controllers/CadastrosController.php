@@ -17,16 +17,9 @@ class CadastrosController extends Controller
 {
     public function finalizarCadastro(){
 
-        $user = Auth::user();
+        $usuario = Auth::user();
 
-        if($user -> current_team_id){
-
-            $usuarioId = $user -> current_team_id;
-
-        }else{
-
-            $usuarioId = $user -> id;
-        }
+        $usuarioId = $usuario -> current_team_id ?? $usuario -> id;
 
         $cadastro = Cadastro::where('id_conta', $usuarioId)->first();
 
@@ -36,10 +29,9 @@ class CadastrosController extends Controller
 
         }else{
 
-
             $listaCnaes = CnaeLista::all();
 
-            return view ('pages.cadastro.finalizar-cadastro', compact('user', 'cadastro', 'listaCnaes'));
+            return view ('pages.cadastro.finalizar-cadastro', compact('usuario', 'cadastro', 'listaCnaes'));
 
         }
     }
@@ -111,17 +103,9 @@ class CadastrosController extends Controller
     }
     public function dadosCadastrais (){
 
-        $user = Auth::user();
+        $usuario = Auth::user();
 
-        if($user -> current_team_id){
-
-            $usuarioId = $user -> current_team_id;
-
-        }else{
-
-            $usuarioId = $user -> id;
-
-        }
+        $usuarioId = $usuario -> current_team_id ?? $usuario -> id;
 
         $cnaes = Cnae::where('id_conta', $usuarioId)->get();
 
@@ -136,9 +120,9 @@ class CadastrosController extends Controller
     {
         try {
 
-            $user = Auth::user();
-            $assinatura = Assinatura::where('id_conta', $user->id)->where('status', 'ativo')->first();
-            $usuarioId = $assinatura && $assinatura->nome_plano == "Membro" ? $user->current_team_id : $user->id;
+            $usuario = Auth::user();
+
+            $usuarioId = $usuario -> current_team_id ?? $usuario -> id;
 
             $cnaeIds = $request->cnaeId;
             if ($cnaeIds) {
@@ -168,7 +152,7 @@ class CadastrosController extends Controller
                     $cadastro->fill([
                         'latitude' => $location['lat'],
                         'longitude' => $location['lng'],
-                        'id_conta' => $user->id,
+                        'id_conta' => $usuarioId,
                         'estado' => $request->estado,
                         'cidade' => $request->cidade,
                         'cep' => $request->cep,
@@ -192,28 +176,18 @@ class CadastrosController extends Controller
                 }
             }
 
-            DB::table('users')
-                ->where('id', $user->id)
-                ->update(['nivel_usuario' => '20']);
 
             return redirect()->route('dados_cadastrais')->with('sucesso', 'Cadastro atualizado com sucesso');
+
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('erro', 'Ocorreu um erro ao atualizar o cadastro: ' . $e->getMessage());
         }
     }
     public function deleteCnae(Request $request){
 
-        $user = Auth::user();
+        $usuario = Auth::user();
 
-        if($user -> current_team_id){
-
-            $usuarioId = $user -> current_team_id;
-
-        }else{
-
-            $usuarioId = $user -> id;
-
-        }
+        $usuarioId = $usuario -> current_team_id ?? $usuario -> id;
 
         $cnae = Cnae::where('id_conta', $usuarioId) -> where('id', $request -> id) -> firstOrFail() -> delete();
 

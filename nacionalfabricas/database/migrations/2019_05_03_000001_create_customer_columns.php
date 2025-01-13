@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('bairro')->nullable(); // Bairro
             $table->string('cidade')->nullable(); // Cidade
             $table->string('estado')->nullable(); // Estado
+            $table->string('pais')->nullable(); // Estado
             $table->timestamps();
 
             $table->foreign('cadastro_id')->references('id')->on('cadastros')->onDelete('cascade');

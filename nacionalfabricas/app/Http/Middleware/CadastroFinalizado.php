@@ -31,7 +31,7 @@ class CadastroFinalizado
                 $usuarioId = $user -> id;
             }
 
-            $cadastro = Cadastro::where('conta_id', $usuarioId) -> first();
+            $cadastro = Cadastro::where('id_conta', $usuarioId) -> first();
 
             if($cadastro){
 

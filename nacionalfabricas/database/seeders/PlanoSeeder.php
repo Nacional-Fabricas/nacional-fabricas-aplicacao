@@ -21,7 +21,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'MONTHLY',
                 'max_usuarios' => 1,
                 'max_produtos' => 20,
-                'preco' => 19.90,
+                'valor' => 19.90,
                 'descricao' => 'Até 20 itens na sua vitrine e sem membros extras.'
             ],
             [
@@ -31,7 +31,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'YEARLY',
                 'max_usuarios' => 1,
                 'max_produtos' => 20,
-                'preco' => 229.90,
+                'valor' => 229.90,
                 'descricao' => 'Até 20 itens na sua vitrine e sem membros extras.'
             ],
             [
@@ -41,7 +41,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'MONTHLY',
                 'max_usuarios' => 1,
                 'max_produtos' => 50,
-                'preco' => 39.90,
+                'valor' => 39.90,
                 'descricao' => 'Até 50 itens na sua vitrine e 1 membro extra.'
             ],
             [
@@ -51,7 +51,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'YEARLY',
                 'max_usuarios' => 1,
                 'max_produtos' => 50,
-                'preco' => 459.90,
+                'valor' => 459.90,
                 'descricao' => 'Até 50 itens na sua vitrine e 1 membro extra.'
             ],
             [
@@ -61,7 +61,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'MONTHLY',
                 'max_usuarios' => 2,
                 'max_produtos' => 100,
-                'preco' => 79.90,
+                'valor' => 79.90,
                 'descricao' => 'Até 100 itens na sua vitrine e 2 membros extras.'
             ],
             [
@@ -71,7 +71,7 @@ class PlanoSeeder extends Seeder
                 'recorrencia' => 'YEARLY',
                 'max_usuarios' => 2,
                 'max_produtos' => 100,
-                'preco' => 919.90,
+                'valor' => 919.90,
                 'descricao' => 'Até 100 itens na sua vitrine e 2 membros extras.'
             ],
         ];

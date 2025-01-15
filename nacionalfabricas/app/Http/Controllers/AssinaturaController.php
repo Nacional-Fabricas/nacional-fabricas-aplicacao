@@ -40,8 +40,6 @@ class AssinaturaController extends Controller
     public function checkout($planoId, $customerId, $cadastroId)
     {
 
-        //dd('ola');
-
         $plano = Plano::where('id', $planoId)->first();
 
         $cliente = Customer::where('asaas_id', $customerId)->first();
@@ -74,7 +72,7 @@ class AssinaturaController extends Controller
             'customer' => $cliente -> asaas_id,
             'billingType' => $request -> billingType,
             'nextDueDate' => now()->addDays(7)->toDateString(),
-            'value' => $plano -> preco,
+            'value' => $plano -> valor,
             'cycle' => 'MONTHLY',
             'description' => $plano -> descricao,
             'creditCard' => $request->creditCard,
@@ -130,9 +128,47 @@ class AssinaturaController extends Controller
         }
     }
 
-    public function sucesso()
+    public function sucesso(Request $request)
     {
-        return view('planos.sucesso');
+
+        return view('pages.assinaturas.sucesso');
+    }
+
+    public function meuPlano(Request $request){
+
+        // Obtém o usuário autenticado
+        $usuario = Auth::user();
+
+        // Determina o ID da conta: time atual ou próprio ID do usuário, ou null se o usuário não estiver autenticado
+        $usuarioId = $usuario ? ($usuario->current_team_id ?? $usuario->id) : null;
+
+        $assinatura = Assinatura::where('id_conta', $usuarioId)->first();
+
+        $meuPlano = Plano::where('id', $assinatura -> id_plano)->first();
+
+        $customerId = Customer::where('cadastro_id', $usuarioId)->first()->asaas_id;
+
+        $apiKey = '$aact_MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6OjI1YjBmM2RmLTEwZmItNGZiOC05NmE0LTZlZWZiM2FhNzJmNjo6JGFhY2hfYmM4ZGNjOWYtNThlYy00YjE0LWFlM2UtMjhhMWJiODVkYmY2';
+
+        $response = Http::withHeaders([
+            'access_token' => $apiKey,
+        ])->get('https://sandbox.asaas.com/api/v3/payments', [
+            'customer' => $customerId,
+        ]);
+
+        if ($response->successful()) {
+
+            $pagamentos = $response->json()['data'];
+
+        } else {
+            Log::error('Erro ao recuperar os pagamentos', $response->json());
+            return null;
+        }
+
+        //dd($pagamentos);
+
+        return view('pages.assinaturas.meu-plano', compact('pagamentos', 'meuPlano', 'assinatura'));
+
     }
 
 }

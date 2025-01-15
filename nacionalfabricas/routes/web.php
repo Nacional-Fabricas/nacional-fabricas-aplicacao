@@ -62,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
     /** Assinaturas */
     Route::get('/checkout/{plano}-{customer_id}-{cadastro_id}', [AssinaturaController::class, 'checkout'])->name('checkout');
     Route::post('/processar-checkout/{plano}', [AssinaturaController::class, 'processarCheckout'])->name('processar');
-    Route::get('/sucesso', [AssinaturaController::class, 'sucesso'])->name('sucesso');
+    Route::get('/finaliza-assinatura', [AssinaturaController::class, 'sucesso'])->name('sucesso');
 
 });
 

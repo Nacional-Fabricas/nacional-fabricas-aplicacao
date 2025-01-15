@@ -24,7 +24,7 @@
     @livewireStyles
 
 </head>
-<body>
+<body class="fadeInUp">
 
     <livewire:registro />
 
@@ -56,8 +56,6 @@
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-
-    {{-- Scripts das páginas --}}
     <script src="{{ asset('js/index.js') }}" type="module"></script>
     @stack('scripts')
 

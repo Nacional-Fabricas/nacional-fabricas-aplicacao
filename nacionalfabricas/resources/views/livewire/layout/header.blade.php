@@ -1,5 +1,7 @@
 <div>
 
+    {{--
+
     <nav class="menu-padrao navbar navbar-expand-lg navbar-light">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,6 +107,27 @@
             </ul>
 
         @endauth
+
+    </nav>
+
+    --}}
+
+    <nav class="menu">
+
+        <a class="logo" href="/"><img src="{{asset('images/logo.svg')}}" width="180" alt=""></a>
+
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
 
     </nav>
 

@@ -9,7 +9,6 @@ use App\Models\Plano;
 use App\Models\Assinatura;
 use App\Models\Estado;
 use App\Models\Produto;
-use App\Models\Categoria;
 use App\Models\Site;
 use App\Models\Segmento;
 use App\Models\Rating;
@@ -19,7 +18,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -190,14 +188,12 @@ class EventController extends Controller
 
         return view ('pages.gerais.home', compact('user', 'produtos', 'depoimentos', 'estados', 'segmentos'));
     }
-
     public function funcionalidades(){
 
         $user = Auth::user() ;
 
         return view ('pages.gerais.funcionalidades', compact('user'));
     }
-
     public function planos(){
 
         $planos = Plano::all();
@@ -216,7 +212,6 @@ class EventController extends Controller
 
         return view('pages.gerais.planos', compact('planos' , 'dadosPlano' , 'meuPlano'));
     }
-
     public function contato(){
 
         $user = Auth::user() ;
@@ -409,7 +404,6 @@ class EventController extends Controller
             'resultados' ,
             'busca'   ));
     }
-
     public function ajuda(){
 
         $user = Auth::user() ;

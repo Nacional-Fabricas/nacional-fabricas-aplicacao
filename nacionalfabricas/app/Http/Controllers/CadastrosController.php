@@ -35,7 +35,6 @@ class CadastrosController extends Controller
 
         }
     }
-
     public function create(Request $request)
     {
 
@@ -115,7 +114,6 @@ class CadastrosController extends Controller
 
         return view ('pages.cadastro.dados-cadastrais', compact("dado", "listaCnaes", "cnaes"));
     }
-
     public function update(Request $request)
     {
         try {

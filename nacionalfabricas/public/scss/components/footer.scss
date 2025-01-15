@@ -6,7 +6,7 @@ footer{
     width: 100%;
     justify-content: center;
 
-    .rodape{
+    .rodape {
 
         display: flex;
         width: 1300px;
@@ -71,6 +71,20 @@ footer{
                 font-weight: 400;
 
             }
+
+            .lista-icones{
+
+                .icones{
+
+                    a{
+
+                        img{
+
+                            width: 50px;
+                        }
+                    }
+                }
+            }
         }
 
     }
@@ -80,67 +94,61 @@ footer{
 
     footer{
 
-        .container{
+        .bloco-rodape{
 
-            flex-direction: column-reverse;
-            gap: 20px;
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
 
+            &:first-child{
 
-            .bloco-rodape{
-
-                width: 100%;
-                max-width: 100%;
                 justify-content: center;
 
-                &:first-child{
+            }
 
-                    justify-content: center;
+            &:last-child{
 
-                }
+                justify-content: center;
 
-                &:last-child{
+            }
 
-                    justify-content: center;
+            ul{
 
-                }
+                width: 90%;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 0;
 
-                ul{
+                li{
 
-                    width: 90%;
-                    justify-content: space-around;
-                    align-items: center;
-                    padding: 10px 0;
-
-                    li{
-
-                        display: flex;
-                        justify-content: center;
-
-                    }
-
-                    .icons{
-
-                        img{
-
-                            width: 30px;
-                            height: 30px;
-                        }
-                    }
-                }
-
-                .coluna{
-
-                    flex-direction: column;
-                }
-
-                .copy{
-
-                    font-size: $fs12;
-                    width: 100%;
                     display: flex;
                     justify-content: center;
+
+                }
+
+                .icons{
+
+                    img{
+
+                        width: 30px;
+                        height: 30px;
+                    }
                 }
             }
+
+            .coluna{
+
+                flex-direction: column;
+            }
+
+            .copy{
+
+                font-size: $fs12;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
         }
+
     }
 }

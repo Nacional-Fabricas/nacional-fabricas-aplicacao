@@ -79,7 +79,8 @@ class Planos extends Component
                         'address' => $cadastro -> endereco,
                         'addressNumber' => $cadastro -> num,
                         'phone' => $cadastro -> telefone_contato,
-                        "mobilePhone" => $cadastro ->celular_contato,
+                        'mobilePhone' => $cadastro ->celular_contato,
+                        'groupName' => 'Nacional Fábricas'
                     ]);
 
                     //dd($response->json());
@@ -118,16 +119,9 @@ class Planos extends Component
                 $cliente = $cliente;
             }
 
-            //dd($cliente -> id);
-
-            $assinatura = Assinatura::where('id_plano', $cliente -> plano)->first();
-
-            if($assinatura){
-
-                $dadosPlano = Plano::where('price_id', $assinatura->id_plano)->first();
-            }
+            $meuPlano = Assinatura::where('id_conta', $usuarioId)->first();
         }
 
-        return view('livewire.gerais.planos', compact('planos', 'dadosPlano', 'periodo', 'cliente', 'cadastro'));
+        return view('livewire.gerais.planos', compact('planos', 'meuPlano', 'periodo', 'cliente', 'cadastro'));
     }
 }

@@ -17,7 +17,7 @@
 
                     <span class="label">Nome do plano</span>
 
-                    <span class="valor">{{$dadosPlano -> name}}</span>
+                    <span class="valor">{{$meuPlano -> nome}}</span>
 
                 </div>
 
@@ -25,15 +25,7 @@
 
                     <span class="label">Valor do plano</span>
 
-                    @if($dadosPlano -> preco == 0)
-
-                        <span class="valor">Grátis</span>
-
-                    @else
-
-                        <span class="valor">{{$dadosPlano -> preco}}</span>
-
-                    @endif
+                    <span class="valor">{{$meuPlano -> preco}}</span>
 
                 </div>
 
@@ -41,7 +33,15 @@
 
                     <span class="label">Data de aquisição</span>
 
-                    <span class="valor">{{\Carbon\Carbon::parse($dadosPlano -> created_at)-> format('d/m/Y')}}</span>
+                    <span class="valor">{{\Carbon\Carbon::parse($assinatura -> dateCreated)-> format('d/m/Y')}}</span>
+
+                </div>
+
+                <div class="linha">
+
+                    <span class="label">Recorrência</span>
+
+                    <span class="valor">{{ $meuPlano -> recorrencia }}</span>
 
                 </div>
 
@@ -49,7 +49,7 @@
 
                     <span class="label">Benefícios</span>
 
-                    <span class="valor">{{$dadosPlano -> descricao}}</span>
+                    <span class="valor">{{$meuPlano -> descricao}}</span>
 
                 </div>
 
@@ -57,54 +57,25 @@
 
         </div>
 
-        <div class="lista-planos">
+        <div class="lista-faturas">
 
-            <h1>Outros Planos</h1>
+            <div class="cabecalho">
+                <span>Código da Fatura</span>
+                <span>Gerado em</span>
+                <span>Valor</span>
+                <span>Status</span>
+            </div>
 
-            @foreach($planos as $plano)
+            @foreach($pagamentos as $pagamento)
 
-                @if($plano -> id != $dadosPlano -> id)
+                <div class="fatura">
 
-                <div class="linha">
-
-                    <div class="info">
-
-                        <h1>{{$plano -> name}}</h1>
-                        <span>{{$plano -> descricao}}</span>
-
-                    </div>
-
-                    <div class="acoes">
-
-                        <div class="preco">
-
-                            @if($plano -> price == 0)
-
-                                GRÁTIS
-
-                            @else
-
-                                R${{number_format($plano -> price, 2 , ',', '.')}}
-
-                            @endif
-
-                        </div>
-
-                        @if( $dadosPlano != null && $dadosPlano -> id == $plano -> id)
-
-                            <a class="btn-assinar" href="{{route('meu_plano')}}">Seu plano</a>
-
-                        @else
-
-                            <a href="{{ route('assinar_plano', ['plano' => $plano->slug]) }}" class="btn-assinar">Assinar</a>
-
-                        @endif
-
-                    </div>
+                    <span>{{ $pagamento['invoiceNumber'] }}</span>
+                    <span>{{ $pagamento['dateCreated'] }}</span>
+                    <span>{{ $pagamento['value'] }}</span>
+                    <span>{{ $pagamento['status'] }}</span>
 
                 </div>
-
-                @endif
 
             @endforeach
 

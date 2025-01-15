@@ -30,11 +30,12 @@
                 </div>
 
                 <div class="acoes">
+
                     <div class="preco">
-                        R${{ number_format($plano -> preco, 2, ',', '.') }}
+                        R${{ number_format($plano -> valor, 2, ',', '.') }}
                     </div>
 
-                    @if($dadosPlano && $dadosPlano->id == $plano->id)
+                    @if($meuPlano && $meuPlano -> id_plano == $plano->id)
                         <a class="btn-assinar">Seu plano</a>
                     @elseif($cliente)
                         <a href="{{ route('checkout', ['plano' => $plano->id, 'customer_id' => $cliente -> asaas_id, 'cadastro_id' => $cadastro -> id  ]) }}" class="btn-assinar">Assinar</a>
@@ -42,7 +43,9 @@
                         <a href="{{ route('meu_plano') }}" class="btn-assinar">Assinar</a>
                     @endif
                 </div>
+
             </div>
+
         @endforeach
 
     </div>

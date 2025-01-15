@@ -1,4 +1,4 @@
-@import "variaveis", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
+@import "variaveis", "animacoes-gerais", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
 ,"pages/cadastro/finalizarCadastro","pages/gerais/funcionalidades","pages/gerais/planos","pages/gerais/ajuda","pages/gerais/contato"
 ,"components/font","pages/dashboard/dadosCadastrais","pages/produtos/criarprodutos","pages/categorias/criarcategoria"
 ,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/gerais/buscaGeral","pages/dashboard/meuSite"
@@ -9,6 +9,10 @@
 ,"pages/dashboard/suporte","pages/dashboard/rootDados","pages/dashboard/notificacoes","pages/dashboard/visualizacoes","pages/acessos/verificarEmail","pages/dashboard/chamado";
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sora:wght@100..800&display=swap');
+
+// estilos gerais
+
+
 *{
 
     padding: 0;
@@ -16,9 +20,69 @@
     font-family: "Sora", sans-serif !important;
 }
 
+body{
+
+    width: 100%;
+    position: absolute;
+    min-height: 100vh;
+    display: block;
+    gap: 10px;
+    overflow-x: hidden;
+}
+
+main{
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li{
+
+    list-style-type: none;
+}
+
 a{
 
     cursor: pointer !important;
+}
+
+//classes gerais
+
+.listaVazia{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    img{
+
+        width: 100%;
+        max-width: 120px;
+    }
+
+    h1{
+
+        font-size: $fs40;
+        color: $cinzaBorda;
+        font-weight: 700;
+    }
+
+    span{
+
+        font-size: $fs20;
+        color: $cinzaBorda;
+        font-weight: 600;
+
+        a{
+            font-size: $fs20;
+            color: $cinzaBorda;
+            font-weight: 600;
+        }
+    }
 }
 
 .back{
@@ -63,18 +127,14 @@ a{
     border-radius: 50%;
 }
 
-.hidden-desk{
-
-    display: none;
-}
-
 #loading-indicator{
 
-    position: absolute;
+    position: fixed;
     background-color: rgba($preto, 0.6);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0;
+    left: 0;
     display: none;
 
     .bloco-load{
@@ -102,21 +162,10 @@ a{
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1300px;
+    max-width: 80%;
     padding: 20px 0;
 }
 
-@keyframes fadeIn {
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-
-        opacity: 0;
-    }
-}
 
 .msg{
 
@@ -133,7 +182,7 @@ a{
     opacity: 0;
 }
 
-.error{
+.erro{
 
     background-color: $vermelhoEscuro;
     color: $branco;
@@ -177,49 +226,6 @@ input{
 
         outline: none;
     }
-}
-
-body{
-
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.dashboardBody{
-
-    flex-direction: row;
-    gap: 0;
-
-    .userArea{
-
-        width: 100%;
-    }
-
-    .container{
-
-        width: 100%;
-        padding: 50px 0 !important;
-
-        @media (min-width: 1400px){
-
-            max-width: 100% !important;
-
-        }
-    }
-}
-
-main{
-
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 #register{
@@ -417,60 +423,6 @@ main{
     top: 25px;
     left: 25px;
 
-}
-
-// estilos gerais
-
-li{
-
-    list-style-type: none;
-}
-
-button{
-
-    background-color: transparent;
-    border: none;
-}
-
-.col{
-
-    flex-direction: column;
-    padding: 0 !important;
-    margin: 0;
-}
-
-.listaVazia{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-
-    img{
-
-        width: 100%;
-        max-width: 120px;
-    }
-
-    h1{
-
-        font-size: $fs40;
-        color: $cinzaBorda;
-        font-weight: 700;
-    }
-
-    span{
-
-        font-size: $fs20;
-        color: $cinzaBorda;
-        font-weight: 600;
-
-        a{
-            font-size: $fs20;
-            color: $cinzaBorda;
-            font-weight: 600;
-        }
-    }
 }
 
 @media only screen and (max-width: 768px) {

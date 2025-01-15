@@ -18,22 +18,17 @@ class CadastroFinalizado
     public function handle(Request $request, Closure $next): Response
     {
 
-        $user = Auth::user();
+        // Obtém o usuário autenticado
+        $usuario = Auth::user();
 
-        if ($user ) {
+        if ($usuario ) {
 
-            if($user -> current_team_id){
-
-                $usuarioId = $user -> current_team_id;
-
-            }else{
-
-                $usuarioId = $user -> id;
-            }
+            // Determina o ID da conta: time atual ou próprio ID do usuário, ou null se o usuário não estiver autenticado
+            $usuarioId = $usuario ? ($usuario->current_team_id ?? $usuario->id) : null;
 
             $cadastro = Cadastro::where('id_conta', $usuarioId) -> first();
 
-            if($cadastro){
+            if(!$cadastro){
 
                 return redirect('/finalizar-cadastro')->with('msg','Vamos finalizar seu cadastro.');
             }

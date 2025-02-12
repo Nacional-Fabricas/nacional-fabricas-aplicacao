@@ -2,231 +2,24 @@
 
 .home{
 
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1024px;
-    gap: 20px;
+    gap: 50px;
 
-    .filtro-padrao{
+    .swiper{
 
         width: 100%;
-        display: flex;
 
-        .filtro-opcoes{
+        .link-carrosel{
 
+            display: block;
             width: 100%;
-            max-width: 60%;
-            align-self: center;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            height: 100%;
 
-            .texto-filtro{
-
-                h1{
-
-                    font-size: $fs38;
-                    color: $preto;
-                    font-weight: 700;
-                }
-
-                h2{
-
-                    font-size: $fs20;
-                    font-weight: 500;
-                    color: $cinza;
-
-
-                    span{
-                        color: $preto;
-                        font-weight: bold;
-                    }
-
-                }
-            }
-
-            form{
+            .img-carrosel{
 
                 width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                .linha{
-
-                    display: flex;
-                    width: 100%;
-                    gap: 5px;
-                    position: relative;
-                    left: 12px;
-
-                    .grupo{
-
-                        width: 100%;
-                        padding: 0;
-
-                        input{
-
-                            width: 100%;
-                            max-width: 470px;
-                            border: 2px solid $cinzaBorda;
-                            border-radius: 25px;
-                            color: $cinzaInput;
-                            font-size: $fs18;
-                            height: 50px;
-                            margin: 0;
-                            padding-left: 1rem;
-
-                            &:focus{
-
-                                outline: none;
-                            }
-                        }
-
-                        select{
-
-                            color: $branco;
-                            background-color: $verdePrincipal;
-                            width: 100%;
-                            border-radius: 25px;
-                            font-size: $fs18;
-                            height: 50px;
-                            margin: 0;
-                            padding-left: 1rem;
-                            border: none;
-
-                            option{
-
-                                background-color: $branco;
-                                color: $azulTable;
-                                font-size: $fs14;
-                                font-weight: 700;
-                                padding: 10px;
-                            }
-
-                            &:focus{
-
-                                outline: none;
-                            }
-                        }
-                    }
-
-                    .lg{
-
-                        max-width: 470px;
-                    }
-
-                    .md{
-
-                        max-width: 232px;
-                    }
-
-
-                    .sm{
-
-                        max-width: 150px;
-                    }
-                }
-
-                .btn-busca{
-
-                    background-color: $verdePrincipal;
-                    color: $branco;
-                    font-size: $fs22;
-                    font-weight: 500;
-                    border-radius: 25px;
-                    padding: 8px 0;
-                    width: 100%;
-                    max-width: 623px;
-
-                    svg{
-                        color: $branco;
-                    }
-
-                }
+                height: 450px;
+                object-fit: cover;
             }
-
-            .reg{
-
-                font-size: $fs16;
-                font-weight: 400;
-                color: $preto;
-
-                a{
-
-                    text-decoration: underline;
-                    font-weight: 700;
-
-                    &:hover{
-
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-
-        .fundo-filtro{
-
-            width: 100%;
-            max-width: 50%;
-
-            img{
-
-                width: 145%;
-            }
-        }
-    }
-
-    .cartoes-beneficios{
-
-        display: flex;
-        padding: 0;
-        justify-content: space-between;
-        position: relative;
-        bottom: 30px;
-        width: 100%;
-
-        li{
-
-            text-align: center;
-            background-color: $cinzaCards;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 280px;
-            padding: 1.5rem!important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            height: 210px;
-            transition: .3s;
-
-            img{
-
-                width: 40px;
-                height: 40px;
-            }
-
-            h3{
-
-                font-size: $fs20;
-                font-weight: 600;
-                color: $preto;
-            }
-
-            p{
-
-                font-size: $fs14;
-                color: $cinza;
-
-            }
-
-            &:hover{
-
-                transform: scale(1.05);
-            }
-
         }
     }
 
@@ -290,547 +83,329 @@
             }
         }
 
-        .sobre-conteudo{
-
-            display: flex;
-            align-items: center;
-            gap: 25px;
-
-            .texto{
-
-                background-color: $verdePrincipal;
-                padding: 50px 80px;
-                border-radius: 32px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                h3{
-
-                    color: $branco;
-                    font-size: $fs16;
-                    font-weight: 700;
-                }
-
-                h1{
-
-                    font-size: $fs40;
-                    font-weight: 700;
-                    color: $preto;
-                }
-
-                p{
-
-                    font-size: $fs14;
-                    color: $branco;
-                    line-height: 1.25;
-                    font-weight: 500;
-                }
-
-                a{
-
-                    background-color: $preto;
-                    color: $branco;
-                    font-size: $fs18;
-                    padding: 8px 16px;
-                    font-weight: 700;
-                    text-decoration: none;
-                    border-radius: 8px;
-                    width: 100%;
-                    max-width: 220px;
-                    text-align: center;
-                }
-            }
-        }
     }
 
-    .depoimentos{
+    .etapas{
 
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        width: 100%;
+        gap: 10px;
 
-        .testimonialHeader{
+        h1{
+
+            text-align: center;
+            font-size: $fs40;
+            font-weight: 700;
+        }
+
+        .descricao{
+
+            text-align: center;
+            font-size: $fs16;
+            font-weight: 400;
+            color: $preto;
+        }
+
+        .bloco-etapas{
 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
 
-            .info{
+            .etapa{
 
-                width: 100%;
-                max-width: 800px;
-
-                h3{
-
-                    color: $verdePrincipal;
-                    font-size: $fs16;
-                    font-weight: 600;
-                }
-
-                h1{
-
-                    color: $preto;
-                    font-size: $fs40;
-                    font-weight: 700;
-                }
-            }
-
-            .toSide{
-
-                color: $verdePrincipal;
-                font-size: $fs16;
-                font-weight: 700;
-            }
-
-        }
-
-        .testimonialContent{
-
-            #carouselExampleControls{
-
-                .carousel-item{
-
-                    width: 100%;
-                    max-width: 600px;
-                    display: flex;
-                    gap: 20px;
-                    background-color: $branco;
-
-                    .textos{
-
-                        img{
-
-
-                        }
-
-                        p{
-
-                            font-size: $fs12;
-                            color: $cinza;
-                            margin: 30px 0;
-
-                        }
-
-                        h3{
-
-                            font-size: $fs16;
-                            color: $preto;
-                            font-weight: 600;
-                        }
-
-                        span{
-
-                            font-size: $fs14;
-                            color: $cinza;
-                            font-weight: 600;
-                        }
-                    }
-
-                    .profilePhoto{
-
-                        width: 230px;
-                        height: 230px;
-                        border-radius: 24px;
-                    }
-
-
-                }
-            }
-        }
-    }
-}
-
-.produtos{
-
-    width: 100%;
-    background-color: $cinzaCards;
-    position: relative;
-    left: 0;
-    padding: 50px 300px;
-    margin: 20px 0;
-
-    .bloco-carrossel{
-
-        display: flex;
-        gap: 20px;
-        justify-content: space-between;
-
-        .pre-btn, .nxt-btn{
-
-            img{
-                height: 30px;
-            }
-        }
-
-        .lista-produtos{
-
-            display: flex;
-            gap: 28px;
-            justify-content: space-between;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-
-            .produto{
-
-                width: 100%;
-                max-width: 230px;
                 display: flex;
                 flex-direction: column;
-                background-color: $branco;
-                padding: 10px;
                 align-items: center;
+                width: 100%;
+                max-width: 20%;
+                min-width: 250px;
+
+                .etapa-numero {
+
+                    opacity: 0;
+                    transform: translateY(-20px);
+                    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                    background-color: $verdePrincipal;
+                    border-radius: 50%;
+                    padding: 10px;
+                    width: 40px;
+                    text-align: center;
+                    color: $branco;
+                    font-weight: 700;
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 2px;
+                        height: 20px;
+                        background-color: $verdePrincipal;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        bottom: -20px;
+                    }
+                }
+
+                .etapa-descricao {
+
+
+                    opacity: 0;
+                    transform: translateY(-20px);
+                    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                    background-color: $cinzaClaro;
+                    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                    padding: 20px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    h3 {
+                        color: $preto;
+                        text-align: center;
+                        font-size: $fs24;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        color: $preto;
+                        text-align: center;
+                        font-size: $fs16;
+                        font-weight: 400;
+                    }
+
+                }
+
+                .etapa-numero.show, .etapa-descricao.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+
+    .vitrine-tutorial{
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        h1{
+
+            font-size: $fs40;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+        }
+
+        .vitrine{
+
+            display: flex;
+            justify-content: center;
+            width: 50%;
+
+            .imagem-vitrine{
+
+                width: 100%;
+                max-width: 500px;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        }
+
+        .tutoriais{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-self: center;
+            width: 50%;
+            align-items: center;
+
+            iframe{
+
+                max-width: 100%;
+            }
+
+            .btn-tutoriais{
+
+                border: 1px solid $verdePrincipal;
+                color: $verdePrincipal;
+                padding: 10px;
+                border-radius: 10px;
+                transition: .3s;
+                width: 300px;
+                max-width: 100%;
+                text-align: center;
+                text-decoration: none;
+
+                &:hover{
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                }
+            }
+        }
+    }
+
+    .ver-empresas{
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        background-color: $cinzaClaro;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        .bloco-mapa{
+
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 30px;
+
+            .busca-geral{
+
+                width: 100%;
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
                 justify-content: space-between;
-                height: 400px;
-                box-shadow: 5px 5px 5px 3px rgba( $cinzaBorda ,.3);
-                border-radius: 5px;
+                gap: 20px;
+                background-color: rgba($branco, 0.95);
+                padding: 20px;
 
-                .thumbnail{
+                h2{
 
-                    width: 200px;
-                    height: 200px;
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    font-size: $fs30;
+                    color: $preto;
+                    font-weight: 700;
                 }
 
                 h3{
 
-                    font-size: $fs16;
-                    font-weight: 500;
                     color: $preto;
-
+                    font-size: $fs20;
+                    font-weight: 700;
                 }
 
-                .actions{
+                .grupo{
 
-                    display: flex;
-                    flex-direction: column;
                     width: 100%;
-                    align-items: center;
-                    gap: 10px;
 
-                    form{
+                    input, select{
+
                         width: 100%;
-                    }
-
-                    .btn-simples{
-
-                        background-color: $verdePrincipal;
-                        color: $branco;
-                        text-decoration: none;
                         padding: 10px;
-                        font-size: $fs12;
-                        border-radius: 5px;
-                        width: 100%;
-                        max-width: 100%;
-                        text-align: center;
+                        border-radius: 10px;
+                        box-shadow: 0 5px 5px -4px rgba( $preto ,.3);
+                        border: none;
 
-                        &:hover{
+                        &:focus-visible, &:focus{
 
-                            background-color: $verdeLimao;
-
+                            outline: none;
                         }
                     }
                 }
 
-            }
-        }
+                .btn-busca{
 
-    }
-
-    .cabecalho-produtos{
-
-        h3{
-
-            font-size: $fs16;
-            font-weight: 600;
-
-            span{
-
-                color: $verdePrincipal;
-            }
-        }
-    }
-
-    .produtosContent{
-
-        .swiper-button-prev{
-
-            position: absolute;
-            left: 330px;
-            color: $verdePrincipal;
-
-        }
-
-        .swiper-button-next{
-
-            position: absolute;
-            right: 330px;
-            color: $verdePrincipal;
-            border-radius: 50%;
-        }
-
-        .swiper-wrapper{
-
-            width: 100%;
-
-            .swiper-slide{
-
-                display: flex ;
-                justify-content: center;
-                height: 400px;
-                width: 400px;
-
-                .produto{
-
-                    width: 100%;
-                    max-width: 400px;
-                    box-shadow: 6px 5px 19px -5px rgba(0,0,0,0.75);
-                    padding: 20px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    border-radius: 5px;
+                    color: $verdePrincipal;
+                    border: 1px solid $verdePrincipal;
+                    background-color: $branco;
+                    font-size: $fs18;
+                    padding: 8px 16px;
                     transition: .3s;
-                    gap: 10px;
-                    justify-content: space-between;
+                    border-radius: 10px;
 
                     &:hover{
-
-                        transform: scale(1.05);
+                        background-color: $verdePrincipal;
+                        color: $branco;
                     }
+                }
 
-                    img{
+            }
 
-                        width: 250px;
-                        height: 250px;
+        }
 
-                    }
+        .textos{
 
-                    .actions{
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            justify-content: space-evenly;
+            height: 100%;
+            background-color: $branco;
+            border-radius: 20px;
+            padding: 20px;
+            gap: 30px;
+            box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
 
-                        display: flex;
-                        justify-content: space-evenly;
-                        width: 100%;
+            h1{
 
-                        .btnSimples{
+                font-size: $fs40;
+                font-weight: 700;
+                color: $preto;
+                text-align: center;
+            }
 
-                            background-color: $verdePrincipal;
-                            color: $branco;
-                            text-decoration: none;
-                            padding: 10px;
-                            font-size: $fs14;
-                            border-radius: 5px;
-                            width: 100%;
-                            max-width: 120px;
-                            text-align: center;
+            p{
 
-                            &:hover{
+                font-size: $fs14;
+                color: $preto;
+                line-height: 1.25;
+                font-weight: 500;
+            }
 
-                                background-color: $verdeLimao;
+            a{
 
-                            }
-                        }
-                    }
+                color: $verdePrincipal;
+                border: 1px solid $verdePrincipal;
+                font-size: $fs18;
+                padding: 8px 16px;
+                font-weight: 700;
+                text-decoration: none;
+                border-radius: 8px;
+                width: 100%;
+                max-width: 220px;
+                text-align: center;
+                transition: .3s;
+
+                &:hover{
+                    background-color: $verdePrincipal;
+                    color: $branco;
                 }
             }
         }
+
     }
 }
+
 
 @media only screen and (max-width: 770px) {
 
     .home{
 
-        .filtro-padrao{
-
-            width: 100%;
-            display: flex;
-
-            .filtro-opcoes{
-
-                width: 100% !important;
-                max-width: 100%;
-                gap: 0;
-
-                .texto-filtro{
-
-                    background-color: rgba($branco, 0.8);
-                    padding: 15px 10px;
-
-                    h1{
-
-                        font-size: $fs30;
-                        color: $preto;
-                        font-weight: 700;
-                    }
-
-                    h2{
-
-                        font-size: $fs18;
-                        font-weight: 500;
-                        color: $cinza;
-
-                        span{
-                            color: $preto;
-                            font-weight: bold;
-                        }
-                    }
-                }
-
-                form{
-
-                    background-color: rgba($branco, 0.8);
-                    padding: 15px 10px;
-
-                    .linha{
-
-                        width: 100%;
-
-                        .input{
-
-                            padding: 0;
-
-                            input{
-
-                                width: 100%;
-                                max-width: 100%;
-                                border: 2px solid $cinzaBorda;
-                                border-radius: 10px;
-                                color: $cinzaInput;
-                                font-size: $fs18;
-                                height: 50px;
-                                margin: 0;
-                                padding-left: 1rem;
-
-                                &:focus{
-
-                                    outline: none;
-                                }
-                            }
-
-                            select{
-
-                                color: $branco;
-                                background-color: $verdePrincipal;
-                                width: 100%;
-                                border-radius: 10px;
-                                font-size: $fs18;
-                                height: 50px;
-                                margin: 0;
-                                padding-left: 1rem;
-                                border: none;
-
-                                option{
-
-                                    background-color: $branco;
-                                    color: $azulTable;
-                                    font-size: $fs14;
-                                    font-weight: 700;
-                                    padding: 10px;
-                                }
-
-                                &:focus{
-
-                                    outline: none;
-                                }
-                            }
-
-
-                        }
-
-                        .lg{
-
-                            max-width: 100%;
-
-                        }
-
-
-                        .md{
-
-                            max-width: 100%;
-
-                        }
-
-
-                        .sm{
-
-                            max-width: 100%;
-
-                        }
-
-
-
-                    }
-
-                    .btn-busca{
-
-                        max-width: 100%;
-
-                    }
-                }
-
-                .reg{
-
-                    background-color: rgba($branco, 0.8);
-                    padding: 15px 10px;
-                    font-weight: 600;
-                    font-size: $fs18;
-                }
-            }
-
-            .background-image{
-
-                display: none;
-
-            }
-        }
-
-        .cartoes-beneficios{
-
-            flex-wrap: wrap;
-            padding: 20px 0;
-            gap: 15px 20px;
-            align-items: center;
-            justify-content: center;
-
-            li{
-
-                box-shadow: 0 7px 7px -4px rgba($preto,.57);
-                max-width: 150px;
-                height: 270px;
-
-
-                img{
-
-                    width: 40px;
-                    height: 45px;
-
-                }
-
-                h3{
-
-                    font-size: $fs16;
-                    font-weight: 600;
-                    color: $preto;
-                }
-
-                p{
-
-                    font-size: $fs12;
-                    color: $cinza;
-
-                }
-
-            }
-        }
-
         .sobre{
 
             width: 100%;
+            display: flex;
             flex-direction: column;
-            padding: 0 10px;
+            gap: 20px;
 
             .sobre-cabecalho{
 
@@ -841,27 +416,24 @@
 
                 h1{
 
-                    font-size: $fs30;
+                    font-size: $fs40;
                     font-weight: 700;
                     color: $preto;
-                    text-align: justify;
 
                     .verde{
 
+                        font-size: $fs40;
                         font-weight: 700;
                         color: $verdePrincipal;
-                        font-size: $fs30;
-
                     }
 
                 }
 
                 h2{
 
-                    font-size: $fs18;
+                    font-size: $fs26;
                     font-weight: 400;
                     color: $preto;
-                    text-align: justify;
 
                 }
 
@@ -870,307 +442,157 @@
                     font-size: $fs16;
                     font-weight: 400;
                     color: $preto;
-                    text-align: justify;
                 }
 
                 a{
 
                     font-size: $fs16;
                     font-weight: 500;
-                    color: $verdePrincipal;
+                    color: $roxoLink;
                     text-decoration: none;
 
                     span{
 
                         text-decoration: underline;
+                        color: $roxoLink;
                         font-weight: 700;
-
                     }
                 }
             }
 
-            .sobre-conteudo{
-
-                flex-direction: column;
-
-                .texto{
-
-                    padding: 0;
-                    gap: 0;
-                    border: 1px solid $preto;
-                    background-color: $branco;
-
-                    h3{
-
-                        background-color: rgba($branco, .8);
-                        padding: 15px 40px;
-                        border-radius: 32px 32px 0 0;
-                        color: $preto;
-
-                    }
-
-                    h1{
-
-                        background-color: rgba($branco, .8);
-                        color: $preto;
-                        padding: 15px 40px;
-                    }
-
-                    p{
-
-                        background-color: rgba($branco, .8);
-                        padding: 15px 40px;
-                        color: $preto;
-                        text-align: justify;
-                        font-size: $fs16;
-                    }
-
-                    a{
-
-                        padding: 10px 16px;
-                        width: 100%;
-                        max-width: 100%;
-                        border-radius: 0 0 32px 32px;
-                        background-color: $verdePrincipal;
-                    }
-                }
-
-                .background-image{
-
-                    display: none;
-                }
-            }
         }
 
-        .depoimentos{
+        .etapas{
 
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 0 10px;
+            width: 100%;
+            gap: 10px;
 
-            .testimonialHeader{
+            h1{
 
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .info{
-
-                    width: 100%;
-                    max-width: 800px;
-
-                    h3{
-
-                        color: $verdePrincipal;
-                        font-size: $fs16;
-                        font-weight: 600;
-                    }
-
-                    h1{
-
-                        color: $preto;
-                        font-size: $fs40;
-                        font-weight: 700;
-                    }
-                }
-
-                .toSide{
-
-                    color: $verdePrincipal;
-                    font-size: $fs16;
-                    font-weight: 700;
-                }
-
+                text-align: center;
+                font-size: $fs40;
+                font-weight: 700;
             }
 
-            .testimonialContent{
+            .descricao{
 
-                #carouselExampleControls{
-
-                    .carousel-item{
-
-                        width: 100%;
-                        max-width: 600px;
-                        display: flex;
-                        gap: 20px;
-                        background-color: $branco;
-
-                        .textos{
-
-                            img{
-
-
-                            }
-
-                            p{
-
-                                font-size: $fs12;
-                                color: $cinza;
-                                margin: 30px 0;
-
-                            }
-
-                            h3{
-
-                                font-size: $fs16;
-                                color: $preto;
-                                font-weight: 600;
-                            }
-
-                            span{
-
-                                font-size: $fs14;
-                                color: $cinza;
-                                font-weight: 600;
-                            }
-                        }
-
-                        .profilePhoto{
-
-                            width: 230px;
-                            height: 230px;
-                            border-radius: 24px;
-                        }
-
-
-                    }
-                }
-            }
-        }
-
-    }
-
-    .produtos{
-
-        display: flex;
-        flex-direction: column;
-        padding: 20px 30px;
-
-        .produtosHeader{
-
-            h3{
-
+                text-align: center;
                 font-size: $fs16;
-                font-weight: 600;
-
-                span{
-
-                    color: $verdePrincipal;
-                }
+                font-weight: 400;
+                color: $preto;
             }
-        }
 
-        .produtos{
-
-            .bloco-produtos {
+            .bloco-etapas{
 
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 20px;
 
-                .pre-btn, .nxt-btn {
+                .etapa{
 
-                    img {
-                        display: none;
-                    }
-                }
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 20%;
+                    min-width: 250px;
 
-                .lista-produtos{
+                    .etapa-numero {
 
-                    overflow: auto;
-                    gap:20px;
-
-                    .produto{
-
-                        width: 100%;
-                        max-width: 230px;
-                        display: flex;
-                        flex-direction: column;
-                        background-color: $branco;
+                        opacity: 0;
+                        transform: translateY(-20px);
+                        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                        background-color: $verdePrincipal;
+                        border-radius: 50%;
                         padding: 10px;
-                        align-items: center;
-                        justify-content: space-between;
-                        height: 400px;
-                        box-shadow: 5px 5px 5px 3px rgba( $cinzaBorda ,.3);
-                        border-radius: 5px;
+                        width: 40px;
+                        text-align: center;
+                        color: $branco;
+                        font-weight: 700;
+                        position: relative;
 
-                        .thumbnail{
-
-                            width: 200px;
-                            height: 200px;
-                            background-size: cover;
-                            background-position: center;
-                            background-repeat: no-repeat;
+                        &:after {
+                            content: '';
+                            display: block;
+                            width: 2px;
+                            height: 20px;
+                            background-color: $verdePrincipal;
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            bottom: -20px;
                         }
+                    }
 
-                        h3{
+                    .etapa-descricao {
 
-                            font-size: $fs16;
-                            font-weight: 500;
+
+                        opacity: 0;
+                        transform: translateY(-20px);
+                        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                        width: 100%;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                        background-color: $cinzaClaro;
+                        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                        padding: 20px;
+
+                        h3 {
                             color: $preto;
+                            text-align: center;
+                            font-size: $fs24;
+                            font-weight: 600;
                         }
 
-                        .actions{
-
-                            display: flex;
-                            flex-direction: column;
-                            width: 100%;
-                            align-items: center;
-                            gap: 10px;
-
-                            form{
-
-                                width: 100%;
-                            }
-
-                            .btnSimples{
-
-                                background-color: $verdePrincipal;
-                                color: $branco;
-                                text-decoration: none;
-                                padding: 10px;
-                                font-size: $fs12;
-                                border-radius: 5px;
-                                width: 100%;
-                                max-width: 100%;
-                                text-align: center;
-
-                                &:hover{
-
-                                    background-color: $verdeLimao;
-
-                                }
-                            }
+                        p {
+                            color: $preto;
+                            text-align: center;
+                            font-size: $fs16;
+                            font-weight: 400;
                         }
+
+                    }
+
+                    .etapa-numero.show, .etapa-descricao.show {
+                        opacity: 1;
+                        transform: translateY(0);
                     }
                 }
             }
         }
 
-        .produtosContent{
+        .vitrine-tutorial{
 
+            width: 100%;
 
-            .swiper-button-next,.swiper-button-prev, .swiper-pagination{
-
-                display: none;
-            }
-
-            .swiper-wrapper{
+            .vitrine{
 
                 width: 100%;
-                gap: 50px;
-                flex-direction: column;
 
+            }
 
-                .swiper-slide{
+            .tutoriais{
 
-                    width: 100%;
-                    display: flex !important;
-                    justify-content: center;
-                    height: 400px;
-                    max-width: 400px;
+                width: 100%;
 
-                }
+            }
+        }
+
+        .ver-empresas{
+
+            .bloco-mapa{
+
+                width: 100%;
+            }
+
+            .textos{
+
+                width: 100%;
+                align-items: center;
+
             }
         }
     }

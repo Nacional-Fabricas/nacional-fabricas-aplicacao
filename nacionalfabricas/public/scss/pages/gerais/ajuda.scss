@@ -1,272 +1,253 @@
 @import "../../variaveis.scss";
 
-.ajuda{
-
+.ajuda {
     display: flex;
     flex-direction: column;
     gap: 50px;
     align-items: center;
+    width: 80vw;
 
-
-    .ajudaHeader{
-
-        border-bottom: 3px solid $verdePrincipal;
+    .cabecalho {
         display: flex;
-        justify-content: center;
-        width: 13%;
-        padding-bottom: 15px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
 
-
-        h1{
-
+        h1 {
             font-size: $fs44;
             font-weight: 800;
         }
 
+        h2 {
+            font-size: $fs30;
+            font-weight: 600;
+        }
     }
 
-    .ajudaBody{
-
+    .tutoriais {
         display: flex;
-        gap: 20px;
-
-    .search{
-
-        display: flex;
-        flex-direction: column;
+        box-shadow: 0 7px 7px -4px rgba($preto, .57);
         width: 100%;
-        max-width: 48%;
+        border-radius: 10px;
         gap: 20px;
-        align-items: center;
+        min-height: 500px;
+        justify-content: space-between;
 
-        h1{
-
-            font-size: $fs32;
-            text-align: center;
-            font-weight: 400;
-        }
-
-        input{
-
-            background-color: transparent;
-            border: transparent;
-            width: 100%;
-            color: $cinzaInput;
-            font-size: $fs14;
-            padding-left: 10px;
-            border: 2px solid $cinzaBorda;
-            outline: none;
-            border-radius: 8px;
-            height: 35px;
-        }
-
-        img{
-
-            width: 100%;
-            max-width: 700px;
-        }
-
-
-    }
-
-    .questions{
-
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 52%;
-        gap: 20px;
-
-        h1{
-
-            font-size: $fs26;
-            font-weight: 400;
-        }
-
-        .accordion{
-
-            width: 100%;
+        .lista-tutoriais {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 30px;
+            width: 30%;
+            padding: 20px;
 
-            .accordion-item{
+            .tutorial {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                border-bottom: 1px solid $cinzaEscuro;
 
-                border: none !important;
+                h3 {
+                    font-size: $fs22;
+                    font-weight: 600;
+                }
 
+                span {
+                    font-size: $fs14;
+                    color: $cinza;
+                    transition: .3s;
+                    padding: 5px;
+                    cursor: pointer;
 
-                .collapsed{
-
-                    border: 1px solid $verdePrincipal;
-                    background-color: $branco !important;
-                    color: $verdePrincipal !important;
-                    border-radius: 16px;
-                    color: $branco;
-                    padding: 8px 16px;
-                    transition: all .2s;
-
-                    &:hover{
-
-                        background-color: $verdePrincipal !important;
-                        color: $branco !important;
+                    &:hover {
+                        color: $branco;
+                        background-color: $verdePrincipal;
                     }
                 }
 
-                .accordion-header{
+                .active {
+                    color: $branco;
+                    background-color: $verdePrincipal;
+                }
+            }
+        }
 
-                    .accordion-button{
+        .tutorial-destaque {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 70%;
+            padding: 20px;
+            background-color: $cinzaClaro;
 
+            iframe {
+                width: 100%;
+                height: 80%;
+                box-shadow: 0 7px 7px -4px rgba($preto, .57);
+            }
+
+            .descricao {
+                color: $cinzaEscuro;
+            }
+        }
+    }
+
+    .faq {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        width: 100%;
+
+        .bloco-perguntas-frequentes {
+            .perguntas-frequentes {
+                display: flex;
+
+                .perguntas {
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+
+                    h4 {
+                        display: flex;
+                        height: 60px;
+                        align-items: center;
                         font-size: $fs16;
-                        font-weight: 700;
-                        height: 40px;
-                        padding: 25px 30px;
-                        border: 1px solid $verdePrincipal;
-                        background-color: $verdePrincipal;
-                        color: $branco;
-                        border-radius: 16px;
+                        padding: 10px;
+                        transition: .3s;
+                        cursor: pointer;
 
-                        &:hover{
-
+                        &:hover {
                             background-color: $verdePrincipal;
                             color: $branco;
                         }
-
-
-                        &:focus{
-
-                            box-shadow: none !important;
-                        }
                     }
 
+                    .active {
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                    }
                 }
 
-                .accordion-body{
+                .respostas {
+                    width: 70%;
 
-                    color: $cinza;
-                    font-weight: 400;
-                    padding: 16px;
+                    span {
+                        font-size: $fs24;
+                        color: $cinza;
+                    }
+
+                    .active {
+                        height: 100%;
+                        align-items: center;
+                        font-size: $fs18;
+                        text-align: justify;
+                        padding: 10px;
+                    }
                 }
 
+                .perguntas, .respostas {
+                    span {
+                        display: none;
+                    }
+
+                    .active {
+                        display: flex;
+                    }
+                }
             }
         }
-    }
     }
 }
 
-@media only screen and (max-width: 770px) {
+@media (max-width: 1024px) {
 
-    .ajuda{
+    .ajuda {
 
+        .tutoriais {
+            flex-direction: column;
 
-        .ajudaHeader{
-
-            h1{
-
-                font-size: $fs26;
+            .lista-tutoriais, .tutorial-destaque {
+                width: 100%;
             }
-
         }
 
-        .ajudaBody{
+        .faq .bloco-perguntas-frequentes .perguntas-frequentes {
 
-            flex-direction: column;
-            background-image: url(/images/help-faq.png);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            gap: 0;
+            flex-direction: column-reverse;
 
-            .search{
-
-                max-width: 100%;
-                background-color: rgba($branco, 0.8);
-                padding: 30px;
-
-                img{
-
-                    display: none;
-                }
-            }
-
-            .questions{
-
-                max-width: 100%;
-                background-color: rgba($branco, 0.8);
-
-                h1{
-
-                    font-size: $fs26;
-                    font-weight: 400;
-                    text-align: center;
-
-                }
-
-                .accordion{
-
-                    max-width: 95%;
-                    align-self: center;
-
-                    .accordion-item{
-
-                        border: none !important;
-                        border-radius: 20px;
-
-                        .collapsed{
-
-                            border: 1px solid $verdePrincipal;
-                            background-color: $branco !important;
-                            color: $verdePrincipal !important;
-                            border-radius: 16px;
-                            color: $branco;
-                            padding: 8px 16px;
-                            transition: all .2s;
-
-                            &:hover{
-
-                                background-color: $verdePrincipal !important;
-                                color: $branco !important;
-                            }
-                        }
-
-                        .accordion-header{
-
-                            .accordion-button{
-
-                                font-size: $fs16;
-                                font-weight: 700;
-                                height: 40px;
-                                padding: 25px 30px;
-                                border: 1px solid $verdePrincipal;
-                                background-color: $verdePrincipal;
-                                color: $branco;
-                                border-radius: 16px;
-
-                                &:hover{
-
-                                    background-color: $verdePrincipal;
-                                    color: $branco;
-                                }
-
-
-                                &:focus{
-
-                                    box-shadow: none !important;
-                                }
-                            }
-
-                        }
-
-                        .accordion-body{
-
-                            color: $cinza;
-                            font-weight: 400;
-                            padding: 16px;
-                        }
-
-                    }
-                }
+            .perguntas, .respostas {
+                width: 100%;
             }
         }
     }
+}
 
+@media (max-width: 768px) {
+    .ajuda {
+
+        .cabecalho h1 {
+            font-size: $fs36;
+        }
+
+        .cabecalho h2 {
+            font-size: $fs24;
+        }
+
+        .tutoriais {
+            .lista-tutoriais .tutorial h3 {
+                font-size: $fs18;
+            }
+
+            .lista-tutoriais .tutorial span {
+                font-size: $fs12;
+            }
+
+            .tutorial-destaque .descricao {
+                font-size: $fs16;
+            }
+        }
+
+        .faq .bloco-perguntas-frequentes .perguntas-frequentes .perguntas h4 {
+            font-size: $fs14;
+        }
+
+        .faq .bloco-perguntas-frequentes .perguntas-frequentes .respostas span {
+            font-size: $fs20;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .ajuda {
+
+        .cabecalho h1 {
+            font-size: $fs30;
+        }
+
+        .cabecalho h2 {
+            font-size: $fs20;
+        }
+
+        .tutoriais {
+            .lista-tutoriais .tutorial h3 {
+                font-size: $fs16;
+            }
+
+            .lista-tutoriais .tutorial span {
+                font-size: $fs10;
+            }
+
+            .tutorial-destaque .descricao {
+                font-size: $fs14;
+            }
+        }
+
+        .faq .bloco-perguntas-frequentes .perguntas-frequentes .perguntas h4 {
+            font-size: $fs12;
+        }
+
+        .faq .bloco-perguntas-frequentes .perguntas-frequentes .respostas span {
+            font-size: $fs18;
+        }
+    }
 }

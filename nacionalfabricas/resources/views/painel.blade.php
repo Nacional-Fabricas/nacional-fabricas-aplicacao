@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.painel')
 @section('content')
 
     <div class="painel">
@@ -53,7 +53,7 @@
 
                             <span class="value">
 
-                                {{$assinatura -> current_period_start  }} Dias
+                                {{$assinatura ? $assinatura -> current_period_start : 'N/A' }} Dias
 
                             </span>
 
@@ -67,7 +67,7 @@
 
                     <div class="rodapeDado">
 
-                        <span class="info">Acaba em <strong>{{ Carbon\Carbon::parse($assinatura -> current_period_end)->format('d/m/Y') }}</strong></span>
+                        <span class="info">Acaba em <strong>{{ $assinatura ? Carbon\Carbon::parse($assinatura -> current_period_end)->format('d/m/Y') : 'N/A' }}</strong></span>
 
                         <a href="{{route('meu_plano')}}" class="acao">Ver assinatura</a>
 
@@ -182,7 +182,7 @@
 
                             <span class="desc">
 
-                                de {{$assinatura -> max_usuarios}} usuários
+                                de {{ $assinatura ? $assinatura -> max_usuarios : 'N/A'}} usuários
 
                             </span>
 
@@ -192,9 +192,9 @@
 
                     <div class="rodapeDado">
 
-                        @if( $meuPLano -> max_usuarios > $usuariosTime )
+                        @if( $meuPLano ? $meuPLano -> max_usuarios > $usuariosTime : 'N/A' )
 
-                            <span class="info">Sua loja permite mais <strong> {{$meuPLano -> max_usuarios - $usuariosTime}} usuários</strong></span>
+                            <span class="info">Sua loja permite mais <strong> {{$meuPLano ? $meuPLano -> max_usuarios - $usuariosTime : 'N/A'}} usuários</strong></span>
 
                         @else
 

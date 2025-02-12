@@ -92,7 +92,6 @@ class ProdutosController extends Controller
 
         return view ('pages.produtos.editar-produto', compact('user', 'produto', 'album', 'categorias' ));
     }
-
     public function produto($id){
 
         $user = Auth::user();
@@ -247,7 +246,7 @@ class ProdutosController extends Controller
 
                         $image = new Album();
                         $image->id_conta = Auth::id();
-                        $image->site_id = $site->id;
+                        $image->id = $site->id;
                         $image->id_produto = $produto->id;
                         $image->url_imagem = $imagemNome;
                         $image->save();

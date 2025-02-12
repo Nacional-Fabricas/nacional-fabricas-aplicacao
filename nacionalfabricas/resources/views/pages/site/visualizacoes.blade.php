@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.painel')
 @section('content')
 
     <div class="minhas-visualizacoes">

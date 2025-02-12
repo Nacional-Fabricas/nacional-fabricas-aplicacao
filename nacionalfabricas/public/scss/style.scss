@@ -1,4 +1,4 @@
-@import "variaveis", "animacoes-gerais", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
+@import "variaveis", "pages/meu-site/meu-site","animacoes-gerais", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
 ,"pages/cadastro/finalizarCadastro","pages/gerais/funcionalidades","pages/gerais/planos","pages/gerais/ajuda","pages/gerais/contato"
 ,"components/font","pages/dashboard/dadosCadastrais","pages/produtos/criarprodutos","pages/categorias/criarcategoria"
 ,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/gerais/buscaGeral","pages/dashboard/meuSite"
@@ -6,12 +6,11 @@
 ,"pages/produtos/productPage","pages/cotacao/cotacao" ,"pages/cotacao/listaOrcamentos","pages/cotacao/solicitarOrcamentos"
 ,"pages/cotacao/listarOrcamentos" , "pages/cotacao/cotacaoPage" ,"pages/dashboard/meuPlano" , "pages/dashboard/dashboard", "pages/dashboard/configuracoes"
 ,"pages/gerais/checkout","components/contatoFooter", "pages/gerais/termosUso", "pages/gerais/sucesso","pages/gerais/erros","pages/dashboard/controleGeral"
-,"pages/dashboard/suporte","pages/dashboard/rootDados","pages/dashboard/notificacoes","pages/dashboard/visualizacoes","pages/acessos/verificarEmail","pages/dashboard/chamado";
+,"pages/dashboard/suporte", "components/sidebar","pages/dashboard/rootDados","pages/dashboard/notificacoes","pages/dashboard/visualizacoes","pages/acessos/verificarEmail","pages/dashboard/chamado";
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sora:wght@100..800&display=swap');
 
 // estilos gerais
-
 
 *{
 
@@ -32,7 +31,7 @@ body{
 
 main{
 
-    display: flex;
+    display: flex !important;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -51,7 +50,7 @@ a{
 
 //classes gerais
 
-.listaVazia{
+.lista-vazia{
 
     display: flex;
     flex-direction: column;
@@ -127,7 +126,7 @@ a{
     border-radius: 50%;
 }
 
-#loading-indicator{
+#indicador-carregamento{
 
     position: fixed;
     background-color: rgba($preto, 0.6);
@@ -137,7 +136,7 @@ a{
     left: 0;
     display: none;
 
-    .bloco-load{
+    .bloco-carregamento{
 
         width: 100%;
         height: 100%;
@@ -436,7 +435,7 @@ input{
 
     .bloco-pagina{
 
-        max-width: 90%;
+        max-width: 80vw;
     }
 
     .error{

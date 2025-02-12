@@ -46,7 +46,7 @@ class Site extends Model
 
     public function albums()
     {
-        return $this->hasMany(Album::class, 'site_id');
+        return $this->hasMany(Album::class, 'id');
     }
 
     protected static function boot()

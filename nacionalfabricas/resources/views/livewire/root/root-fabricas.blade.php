@@ -27,7 +27,7 @@
 
                     @if($site -> id_conta == $fabrica -> id_conta)
 
-                <a class="resultado" href="{{ route('industria', [ 'id' => $fabrica -> id_conta, 'site_slug' => $site -> slug])}}">
+                <a class="resultado" href="{{ route('industria', [ 'id' => $fabrica -> id_conta, 'slug' => $site -> slug])}}">
 
                     @endif
 

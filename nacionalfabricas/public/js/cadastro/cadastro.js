@@ -49,7 +49,7 @@ $(document).ready(function () {
             return;
         }
 
-        $('#loading-indicator').show();
+        $('#indicador-carregamento').show();
 
         $.ajax({
             url: `https://viacep.com.br/ws/${cep}/json/`,
@@ -68,7 +68,7 @@ $(document).ready(function () {
                 console.error('Erro ao buscar dados do CEP');
             },
             complete: function () {
-                $('#loading-indicator').hide();
+                $('#indicador-carregamento').hide();
             }
         });
     });
@@ -76,7 +76,7 @@ $(document).ready(function () {
     // Adiciona novos campos de CNAE dinamicamente
     var cnaeCount = 1;
 
-    $('.addCnae').on('click', function () {
+    $('.adicionar-cnae').on('click', function () {
         cnaeCount++;
         var newInput = $('#cnae_id1').clone();
         newInput.attr('id', `cnae_id${cnaeCount}`);

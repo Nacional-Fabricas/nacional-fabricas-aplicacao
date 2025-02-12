@@ -1,12 +1,19 @@
 @import "../../variaveis.scss";
 
-.finalizar-cadastro-body{
+.finalizar-cadastro{
 
-    .finalizar-cadastro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    header{
 
         display: flex;
+        width: 50vw;
+        justify-content: space-between;
+        height: 10vh;
 
-        .welcome{
+        .bloco-nome{
 
             display: flex;
             width: 600px;
@@ -14,10 +21,10 @@
             gap: 20px;
             justify-content: flex-end;
 
-            .name{
+            .nome{
 
                 color: $verdePrincipal;
-                font-size: $fs30;
+                font-size: $fs20;
                 font-weight: 600;
 
             }
@@ -28,13 +35,11 @@
                 height: 30px;
             }
         }
-
     }
 
     .bloco-cadastro{
 
-        width: 100%;
-        max-width: 100%;
+        width: 50vw;
         display: flex;
         padding:25px 0;
         justify-content: center;
@@ -42,29 +47,36 @@
         .formulario{
 
             width: 100%;
-            max-width: 94%;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            align-items: center;
+
+            h1{
+
+                font-size: $fs40;
+                font-weight: 700;
+                color: $preto;
+                text-align: center;
+
+                span{
+
+                    color: $verdePrincipal;
+                    text-decoration: underline;
+                }
+            }
 
             .secao{
 
-                display: flex;
-                gap: 10px;
-                flex-direction: column;
-
-                h1{
-
-                    font-size: $fs40;
-                    font-weight: 700;
-                    color: $preto;
-
-                    span{
-
-                        color: $verdePrincipal;
-                        text-decoration: underline;
-                    }
-                }
+                display: none;
+                transition: all 0.3s ease-in-out;
+                gap: 30px;
+                flex-wrap: wrap;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0 0 15px rgba(0,0,0,.2);
+                width: 50vw;
+                justify-content: center;
 
                 h2{
 
@@ -86,7 +98,7 @@
                         display: flex;
                         flex-direction: column;
                         width: 100%;
-                        max-width: 300px;
+                        gap: 10px;
 
                         #cnaeContainer{
 
@@ -149,7 +161,7 @@
                                 width: 100%;
                             }
 
-                            .addCnae{
+                            .adicionar-cnae{
 
                                 width: 100%;
                                 color: $verdePrincipal;
@@ -157,13 +169,11 @@
                                 align-items: flex-end;
                                 display: flex;
                                 height: 100%;
-
                             }
 
                             .md{
 
                                 width: 100%;
-                                max-width: 546px;
                             }
                         }
 
@@ -182,7 +192,6 @@
                             width: 100%;
                             padding: 0 10px;
                             outline: none;
-
                         }
                     }
 
@@ -195,79 +204,41 @@
                             width: 40px;
                         }
                     }
-
-                    .xlg{
-
-                        width: 100%;
-                        max-width: 1150px;
-                    }
-
-                    .lg{
-
-                        width: 100%;
-                        max-width: 720px;
-                    }
-
-                    .md{
-
-                        width: 100%;
-                        max-width: 570px;
-                    }
-
-                    .sm{
-
-                        width: 100%;
-                        max-width: 275px;
-                    }
                 }
 
-                .linhaFinal{
+                .botoes{
 
-                    justify-content: space-between !important;
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    gap: 20px;
 
-                    .botoes{
+                    .btn-proximo, .btn-voltar, .btn-fin{
 
-                        width: 100%;
-                        max-width: 35%;
-                        display: flex;
-                        gap: 20px;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        margin: 10px 5px;
+                        transition: .3s;
+                        width: 40%;
 
-                        button,a{
+                        &:hover{
 
-                            width: 200px;
-                            height: 56px;
-                            border-radius: 0.75rem;
-                            padding: 13px 50px;
-                            transition: 0.3s;
-                            text-align: center;
-                            font-size: $fs20;
-                            font-weight: 600;
-                            text-decoration: none;
-                        }
-
-                        .inactive{
-
-                            background-color: $cinzaEscuro;
-                            color: $branco;
-
-                        }
-
-                        .fishReg{
-
-                            background-color: $verdePrincipal;
-                            color: $branco;
-
-                            &:hover{
-
-                                background-color: $verdeLimao;
-                            }
+                            background-color: $verdeLimao;
                         }
                     }
                 }
+            }
 
+            .active {
+                display: block;
             }
         }
     }
+
 }
 
 @media only screen and (max-width: 770px) {

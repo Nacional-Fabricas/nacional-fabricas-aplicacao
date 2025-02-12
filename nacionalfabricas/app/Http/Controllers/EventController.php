@@ -41,24 +41,6 @@ class EventController extends Controller
 
         $produtosNotas = Produto::where('id_conta', $usuarioId)->get();
 
-        if(count($produtosNotas) > 0){
-
-            $classificacoes = [];
-
-            foreach ($produtosNotas as $produtoNota) {
-
-                $classificacaoNumero = Rating::where('id_produto', $produtoNota->id)->avg('rating');
-
-                $classificacoes[$produtoNota->id] = $classificacaoNumero;
-            }
-
-            $classificacoes = $classificacoes[$produtoNota->id];
-
-        }else{
-
-            $classificacoes = 0;
-        }
-
         $cotacoes = Cotacao::where('id_receptor', $usuarioId)->where('status_receptor', 'Aprovado')->orwhere('status_remetente', 'Aprovado')->count();
 
         $todasCotacoes = Cotacao::where('id_receptor', $usuarioId)->count();
@@ -140,10 +122,9 @@ class EventController extends Controller
             ->whereBetween('created_at', [Carbon::now()->subDays(30), Carbon::now()])
             ->get();
 
-
         $usuariosTime = User::where('current_team_id', $usuarioId)->count();
 
-        $meuPLano = Plano::where('id', $assinatura -> id_plano)-> first();
+        $meuPLano = $assinatura ? Plano::where('id', $assinatura -> id_plano)-> first() : null;
 
         $solicitacoesFabricante = Cotacao::where('id_receptor', $usuarioId)->where('leitura_receptor', 'naolido')->get();
 
@@ -160,7 +141,6 @@ class EventController extends Controller
             'todasCotacoes',
             'cotacoesAbertas',
             'nomeCompleto',
-            'classificacoes',
             'pontuacao',
             'nivel',
             'assinatura',
@@ -171,22 +151,15 @@ class EventController extends Controller
             'notificacoesNum'
         ));
     }
-
     public function home(){
 
-        $user = Auth::user();
+        $estados =  Estado::orderBy('sigla', 'asc') -> get();
 
-        $estados =  Estado::all();
+        $sites = Site::inRandomOrder()-> limit(5)->get();
 
         $segmentos = Segmento::all();
 
-        $produtos = Produto::where('ativo', 'Sim') -> inRandomOrder()->limit(5)->get();
-
-        $depoimentos = 0;
-
-        //dd(URL::previous());
-
-        return view ('pages.gerais.home', compact('user', 'produtos', 'depoimentos', 'estados', 'segmentos'));
+        return view ('pages.gerais.home', compact( 'sites', 'segmentos' , 'estados'));
     }
     public function funcionalidades(){
 
@@ -252,16 +225,7 @@ class EventController extends Controller
 
         if ($user != null){
 
-            $assinatura = Assinatura::where('id_conta', $user -> id ) -> where('status', 'Ativo') -> first();
-
-            if( $assinatura && $assinatura -> nome_plano == "Membro"){
-
-                $usuarioId = $user -> current_team_id;
-
-            }else{
-
-                $usuarioId = $user -> id;
-            }
+            $usuarioId = $user -> current_team_id ?? $user -> id;
 
         }else{
 

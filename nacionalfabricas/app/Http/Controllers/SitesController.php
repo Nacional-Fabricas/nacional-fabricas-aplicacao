@@ -11,6 +11,7 @@ use App\Models\Produto;
 use App\Models\Rating;
 use App\Models\Segmento;
 use App\Models\Site;
+use Intervention\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,7 +57,6 @@ class SitesController extends Controller
 
         ));
     }
-
     public function meuSite(){
 
         $user = Auth::user();
@@ -88,7 +88,6 @@ class SitesController extends Controller
 
         return view ('pages.site.meu-site', compact( 'user', 'estados', 'site', 'cadastro', 'site', 'segmentos'));
     }
-
     public function site( $id){
 
         $user = Auth::user();
@@ -109,27 +108,11 @@ class SitesController extends Controller
 
         $produtosNotas = Produto::where('id_conta', $id )->get();
 
-        if(count($produtosNotas) > 0){
 
-            $classificacoes = [];
 
-            foreach ($produtosNotas as $produtoNota) {
-
-                $classificacaoNumero = Rating::where('id_produto', $produtoNota->id)->avg('rating');
-
-                $classificacoes[$produtoNota->id] = $classificacaoNumero;
-            }
-
-            $classificacoes = $classificacoes[$produtoNota->id];
-
-        }else{
-
-            $classificacoes = 0;
-        }
-
-        return view ('pages.site.site', compact('user', 'estados', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho', 'classificacoes') );
+        return view ('pages.site.site',
+            compact('user', 'estados', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
     }
-
     public function create(Request $request)
     {
         try {
@@ -172,7 +155,6 @@ class SitesController extends Controller
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao criar site: ' . $e->getMessage());
         }
     }
-
     public function update(Request $request, $id)
     {
         try {
@@ -196,7 +178,6 @@ class SitesController extends Controller
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao atualizar site: ' . $e->getMessage());
         }
     }
-
     public function delete($id)
     {
         try {
@@ -223,23 +204,18 @@ class SitesController extends Controller
     {
 
         try {
-            $request->validate([
-                'image' => 'required',
-                'site_id' => 'required|exists:sites,id',
-            ]);
 
-            $pasta = public_path('images/sites/backgrounds/');
-            $imagemBase64 = $request->input('image');
-            $partesImagem = explode(";base64,", $imagemBase64);
-            $imagemBase = base64_decode($partesImagem[1]);
-            $imagemNome = uniqid() . '.png';
+            $image = $request->file('image');
+            $field = $request->input('field');
+            $id = $request->input('id');
 
-            file_put_contents($pasta . $imagemNome, $imagemBase);
+            // Process the image
+            $img = Image::make($image->getRealPath());
+            $img->resize(800, 600); // Example resize
 
-            $site = Site::find($request->site_id);
-            $site->banner = $imagemNome;
-            $site->save();
-
+            // Save the cropped image
+            $path = 'images/sites/backgrounds/' . $field . '_' . $id . '.jpg';
+            $img->save(public_path($path));
 
             return redirect()->route('meu_site')->with('sucesso', 'Banner atualizado com sucesso!');
         } catch (\Exception $e) {
@@ -252,7 +228,7 @@ class SitesController extends Controller
             // Alterei o nome do campo para 'image'
             $request->validate([
                 'image' => 'required', // Aqui, 'image' é o campo correto
-                'site_id' => 'required|exists:sites,id',
+                'id' => 'required|exists:sites,id',
             ]);
 
             // Definir o diretório para salvar a imagem
@@ -270,7 +246,7 @@ class SitesController extends Controller
             file_put_contents($pasta . $imagemNome, $imagemBase);
 
             // Atualizar o modelo Site
-            $site = Site::find($request->site_id);
+            $site = Site::find($request->id);
             $site->logo = $imagemNome; // Atualizando o campo logo
             $site->save();
 
@@ -303,7 +279,7 @@ class SitesController extends Controller
 
         file_put_contents($imagemCaminhoCompleto, $imagemBase);
 
-        $site = Site::find($request->site_id);
+        $site = Site::find($request->id);
 
         // Atualiza o campo específico
         $site->$campo = $imagemNome;

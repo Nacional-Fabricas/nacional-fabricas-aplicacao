@@ -2,17 +2,21 @@
 
 footer{
 
-    display: flex;
+    display: flex !important;
     width: 100%;
     justify-content: center;
+    bottom: 0;
+    left: 0;
+    height: 10vh;
 
     .rodape {
 
         display: flex;
-        width: 1300px;
-        max-width: 100%;
+        width: 80vw;
         flex-wrap: wrap;
         gap: 40px 0;
+        align-items: center;
+        justify-content: space-between;
 
         .bloco-rodape{
 
@@ -40,7 +44,7 @@ footer{
                 padding: 0;
                 margin: 0;
 
-                .pagesLink{
+                .link{
 
                     a{
 
@@ -96,9 +100,8 @@ footer{
 
         .bloco-rodape{
 
-            width: 100%;
-            max-width: 100%;
-            justify-content: center;
+            text-align: center;
+            max-width: 100% !important;
 
             &:first-child{
 
@@ -114,7 +117,7 @@ footer{
 
             ul{
 
-                width: 90%;
+                width: 100%;
                 justify-content: space-around;
                 align-items: center;
                 padding: 10px 0;

@@ -265,7 +265,7 @@
 
         @if($site)
 
-            <a href="{{route('site_industria', [ 'site_id' => $site -> id, 'site_slug' => $site->slug])}}" type="submit" class="btn-acessar">Visitar página</a>
+            <a href="{{route('site', [ 'id' => $site -> id, 'slug' => $site->slug])}}" type="submit" class="btn-acessar">Visitar página</a>
 
         @endif
 

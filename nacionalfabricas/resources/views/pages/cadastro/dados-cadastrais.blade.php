@@ -1,9 +1,9 @@
-@extends('layouts.dashboard')
+@extends('layouts.painel')
 @section('content')
 
-<div id="loading-indicator">
+<div id="indicador-carregamento">
 
-    <div class="bloco-load">
+    <div class="bloco-carregamento">
 
         <div class="spinner-border m-5 text-light" role="status">
 

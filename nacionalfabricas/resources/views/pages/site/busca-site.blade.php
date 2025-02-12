@@ -7,7 +7,7 @@
 
         <div class="breadcrumb">
 
-            <a href="{{ route('industria', ['conta_id' => $site -> id_conta, 'site_slug' => $site -> slug])}}">Início</a> > Categoria > <strong>{{$busca}}</strong>
+            <a href="{{ route('industria', ['conta_id' => $site -> id_conta, 'slug' => $site -> slug])}}">Início</a> > Categoria > <strong>{{$busca}}</strong>
 
         </div>
 

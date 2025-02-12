@@ -21,9 +21,11 @@ class SuporteController extends Controller
         if($assinatura -> nome_plano == "Membro"){
 
             $userId = $user -> current_team_id;
+
         }else{
 
             $userId = $user -> id;
+
         }
 
         $chamados = Chamado::where('id_conta', $userId) -> get();

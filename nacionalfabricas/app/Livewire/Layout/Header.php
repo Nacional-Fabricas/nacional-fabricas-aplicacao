@@ -35,6 +35,6 @@ class Header extends Component
         $cadastro = $usuarioId ? Cadastro::where('id_conta', $usuarioId)->first() : null;
 
         // Retorna a view do cabeçalho com os dados do cadastro
-        return view('livewire.layout.header', compact('cadastro'));
+        return view('livewire.layout.header', compact('cadastro','usuario'));
     }
 }

@@ -1,0 +1,196 @@
+@import "../../variaveis";
+
+.vitrine-empresa {
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80vw;
+
+    h1 {
+        font-size: $fs30;
+        font-weight: 700;
+        width: 100%;
+        text-align: center;
+    }
+
+    .produtos {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+
+        .lista-produtos {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+
+            .produto {
+                width: 100%;
+                max-width: 200px;
+                display: flex;
+                flex-direction: column;
+                background-color: $branco;
+                padding: 10px;
+                align-items: center;
+                justify-content: space-between;
+                height: 400px;
+                box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.3);
+                border: 1px solid $cinzaClaro;
+                border-radius: 5px;
+                transition: .3s;
+
+                .thumbnail {
+                    width: 200px;
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                h3 {
+                    font-size: $fs16;
+                    font-weight: 500;
+                    color: $preto;
+                }
+
+                .acoes {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: center;
+                    gap: 10px;
+
+                    .botao-editar-produto, .botao-ver-produto {
+                        border: 1px solid $verdePrincipal;
+                        color: $verdePrincipal;
+                        text-decoration: none;
+                        padding: 10px;
+                        font-size: 12px;
+                        border-radius: 5px;
+                        width: 100%;
+                        max-width: 100%;
+                        text-align: center;
+                        transition: .3s;
+
+                        &:hover {
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                        }
+                    }
+
+                    form {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .destaques-fabrica {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 0 !important;
+        align-items: center;
+        gap: 20px;
+
+        .bloco-imagens {
+            display: flex;
+            width: 100%;
+            padding: 10px 0;
+            justify-content: center;
+            gap: 50px;
+
+            .img-destaque {
+                height: auto;
+                min-height: 450px;
+                width: 100%;
+                max-width: 400px;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.3);
+                border: 1px solid $cinzaClaro;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .informacoes-perfil {
+
+        padding: 15px 0;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+        .informacao {
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 5px 10px -5px rgba($cinzaEscuro, 0.3);
+            width: 230px;
+
+            .label {
+                background-color: $cinzaClaro;
+                border-bottom: 1px solid $cinzaEscuro;
+                font-size: $fs14;
+                font-weight: 600;
+                text-align: center;
+                padding: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .valor {
+                background-color: $branco;
+                font-size: 12px;
+                font-weight: 600;
+                text-align: center;
+                padding: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .produtos {
+
+        overflow-x: auto;
+
+        .lista-produtos {
+
+            justify-content: left !important;
+            overflow-x: auto;
+
+        }
+    }
+
+    .destaques-fabrica{
+
+        .bloco-imagens{
+
+            flex-wrap: wrap;
+        }
+    }
+
+    .informacoes-perfil {
+        overflow-x: auto;
+        justify-content: left !important;
+
+        .informacao{
+
+            width: 100%;
+            max-width: 170px;
+            min-width: 230px;
+        }
+    }
+}

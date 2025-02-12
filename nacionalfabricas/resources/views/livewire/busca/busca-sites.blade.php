@@ -107,7 +107,7 @@
 
                                     @if($site -> id_conta == $resultado -> id_conta )
 
-                                        <a class="ver-fabricante" href="{{ route('industria', [ 'conta_id' => $resultado -> id_conta, 'site_slug' => $site -> slug])}}">Ver Fabricante</a>
+                                        <a class="ver-fabricante" href="{{ route('industria', [ 'conta_id' => $resultado -> id_conta, 'slug' => $site -> slug])}}">Ver Fabricante</a>
 
                                     @endif
 
@@ -179,7 +179,7 @@
 
                                         @if($site -> id_conta == $resultado -> id_conta )
 
-                                            <a class="ver-produto" href="{{ route('site_industria', [ 'site_id' => $resultado -> id, 'site_slug' => $site -> slug])}}">Ver Página</a>
+                                            <a class="ver-produto" href="{{ route('site', [ 'id' => $resultado -> id, 'slug' => $site -> slug])}}">Ver Página</a>
 
                                         @endif
 

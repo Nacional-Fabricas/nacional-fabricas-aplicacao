@@ -23,7 +23,7 @@
 
 </head>
 
-    <body class="dashboardBody">
+    <body class="painel">
 
         <livewire:layout.sidebar />
 

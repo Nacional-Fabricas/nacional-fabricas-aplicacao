@@ -17,17 +17,20 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
 
     </head>
-    <body class="finalizar-cadastro-body">
+    <body class="finalizar-cadastro">
+
         <header>
 
-            <div class="finalizar-cadastro">
+            <a href="{{route('home')}}">
+                <img src="{{asset('/images/logo.svg')}}" width="180" alt="">
+            </a>
 
-                <a href="/"><img src="{{asset('/images/logo.svg')}}" width="180" alt=""></a>
+            <span class="bloco-nome">
+                Olá,<span class="nome">{{$usuario -> name}}</span>
+            </span>
 
-                <span class="welcome">Olá,<span class="name">{{$usuario -> name}}</span></span>
-
-            </div>
         </header>
+
         <main>
 
             @if(session('msg'))
@@ -45,6 +48,7 @@
             @endif
 
             @yield('content')
+
         </main>
 
         <livewire:layout.footer />

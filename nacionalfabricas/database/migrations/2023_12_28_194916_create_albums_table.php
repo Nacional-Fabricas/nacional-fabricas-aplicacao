@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('url_imagem');
             $table->string('id_produto');
             $table->text('id_conta');
-            $table->unsignedBigInteger('site_id');
+            $table->unsignedBigInteger('id');
             $table->timestamps();
 
-            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('sites')->onDelete('cascade');
         });
     }
 

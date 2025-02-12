@@ -13,11 +13,11 @@ class Album extends Model
         'url_imagem',
         'id_produto',
         'id_conta',
-        'site_id'
+        'id'
     ];
 
     public function site()
     {
-        return $this->belongsTo(Site::class, 'site_id');
+        return $this->belongsTo(Site::class, 'id');
     }
 }

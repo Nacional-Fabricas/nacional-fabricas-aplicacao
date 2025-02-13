@@ -2,16 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\CadastrosController;
-use App\Http\Controllers\ProdutosController;
-use App\Http\Controllers\AssinaturaController;
+
 use App\Http\Controllers\VisualizacoesController;
 use App\Http\Controllers\NotificacoesController;
 use App\Http\Controllers\RootController;
-use App\Http\Controllers\SitesController;
-use App\Http\Controllers\CategoriasController;
-use App\Http\Controllers\SuporteController;
-use App\Http\Controllers\CotacoesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
 
     /** Assinaturas */
     require base_path('routes/assinaturas/rotas_assinatura.php');
+
+
 });
 
 Route::middleware(['auth', 'cadastroFinalizado'])->group(function () {

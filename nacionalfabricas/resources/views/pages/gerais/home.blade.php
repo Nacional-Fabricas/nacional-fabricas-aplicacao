@@ -27,8 +27,7 @@
 
                 <div class="sobre-cabecalho">
 
-                    <h1 class="verde">Nacional Fábricas</h1>
-                    <h1>A primeira comunidade de <span class="verde">Fabricantes Brasileiros!</span></h1>
+                    <h1>A primeira comunidade de <strong>Fabricantes Brasileiros!</strong></h1>
 
                     <h2>Aqui você cria seu <strong>site</strong>, monta sua <strong>vitrine digital</strong> e divulga sua <strong>fábrica.</strong></h2>
 
@@ -56,7 +55,7 @@
 
             <section class="etapas">
 
-                <h1>Simples e Rápido</h1>
+                <h1>Cadastre sua fábrica agora mesmo em menos de <strong class="verde">2 minutos!</strong></h1>
 
                 <span class="descricao">O passo a passo, de como é fácil fazer parte do maior ecossistemas de fábricas Nacionais</span>
 
@@ -194,7 +193,7 @@
 
                 <div class="textos">
 
-                    <h1>Encontre indústrias brasileiras com facilidade!</h1>
+                    <h1>Encontre Indústrias Brasileiras com facilidade!</h1>
 
                     <p>
 

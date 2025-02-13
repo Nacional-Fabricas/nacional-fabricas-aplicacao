@@ -138,6 +138,7 @@ class EventController extends Controller
             'produtos',
             'ultimasVisualizacoes',
             'cotacoes',
+            'usuario',
             'todasCotacoes',
             'cotacoesAbertas',
             'nomeCompleto',

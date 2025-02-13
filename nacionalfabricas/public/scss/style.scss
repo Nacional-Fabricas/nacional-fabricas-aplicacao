@@ -1,12 +1,12 @@
 @import "variaveis", "pages/meu-site/meu-site","animacoes-gerais", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
 ,"pages/cadastro/finalizarCadastro","pages/gerais/funcionalidades","pages/gerais/planos","pages/gerais/ajuda","pages/gerais/contato"
-,"components/font","pages/dashboard/dadosCadastrais","pages/produtos/criarprodutos","pages/categorias/criarcategoria"
-,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/gerais/buscaGeral","pages/dashboard/meuSite"
-,"pages/site/sitePage","pages/categorias/categoriaPage","pages/produtos/editarProduto","pages/site/buscaMeusite" ,"pages/dashboard/minhasCompras"
+,"components/font","pages/painel/dadosCadastrais","pages/produtos/criarprodutos","pages/categorias/criarcategoria"
+,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/gerais/buscaGeral","pages/painel/meuSite"
+,"pages/site/sitePage","pages/categorias/categoriaPage","pages/produtos/editarProduto","pages/site/buscaMeusite" ,"pages/painel/minhasCompras"
 ,"pages/produtos/productPage","pages/cotacao/cotacao" ,"pages/cotacao/listaOrcamentos","pages/cotacao/solicitarOrcamentos"
-,"pages/cotacao/listarOrcamentos" , "pages/cotacao/cotacaoPage" ,"pages/dashboard/meuPlano" , "pages/dashboard/dashboard", "pages/dashboard/configuracoes"
-,"pages/gerais/checkout","components/contatoFooter", "pages/gerais/termosUso", "pages/gerais/sucesso","pages/gerais/erros","pages/dashboard/controleGeral"
-,"pages/dashboard/suporte", "components/sidebar","pages/dashboard/rootDados","pages/dashboard/notificacoes","pages/dashboard/visualizacoes","pages/acessos/verificarEmail","pages/dashboard/chamado";
+,"pages/cotacao/listarOrcamentos" , "pages/cotacao/cotacaoPage" ,"pages/painel/meuPlano" , "pages/painel/painel", "pages/painel/configuracoes"
+,"pages/gerais/checkout","components/contatoFooter", "pages/gerais/termosUso", "pages/gerais/sucesso","pages/gerais/erros","pages/painel/controleGeral"
+,"pages/painel/suporte", "components/sidebar","pages/painel/rootDados","pages/painel/notificacoes","pages/painel/visualizacoes","pages/acessos/verificarEmail","pages/painel/chamado";
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sora:wght@100..800&display=swap');
 
@@ -32,10 +32,16 @@ body{
 main{
 
     display: flex !important;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.main-painel{
+
+    align-items: flex-end;
 }
 
 li{
@@ -164,7 +170,6 @@ a{
     max-width: 80%;
     padding: 20px 0;
 }
-
 
 .msg{
 

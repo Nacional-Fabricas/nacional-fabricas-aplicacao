@@ -27,7 +27,7 @@
 
         </div>
 
-        <div class="dados-loja">
+        <div class="dados-fabrica">
 
             <div class="cabecalho">
 
@@ -43,11 +43,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/calendar.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/calendar.svg')}}" alt="">
 
                         <div class="info">
 
@@ -81,11 +77,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/eye.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/eye.svg')}}" alt="">
 
                         <div class="info">
 
@@ -113,11 +105,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/box.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/box.svg')}}" alt="">
 
                         <div class="info">
 
@@ -168,11 +156,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/user.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/user.svg')}}" alt="">
 
                         <div class="info">
 
@@ -214,11 +198,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/signature-document.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/signature-document.svg')}}" alt="">
 
                         <div class="info">
 
@@ -248,11 +228,7 @@
 
                     <div class="conteudo-dados">
 
-                        <div class="icon">
-
-                            <img class="ico" src="{{ asset('icons/star.svg')}}" alt="">
-
-                        </div>
+                        <img class="icone" src="{{ asset('icons/star.svg')}}" alt="">
 
                         <div class="info">
 

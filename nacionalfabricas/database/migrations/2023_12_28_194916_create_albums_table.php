@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_produto');
+            $table->unsignedBigInteger('id_conta');
             $table->string('url_imagem');
-            $table->string('id_produto');
-            $table->text('id_conta');
-            $table->unsignedBigInteger('id');
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('sites')->onDelete('cascade');
+            $table->foreign('id_produto')->references('id')->on('produto')->onDelete('cascade');
         });
     }
 

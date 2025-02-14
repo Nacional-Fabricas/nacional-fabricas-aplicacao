@@ -162,26 +162,27 @@
         <!-- Passo 4: CNAE -->
         <div class="secao passo" id="passo-4" style="display:none;">
             <h2 class="titulo">Classificação Nacional de Atividades Econômicas</h2>
+
+
             <div class="linha">
 
-                <div class="group">
-                    <div class="campos">
-                        <div class="inputField">
-                            <label for="cnaes">CNAE 1</label>
-                            <input type="text" name="cnaes" id="cnaes" list="cnaesList" placeholder="Selecione um CNAE">
-                            <datalist id="cnaesList">
-                                @foreach($listaCnaes as $cnae)
-                                    <option value="{{$cnae->cnae_id}} - {{$cnae->cnae_description}}">
-                                @endforeach
-                            </datalist>
-                        </div>
-                        <a class="addCnae" id="btn_adicionar_cnae"><strong>+</strong>Adicionar outro CNAE</a>
-                    </div>
-                    <div id="cnaeContainer"></div>
+                <div class="grupo">
+
+                    <label for="cnaes">CNAE 1</label>
+                    <input type="text" name="cnaes" id="cnaes" list="cnaesList" placeholder="Selecione um CNAE">
+                    <datalist id="cnaesList">
+                        @foreach($listaCnaes as $cnae)
+                            <option value="{{$cnae->cnae_id}} - {{$cnae->cnae_description}}">
+                        @endforeach
+                    </datalist>
+
                 </div>
+
+                <a class="adicionar-cnae" id="btn_adicionar_cnae"><strong>+</strong>Adicionar CNAE</a>
 
             </div>
 
+            <div id="cnaesEscolhidos"></div>
             <div class="botoes">
                 <button type="button" class="btn-voltar">Voltar</button>
                 <button type="submit" class="btn-fin">Cadastrar</button>
@@ -203,105 +204,10 @@
 
 @endif
 
-    <script>
+    @push('scripts')
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const passos = document.querySelectorAll('.passo');
-            let passoAtual = 0;
+        <script src="{{asset('js/cadastro/cadastro.js')}}"></script>
 
-            const mostrarPasso = (index) => {
-                passos.forEach((passo, i) => {
-                    passo.style.display = i === index ? 'flex' : 'none';
-                });
-            };
-
-            document.querySelectorAll('.btn-proximo').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (passoAtual < passos.length - 1) {
-                        passoAtual++;
-                        mostrarPasso(passoAtual);
-                    }
-                });
-            });
-
-            document.querySelectorAll('.btn-voltar').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (passoAtual > 0) {
-                        passoAtual--;
-                        mostrarPasso(passoAtual);
-                    }
-                });
-            });
-
-            mostrarPasso(passoAtual);
-        });
-
-    </script>
-
-    <script>
-
-        $(document).ready(function () {
-            $('#btn_adicionar_cnae').click(function () {
-                var selectedOption = $("#cnaes").val();
-
-                if (selectedOption === "") {
-                    alert("Por favor, selecione um CNAE antes de adicionar.");
-                    return;
-                }
-
-                // Divide o valor selecionado para pegar o ID e a descrição
-                var cnaeParts = selectedOption.split(' - ');
-                var cnaeId = cnaeParts[0];
-                var cnaeDescription = cnaeParts[1];
-
-                // Verifica se o CNAE já foi adicionado
-                var alreadyAdded = false;
-                $('.cnaeRow input[name="cnaeId[]"]').each(function() {
-                    if ($(this).val() === cnaeId) {
-                        alreadyAdded = true;
-                        return false;
-                    }
-                });
-
-                if (alreadyAdded) {
-                    alert("Este CNAE já foi adicionado.");
-                    return;
-                }
-
-                var cnaeInput =
-                    '<input type="hidden" name="cnaeId[]" value="' + cnaeId + '">' +
-                    '<input type="hidden" name="cnaeDescription[]" value="' + cnaeDescription + '">';
-
-                var newRow =
-                    '<div class="cnaeRow">' +
-                    '<span class="dado">' + cnaeId + ' - ' + cnaeDescription + '</span>' +
-                    cnaeInput +
-                    ' <a href="#" class="removerButton">Remover</a>' +
-                    '</div>';
-
-                $('#cnaeContainer').append(newRow);
-
-                // Reseta o input após adição
-                $("#cnaes").val("");
-            });
-
-            // Evento para remover CNAEs
-            $('#cnaeContainer').on('click', '.removerButton', function (e) {
-                e.preventDefault();
-                $(this).closest('.cnaeRow').remove();
-            });
-
-            // Validação ao submeter o formulário
-            $('form').submit(function(e) {
-                if ($('.cnaeRow').length === 0) {
-                    alert("Adicione pelo menos um CNAE antes de enviar o formulário.");
-                    e.preventDefault();
-                }
-            });
-        });
-
-
-    </script>
-
+    @endpush
 
 @endsection

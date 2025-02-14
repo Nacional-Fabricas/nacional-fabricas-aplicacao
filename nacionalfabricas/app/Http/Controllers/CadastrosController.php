@@ -89,12 +89,17 @@ class CadastrosController extends Controller
             $cadastro -> celular_contato = $request->celular_contato;
             $cadastro -> telefone_contato = $request->telefone_contato;
             $cadastro -> ativo = 'ativo';
-
             $cadastro->save();
 
-            //dd($cadastro);
+            if ($cadastro -> fabricante === "Sim"){
 
-            return redirect()->route('home')->with('sucesso', 'Cadastro finalizado com sucesso');
+                return redirect()->route('meu_site')->with('sucesso', 'Vamos montar sua vitrine');
+
+            }else{
+
+                return redirect()->route('home')->with('sucesso', 'Cadastro Finalizado com sucesso');
+
+            }
 
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('erro', 'Ocorreu um erro ao finalizar o cadastro: ' . $e->getMessage());

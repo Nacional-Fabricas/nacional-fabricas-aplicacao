@@ -49,7 +49,7 @@ Route::middleware(['auth', 'cadastroFinalizado'])->group(function () {
 
 });
 
-Route::middleware(['auth', 'cadastroFinalizado', 'verified'])->group(function () {
+Route::middleware(['auth', 'cadastroFinalizado'])->group(function () {
 
     require base_path('routes/painel/rotas_painel.php');
 

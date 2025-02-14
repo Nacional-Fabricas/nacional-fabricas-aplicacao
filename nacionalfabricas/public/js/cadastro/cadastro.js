@@ -1,37 +1,96 @@
-$(document).ready(function () {
-    // Adiciona o CNAE
-    $('#btn_adicionar_cnae').click(function () {
-        var selectedOption = $("#cnaes option:selected");
-        var cnaeId = selectedOption.val();
-        var cnaeDescription = selectedOption.text();
+document.addEventListener('DOMContentLoaded', () => {
+    const passos = document.querySelectorAll('.passo');
+    let passoAtual = 0;
 
-        // Verifica se uma opção válida foi selecionada
-        if (!cnaeId) {
+    const mostrarPasso = (index) => {
+        passos.forEach((passo, i) => {
+            passo.style.display = i === index ? 'flex' : 'none';
+        });
+    };
+
+    document.querySelectorAll('.btn-proximo').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (passoAtual < passos.length - 1) {
+                passoAtual++;
+                mostrarPasso(passoAtual);
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-voltar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (passoAtual > 0) {
+                passoAtual--;
+                mostrarPasso(passoAtual);
+            }
+        });
+    });
+
+    mostrarPasso(passoAtual);
+});
+
+$(document).ready(function () {
+    $('#btn_adicionar_cnae').off('click').on('click', function () {
+        var selectedOption = $("#cnaes").val().trim();
+        console.log("Selected Option:", selectedOption); // Adiciona um log para depuração
+
+        if (selectedOption === "") {
             alert("Por favor, selecione um CNAE antes de adicionar.");
             return;
         }
 
-        var cnaeInput = `
-            <input type="hidden" name="cnaeId[]" value="${cnaeId}">
-            <input type="hidden" name="cnaeDescription[]" value="${cnaeDescription}">
-        `;
+        // Divide o valor selecionado para pegar o ID e a descrição
+        var cnaeParts = selectedOption.split(' - ');
+        var cnaeId = cnaeParts[0].trim();
+        var cnaeDescription = cnaeParts[1] ? cnaeParts[1].trim() : "";
 
-        var novaLinha = `
-            <div class="linha-cnae">
-                <span class="dado">${cnaeId} - ${cnaeDescription}</span>
-                ${cnaeInput}
-                <a class="removerButton">Remover</a>
-            </div>
-        `;
+        if (cnaeId === "" || cnaeDescription === "") {
+            alert("Por favor, selecione um CNAE válido.");
+            return;
+        }
 
-        $('#cnaeContainer').append(novaLinha);
-        selectedOption.prop('selected', false);
+        // Verifica se o CNAE já foi adicionado
+        var alreadyAdded = false;
+        $('.linha-cnae input[name="cnaeId[]"]').each(function() {
+            if ($(this).val() === cnaeId) {
+                alreadyAdded = true;
+                return false;
+            }
+        });
+
+        if (alreadyAdded) {
+            alert("Este CNAE já foi adicionado.");
+            return;
+        }
+
+        var cnaeInput =
+            '<input type="hidden" name="cnaeId[]" value="' + cnaeId + '">' +
+            '<input type="hidden" name="cnaeDescription[]" value="' + cnaeDescription + '">';
+
+        var newRow =
+            '<div class="linha-cnae">' +
+            '<span class="dado">' + cnaeId + ' - ' + cnaeDescription + '</span>' +
+            cnaeInput +
+            ' <a href="#" class="removerButton">Remover</a>' +
+            '</div>';
+
+        $('#cnaesEscolhidos').append(newRow);
+
+        // Reseta o input após adição
+        setTimeout(function() {
+            $("#cnaes").val("");
+        }, 100);
     });
 
-    // Remove CNAE
-    $('#cnaeContainer').on('click', '.removerButton', function () {
+    // Evento para remover CNAEs
+    $('#cnaesEscolhidos').on('click', '.removerButton', function (e) {
+        e.preventDefault();
         $(this).closest('.linha-cnae').remove();
     });
+});
+
+$(document).ready(function () {
+
 
     // Máscaras de input
     $('#cnpj').inputmask('99.999.999/9999-99');
@@ -48,6 +107,8 @@ $(document).ready(function () {
             console.error("CEP deve conter exatamente 8 dígitos.");
             return;
         }
+
+        //carregamento
 
         $('#indicador-carregamento').show();
 
@@ -73,16 +134,6 @@ $(document).ready(function () {
         });
     });
 
-    // Adiciona novos campos de CNAE dinamicamente
-    var cnaeCount = 1;
 
-    $('.adicionar-cnae').on('click', function () {
-        cnaeCount++;
-        var newInput = $('#cnae_id1').clone();
-        newInput.attr('id', `cnae_id${cnaeCount}`);
-        newInput.attr('name', `cnae_id${cnaeCount}`);
-        $('#cnaeContainer').append(newInput);
-    });
 });
 
-console.log('funcionando cadastro')

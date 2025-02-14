@@ -64,7 +64,7 @@
 
                 <div class="rodape-formulario">
 
-                    <button class="btnRegister">
+                    <button class="btn-register">
                         Registrar-se
                     </button>
 

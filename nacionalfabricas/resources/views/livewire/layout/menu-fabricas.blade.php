@@ -84,7 +84,7 @@
             <ul class="d-flex noLogged">
                 <li class="nav-item hiddenMobile">
 
-                    <a class="btnRegister" onclick="registrar()">Experimentar Grátis</a>
+                    <a class="btn-register" onclick="registrar()">Experimentar Grátis</a>
 
                 </li>
                 <li class="nav-item hiddenDesk">

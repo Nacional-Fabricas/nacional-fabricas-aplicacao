@@ -1,10 +1,36 @@
 @import "../../variaveis.scss";
 
+.voltar{
+
+    background-color: $verdePrincipal;
+    color: $branco;
+    align-self: flex-start;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: $fs20;
+    font-weight: 700;
+    z-index: 10;
+    transition: .3s;
+    position: sticky;
+    top: 15vh;
+    left: 10vw;
+    height: 5vh;
+    align-content: center;
+
+
+    &:hover{
+
+        transform: scale(1.05);
+    }
+}
+
 .login{
 
     width: 100%;
     height: 100vh;
     display: flex;
+    margin-top: -5vh;
 
     .login-content{
 
@@ -13,7 +39,8 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
+        left: 10vw;
+        position: sticky;
 
         .formulario-login{
 
@@ -24,8 +51,11 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            padding: 20px;
+            border-radius: 0.5rem;
+            box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.7);
 
-            .form-header{
+            .cabecalho{
 
                 width: 100%;
 
@@ -47,7 +77,7 @@
 
             }
 
-            .group{
+            .grupo{
 
                 display: flex;
                 flex-direction: column;
@@ -79,7 +109,7 @@
 
             }
 
-            .form-footer{
+            .rodape-formulario{
 
                 display: flex;
                 flex-direction: column;
@@ -87,22 +117,22 @@
                 width: 100%;
                 text-align: center;
 
+                .botao-login{
 
-
-                .btnLogin{
-
-                    border-radius: 0.75rem!important;
-                    color: $branco;
-                    background-color: $verdePrincipal;
+                    border-radius: 0.5rem;
+                    color: $verdePrincipal;
+                    border: 1px solid $verdePrincipal;
+                    background-color: $branco;
                     width: 100%;
-                    border: none;
                     padding: 0.5rem 1rem;
                     font-size: $fs18;
                     font-weight: 600;
+                    transition: .3s;
 
                     &:hover{
 
-                        background-color: $verdeLimao;
+                        color: $branco;
+                        background-color: $verdePrincipal;
                     }
                 }
 
@@ -120,23 +150,18 @@
 
                 }
             }
-
         }
-
     }
 
     .login-background{
 
         width: 100%;
         max-width: 50%;
-        background-image: url('../../images/login.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 
 }
 
-#register{
+#registrar{
 
     display: none;
     position: absolute;
@@ -148,6 +173,7 @@
     visibility: visible;
     backdrop-filter: blur(3px);
     top: 0;
+    z-index: 20;
 
     .close-icon{
 
@@ -172,14 +198,13 @@
         }
     }
 
-    .content-register{
+    .bloco-registro{
 
         width: 100%;
         max-width: 1050px;
         display: flex;
         background-color: $branco;
         border-radius: 5rem 2rem 2rem 2rem;
-
 
         .banner{
 
@@ -227,94 +252,69 @@
             justify-content: space-evenly;
             align-items: center;
 
-            .form-content{
+            .cabecalho{
+
+                text-align: center;
+                font-size:  $fs30;
+                font-weight: 700;
+            }
+
+            .grupo{
 
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                width: 100%;
-                max-width: 70%;
-                gap: 10px;
+                width: 90%;
 
-                .form-header{
+                label{
 
-                    text-align: center;
-                    font-size:  $fs30;
-                    font-weight: 700;
+                    font-size: $fs16;
+                    font-weight: 600;
+                    color: $preto;
                 }
 
-                .linha{
+                input{
 
-                    width: 90%;
-
-                    .group{
-
-
-                        width: 48%;
-                        padding: 0;
-                    }
-
+                    border: 2px solid $cinza !important;
+                    border-radius: 0.5rem;
+                    height: 40px!important;
+                    padding: 0 8px;
                 }
+            }
 
-                .group{
+            .rodape-formulario{
 
-                    display: flex;
-                    flex-direction: column;
-                    width: 90%;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
 
-                    label{
+                .btn-register{
 
-                        font-size: $fs16;
-                        font-weight: 600;
-                        color: $preto;
-                    }
+                    border-radius: 0.75rem!important;
+                    color: $branco;
+                    background-color: $verdePrincipal;
+                    width: 100%;
+                    border: none;
+                    padding: 0.5rem 1rem;
+                    font-size: $fs18;
+                    font-weight: 600;
 
-                    input{
 
-                        border: 2px solid $cinza !important;
-                        border-radius: 0.5rem;
-                        height: 40px!important;
-                        padding: 0 8px;
+
+                    &:hover{
+
+                        background-color: $verdeLimao;
                     }
                 }
 
-                .form-footer{
+                span{
 
-                    width: 90%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 5px;
+                    color: $preto;
 
-
-                    .btnRegister{
-
-                        border-radius: 0.75rem!important;
-                        font-size: $fs16;
-                        color: $branco;
-                        background-color: $verdePrincipal;
-                        width: 100%;
-                        border: none;
-                        padding: 0.5rem 1rem;
-                        font-size: $fs18;
-                        font-weight: 600;
-
-
-
-                        &:hover{
-
-                            background-color: $verdeLimao;
-                        }
-                    }
-
-                    span{
+                    a{
 
                         color: $preto;
-
-                        a{
-
-                            color: $preto;
-                            font-weight: 700;
-                        }
+                        font-weight: 700;
                     }
                 }
             }
@@ -412,275 +412,8 @@
 
         width: 100%;
         max-width: 50%;
-        background-image: url('../../images/login.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
+
     }
 
 }
 
-@media only screen and (max-width: 770px) {
-
-    .login{
-
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-
-        .login-content{
-
-            width: 100%;
-            max-width: 100% ;
-            position: absolute;
-            height: 100%;
-            background-image: url('../../images/login.webp');
-            background-repeat: no-repeat;
-            background-size: cover;
-
-            .formulario-login{
-
-                background-color: $branco;
-                padding: 20px;
-                width: 100%;
-                border-radius: 5px;
-                max-width: 95% !important;
-                position: absolute;
-
-                .form-header{
-
-                    width: 100%;
-
-                    h1{
-
-                        font-size: $fs30;
-                        width: 100%;
-
-                    }
-
-                    span{
-
-                        font-size: $fs18;
-                    }
-
-                }
-
-                .group{
-
-                    display: flex;
-                    flex-direction: column;
-                    width: 100%;
-                    max-width: 100%;
-                    gap: 5px;
-
-                    a{
-
-                        font-weight: 700;
-                        text-align: right;
-                        text-decoration: none;
-                        color: $preto;
-                    }
-
-                    label{
-
-                        font-size: $fs16;
-                        font-weight: 700;
-                    }
-
-                    input{
-
-                        border: 2px solid $cinza !important;
-                        border-radius: 0.5rem;
-                        height: 45px!important;
-                        padding: 0 8px;
-                    }
-
-                }
-
-                .form-footer{
-
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    width: 100%;
-                    text-align: center;
-
-
-
-                    .btnLogin{
-
-                        border-radius: 0.75rem!important;
-                        font-size: $fs16;
-                        color: $branco;
-                        background-color: $verdePrincipal;
-                        width: 100%;
-                        border: none;
-                        padding: 0.5rem 1rem;
-                        font-size: $fs18;
-                        font-weight: 600;
-
-
-
-                        &:hover{
-
-                            background-color: $verdeLimao;
-                        }
-                    }
-
-                    span{
-
-                        color: $preto;
-                        font-size: $fs16;
-                        font-weight: 400;
-
-                        a{
-
-                            color: $preto;
-                            font-weight: 500;
-                        }
-
-                    }
-                }
-
-            }
-
-        }
-
-        .login-background{
-
-           display: none;
-
-        }
-
-    }
-
-    #register{
-
-        .close-icon{
-
-            top: 20px !important;
-            left: 20px !important;
-
-            &:hover{
-
-                transform: scale(1.15);
-            }
-        }
-
-        .content-register{
-
-            width: 100%;
-            max-width: 95% !important;
-            display: flex;
-            background-color: $branco;
-            padding: 10px 0;
-            border-radius: 10px !important;
-
-            .banner{
-
-                display: none !important;
-
-            }
-
-            .formulario-registro{
-
-                width: 100%;
-                max-width: 100% !important;
-
-
-                .form-content{
-
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
-                    max-width: 70%;
-                    gap: 10px;
-
-                    .form-header{
-
-                        text-align: center;
-                        font-size:  $fs30;
-                        font-weight: 700;
-                    }
-
-                    .linha{
-
-                        width: 90%;
-
-                        .group{
-
-
-                            width: 48%;
-                            padding: 0;
-                        }
-
-                    }
-
-                    .group{
-
-                        display: flex;
-                        flex-direction: column;
-                        width: 90%;
-
-                        label{
-
-                            font-size: $fs16;
-                            font-weight: 600;
-                            color: $preto;
-                        }
-
-                        input{
-
-                            border: 2px solid $cinza !important;
-                            border-radius: 0.5rem;
-                            height: 40px!important;
-                            padding: 0 8px;
-                        }
-                    }
-
-                    .form-footer{
-
-                        width: 90%;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 5px;
-
-                        .btnRegister{
-
-                            border-radius: 0.75rem!important;
-                            font-size: $fs16;
-                            color: $branco;
-                            background-color: $verdePrincipal;
-                            width: 100%;
-                            border: none;
-                            padding: 0.5rem 1rem;
-                            font-weight: 600;
-
-
-
-                            &:hover{
-
-                                background-color: $verdeLimao;
-                            }
-                        }
-
-                        span{
-
-                            color: $preto;
-                            font-size: $fs12;
-
-                            a{
-
-                                color: $preto;
-                                font-weight: 700;
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-
-}

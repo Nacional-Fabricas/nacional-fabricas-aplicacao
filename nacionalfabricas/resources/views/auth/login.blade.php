@@ -16,7 +16,7 @@
         <form class="formulario-login" method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div class="form-header">
+            <div class="cabecalho">
                 <h1>Bem-vindo(a), novamente!</h1>
                 <span>Por favor, preencha os campos abaixo.</span>
             </div>
@@ -55,7 +55,7 @@
 
     </div>
 
-    <div class="col-6 login-background"></div>
+    <img class="col-6 login-background" src="{{asset('images/login.webp')}}" alt="Imagem de fundo da página de login">
 
 </div>
 

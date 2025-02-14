@@ -13,7 +13,7 @@
 
         <x-validation-errors class="error" />
 
-        <form method="POST" action="{{ route('password.email') }}" class="form-esqueceu">
+        <form method="POST" action="{{ route('password.email') }}" class="form-esqueceu-senha">
             @csrf
 
             <div class="bloco">
@@ -42,7 +42,7 @@
 
     </div>
 
-    <div class="col-6 login-background"></div>
+    <img class="col-6 login-background" src="{{asset('images/login.webp')}}" alt="Imagem de fundo da página de login">
 
 </div>
 

@@ -7,7 +7,7 @@
 
         <x-validation-errors class="error" />
 
-        <form method="POST" action="{{ route('password.update') }}" class="form-esqueceu">
+        <form method="POST" action="{{ route('password.update') }}" class="form-esqueceu-senha">
             @csrf
 
             <input type="hidden" name="token" value="{{ $request->route('token') }}">

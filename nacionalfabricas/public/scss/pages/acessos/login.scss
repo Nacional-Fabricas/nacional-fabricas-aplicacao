@@ -1,6 +1,6 @@
 @import "../../variaveis.scss";
 
-.voltar{
+.voltar {
 
     background-color: $verdePrincipal;
     color: $branco;
@@ -18,22 +18,29 @@
     height: 5vh;
     align-content: center;
 
-
-    &:hover{
-
+    &:hover {
         transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+
+        position: relative;
+        width: 70vw;
+        text-align: center;
+        align-self: center;
+        font-size: $fs16;
+        top: 10vh;
+        left: 0;
     }
 }
 
-.login{
-
+.login {
     width: 100%;
     height: 100vh;
     display: flex;
     margin-top: -5vh;
 
-    .login-content{
-
+    .login-content {
         width: 100%;
         max-width: 50%;
         display: flex;
@@ -42,8 +49,17 @@
         left: 10vw;
         position: sticky;
 
-        .formulario-login{
+        @media (max-width: 768px) {
+            max-width: 70%;
+            left: 5vw;
+        }
 
+        @media (max-width: 480px) {
+            max-width: 90%;
+            left: 2vw;
+        }
+
+        .formulario-login {
             width: 100%;
             max-width: 520px;
             display: flex;
@@ -55,70 +71,75 @@
             border-radius: 0.5rem;
             box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.7);
 
-            .cabecalho{
-
+            .cabecalho {
                 width: 100%;
 
-                h1{
-
+                h1 {
                     font-size: $fs48;
                     font-weight: 700;
                     text-align: left;
                     max-width: 75%;
+
+                    @media (max-width: 768px) {
+                        font-size: $fs36;
+                    }
+
+                    @media (max-width: 480px) {
+                        font-size: $fs24;
+                    }
                 }
 
-                span{
-
+                span {
                     font-weight: 500;
                     text-align: left;
                     color: $cinza;
                     font-size: $fs24;
-                }
 
+                    @media (max-width: 768px) {
+                        font-size: $fs18;
+                    }
+
+                    @media (max-width: 480px) {
+                        font-size: $fs14;
+                    }
+                }
             }
 
-            .grupo{
-
+            .grupo {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 max-width: 100%;
                 gap: 5px;
 
-                a{
-
+                a {
                     font-weight: 700;
                     text-align: right;
                     text-decoration: none;
                     color: $preto;
                 }
 
-                label{
-
+                label {
                     font-size: $fs16;
                     font-weight: 700;
                 }
 
-                input{
-
+                input {
                     border: 2px solid $cinza !important;
                     border-radius: 0.5rem;
-                    height: 45px!important;
+                    height: 45px !important;
                     padding: 0 8px;
                 }
-
             }
 
-            .rodape-formulario{
-
+            .rodape-formulario {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
                 width: 100%;
                 text-align: center;
 
-                .botao-login{
-
+                .botao-login {
                     border-radius: 0.5rem;
                     color: $verdePrincipal;
                     border: 1px solid $verdePrincipal;
@@ -129,43 +150,45 @@
                     font-weight: 600;
                     transition: .3s;
 
-                    &:hover{
-
+                    &:hover {
                         color: $branco;
                         background-color: $verdePrincipal;
                     }
                 }
 
-                span{
-
+                span {
                     color: $preto;
                     font-size: $fs16;
                     font-weight: 400;
 
-                    a{
-
+                    a {
                         color: $preto;
                         font-weight: 500;
                     }
-
                 }
             }
         }
     }
 
-    .login-background{
-
+    .login-background {
         width: 100%;
         max-width: 50%;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 }
 
-#registrar{
+#registrar {
 
     display: none;
     position: absolute;
-    background-color:  rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -175,15 +198,14 @@
     top: 0;
     z-index: 20;
 
-    .close-icon{
-
+    .close-icon {
         position: absolute;
         top: 20.4%;
         left: 76%;
         align-items: center;
         background-color: $branco;
         border-radius: 7px;
-        box-shadow: 0 0 15px rgba(0,0,0,.2);
+        box-shadow: 0 0 15px rgba(0, 0, 0, .2);
         display: flex;
         height: 30px;
         color: $cinza;
@@ -192,21 +214,19 @@
         padding: 5px;
         width: 30px;
 
-        &:hover{
-
+        &:hover {
             transform: scale(1.15);
         }
     }
 
-    .bloco-registro{
+    .bloco-registro {
 
         width: 100%;
-        max-width: 1050px;
         display: flex;
         background-color: $branco;
         border-radius: 5rem 2rem 2rem 2rem;
 
-        .banner{
+        .banner {
 
             background-color: $verdePrincipal;
             display: flex;
@@ -219,21 +239,18 @@
             height: 550px;
             gap: 5px;
 
-            h1{
-
+            h1 {
                 font-size: $fs35;
                 font-weight: 700;
                 text-align: left;
             }
 
-            .white{
-
+            .white {
                 text-decoration: underline;
                 color: $branco;
             }
 
-            span{
-
+            span {
                 font-size: $fs16;
                 color: $branco;
                 font-weight: 600;
@@ -241,9 +258,12 @@
                 width: 90%;
             }
 
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
 
-        .formulario-registro{
+        .formulario-registro {
 
             width: 100%;
             max-width: 65%;
@@ -252,31 +272,27 @@
             justify-content: space-evenly;
             align-items: center;
 
-            .cabecalho{
-
+            .cabecalho {
                 text-align: center;
-                font-size:  $fs30;
+                font-size: $fs30;
                 font-weight: 700;
             }
 
-            .grupo{
-
+            .grupo {
                 display: flex;
                 flex-direction: column;
                 width: 90%;
 
-                label{
-
+                label {
                     font-size: $fs16;
                     font-weight: 600;
                     color: $preto;
                 }
 
-                input{
-
+                input {
                     border: 2px solid $cinza !important;
                     border-radius: 0.5rem;
-                    height: 40px!important;
+                    height: 40px !important;
                     padding: 0 8px;
                 }
             }
@@ -288,9 +304,8 @@
                 flex-direction: column;
                 gap: 5px;
 
-                .btn-register{
-
-                    border-radius: 0.75rem!important;
+                .btn-register {
+                    border-radius: 0.75rem !important;
                     color: $branco;
                     background-color: $verdePrincipal;
                     width: 100%;
@@ -299,49 +314,70 @@
                     font-size: $fs18;
                     font-weight: 600;
 
-
-
-                    &:hover{
-
+                    &:hover {
                         background-color: $verdeLimao;
                     }
                 }
 
-                span{
-
+                span {
                     color: $preto;
 
-                    a{
-
+                    a {
                         color: $preto;
                         font-weight: 700;
                     }
                 }
+
+                @media (max-width: 768px) {
+
+                    text-align: center;
+                }
             }
 
+            @media (max-width: 768px) {
+
+                max-width: 100%;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            width: 80vw;
+            padding: 10px;
+            border-radius: 10px;
         }
     }
 }
 
-.esqueceu-senha{
+.esqueceu-senha {
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
 
-    .conteudo-esqueceu{
+    @media (max-width: 768px) {
+
+        max-width: 80vw;
+        left: 0;
+    }
+
+    .conteudo-esqueceu {
 
         width: 100%;
         max-width: 50%;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        align-items: center;
 
-        .form-esqueceu{
+        @media (max-width: 768px) {
+            max-width: 100%;
+            left: 5vw;
+        }
 
+        .form-esqueceu-senha {
             width: 100%;
-            max-width: 80%;
+            max-width: 70%;
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -349,49 +385,44 @@
             gap: 20px;
             padding: 10px 50px;
             background-color: $cinzaClaro;
-            box-shadow: 0 7px 7px -4px rgba($preto,.57);
+            box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.7);
+            position: relative;
+            left: 10vw;
 
-            .bloco{
-
+            .bloco {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 max-width: 100%;
                 gap: 5px;
 
-                h1{
-
+                h1 {
                     color: $verdePrincipal;
                     font-weight: 700;
                 }
 
-                a{
-
+                a {
                     font-weight: 700;
                     text-align: right;
                     text-decoration: none;
                     color: $preto;
                 }
 
-                label{
-
+                label {
                     font-size: $fs16;
                     font-weight: 700;
                 }
 
-                input{
-
+                input {
                     border: 2px solid $cinza !important;
                     border-radius: 0.5rem;
-                    height: 45px!important;
+                    height: 45px !important;
                     padding: 0 8px;
                 }
-
             }
 
-            .btn-esqueci{
-
-                border-radius: 0.75rem!important;
+            .btn-esqueci {
+                border-radius: 0.75rem !important;
                 color: $branco;
                 background-color: $verdePrincipal;
                 width: 100%;
@@ -400,20 +431,29 @@
                 font-size: $fs18;
                 font-weight: 600;
 
-                &:hover{
-
+                &:hover {
                     background-color: $verdeLimao;
                 }
+            }
+
+            @media (max-width: 768px) {
+
+                max-width: 100%;
+                left: 0;
             }
         }
     }
 
-    .login-background{
-
+    .login-background {
         width: 100%;
         max-width: 50%;
 
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 }
-

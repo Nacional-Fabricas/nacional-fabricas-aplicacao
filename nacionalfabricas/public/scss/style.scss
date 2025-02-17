@@ -41,6 +41,7 @@ main{
 .main-painel{
 
     align-items: flex-end;
+    height: 100vh;
 }
 
 li{
@@ -124,11 +125,11 @@ a{
 
 .tooltip-icon{
 
-    background-color: $verdePrincipal;
-    color: $branco;
-    font-size: 18px;
+    color: $verdePrincipal;
+    font-size: $fs20;
+    border: none;
+    background-color: $branco;
     padding: 2px 12px;
-    border-radius: 50%;
 }
 
 #indicador-carregamento{

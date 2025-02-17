@@ -92,7 +92,8 @@
 
                     display: flex;
                     align-items: flex-end;
-                    padding: 0 35px;
+                    align-self: flex-end;
+                    gap: 20px;
 
                     button {
 

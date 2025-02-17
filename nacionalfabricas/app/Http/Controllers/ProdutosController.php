@@ -177,7 +177,6 @@ class ProdutosController extends Controller
             return redirect()->back()->withInput()->with('msg', 'Erro ao cadastrar o produto: ' . $e->getMessage());
         }
     }
-
     public function update(Request $request) {
         try {
             $data = $request->all();
@@ -212,7 +211,6 @@ class ProdutosController extends Controller
             return redirect()->back()->withInput()->with('error', 'Erro ao atualizar o produto: ' . $e->getMessage());
         }
     }
-
     public function delete(Request $request)
     {
 

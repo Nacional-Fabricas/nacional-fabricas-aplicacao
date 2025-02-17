@@ -132,7 +132,7 @@ class SitesController extends Controller
             $site->produtos_tipo = $request->produtos_tipo;
             $site->tributacao = $request->tributacao;
             $site->tempo_resposta = $request->tempo_resposta;
-            $site->atendimento = $request->atendimento;
+            $site->atendimento = json_encode($request->atendimento); // Serialize the array
             $site->email = $request->email;
             $site->telefone = $request->telefone;
             $site->local_atuacao = $request->local_atuacao;
@@ -151,7 +151,6 @@ class SitesController extends Controller
             return redirect()->route('meu_site')->with('sucesso', 'Site criado com sucesso');
 
         } catch (\Exception $e) {
-
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao criar site: ' . $e->getMessage());
         }
     }
@@ -202,9 +201,7 @@ class SitesController extends Controller
     }
     public function recortarBanner(Request $request)
     {
-
         try {
-
             $image = $request->file('image');
             $field = $request->input('field');
             $id = $request->input('id');
@@ -217,9 +214,9 @@ class SitesController extends Controller
             $path = 'images/sites/backgrounds/' . $field . '_' . $id . '.jpg';
             $img->save(public_path($path));
 
-            return redirect()->route('meu_site')->with('sucesso', 'Banner atualizado com sucesso!');
+            return response()->json(['success' => true, 'message' => 'Banner atualizado com sucesso!']);
         } catch (\Exception $e) {
-            return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao atualizar banner: ' . $e->getMessage());
+            return response()->json(['success' => false, 'message' => 'Erro ao atualizar banner: ' . $e->getMessage()]);
         }
     }
     public function recortarLogo(Request $request)

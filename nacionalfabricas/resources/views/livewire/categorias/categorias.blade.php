@@ -9,11 +9,7 @@
 
         </div>
 
-        <div class="nova-categoria">
-
-            <a href="{{route('criar_categoria')}}">+ Criar categoria</a>
-
-        </div>
+        <a href="{{route('criar_categoria')}}" class="criar-categoria">+ Criar categoria</a>
 
     </div>
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_conta');
-            $table->enum('nivel', ['Sem classificação', 'Bronze', 'Prata','Ouro', 'Platina'])->nullable()->default('Sem classificação');
+            $table->enum('nivel', ['Sem classificação', 'Bronze', 'Prata', 'Ouro', 'Platina'])->nullable()->default('Sem classificação');
             $table->string('banner')->nullable();
             $table->string('logo')->nullable();
             $table->string('primeiro_destaque')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('produtos_tipo')->nullable();
             $table->string('tributacao')->nullable();
             $table->string('tempo_resposta')->nullable();
-            $table->string('atendimento')->nullable();
+            $table->text('atendimento')->nullable(); // Change to text
             $table->string('email')->nullable();
             $table->string('telefone')->nullable();
             $table->string('local_atuacao')->nullable();
@@ -34,7 +34,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('id_conta')->references('id')->on('users')->onDelete('cascade');
-
         });
     }
 

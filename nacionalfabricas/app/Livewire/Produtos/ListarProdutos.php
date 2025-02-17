@@ -29,13 +29,13 @@ class ListarProdutos extends Component
             $usuarioId = $user -> id;
         }
 
-        $meuPlanoMembro = Assinatura::where('id_conta', $usuarioId )->first();
+        $assinatura = Assinatura::where('id_conta', $usuarioId )->first();
 
-        $dadosPlano = Plano::where('id', $meuPlanoMembro -> id_plano)->first();
+        $dadosPlano = $assinatura ? Plano::where('id', $assinatura -> id_plano)->first() : null;
 
         $totalProdutos = Produto::where('id_conta', $usuarioId)->count();
 
-        $maxProdutos = $dadosPlano -> max_produtos;
+        $maxProdutos = $dadosPlano ? $dadosPlano -> max_produtos : 10;
 
         if ($busca) {
 

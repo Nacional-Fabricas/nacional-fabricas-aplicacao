@@ -1,8 +1,10 @@
 @import "../../variaveis.scss";
 
-.criarProdutos{
+.criar-produtos{
 
-    padding: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 
     .formulario{
 
@@ -12,294 +14,102 @@
         display: flex;
         flex-direction: column;
         gap: 50px;
+        width: 80vw;
 
-        .block{
+        .etapa{
 
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .blockHeader{
-
-                width: 100%;
-                padding: 0 30px;
-                background-color: $cinzaCards;
-
-                h1{
-
-                    font-size: $fs24;
-                    font-weight: 700;
-                    color: $preto;
-                }
-
-            }
-
-            .blockContent{
-
+            .campos-formulario {
                 display: flex;
-                width: 100%;
-                padding: 0 30px;
+                flex-direction: column;
+                gap: 20px;
+                padding: 25px;
 
-                .imgsInput{
+                .linha {
 
-                    width: 100%;
-                    max-width: 320px;
                     display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-
-                    .thumbnail{
-
-                        width: 100%;
-                        max-width: 300px;
-
-                        .thumbInput{
-
-                            height: 265px;
-                            width: 100%;
-                            max-width: 100%;
-                            border: 2px dashed $cinza;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: $fs26;
-                            color: $cinza;
-                            background-size: contain;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                        }
-
-                    }
-
-                    .galeria{
-
-                        width: 100%;
-
-                        .linha{
-
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 10px;
-                            justify-content: stretch;
-
-                            .addFoto{
-
-                                background-color: $verdePrincipal;
-                                color: $branco;
-                                font-size: $fs40;
-                                width: 100%;
-                                width: 65px;
-                                height: 65px;
-                                border-radius: 5px;
-                                text-decoration: none;
-                                align-items: center;
-                                justify-content: center;
-                                display: flex;
-
-                            }
-
-                            .thumbnail{
-
-                                width: 100%;
-                                max-width: 65px;
-
-                                .albumInput{
-
-                                    height: 100%;
-                                    width: 100%;
-                                    width: 65px;
-                                    padding: 2px;
-                                    border-radius: 5px;
-                                    height: 65px;
-                                    border: 1px solid $cinzaBorda;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-size: $fs14;
-                                    color: $cinza;
-                                    background-size: contain;
-                                    background-position: center;
-                                    background-repeat: no-repeat;
-                                }
-
-                            }
-                        }
-
-                    }
-                }
-
-                .textsInputs{
-
-                    width: 100%;
-                    max-width: 100%;
-                    display: flex;
-                    flex-direction: column;
+                    flex-wrap: wrap;
                     gap: 20px;
+                    align-items: flex-end;
 
-                    .row{
+                    .criar-categoria {
 
-                        display: flex;
+                        padding: 8px 24px;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs14;
                         width: 100%;
-                        align-items: center;
+                        max-width: 170px;
+                        text-align: center;
+                        border-radius: 0.3rem;
+                        border: none;
 
-                        .input{
-
-                            width: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 3px;
-
-                            .sub-grupo{
-
-                                display: flex;
-
-                                input{
-
-                                    width: 65%;
-
-                                    &:focus-visible{
-
-                                        outline: none;
-                                    }
-                                }
-
-                                select{
-
-                                    width: 35%;
-                                    text-align: center;
-                                    padding: 0;
-
-                                }
-                            }
-
-                            label{
-
-                                font-size: $fs12;
-                                color: $cinza;
-                                font-weight: 400;
-                                display: flex;
-                                gap: 10px;
-                                align-items: center;
-                            }
-
-                            input,select{
-
-                                width: 100%;
-                                border: 1px solid $cinzaBorda;
-                                color: $cinza;
-                                font-size: $fs14;
-                                height: 35px;
-                                padding-left: 10px;
-                            }
-
-                            textarea{
-
-                                width: 100%;
-                                border: 1px solid $cinzaBorda;
-                                color: $cinza;
-                                font-size: $fs14;
-                                padding-left: 10px;
-                            }
-                        }
-
-                        .newCategory{
-
-                            height: 100%;
-                            display: flex;
-                            align-items: flex-end;
-
-                            a{
-
-                                background-color: $branco ;
-                                color:$verdePrincipal ;
-                                padding: 10px;
-                                border-radius: 5px;
-                                transition: .3s;
-                                border: 1px solid $verdePrincipal;
-                                text-decoration: none;
-
-                                &:hover{
-
-                                    background-color: $verdePrincipal;
-                                    color: $branco;
-                                }
-                            }
-                        }
-
-                        .category{
-
-                            max-width: 840px;
-                        }
-
-                        .lg{
-
-                            max-width: 100%;
-
-                        }
-
-                        .md{
-
-
-                            max-width: 25%;
-                        }
-
-                        .sm{
-
-                            max-width: 15%;
+                        &:hover {
+                            background-color: $verdeLimao;
                         }
                     }
 
-                    .categoriasContent{
+                    .grupo {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        flex: 1 1 calc(30% - 20px); // Preenche o máximo possível e mantém o espaço entre os grupos
 
-                        ul{
+                        .sub-grupo{
 
-                            border: 2px solid $cinzaBorda;
-                            border-radius: 8px;
-                            margin: 15px;
-                            max-height: 350px;
-                            overflow-y: scroll;
-                            padding: 0;
+                            display: flex;
 
-                            li{
+                            input{
 
-                                border-bottom: 1px solid $cinzaBorda;
-                                padding: 4px 15px;
-                                display: flex;
-                                gap: 10px;
-
-                                label{
-
-                                    text-transform: capitalize;
-                                    font-size: $fs14;
-                                    font-weight: 600;
-                                }
+                                width: 80%;
+                                border-radius: 0.5rem 0 0 0.5rem;
                             }
+
+                            select{
+
+                                width: 20%;
+                                border-radius: 0 0.5rem 0.5rem 0;
+
+                            }
+                        }
+
+                        label {
+                            font-size: $fs14;
+                            font-weight: 600;
+                            width: 100%;
+                        }
+
+                        input, select, textarea {
+                            height: 40px;
+                            border: 1.5px solid $cinza;
+                            border-radius: 0.5rem;
+                            width: 100%;
+                            outline: none;
                         }
                     }
                 }
-            }
-        }
 
-        .botoes{
+                .botoes {
 
-            display: flex;
-            align-items: flex-end;
-            padding: 0 35px;
+                    display: flex;
+                    align-items: flex-end;
+                    padding: 0 35px;
 
-            button{
+                    button {
 
-                padding: 8px 24px;
-                background-color: $verdePrincipal;
-                color: $branco;
-                font-size: $fs14;
-                width: 100%;
-                max-width: 170px;
-                text-align: center;
-                border-radius: 0.3rem;
+                        padding: 8px 24px;
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs14;
+                        width: 100%;
+                        max-width: 170px;
+                        text-align: center;
+                        border-radius: 0.3rem;
+                        border: none;
 
-                &:hover{
-
-                    background-color: $verdeLimao;
+                        &:hover {
+                            background-color: $verdeLimao;
+                        }
+                    }
                 }
             }
         }

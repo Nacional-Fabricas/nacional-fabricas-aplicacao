@@ -29,9 +29,9 @@ class CadastrarProduto extends Component
 
         $assinatura = Assinatura::where('id_conta', $usuarioId )->first();
 
-        $meuPlano = Plano::where('id', $assinatura -> id_plano) -> first ();
+        $meuPlano = $assinatura ? Plano::where('id', $assinatura -> id_plano) -> first () : null;
 
-        $maxProdutos = $meuPlano -> max_produtos;
+        $maxProdutos = $meuPlano ? $meuPlano -> max_produtos : 10;
 
         $meusProdutos = Produto::where('id_conta', $usuarioId ) -> count();
 

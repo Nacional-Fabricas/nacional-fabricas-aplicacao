@@ -21,16 +21,13 @@ class ListarCategorias extends Component
 
         $user = Auth::user();
 
-        $assinatura = Assinatura::where('id_conta', $user -> id) -> first ();
-
-        if($assinatura -> nome_plano == "Membro"){
+        if($user -> current_team_id){
 
             $usuarioId = $user -> current_team_id;
 
         }else{
 
             $usuarioId = $user -> id;
-
         }
 
         if ($buscar) {

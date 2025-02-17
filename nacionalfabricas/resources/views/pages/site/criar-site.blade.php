@@ -1,22 +1,62 @@
 <form action="{{route('criar_site')}}" method="post" class="formulario-criar-site" enctype="multipart/form-data">
     @csrf
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalCrop" tabindex="-1" aria-labelledby="modalCropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCropLabel">Cortar Imagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="img-container">
+                        <img id="image-to-crop" src="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="crop-button">Cortar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="cabecalho-formulario">
         <h1>Área do seu Site</h1>
     </div>
+
     <hr>
+
     <div class="conteudo-formulario">
 
         {{-- Etapa 1 --}}
         <div class="bloco etapa" id="etapa-1">
+
+            <div class="grupo">
+                <label for="nome_industria">Nome da indústria</label>
+                <input name="nome_industria" required value="{{ old('nome_industria', $site ? $site->nome_industria : '') }}" type="text">
+                @error('nome_industria')
+                <div class="alert alert-danger">{{ $menssagem }}</div>
+                @enderror
+            </div>
+
             <div class="linha">
-                <div class="grupo">
-                    <label for="nome_industria">Nome da indústria</label>
-                    <input name="nome_industria" required value="{{ old('nome_industria', $site ? $site->nome_industria : '') }}" type="text">
-                    @error('nome_industria')
-                    <div class="alert alert-danger">{{ $menssagem }}</div>
-                    @enderror
+
+                <!-- Banner -->
+                <div class="image-preview-container">
+                    <div class="image-preview" id="banner-container">
+                        <img id="banner-preview"
+                             src="{{ $site && $site->banner ? asset('images/sites/backgrounds/' . $site->banner) : '' }}"
+                             alt="Banner" class="preview-image">
+                        <div class="placeholder" style="display: {{$site && $site->banner ? 'none' : 'flex' }}">Banner</div>
+                        <button class="icone-editar" data-campo="banner" data-bs-toggle="modal" data-bs-target="#modalCrop">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+                    <input type="file" id="banner-input" accept="image/*" style="display: none;">
                 </div>
+
                 <div class="grupo">
                     <label for="descricao_industria">Descrição
                         <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Descrição que irá aparecer na página de sua Fábrica.">i</button>
@@ -26,6 +66,7 @@
                     <div class="alert alert-danger">{{ $menssagem }}</div>
                     @enderror
                 </div>
+
             </div>
             <div class="botoes">
                 <button type="button" class="btn-proximo" onclick="mostrarEtapa(2)">Próximo</button>
@@ -128,15 +169,6 @@
                     <input name="telefone" required @if($site) value="{{ old('telefone', $site->telefone) }}" @else value="{{ old('telefone', $site ? $site -> telefone : '') }}" @endif type="text">
                 </div>
             </div>
-            <div class="grupo">
-                <label for="atendimento">Atendimento</label>
-                <select required name="atendimento" @if($site) value="{{ old('atendimento', $site->atendimento) }}" @else value="{{ old('atendimento', $site ? $site -> atendimento : '') }}" @endif >
-                    <option value="">Selecione uma opção</option>
-                    <option value="Segunda a Sexta - Horário Comercial" @if(old('atendimento', $site ? $site->atendimento : '') === 'Segunda a Sexta - Horário Comercial') selected @endif>Segunda a Sexta - Horário Comercial</option>
-                    <option value="Segunda a Sábado - Horário Comercial" @if(old('atendimento', $site ? $site->atendimento : '') === 'Segunda a Sábado - Horário Comercial') selected @endif>Segunda a Sábado - Horário Comercial</option>
-                    <option value="Horário Indefinido" @if(old('atendimento', $site ? $site->atendimento : '') === 'Horário Indefinido') selected @endif>Horário Indefinido</option>
-                </select>
-            </div>
 
             <div class="botoes">
 
@@ -190,6 +222,7 @@
 </form>
 
 @push('scripts')
+
 
     <script src="{{asset('js/site/criar-site.js')}}"></script>
 

@@ -13,9 +13,9 @@
     <ul class="nav-list">
 
         <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('funcionalidades')}}">Funcionalidades</a></li>
         <li><a href="{{route('busca_geral')}}">Indústrias Parceiras</a></li>
         {{--
+        <li><a href="{{route('funcionalidades')}}">Funcionalidades</a></li>
         <li><a href="{{route('planos')}}">Planos</a></li>
         <li><a href="{{route('contato')}}">Contato</a></li>
         --}}

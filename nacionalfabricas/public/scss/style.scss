@@ -1,7 +1,7 @@
 @import "variaveis", "pages/meu-site/meu-site","animacoes-gerais", "pages/gerais/home", "pages/acessos/login","components/footer","components/header"
 ,"pages/cadastro/finalizarCadastro","pages/gerais/funcionalidades","pages/gerais/planos","pages/gerais/ajuda","pages/gerais/contato"
 ,"components/font","pages/painel/dadosCadastrais","pages/produtos/criarprodutos","pages/categorias/criarcategoria"
-,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/gerais/buscaGeral","pages/painel/meuSite"
+,"pages/categorias/listarCategoria" ,"pages/produtos/listarProdutos","pages/buscas/buscaGeral","pages/painel/meuSite"
 ,"pages/site/sitePage","pages/categorias/categoriaPage","pages/produtos/editarProduto","pages/site/buscaMeusite" ,"pages/painel/minhasCompras"
 ,"pages/produtos/productPage","pages/cotacao/cotacao" ,"pages/cotacao/listaOrcamentos","pages/cotacao/solicitarOrcamentos"
 ,"pages/cotacao/listarOrcamentos" , "pages/cotacao/cotacaoPage" ,"pages/painel/meuPlano" , "pages/painel/painel", "pages/painel/configuracoes"
@@ -166,8 +166,7 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 80%;
+    width: 80vw;
     padding: 20px 0;
 }
 
@@ -255,7 +254,7 @@ input{
         align-items: center;
         background-color: $branco;
         border-radius: 7px;
-        box-shadow: 0 0 15px rgba(0,0,0,.2);
+        box-shadow: 0 0 15px rgba($preto,.2);
         display: flex;
         height: 30px;
         color: $cinza;

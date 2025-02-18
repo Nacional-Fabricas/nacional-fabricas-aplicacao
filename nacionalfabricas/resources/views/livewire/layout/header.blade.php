@@ -14,7 +14,7 @@
 
         <li><a href="{{route('home')}}">Home</a></li>
         {{-- <li><a href="{{route('funcionalidades')}}">Funcionalidades</a></li> --}}
-        <li><a href="{{route('busca_geral')}}?tipo=fabricas">Indústrias Parceiras</a></li>
+        <li><a href="{{route('busca_geral', ['tipo' => 'Fábricas'])}}">Indústrias Parceiras</a></li>
         <li><a href="{{route('planos')}}">Planos</a></li>
         <li><a href="{{route('contato')}}">Contato</a></li>
         <li><a href="{{route('ajuda')}}">Ajuda</a></li>

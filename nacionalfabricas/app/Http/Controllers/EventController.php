@@ -233,6 +233,8 @@ class EventController extends Controller
             $usuarioId = null;
         }
 
+        /**
+
         $busca = request('busca');
 
         $estado = request('estado');
@@ -246,6 +248,8 @@ class EventController extends Controller
         $cadastros = Cadastro::all();
 
         $sites = Site::all();
+
+
 
         if($tipo == 'Produtos'){
 
@@ -352,22 +356,12 @@ class EventController extends Controller
         }
 
         $estados =  Estado::all();
-        $segmentos = Segmento::all();
+        $segmentos = Segmento::all(); */
 
-        return view ('pages.gerais.busca-geral', compact(
-            'cadastros',
+        return view ('pages.buscas.busca-geral', compact(
             'usuarioId',
             'user',
-            'tipo',
-            'produtos',
-            'estados',
-            'estado',
-            'cidade' ,
-            'segmento' ,
-            'segmentos' ,
-            'sites' ,
-            'resultados' ,
-            'busca'   ));
+        ));
     }
     public function ajuda(){
 

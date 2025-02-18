@@ -8,9 +8,9 @@
 
             <div class="linha">
                 <div class="grupo">
-                    <select wire:model="tipo" id="tipo">
-                        <option value="Produtos">Produtos</option>
+                    <select wire:model.live="tipo" id="tipo">
                         <option value="Fábricas">Fábricas</option>
+                        <option value="Produtos">Produtos</option>
                     </select>
                 </div>
 

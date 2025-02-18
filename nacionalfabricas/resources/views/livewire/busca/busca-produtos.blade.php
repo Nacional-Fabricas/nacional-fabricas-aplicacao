@@ -1,82 +1,65 @@
 <div>
 
-    <div class="resultados-produtos">
+    <div class="bloco-produtos">
 
-        <div class="breadcrumb">
+        <div class="contador-resultados">
 
-            <div class="bc">
-
-                Inicio > Produtos
-
-                @if($busca)
-                    > <strong>{{$busca}}</strong>
-                @endif
-
-            </div>
-
-            <div class="contador-resultados">
-
-                <strong>{{$produtos -> count()}}</strong> produtos encontrados
-
-            </div>
+            <strong>{{$produtos -> count()}}</strong> produtos encontrados
 
         </div>
 
-        <ul class="lista-resultados">
+        <ul class="lista-produtos">
 
             @foreach($produtos as $produto)
 
                 <li class="produto">
 
-                    <img class="thumb" src="{{asset('images/thumbnails/'. $produto-> produto_thumbnail) }}">
+                    <div class="swiper mySwiper">
+
+                        <div class="swiper-wrapper">
+
+                            <img class="swiper-slide" src="{{asset('storage/images/thumbnails/'. $produto-> produto_thumbnail) }}">
+
+                            @foreach ($produtos as $produto)
+
+                                @if( $produto->id_conta )
+
+                                    <img class="swiper-slide" src="{{asset('storage/images/thumbnails/' .$produto->produto_thumbnail)}}">
+
+                                @endif
+
+                            @endforeach
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
 
                     <div class="info">
 
-                        <div class="cabecalho">
+                        <h3>{{$produto -> produto_nome}}</h3>
 
-                            <h3>{{$produto -> produto_nome}}</h3>
+                        @if($produto -> preco_min != 0 && $produto -> preco_min != null && $produto -> preco_max != 0 && $produto -> preco_max != null )
 
-                            @if($produto -> preco_min != 0 && $produto -> preco_min != null && $produto -> preco_max != 0 && $produto -> preco_max != null )
+                            <div class="preco">
 
-                                <div class="preco">
-
-                                    <strong>R${{$produto -> preco_min}} - R${{$produto -> preco_max}}</strong>
-
-                                </div>
-
-                            @endif
-
-                            <div class="codigos">
-
-                                <span class="sku"><strong>SKU</strong> {{$produto -> sku}}</span>
+                                <strong>R${{$produto -> preco_min}} - R${{$produto -> preco_max}}</strong>
 
                             </div>
 
-                            <hr>
+                        @endif
+
+                        <div class="codigos">
+
+                            <span class="sku"><strong>SKU</strong> {{$produto -> sku}}</span>
 
                         </div>
 
-                        @foreach($enderecos as $endereco)
-
-                            @if($endereco -> id_conta == $produto -> id_conta)
-
-                                <div class="informacao-produto">
-
-                                    <span class="fabricante">Fabricante: <strong>{{$endereco -> nome_empresa}}</strong></span>
-
-                                    <span class="uf">Estado: <strong>{{$endereco -> estado}}</strong></span>
-
-                                </div>
-
-                            @endif
-
-                        @endforeach
-
                         <div class="acoes">
 
-                            <a class="ver-produto" href="{{ route('produto', [ 'id' => $produto -> id]) }}">Ver Produto</a>
+                            <a class="btn-ver-produto" href="{{ route('produto', [ 'id' => $produto -> id]) }}">Ver Produto</a>
 
-                            @if($produto -> id_conta != $usuarioId )
+                            @if($usuario && $produto -> id_conta != $usuario -> id )
 
                                 <form action="{{route('adicionar_cotacao')}}" class="formulario-adicionar-cotacao"  method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -97,7 +80,7 @@
 
                             @else
 
-                                <a class="editar-produto" href="{{ route('editar-produto', [ 'id' => $produto -> id])}}">Editar Produto</a>
+                                <a class="btn-editar-produto" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">Editar Produto</a>
 
                             @endif
 
@@ -105,7 +88,7 @@
 
                                 @if($site -> id_conta == $produto -> id_conta )
 
-                                    <a class="ver-fabricante" href="{{ route('industria', [ 'conta_id' => $produto -> id_conta, 'slug' => $site -> slug])}}">Ver Fabricante</a>
+                                    <a class="btn-ver-fabricante" href="{{ route('site', [ 'id' => $produto -> id_conta, 'slug' => $site -> slug])}}">Ver Fabricante</a>
 
                                 @endif
 

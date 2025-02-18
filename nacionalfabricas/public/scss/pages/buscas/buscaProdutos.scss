@@ -1,0 +1,106 @@
+@import "../../variaveis.scss";
+
+.bloco-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    .lista-produtos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc((100% - (3 * 250px)) / 2);
+        padding: 0;
+
+        .produto {
+            flex: 1 1 250px;
+            max-width: 250px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba($preto, .2);
+            width: 100%;
+
+            .swiper {
+                width: 100% !important;
+                max-width: 250px !important;
+                margin: 0;
+
+                .swiper-slide {
+                    width: 100% !important;
+                    max-width: 250px !important;
+                }
+
+                .swiper-button-next, .swiper-button-prev {
+                    &:after {
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        font-size: $fs20;
+                        border-radius: 50%;
+                        padding: 10px 15px;
+                    }
+                }
+            }
+
+            .info {
+                .cabecalho {
+                    h3 {
+                        font-size: $fs24;
+                    }
+                }
+
+                .acoes {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .btn-ver-fabricante, .btn-ver-produto, .btn-editar-produto {
+                        color: $branco;
+                        padding: 10px;
+                        border-radius: 5px;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: .3s;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+
+                    .btn-ver-produto, .btn-ver-fabricante {
+                        background-color: $verdePrincipal;
+                    }
+
+                    .btn-editar-produto {
+                        background-color: $roxo;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .lista-produtos {
+        gap: calc((100% - (2 * 250px)) / 1);
+
+        .produto {
+            flex: 1 1 250px;
+            max-width: 250px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .lista-produtos {
+        gap: 10px;
+
+        .produto {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+}

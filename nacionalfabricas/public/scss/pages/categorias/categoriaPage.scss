@@ -1,126 +1,86 @@
 @import "../../variaveis.scss";
 
-.categoriaPage{
+.bloco-categoria{
 
-    padding: 50px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 
-    .formulario{
+    .bloco-formulario{
 
         box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
-        padding: 24px 0;
         border-radius: 42px;
         display: flex;
         flex-direction: column;
+        width: 80vw;
+        gap: 20px;
+        padding: 25px;
 
-        .headerForm{
+        .formulario{
 
-            padding: 0 48px;
-
-            h2{
-
-                font-size: $fs24;
-                font-weight: 500;
-                color: $preto;
-            }
-
-        }
-
-        .formContent{
-
-            padding: 20px 48px 48px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 10px;
 
-            .row{
+            .linha{
 
-                width: 100%;
+                display: flex;
+                gap: calc((100% - (4 * 250px)) / 3);
 
-                .inputFields{
+                .grupo{
 
-                    width: 100%;
                     display: flex;
-                    gap: 8px;
-                    padding: 0;
-
-                    label{
-
-                        display: flex;
-                        align-items: center;
-                        font-size: $fs16;
-                        font-weight: 600;
-                    }
-
-                    select{
-
-                        max-width: 80% ;
-
-                    }
-
-                    input, select,textarea{
-
-                        border: 1px solid $cinzaBorda;
-                        color: $cinzaInput;
-                        font-size: $fs14;
-                        width: 100%;
-                        height: 35px;
-                        padding: 8px;
-                        border-radius: 0.3rem;
-
-                        &:focus{
-
-                            outline: none;
-                        }
-
-                    }
-
-                    .desc{
-
-                        min-height: 100px;
-                        border-radius: 16px;
-                    }
-
-                }
-
-                .col{
-
                     flex-direction: column;
-                }
+                    flex: 1 1 250px;
 
-                .full{
-
-                    max-width: 100%;
-                }
-
-                .md{
-
-                    max-width: 50%;
-                }
-            }
-
-            .button{
-
-                justify-content: flex-end;
-
-                button{
-
-                    padding: 8px 24px;
-                    background-color: $verdePrincipal;
-                    color: $branco;
-                    font-size: $fs14;
-                    width: 100%;
-                    max-width: 170px;
-                    text-align: center;
-                    border-radius: 0.3rem;
-
-                    &:hover{
-
-                        background-color: $verdeLimao;
+                    input, select, textarea {
+                        height: 40px;
+                        border: 1.5px solid $cinza;
+                        border-radius: 0.5rem;
+                        width: 100%;
+                        outline: none;
+                        padding: 4px 10px;
                     }
-
                 }
+
+            }
+        }
+
+        .botoes{
+
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            button{
+
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-size: $fs16;
+                font-weight: 700;
             }
 
+            .btn-salvar{
+
+                background-color: $verdePrincipal;
+                color: $branco;
+            }
+
+            .btn-deletar{
+
+                background-color: $vermelhoEscuro;
+                color: $branco;
+            }
+        }
+
+        .excluir-categoria{
+
+            display: none;
         }
     }
+
 }

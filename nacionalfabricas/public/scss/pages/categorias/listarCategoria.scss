@@ -1,26 +1,23 @@
 @import "../../variaveis.scss";
 
+.listar-categorias{
 
-.listarCategorias{
-
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
 
-    .block{
+    .bloco-categorias{
 
-        width: 100%;
-        max-width: 80%;
+        width: 80vw;
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .categoriaHeader{
+        .cabecalho{
 
             display: flex;
             gap: 10px;
             align-items: flex-end;
-
 
             h4{
 
@@ -35,212 +32,78 @@
             }
         }
 
-        .listarContent{
+        .pesquisa{
 
             display: flex;
-            flex-direction: column;
+            width: 100%;
             gap: 20px;
 
-            .pesquisa{
+            input, select{
 
-                display: flex;
+                border: none;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: -1px 0 7px 1px rgba($preto,.3);
                 width: 100%;
-                gap: 10px;
+            }
 
-                .textSearch{
+            select{
 
-                    align-items: center;
-                    background-color: $branco;
-                    border: 2px solid $cinzaBorda;
-                    border-radius: 8px;
-                    display: flex;
-                    overflow: hidden;
-                    width: 100%;
-                    max-width: 700px;
-                    padding: 10px ;
-                }
+                max-width: 200px;
+            }
 
-                .filterSearch{
+            .adicionar-categoria{
 
-                    align-items: center;
-                    background-color: $branco;
-                    border: 2px solid $cinza;
-                    color: $cinza;
-                    display: flex;
-                    width: 100%;
-                    max-width: 120px;
-                    border-radius: 8px;
+                border: 1px solid $verdePrincipal;
+                color: $verdePrincipal;
+                font-size: $fs20;
+                padding: 10px;
+                text-decoration: none;
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+                border-radius: 10px;
+                transition: .3s;
 
-                }
+                &:hover{
 
-                .addCat{
-
-                    border-radius: 8px;
                     background-color: $verdePrincipal;
                     color: $branco;
-                    font-size: $fs14;
-                    text-align: center;
-                    text-decoration: none;
-                    padding: 10px 25px;
-                    display: flex;
-                    align-items: center;
+
                 }
             }
+        }
 
-            .tabela{
+        .categorias{
 
-                border: 1px solid $cinzaBorda;
-                border-radius: 0 0 10px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc((100% - (5 * 250px)) / 4);
 
-                thead{
+            .categoria{
 
-                    background-color: $cinzaCards;
-                    border-bottom: 1px solid $cinzaBorda;
+                flex: 1 1 250px; // Ajuste o valor 200px para a largura desejada dos produtos
+                max-width: 250px; // Ajuste o valor 200px para a largura desejada dos produtos
+                box-sizing: border-box;
+                display: flex;
+                border-radius: 10px;
+                box-shadow: -1px 0 7px 1px rgba($preto,.3);
+                text-decoration: none;
+                color: $preto;
+                height: auto;
+                padding: 5px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                transition: .3s;
 
-                    tr{
+                &:hover{
 
-                        th{
-
-                            height: 50px;
-                            padding: 0 15px;
-                            color: $azulTable;
-                            font-size: $fs14;
-                            font-weight: 500;
-                            text-align: center;
-
-                        }
-
-                    }
-                }
-
-
-                tbody{
-
-                    border: none;
-
-                    tr{
-
-                        td{
-
-                            height: 50px;
-                            padding: 0 15px;
-                            border-bottom: 1px solid $cinzaBorda;
-                            color: $cinzaTable;
-                            font-size: $fs14;
-                            font-weight: 400;
-                            text-transform: capitalize;
-                            text-align: center;
-
-
-
-                            .ativo{
-
-                                background-color: $verdeClaro;
-                                border: none;
-                                padding: 8px 12px;
-                                color: $azulTable;
-                                font-weight: 700;
-                                border-radius: 5px;
-
-                            }
-
-                            .inativo{
-
-                                background-color: $vermelhoClaro;
-                                border: none;
-                                padding: 8px 12px;
-                                color: $branco;
-                                font-weight: 700;
-                                border-radius: 5px;
-
-                            }
-
-
-                            a{
-
-                                text-decoration: none;
-                                color: $branco !important;
-                                background-color: $verdeLimao;
-                                padding: 8px 12px;
-                                border-radius: 5px;
-                            }
-
-
-                        }
-
-                        &:hover{
-
-                            background-color: $cinzaCards;
-                        }
-                    }
+                    background-color: $verdePrincipal;
+                    color: $branco;
+                    transform: scale(1.05);
                 }
             }
         }
     }
-}
-
-@media only screen and (max-width: 770px) {
-
-    .listarCategorias{
-
-        .block{
-
-            width: 100%;
-            max-width: 100%;
-
-            .listarContent{
-
-                .pesquisa{
-
-                    flex-direction: column;
-                    width: 100%;
-                    gap: 10px;
-
-                    .filterSearch{
-
-                        height: 48px;
-                        width: 100%;
-                        max-width: 100%;
-
-                    }
-                }
-
-                .tabela{
-
-                    thead{
-
-                        tr{
-
-                            th{
-
-                                font-size: $fs12;
-                            }
-
-                            .mobile{
-
-                                display: none;
-                            }
-
-                        }
-                    }
-
-                    tbody{
-
-
-                        tr{
-
-
-                            .mobile{
-
-                                display: none;
-                            }
-
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }

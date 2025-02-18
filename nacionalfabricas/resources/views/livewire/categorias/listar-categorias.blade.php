@@ -1,65 +1,66 @@
 <div>
 
-    <div class="listar-categorias">
+    @if(count($categorias) > 0)
 
-        <div class="pesquisa">
+        <div class="listar-categorias">
 
-            <input wire:model.live="buscar" class="buscar" type="search" placeholder="Buscar categoria">
+            <div class="bloco-categorias">
 
-            <select wire:model.live="filtroCategorias" class="filtro-categorias">
-                <option value="">Filtrar</option>
-                <option value="Ativo">Ativo</option>
-                <option value="Inativo">Inativo</option>
-            </select>
+                <div class="cabecalho">
 
-            <a href="{{route('criar_categoria')}}" class="adicionar-categoria">+ Criar categoria</a>
+                    <h4>Produtos /</h4>
+                    <h1 class="verde">Categorias</h1>
 
-        </div>
+                </div>
 
-        <table>
-            <thead>
-            <tr>
-                <th class="mobile" scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Situação</th>
-                <th scope="col">Ação</th>
+                <div class="pesquisa">
 
-            </tr>
-            </thead>
-            <tbody>
+                    <input wire:model.live="buscar" class="buscar" type="search" placeholder="Buscar categoria">
 
-            @foreach($categorias as $categoria)
+                    <select wire:model.live="filtroCategorias" class="filtro-categorias">
+                        <option value="">Filtrar</option>
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
 
-                <tr>
-                    <td class="mobile">{{$categoria -> id}}</td>
-                    <td>{{$categoria -> nome}}</td>
-                    <td>
+                    <a href="{{route('criar_categoria')}}" class="adicionar-categoria">+ Criar categoria</a>
 
-                        @if($categoria -> ativo === 'Ativo' )
+                </div>
 
-                            <span class="ativo">Ativo</span>
+                <div class="categorias">
 
-                        @else
+                    @foreach($categorias as $categoria)
 
-                            <span class="inativo">Inavito</span>
+                        <a class="categoria" href="{{ route('categoria', [ 'id' => $categoria -> id])}}">
+                            {{$categoria -> nome}}
+                        </a>
 
-                        @endif
+                    @endforeach
 
-                    </td>
-                    <td><a href="{{ route('categoria', [ 'id' => $categoria -> id])}}">Editar</a></td>
-                </tr>
+                </div>
 
-            @endforeach
+                <div class="links">
 
-            </tbody>
-        </table>
+                    {{$categorias -> links()}}
 
-        <div class="links">
+                </div>
 
-            {{$categorias -> links()}}
+            </div>
 
         </div>
 
-    </div>
+    @else
+
+        <div class="lista-vazia">
+
+            <img src="{{ asset('icons/cancel.svg')}}" alt="">
+
+            <h1><strong>Nenhuma categoria registrada!</strong></h1>
+
+            <span>Comece a criar suas categorias para classificar seus produtos <a href="{{route('criar_categoria')}}">clicando aqui</a></span>
+
+        </div>
+
+    @endif
 
 </div>

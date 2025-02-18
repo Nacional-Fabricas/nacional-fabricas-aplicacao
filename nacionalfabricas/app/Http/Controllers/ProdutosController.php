@@ -118,7 +118,6 @@ class ProdutosController extends Controller
         return view ('pages.produtos.listar-produtos', compact('user', 'produtos'));
 
     }
-
     public function create(Request $request) {
 
         try {
@@ -285,6 +284,7 @@ class ProdutosController extends Controller
         return response()->json([
             'sucesso' => true,
             'nova_imagem' => asset('storage/' . $caminho),
+            'id_imagem' => $fotoAlbum->id,
         ]);
     }
     public function deletarFotoGaleria(Request $request, $photoId, ){

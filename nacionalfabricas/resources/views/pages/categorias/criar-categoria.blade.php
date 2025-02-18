@@ -100,7 +100,11 @@
 
         <div class="linha">
 
-            <button type="submit">Criar categoria</button>
+            <div class="botoes">
+
+                <button type="submit" class="btn-cadastrar">Criar categoria</button>
+
+            </div>
 
         </div>
 

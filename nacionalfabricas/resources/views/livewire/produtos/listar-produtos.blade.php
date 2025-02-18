@@ -1,6 +1,6 @@
 <div>
 
-    <div class="lista-meus-produtos">
+    <div class="listar-produtos-fabrica">
 
         <div class="bloco-pesquisa">
 
@@ -24,41 +24,29 @@
 
         <div class="lista-produtos">
 
-            <div class="cabecalho">
-
-                <p>Thumbnail</p>
-                <p>Nome do produto</p>
-                <p>Quantidade</p>
-                <p>SKU</p>
-                <p>Situação</p>
-                <p>Ação</p>
-
-            </div>
-
-            <div class="produtos">
-
             @foreach($produtos as $produto)
 
-                <div class="produto">
-
-                    <img class="thumbnail" src="{{ asset('images/thumbnails/' .$produto-> produto_thumbnail)}}">
-
-                    <p>{{$produto -> produto_nome }}</p>
-                    <p>{{$produto -> quantidade }}</p>
-                    <p>{{$produto -> sku }}</p>
-                    <p>@if($produto -> ativo === "Sim" )
+                <div class="bloco-produto">
+                    <span class="status {{$produto -> ativo}}">
+                        @if($produto -> ativo === "Sim" )
                             Ativo
                         @else
                             Inativo
                         @endif
-                    </p>
+                    </span>
 
-                    <a class="botao-editar" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">Editar</a>
+                    <a class="produto" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">
+
+                        <img class="thumbnail" src="{{ asset('storage/images/thumbnails/' . $produto->produto_thumbnail) }}">
+                        <p class="nome">{{$produto -> produto_nome }}</p>
+                        <p class="sku">SKU: {{$produto -> sku }}</p>
+
+                    </a>
 
                 </div>
+
             @endforeach
 
-            </div>
 
         </div>
 

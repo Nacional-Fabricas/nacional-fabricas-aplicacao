@@ -1,8 +1,11 @@
 @import "../../variaveis.scss";
 
-.criarCategoria{
+.criar-categoria{
 
+    display: flex;
+    justify-content: center;
     padding: 0 50px;
+    width: 100vw;
 
     .formulario{
 
@@ -11,102 +14,44 @@
         border-radius: 42px;
         display: flex;
         flex-direction: column;
+        width: 80vw;
 
-        .headerForm{
+        .linha {
 
-            padding: 0 48px;
-
-            h2{
-
-                font-size: $fs24;
-                font-weight: 500;
-                color: $preto;
-            }
-
-        }
-
-        .formContent{
-
-            padding: 20px 48px 48px;
             display: flex;
-            flex-direction: column;
-            gap: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+            padding: 20px;
 
-            .row{
+            .grupo {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                flex: 1 1 calc(30% - 20px); // Preenche o máximo possível e mantém o espaço entre os grupos
 
-                width: 100%;
-
-
-
-                .inputFields{
-
+                label {
+                    font-size: $fs14;
+                    font-weight: 600;
                     width: 100%;
-                    display: flex;
-                    gap: 8px;
-                    padding: 0;
-                    justify-content: space-between;
-
-                    label{
-
-                        display: flex;
-                        align-items: center;
-                        font-size: $fs16;
-                        font-weight: 600;
-                        gap: 10px;
-                    }
-
-                    select{
-
-                        max-width: 80% ;
-
-                    }
-
-                    input, select,textarea{
-
-                        border: 1px solid $cinzaBorda;
-                        color: $cinzaInput;
-                        font-size: $fs14;
-                        width: 100%;
-                        height: 35px;
-                        padding: 8px;
-                        border-radius: 0.3rem;
-
-                        &:focus{
-
-                            outline: none;
-                        }
-
-                    }
-
-                    .desc{
-
-                        min-height: 100px;
-                        border-radius: 16px;
-                    }
-
                 }
 
-                .col{
-
-                    flex-direction: column;
-                }
-
-                .full{
-
-                    max-width: 100%;
-                }
-
-                .md{
-
-                    max-width: 50%;
+                input, select, textarea {
+                    height: 40px;
+                    border: 1.5px solid $cinza;
+                    border-radius: 0.5rem;
+                    width: 100%;
+                    outline: none;
                 }
             }
 
-            .button{
+            .botoes{
 
+                display: flex;
+                width: 100%;
                 justify-content: flex-end;
 
-                button{
+                .btn-cadastrar{
 
                     padding: 8px 24px;
                     background-color: $verdePrincipal;
@@ -116,15 +61,14 @@
                     max-width: 170px;
                     text-align: center;
                     border-radius: 0.3rem;
+                    border: none;
 
-                    &:hover{
-
+                    &:hover {
                         background-color: $verdeLimao;
                     }
-
                 }
-            }
 
+            }
         }
     }
 }

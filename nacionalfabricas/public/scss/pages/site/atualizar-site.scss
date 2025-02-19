@@ -1,20 +1,30 @@
 @import "../../variaveis.scss";
 
-.bloco-imagens{
+.configura-site{
 
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+    .bloco-imagens{
 
-    .bloco-banner{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
 
-        position: relative;
-
-        .banner-site{
+        h1{
 
             width: 100%;
+            text-align: center;
+        }
+
+        h3{
+
+            font-size: $fs14;
+        }
+
+        .linha{
+
+            display: flex;
+            gap: 20px;
         }
 
         .btn-editar-imagem{
@@ -25,7 +35,7 @@
             padding: 10px;
             border-radius: 5px;
             position: absolute;
-            top: 5vh;
+            top: 3vh;
             right: 1vw;
             font-weight: 700;
             transition: .3s;
@@ -36,63 +46,147 @@
                 color: $branco;
             }
         }
-    }
-}
 
-.formulario-atualizar-site{
+        .bloco-banner{
 
-    width: 100%;
-    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
-    border-radius: 0.5rem;
-    border: 1px solid $cinzaBorda;
-    position: relative;
+            position: relative;
+            width: 100%;
 
-    .cabecalho-formulario{
+            .banner-site{
 
-        padding: 10px;
-        color: $preto;
-        border-radius: 0.5rem 0.5rem 0 0;
-    }
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+                box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+            }
+        }
 
-    .conteudo-formulario{
+        .bloco-logo{
 
-        .bloco{
+            width: 20%;
+            position: relative;
+
+            .logo-site{
+
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+                box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+            }
+        }
+
+        .destaques{
 
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 25px;
+            justify-content: space-evenly;
 
-            .linha{
+            .bloco-destaque{
 
                 display: flex;
-                flex-wrap: wrap;
-
-            }
-
-            .grupo-dias{
-
-                align-items: center;
-                display: flex;
-                width: 100%;
-                gap: 10px;
                 flex-direction: column;
+                gap: 5px;
+                width: 100%;
+                max-width: 300px;
+                position: relative;
 
-                .horarios{
+                .destaque-site{
 
+                    width: 100%;
+                    height: auto;
+                    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                }
+            }
+        }
+    }
+
+    .formulario-atualizar-site{
+
+        width: 100%;
+        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+        border-radius: 0.5rem;
+        border: 1px solid $cinzaBorda;
+        position: relative;
+
+        .cabecalho-formulario{
+
+            padding: 10px;
+            color: $preto;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .conteudo-formulario{
+
+            .bloco{
+
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 25px;
+
+                .linha{
+
+                    display: flex;
+                    flex-wrap: wrap;
+
+                }
+
+                .grupo-dias{
+
+                    align-items: center;
                     display: flex;
                     width: 100%;
                     gap: 10px;
-                    align-items: center;
+                    flex-direction: column;
 
-                    .dia{
+                    .horarios{
 
                         display: flex;
-                        gap: 10px;
                         width: 100%;
-                        max-width: 150px;
+                        gap: 10px;
+                        align-items: center;
 
+                        .dia{
+
+                            display: flex;
+                            gap: 10px;
+                            width: 100%;
+                            max-width: 150px;
+
+                        }
+
+                        label{
+
+                            font-size: $fs14;
+                            font-weight: 600;
+                            width: 100%;
+                        }
+
+                        input{
+
+                            height: 40px;
+                            border: 1.5px solid $cinza ;
+                            border-radius: 0.5rem;
+                            width: 100%;
+                            outline: none;
+                        }
+
+                        input[type="checkbox"] {
+
+                            height: 20px;
+                            width: 20px;
+                        }
                     }
+                }
+
+                .grupo{
+
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 10px;
 
                     label{
 
@@ -101,7 +195,7 @@
                         width: 100%;
                     }
 
-                    input{
+                    input, textarea,select{
 
                         height: 40px;
                         border: 1.5px solid $cinza ;
@@ -109,81 +203,50 @@
                         width: 100%;
                         outline: none;
                     }
-
-                    input[type="checkbox"] {
-
-                        height: 20px;
-                        width: 20px;
-                    }
-                }
-            }
-
-            .grupo{
-
-                align-items: center;
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-
-                label{
-
-                    font-size: $fs14;
-                    font-weight: 600;
-                    width: 100%;
                 }
 
-                input, textarea,select{
+                .botoes {
 
-                    height: 40px;
-                    border: 1.5px solid $cinza ;
-                    border-radius: 0.5rem;
-                    width: 100%;
-                    outline: none;
-                }
-            }
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
 
-            .botoes {
+                    .btn-anterior, .botao-salvar, .btn-proximo {
+                        background-color: $verdePrincipal;
+                        color: $branco;
+                        padding: 10px;
+                        border-radius: 0.5rem;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        border: none;
+                        width: 100%;
+                        max-width: 50%;
 
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-
-                .btn-anterior, .botao-salvar, .btn-proximo {
-                    background-color: $verdePrincipal;
-                    color: $branco;
-                    padding: 10px;
-                    border-radius: 0.5rem;
-                    cursor: pointer;
-                    transition: 0.3s;
-                    border: none;
-                    width: 100%;
-                    max-width: 50%;
-
-                    &:hover {
-                        background-color: $verdeLimao;
+                        &:hover {
+                            background-color: $verdeLimao;
+                        }
                     }
                 }
             }
         }
-    }
 
-    .btn-acessar{
+        .btn-acessar{
 
-        position: absolute;
-        text-decoration: none;
-        top: 10px;
-        right: 10px;
-        background-color: $verdePrincipal;
-        color: $branco;
-        padding: 10px;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: 0.3s;
-        border: none;
+            position: absolute;
+            text-decoration: none;
+            top: 10px;
+            right: 10px;
+            background-color: $verdePrincipal;
+            color: $branco;
+            padding: 10px;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
 
-        &:hover {
-            background-color: $verdeLimao;
+            &:hover {
+                background-color: $verdeLimao;
+            }
         }
     }
 }

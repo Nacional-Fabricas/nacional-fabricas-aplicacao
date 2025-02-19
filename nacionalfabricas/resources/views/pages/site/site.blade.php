@@ -15,7 +15,7 @@
 
                     <div class="produto">
 
-                        <img class="thumbnail" src="{{ asset('images/thumbnails/' . $produto->produto_thumbnail) }}"  alt="{{$produto -> produto_nome}}">
+                        <img class="thumbnail" src="{{ asset('storage/images/thumbnails/' . $produto->produto_thumbnail) }}"  alt="{{$produto -> produto_nome}}">
 
                         <h3>{{ $produto->produto_nome }}</h3>
 

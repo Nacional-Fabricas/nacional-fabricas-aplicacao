@@ -56,13 +56,14 @@ class BuscaProdutos extends Component
 
         // Verifica se encontrou algum produto
         $produtosDestaque = Produto::where('destaque', 'Sim')
-            ->where('ativo', 'Sim')
+            ->where('status', 'Ativo')
             ->latest('created_at')
             ->take(4)
             ->get();
 
         // Retorna a view com as variáveis necessárias
         $usuario = auth()->user();
+
         $sites = Site::all();
 
         return view('livewire.busca.busca-produtos',

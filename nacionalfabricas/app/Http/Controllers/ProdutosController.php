@@ -21,6 +21,24 @@ class ProdutosController extends Controller
 {
     public function criarProdutos(){
 
+        $user = Auth::user() ;
+
+        if($user -> current_team_id){
+
+            $usuarioId = $user -> current_team_id;
+
+        }else{
+
+            $usuarioId = $user -> id;
+        }
+
+        $categorias =  Categoria::where('id_conta', $usuarioId)->first();
+
+        if (!$categorias) {
+
+            return redirect()->route('criar_categoria')->with('msg', 'Primeiro crie uma categoria.');
+        }
+
         return view ('pages.produtos.criar-produto');
     }
     public function editarProduto($id){
@@ -136,7 +154,7 @@ class ProdutosController extends Controller
             $produto = new Produto();
 
             $produto->id_conta = $usuarioId;
-            $produto->id_site = $usuarioId;
+            $produto->id_site = $request -> id_site;
 
             $localizacao = Cadastro::where('id_conta', $usuarioId)->firstOrFail();
             $site = Site::where('id_conta', $usuarioId)->firstOrFail();
@@ -145,7 +163,6 @@ class ProdutosController extends Controller
             $produto->cidade = $localizacao->cidade ?? null;
             $produto->estado = $localizacao->estado ?? null;
             $produto->segmento = $site->segmento;
-            $produto->ativo = $request->ativo;
             $produto->destaque = $request->destaque;
 
             if($request->preco_max && $request->preco_max > $request->preco_min ){
@@ -170,10 +187,12 @@ class ProdutosController extends Controller
 
             $produto->save();
 
-            return redirect()->route('lista_produtos')->with('sucesso', 'Produto cadastrado com sucesso');
+            return redirect()->route('editar_produto', ['id' => $produto -> id])->with('sucesso', 'Produto cadastrado com sucesso');
 
         } catch (\Exception $e) {
+
             return redirect()->back()->withInput()->with('msg', 'Erro ao cadastrar o produto: ' . $e->getMessage());
+
         }
     }
     public function update(Request $request) {

@@ -127,6 +127,19 @@
                 </a>
             </li>
 
+            <li>
+
+                <form action="/logout" method="POST">
+                    @csrf
+                    <a class="dropdown-item out"
+                       href="/logout"
+                       onclick="event.preventDefault();
+                            this.closest('form').submit();"
+                    >Sair da conta</a>
+                </form>
+
+            </li>
+
         </ul>
 
     </nav>

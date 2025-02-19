@@ -31,6 +31,11 @@ return new class extends Migration
             $table->string('telefone')->nullable();
             $table->string('local_atuacao')->nullable();
             $table->string('slug')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
 
             $table->foreign('id_conta')->references('id')->on('users')->onDelete('cascade');

@@ -30,6 +30,14 @@
                     <a href="#">Notificações</a>
                     <a href="#">Minha Fábrica</a>
                     <a href="#">Sair</a>
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <a class="dropdown-item out"
+                           href="/logout"
+                           onclick="event.preventDefault();
+                            this.closest('form').submit();"
+                        >Sair da conta</a>
+                    </form>
                 </div>
             </li>
         @elseguest()

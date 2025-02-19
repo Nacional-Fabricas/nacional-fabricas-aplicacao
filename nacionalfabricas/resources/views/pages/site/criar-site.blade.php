@@ -1,27 +1,6 @@
 <form action="{{route('criar_site')}}" method="post" class="formulario-criar-site" enctype="multipart/form-data">
     @csrf
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalCrop" tabindex="-1" aria-labelledby="modalCropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalCropLabel">Cortar Imagem</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="img-container">
-                        <img id="image-to-crop" src="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="crop-button">Cortar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="cabecalho-formulario">
         <h1>Área do seu Site</h1>
     </div>
@@ -42,20 +21,6 @@
             </div>
 
             <div class="linha">
-
-                <!-- Banner -->
-                <div class="image-preview-container">
-                    <div class="image-preview" id="banner-container">
-                        <img id="banner-preview"
-                             src="{{ $site && $site->banner ? asset('images/sites/backgrounds/' . $site->banner) : '' }}"
-                             alt="Banner" class="preview-image">
-                        <div class="placeholder" style="display: {{$site && $site->banner ? 'none' : 'flex' }}">Banner</div>
-                        <button class="icone-editar" data-campo="banner" data-bs-toggle="modal" data-bs-target="#modalCrop">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                    </div>
-                    <input type="file" id="banner-input" accept="image/*" style="display: none;">
-                </div>
 
                 <div class="grupo">
                     <label for="descricao_industria">Descrição
@@ -205,10 +170,49 @@
             <div class="botoes">
 
                 <button type="button" class="btn-anterior" onclick="mostrarEtapa(3)">Anterior</button>
-                <button type="submit" class="botao-salvar">Salvar</button>
+                <button type="button" class="btn-proximo" onclick="mostrarEtapa(5)">Próximo</button>
 
             </div>
 
+        </div>
+
+        {{-- Etapa 5 --}}
+        <div class="bloco etapa" id="etapa-5" style="display: none;">
+            <h2>Redes Sociais</h2>
+
+            <div class="linha">
+                <div class="grupo">
+                    <label for="instagram">Instagram</label>
+                    <input name="instagram" value="{{ old('instagram', $site ? $site->instagram : '') }}" type="text">
+                </div>
+                <div class="grupo">
+                    <label for="facebook">Facebook</label>
+                    <input name="facebook" value="{{ old('facebook', $site ? $site->facebook : '') }}" type="text">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="grupo">
+                    <label for="linkedin">LinkedIn</label>
+                    <input name="linkedin" value="{{ old('linkedin', $site ? $site->linkedin : '') }}" type="text">
+                </div>
+                <div class="grupo">
+                    <label for="youtube">YouTube</label>
+                    <input name="youtube" value="{{ old('youtube', $site ? $site->youtube : '') }}" type="text">
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="grupo">
+                    <label for="twitter">Twitter</label>
+                    <input name="twitter" value="{{ old('twitter', $site ? $site->twitter : '') }}" type="text">
+                </div>
+            </div>
+
+            <div class="botoes">
+                <button type="button" class="btn-anterior" onclick="mostrarEtapa(4)">Anterior</button>
+                <button type="submit" class="botao-salvar">Salvar</button>
+            </div>
         </div>
 
     </div>

@@ -1,11 +1,12 @@
 @import "../../variaveis.scss";
 
-.formulario-criar-site{
+.formulario-atualizar-site{
 
     width: 60vw;
     box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
     border-radius: 0.5rem;
     border: 1px solid $cinzaBorda;
+    position: relative;
 
     .cabecalho-formulario{
 
@@ -125,6 +126,25 @@
                     }
                 }
             }
+        }
+    }
+
+    .btn-acessar{
+
+        position: absolute;
+        text-decoration: none;
+        top: 10px;
+        right: 10px;
+        background-color: $verdePrincipal;
+        color: $branco;
+        padding: 10px;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.3s;
+        border: none;
+
+        &:hover {
+            background-color: $verdeLimao;
         }
     }
 }

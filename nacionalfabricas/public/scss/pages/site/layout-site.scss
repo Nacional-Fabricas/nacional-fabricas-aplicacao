@@ -88,6 +88,7 @@
                     }
 
                     .conteudo-destaque {
+
                         display: flex;
                         flex-direction: column;
                         gap: 5px;
@@ -96,6 +97,22 @@
                             font-size: 12px;
                             font-weight: 400;
                             color: $cinza;
+                        }
+
+                        .ver-horarios{
+
+                            background-color: $cinzaClaro;
+                            border: 1px solid $cinzaBorda;
+                            color: $preto;
+                            padding: 5px;
+                            border-radius: 5px;
+                            text-align: center;
+                            text-decoration: none;
+
+                            &:hover{
+
+                                background-color: $cinzaBorda;
+                            }
                         }
                     }
                 }

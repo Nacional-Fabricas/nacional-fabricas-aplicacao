@@ -115,7 +115,16 @@
 
                         <span class="valor-destaque">
 
-                            Telefone: {{$site -> atendimento}}
+                            Horário de atendimento:
+
+                            @foreach($atendimento as $dia => $info)
+
+                                @if(isset($info['ativo']) && $info['ativo'] == 1)
+                                    <p>{{ ucfirst($dia) }}: {{ $info['entrada'] ?? 'N/A' }} - {{ $info['saida'] ?? 'N/A' }}</p>
+                                @else
+
+                                @endif
+                            @endforeach
 
                         </span>
 

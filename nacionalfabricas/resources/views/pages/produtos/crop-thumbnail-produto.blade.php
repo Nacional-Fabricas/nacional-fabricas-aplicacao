@@ -5,11 +5,7 @@
         <h3>Logo do Produto</h3>
     </div>
 
-    @if($produto->produto_thumbnail)
-
-        <img id="previsualizarLogo" class="foto-produto" src="{{ asset('storage/images/thumbnails/' . $produto->produto_thumbnail)  }}" alt="Logo do produto">
-
-    @endif
+    <img id="previsualizarLogo" class="foto-produto" src="{{ asset('storage/images/thumbnails/' . $produto->produto_thumbnail)  }}" alt="Logo do produto">
 
     <button id="editarLogo" class="btn-editar-imagem">
         @if($produto->produto_thumbnail)

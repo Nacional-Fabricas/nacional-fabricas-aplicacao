@@ -117,6 +117,8 @@
 
                             Horário de atendimento:
 
+                            <a class="ver-horarios">Ver Horários</a>
+
                             @foreach($atendimento as $dia => $info)
 
                                 @if(isset($info['ativo']) && $info['ativo'] == 1)

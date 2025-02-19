@@ -1,8 +1,10 @@
-@import "../../variaveis", "site";
+@import "../../variaveis", "atualizar-site", "criar-site", "vitrine";
 
 .meu-site {
 
     align-self: center;
+    width: 100vw;
+    padding: 20px 0;
 
     .banner {
         width: 80vw;
@@ -104,6 +106,16 @@
             }
         }
     }
+}
+
+.configura-site{
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+    width: 80vw;
+    padding: 20px 0;
 }
 
 @media (max-width: 768px) {

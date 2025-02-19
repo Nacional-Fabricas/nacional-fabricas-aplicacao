@@ -8,8 +8,8 @@
 
             <div class="banner">
 
-                <h1>Bora testar?Experimente,</h1>
-                <h1>é grátis! </h1>
+                <h1>Bora começar?</h1>
+                <h1>Cadastre-se! </h1>
                 <span>Com o <strong>Nacional Fábricas</strong>, o seu negócio vai lá em cima! Complete suas informações e <strong>seja feliz :)</strong></span>
 
             </div>

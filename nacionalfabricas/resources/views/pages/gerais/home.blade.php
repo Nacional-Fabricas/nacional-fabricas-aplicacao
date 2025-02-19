@@ -6,7 +6,16 @@
             <section class="swiper mySwiper">
                 <div class="swiper-wrapper">
 
-                    @foreach($sites as $site)
+                    <div class="swiper-slide">
+
+                        <a class="link-carrosel">
+                            <img class="img-carrosel" src="{{ asset('images/banner-nacional-fabricas.png') }}" alt="Imagem de Apresentação Nacional Fábricas">
+                        </a>
+
+                    </div>
+
+                    @forelse($sites as $site)
+
                         <div class="swiper-slide">
 
                             <a class="link-carrosel" href="{{ route('site', [ 'id' => $site->id, 'slug' => $site -> slug ]) }}">
@@ -14,8 +23,9 @@
                             </a>
 
                         </div>
+                    @empty
 
-                    @endforeach
+                    @endforelse
 
                 </div>
                 <div class="swiper-button-next"></div>

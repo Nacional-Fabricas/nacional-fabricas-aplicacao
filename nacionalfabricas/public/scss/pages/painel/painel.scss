@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 90vw;
+    width: 80vw;
     justify-content: center;
 
     .nome{
@@ -35,6 +35,7 @@
             flex-wrap: wrap;
             gap: 20px;
             align-items: center;
+            padding: 0;
 
             .dado{
 
@@ -45,6 +46,7 @@
                 box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
                 flex-basis: calc(33.333% - 20px);
                 max-width: calc(33.333% - 20px);
+                align-items: center;
 
                 .label{
 
@@ -64,6 +66,15 @@
 
                         height: 80px;
 
+                    }
+                }
+
+                .chamada-acao{
+
+                    .acao{
+
+                        color: $verdePrincipal;
+                        font-weight: 700;
                     }
                 }
             }

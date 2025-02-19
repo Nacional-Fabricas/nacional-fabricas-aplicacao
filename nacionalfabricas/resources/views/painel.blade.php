@@ -31,7 +31,7 @@
 
             <div class="cabecalho">
 
-                <h2>Seu uso neste mês</h2>
+                <h2 class="verde">Seu uso neste mês</h2>
 
             </div>
 
@@ -61,7 +61,7 @@
 
                     </div>
 
-                    <div class="rodapeDado">
+                    <div class="chamada-acao">
 
                         <span class="info">Acaba em <strong>{{ $assinatura ? Carbon\Carbon::parse($assinatura -> current_period_end)->format('d/m/Y') : 'N/A' }}</strong></span>
 
@@ -89,7 +89,7 @@
 
                     </div>
 
-                    <div class="rodapeDado">
+                    <div class="chamada-acao">
 
                         <span class="info">Produtos ativos <strong>{{$produtos}}</strong></span>
 
@@ -140,7 +140,7 @@
 
                     </div>
 
-                    <div class="rodapeDado">
+                    <div class="chamada-acao">
 
                         <span class="info">Produtos ativos <strong>{{$produtos}}</strong> </span>
 
@@ -174,7 +174,7 @@
 
                     </div>
 
-                    <div class="rodapeDado">
+                    <div class="chamada-acao">
 
                         @if( $meuPLano ? $meuPLano -> max_usuarios > $usuariosTime : 'N/A' )
 
@@ -212,7 +212,7 @@
 
                     </div>
 
-                    <div class="rodapeDado">
+                    <div class="chamada-acao">
 
                         <span class="info">Orçamentos em aberto <strong>{{$cotacoesAbertas}} </strong></span>
 
@@ -264,7 +264,7 @@
 
                     </div>
 
-                    <div class="rodape-dado">
+                    <div class="chamada-acao">
 
                         <span class="info">Seu nível é <strong>{{$nivel}}</strong></span>
 

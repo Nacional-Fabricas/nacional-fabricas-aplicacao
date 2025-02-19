@@ -1,7 +1,7 @@
 @extends('layouts.painel')
 @section('content')
 
-    <div class="meu-site">
+    <div class="configura-site">
 
         @if($site)
 
@@ -10,8 +10,19 @@
                 <h1>Área de Imagens</h1>
                 <hr>
 
-                @include('pages.site.crop-banner-site')
+                <div class="linha">
 
+                    @include('pages.site.crop-banner-site')
+
+                    @include('pages.site.crop-logo-site')
+
+                </div>
+
+                <div class="destaques">
+
+                    @include('pages.site.crop-destaques-site')
+
+                </div>
 
             </div>
 

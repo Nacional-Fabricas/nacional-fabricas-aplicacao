@@ -102,12 +102,9 @@ class SitesController extends Controller
 
         $categoriasFilho = Categoria::where('id_conta', $id)->where('nivel', 'Sub Categoria')->where('ativo', 'Ativo') -> get();
 
-        $site = Site::where('id_conta' , $id)->first();
+        $site = Site::where('id' , $id)->first();
 
-        $endereco = Cadastro::where('id_conta', $id )->first();
-
-        $produtosNotas = Produto::where('id_conta', $id )->get();
-
+        $endereco = Cadastro::where('id_conta', $site -> id_conta )->first();
 
 
         return view ('pages.site.site',
@@ -234,34 +231,33 @@ class SitesController extends Controller
     }
     public function recortarLogo(Request $request)
     {
+
         try {
-            // Alterei o nome do campo para 'image'
+
+            $image = $request->file('image');
+            $field = $request->input('field');
+            $id = $request->input('id');
+
             $request->validate([
-                'image' => 'required', // Aqui, 'image' é o campo correto
-                'id' => 'required|exists:sites,id',
+                'image' => 'required|image',
+                'id_site' => 'required|integer',
             ]);
 
-            // Definir o diretório para salvar a imagem
-            $pasta = public_path('images/sites/logos/');
+            $site = Site::find($request->id_site);
 
-            // Obter a imagem em base64
-            $imagemBase64 = $request->input('image');
-            $partesImagem = explode(";base64,", $imagemBase64);
+            if (!$site) {
+                return response()->json(['sucesso' => false, 'mensagem' => 'Site não encontrado.']);
+            }
 
-            // Decodificar a imagem base64
-            $imagemBase = base64_decode($partesImagem[1]);
-            $imagemNome = uniqid() . '.png'; // Nome único para a imagem
-
-            // Salvar a imagem no diretório
-            file_put_contents($pasta . $imagemNome, $imagemBase);
-
-            // Atualizar o modelo Site
-            $site = Site::find($request->id);
-            $site->logo = $imagemNome; // Atualizando o campo logo
+            $caminho = $request->file('image')->store('images/sites/logos', 'public');
+            $site->logo = basename($caminho);
             $site->save();
 
-            // Retornar sucesso
-            return redirect()->route('meu_site')->with('sucesso', 'Logo atualizada com sucesso!');
+            return response()->json([
+                'sucesso' => true,
+                'nova_imagem' => asset('storage/' . $caminho),
+            ]);
+
         } catch (\Exception $e) {
             // Em caso de erro, retornar a mensagem de erro
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao atualizar logo: ' . $e->getMessage());
@@ -269,33 +265,37 @@ class SitesController extends Controller
     }
     public function recortarDestaque(Request $request)
     {
-        $pasta = public_path('images/sites/imagens-destaque/');
+        try {
+            // Validação dos campos
+            $request->validate([
+                'image' => 'required|image',
+                'id_site' => 'required|integer',
+                'field' => 'required|in:primeiro_destaque,segundo_destaque,terceiro_destaque',
+            ]);
 
-        // Verificar qual campo foi enviado
-        $campo = $request->input('field');  // Espera-se que seja 'primeiro_destaque', 'segundo_destaque', ou 'terceiro_destaque'
+            // Buscar o site no banco
+            $site = Site::find($request->id_site);
 
-        if (in_array($campo, ['primeiro_destaque', 'segundo_destaque', 'terceiro_destaque'])) {
-            $partesImagem = explode(";base64,", $request->input('image'));
-        } else {
-            return redirect()->route('meu_site')->with('erro', 'Nenhuma Imagem foi selecionada.');
+            if (!$site) {
+                return response()->json(['sucesso' => false, 'mensagem' => 'Site não encontrado.']);
+            }
+
+            // Salvar a imagem no armazenamento público
+            $caminho = $request->file('image')->store('images/sites/destaques', 'public');
+
+            // Atualizar apenas o campo correspondente
+            $campo = $request->field; // Primeiro, segundo ou terceiro destaque
+            $site->$campo = basename($caminho);
+            $site->save();
+
+            return response()->json([
+                'sucesso' => true,
+                'nova_imagem' => asset('storage/' . $caminho),
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json(['sucesso' => false, 'mensagem' => 'Erro ao salvar a imagem: ' . $e->getMessage()]);
         }
-
-        $imagemTipoAux = explode("image/", $partesImagem[0]);
-        $imagemTipo = $imagemTipoAux[1];
-        $imagemBase = base64_decode($partesImagem[1]);
-
-        $imagemNome = uniqid() . '.png';
-        $imagemCaminhoCompleto = $pasta . $imagemNome;
-
-        file_put_contents($imagemCaminhoCompleto, $imagemBase);
-
-        $site = Site::find($request->id);
-
-        // Atualiza o campo específico
-        $site->$campo = $imagemNome;
-        $site->save();
-
-        return redirect()->route('meu_site')->with('sucesso', 'Cadastro finalizado com sucesso');
     }
     public function dicas(){
 

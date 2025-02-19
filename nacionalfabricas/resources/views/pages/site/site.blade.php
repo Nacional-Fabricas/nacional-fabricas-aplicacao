@@ -67,18 +67,18 @@
 
         <h1>Nossa Fábrica</h1>
 
-        <div class="bloco-imagens">
+        <div class="bloco-imagens-destaque">
 
             @if( $site -> primeiro_destaque && $site -> primeiro_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('images/sites/imagens-destaque/' . $site -> primeiro_destaque)}}" alt="{{$site -> nome_empresa}}">
+            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> primeiro_destaque)}}" alt="{{$site -> nome_empresa}}">
             @endif
 
             @if( $site -> segundo_destaque &&  $site -> segundo_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('images/sites/imagens-destaque/' . $site -> segundo_destaque)}}" alt="{{$site -> nome_empresa}}">
+            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> segundo_destaque)}}" alt="{{$site -> nome_empresa}}">
             @endif
 
             @if( $site -> terceiro_destaque &&  $site -> terceiro_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('images/sites/imagens-destaque/' . $site -> terceiro_destaque)}}" alt="{{$site -> nome_empresa}}">
+            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> terceiro_destaque)}}" alt="{{$site -> nome_empresa}}">
             @endif
 
         </div>

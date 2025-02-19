@@ -27,11 +27,11 @@
 
     <main class="meu-site">
 
-        <img class="banner" src="{{asset('/images/sites/backgrounds/'. $site -> banner)}}">
+        <img class="banner" src="{{asset('storage/images/sites/banners/'. $site -> banner)}}">
 
         <div class="informacao-site">
 
-            <img class="logo" src="{{ asset('images/sites/logos/' . $site -> logo)}}" alt="{{$site -> nome_industria}}">
+            <img class="logo" src="{{ asset('storage/images/sites/logos/' . $site -> logo)}}" alt="{{$site -> nome_industria}}">
 
             <div class="bloco-informacoes">
 

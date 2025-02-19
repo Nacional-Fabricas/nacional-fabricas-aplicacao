@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('site')->nullable();
             $table->timestamps();
 
             $table->foreign('id_conta')->references('id')->on('users')->onDelete('cascade');

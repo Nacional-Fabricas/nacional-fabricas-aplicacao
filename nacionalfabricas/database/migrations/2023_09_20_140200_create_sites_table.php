@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('nivel', ['Sem classificação', 'Bronze', 'Prata', 'Ouro', 'Platina'])->nullable()->default('Sem classificação');
             $table->string('banner')->nullable();
             $table->string('logo')->nullable();
+            $table->enum('status', ['Pendente', 'Ativo', 'Inativo'])->default('Pendente');
             $table->string('primeiro_destaque')->nullable();
             $table->string('segundo_destaque')->nullable();
             $table->string('terceiro_destaque')->nullable();

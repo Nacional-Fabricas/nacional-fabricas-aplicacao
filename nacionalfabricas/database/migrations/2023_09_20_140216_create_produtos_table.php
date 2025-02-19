@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('altura')->nullable();
             $table->string('largura')->nullable();
             $table->string('profundidade')->nullable();
-            $table->string('ativo')->nullable();
+            $table->enum('status', ['Pendente', 'Ativo', 'Inativo'])->default('Pendente');
             $table->integer('visualizacoes')->default(0);
             $table->string('categorias')->nullable();
             $table->string('destaque')->nullable();

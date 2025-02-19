@@ -15,4 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
         informacoesContato.style.display = 'none';
         verInformacoesBtn.style.display = 'block';
     });
+
+    // Função para exibir/ocultar os horários
+    window.verHorarios = function() {
+        const blocoHorarios = document.querySelector('.bloco-horarios');
+        if (blocoHorarios) {
+            if (blocoHorarios.style.display === 'flex') {
+                blocoHorarios.style.display = 'none';
+            } else {
+                blocoHorarios.style.display = 'flex';
+            }
+        }
+    };
 });

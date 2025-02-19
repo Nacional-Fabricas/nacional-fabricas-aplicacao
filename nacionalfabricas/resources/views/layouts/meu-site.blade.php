@@ -113,34 +113,21 @@
 
                         <div class="conteudo-destaque">
 
-                        <span class="valor-destaque">
+                            <a class="ver-horarios" onclick="verHorarios()">Ver Horários</a>
 
-                            Horário de atendimento:
+                            <div class="bloco-horarios" style="display: none">
 
-                            <a class="ver-horarios">Ver Horários</a>
+                                <div class="todos-horarios">
 
-                            @foreach($atendimento as $dia => $info)
+                                    @foreach($atendimento as $dia => $info)
 
-                                @if(isset($info['ativo']) && $info['ativo'] == 1)
+                                        <p>{{ ucfirst($dia) }}: {{ $info['entrada'] ?? 'N/A' }} - {{ $info['saida'] ?? 'N/A' }}</p>
 
-                                    @if($dataHoje == ucfirst($dia) && $info['entrada'] <= $horaAtual && $info['saida'] >= $horaAtual)
+                                    @endforeach
 
-                                        Aberto
+                                </div>
 
-                                    @else
-
-                                        Fechado
-
-                                    @endif
-
-                                    <p>{{ ucfirst($dia) }}: {{ $info['entrada'] ?? 'N/A' }} - {{ $info['saida'] ?? 'N/A' }}</p>
-
-                                @else
-
-                                @endif
-                            @endforeach
-
-                        </span>
+                            </div>
 
                         </div>
 

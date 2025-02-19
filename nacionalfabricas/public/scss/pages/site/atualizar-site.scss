@@ -1,8 +1,47 @@
 @import "../../variaveis.scss";
 
+.bloco-imagens{
+
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+
+    .bloco-banner{
+
+        position: relative;
+
+        .banner-site{
+
+            width: 100%;
+        }
+
+        .btn-editar-imagem{
+
+            background-color: $branco;
+            color: $verdePrincipal;
+            border: 1px solid $verdePrincipal;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 5vh;
+            right: 1vw;
+            font-weight: 700;
+            transition: .3s;
+
+            &:hover{
+
+                background-color: $verdePrincipal;
+                color: $branco;
+            }
+        }
+    }
+}
+
 .formulario-atualizar-site{
 
-    width: 60vw;
+    width: 100%;
     box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
     border-radius: 0.5rem;
     border: 1px solid $cinzaBorda;

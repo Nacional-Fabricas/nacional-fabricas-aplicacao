@@ -201,20 +201,33 @@ class SitesController extends Controller
     }
     public function recortarBanner(Request $request)
     {
-        try {
+
+        try{
+
             $image = $request->file('image');
             $field = $request->input('field');
             $id = $request->input('id');
 
-            // Process the image
-            $img = Image::make($image->getRealPath());
-            $img->resize(800, 600); // Example resize
+            $request->validate([
+                'image' => 'required|image',
+                'id_site' => 'required|integer',
+            ]);
 
-            // Save the cropped image
-            $path = 'images/sites/backgrounds/' . $field . '_' . $id . '.jpg';
-            $img->save(public_path($path));
+            $site = Site::find($request->id_site);
 
-            return response()->json(['success' => true, 'message' => 'Banner atualizado com sucesso!']);
+            if (!$site) {
+                return response()->json(['sucesso' => false, 'mensagem' => 'Site não encontrado.']);
+            }
+
+            $caminho = $request->file('image')->store('images/sites/banners', 'public');
+            $site->banner = basename($caminho);
+            $site->save();
+
+            return response()->json([
+                'sucesso' => true,
+                'nova_imagem' => asset('storage/' . $caminho),
+            ]);
+
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'message' => 'Erro ao atualizar banner: ' . $e->getMessage()]);
         }

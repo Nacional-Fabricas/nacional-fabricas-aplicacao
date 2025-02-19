@@ -104,11 +104,12 @@ class SitesController extends Controller
 
         $site = Site::where('id' , $id)->first();
 
+        $atendimento = json_decode($site -> atendimento, true);
+
         $endereco = Cadastro::where('id_conta', $site -> id_conta )->first();
 
-
         return view ('pages.site.site',
-            compact('user', 'estados', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
+            compact('user', 'estados', 'atendimento', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
     }
     public function create(Request $request)
     {

@@ -19,7 +19,7 @@
                         <div class="swiper-slide">
 
                             <a class="link-carrosel" href="{{ route('site', [ 'id' => $site->id, 'slug' => $site -> slug ]) }}">
-                                <img class="img-carrosel" src="{{ asset('images/sites/backgrounds/' . $site->banner) }}" alt="Imagem de {{$site->nome}}">
+                                <img class="img-carrosel" src="{{ asset('storage/images/sites/banners/' . $site->banner) }}" alt="Imagem de {{$site->nome}}">
                             </a>
 
                         </div>

@@ -104,12 +104,29 @@ class SitesController extends Controller
 
         $site = Site::where('id' , $id)->first();
 
+        $dataHoje = strftime('%A');
+
+        $diasSemana = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Segunda-feira',
+            'Tuesday' => 'Terça-feira',
+            'Wednesday' => 'Quarta-feira',
+            'Thursday' => 'Quinta-feira',
+            'Friday' => 'Sexta-feira',
+            'Saturday' => 'Sábado'
+        ];
+
+        $horaAtual = date('H:i');
+
+        // Traduz o nome do dia da semana para português
+        $dataHoje = $diasSemana[$dataHoje];
+
         $atendimento = json_decode($site -> atendimento, true);
 
         $endereco = Cadastro::where('id_conta', $site -> id_conta )->first();
 
         return view ('pages.site.site',
-            compact('user', 'estados', 'atendimento', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
+            compact('user', 'horaAtual','estados', 'dataHoje', 'atendimento', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
     }
     public function create(Request $request)
     {
@@ -152,9 +169,10 @@ class SitesController extends Controller
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao criar site: ' . $e->getMessage());
         }
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         try {
+
             $data = $request->all();
 
             // Manipulação de arquivos
@@ -169,7 +187,8 @@ class SitesController extends Controller
                 }
             }
 
-            Site::findOrFail($id)->update($data);
+            Site::findOrFail($request -> id)->update($data);
+
             return redirect()->route('meu_site')->with('sucesso', 'Site atualizado com sucesso');
         } catch (\Exception $e) {
             return redirect()->route('meu_site')->withInput()->with('erro', 'Erro ao atualizar site: ' . $e->getMessage());

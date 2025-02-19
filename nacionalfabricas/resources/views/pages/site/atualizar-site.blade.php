@@ -1,23 +1,32 @@
-<form action="{{route('atualizar_site')}}" method="post" class="formulario-atualizar-site" enctype="multipart/form-data">
+<form action="{{ route('atualizar_site') }}" method="post" class="formulario-atualizar-site" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
-    <input type="hidden" name="id" value="{{$site->id}}">
+    <input type="hidden" name="id" value="{{ $site->id }}">
 
     <div class="cabecalho-formulario">
         <h1>Área do seu Site</h1>
         <hr>
     </div>
 
-    <div class="conteudo-formulario">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
+    <div class="conteudo-formulario">
         {{-- Etapa 1 --}}
         <div class="bloco etapa" id="etapa-1">
             <div class="grupo">
                 <label for="nome_industria">Nome da indústria</label>
                 <input name="nome_industria" required value="{{ old('nome_industria', $site ? $site->nome_industria : '') }}" type="text">
                 @error('nome_industria')
-                <div class="alert alert-danger">{{ $menssagem }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="grupo">
@@ -26,7 +35,7 @@
                 </label>
                 <textarea name="descricao_industria" required cols="30" rows="10">{{ old('descricao_industria', $site ? $site->descricao_industria : '') }}</textarea>
                 @error('descricao_industria')
-                <div class="alert alert-danger">{{ $menssagem }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="botoes">
@@ -53,7 +62,7 @@
                     <option value="Apenas na Cidade" @if(old('local_atuacao', $site ? $site->local_atuacao : '') === 'Apenas na Cidade') selected @endif>Apenas na Cidade</option>
                 </select>
                 @error('local_atuacao')
-                <div class="alert alert-danger">{{ $menssagem }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="grupo">
@@ -61,7 +70,7 @@
                 <select name="segmento" required>
                     <option value="">Selecione uma Opção</option>
                     @foreach ($segmentos as $segmento)
-                        <option value="{{$segmento->nomeSegmento}}"  @if(old('nomeSegmento', $site ? $site->segmento : '') === $segmento->nomeSegmento) selected @endif>{{$segmento->nomeSegmento}}</option>
+                        <option value="{{ $segmento->nomeSegmento }}" @if(old('nomeSegmento', $site ? $site->segmento : '') === $segmento->nomeSegmento) selected @endif>{{ $segmento->nomeSegmento }}</option>
                     @endforeach
                 </select>
             </div>
@@ -74,25 +83,16 @@
                     <option value="Simples Nacional" @if(old('tributacao', $site ? $site->tributacao : '') === 'Simples Nacional') selected @endif>Simples Nacional</option>
                 </select>
                 @error('tributacao')
-                <div class="alert alert-danger">{{ $menssagem }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="grupo">
                 <label for="tempo_resposta">Tempo de resposta</label>
                 <select name="tempo_resposta" required @if($site) value="{{ old('tempo_resposta', $site->tempo_resposta) }}" @endif id="tempo_resposta">
                     @for($i = 1; $i < 10; $i ++)
-                        <option value="No máximo {{$i}}h" @if(old('tempo_resposta', $site ? $site->tempo_resposta : '') === 'No máximo ' . $i . 'h') selected @endif>No máximo {{$i}}h</option>
+                        <option value="No máximo {{ $i }}h" @if(old('tempo_resposta', $site ? $site->tempo_resposta : '') === 'No máximo ' . $i . 'h') selected @endif>No máximo {{ $i }}h</option>
                     @endfor
                     <option value="dia">No máximo 24h</option>
-                </select>
-            </div>
-            <div class="grupo">
-                <label for="atendimento">Atendimento</label>
-                <select required name="atendimento" @if($site) value="{{ old('atendimento', $site->atendimento) }}" @else value="{{ old('atendimento', $site ? $site -> atendimento : '') }}" @endif >
-                    <option value="">Selecione uma opção</option>
-                    <option value="Segunda a Sexta - Horário Comercial" @if(old('atendimento', $site ? $site->atendimento : '') === 'Segunda a Sexta - Horário Comercial') selected @endif>Segunda a Sexta - Horário Comercial</option>
-                    <option value="Segunda a Sábado - Horário Comercial" @if(old('atendimento', $site ? $site->atendimento : '') === 'Segunda a Sábado - Horário Comercial') selected @endif>Segunda a Sábado - Horário Comercial</option>
-                    <option value="Horário Indefinido" @if(old('atendimento', $site ? $site->atendimento : '') === 'Horário Indefinido') selected @endif>Horário Indefinido</option>
                 </select>
             </div>
             <div class="botoes">
@@ -191,7 +191,7 @@
 
     </div>
 
-    <a href="{{route('site', [ 'id' => $site -> id, 'slug' => $site->slug])}}" type="submit" class="btn-acessar">Visitar página</a>
+    <a href="{{ route('site', ['id' => $site->id, 'slug' => $site->slug]) }}" type="submit" class="btn-acessar">Visitar página</a>
 
 </form>
 

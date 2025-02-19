@@ -120,7 +120,19 @@
                             @foreach($atendimento as $dia => $info)
 
                                 @if(isset($info['ativo']) && $info['ativo'] == 1)
+
+                                    @if($dataHoje == ucfirst($dia) && $info['entrada'] <= $horaAtual && $info['saida'] >= $horaAtual)
+
+                                        Aberto
+
+                                    @else
+
+                                        Fechado
+
+                                    @endif
+
                                     <p>{{ ucfirst($dia) }}: {{ $info['entrada'] ?? 'N/A' }} - {{ $info['saida'] ?? 'N/A' }}</p>
+
                                 @else
 
                                 @endif

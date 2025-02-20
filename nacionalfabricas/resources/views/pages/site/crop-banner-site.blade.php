@@ -87,7 +87,7 @@
                 if (cropper) {
                     cropper.getCroppedCanvas({
                         width: 1500,
-                        height: 300,
+                        height: 540,
                     }).toBlob((blob) => {
                         if (blob) {
                             const formData = new FormData();

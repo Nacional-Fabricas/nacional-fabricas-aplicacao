@@ -74,7 +74,7 @@
                         }
 
                         cropper = new Cropper(imagemRecorteBanner, {
-                            aspectRatio: 5 / 1,
+                            aspectRatio: 1500 / 540,
                             viewMode: 1,
                         });
                     };

@@ -7,7 +7,7 @@
         padding: 15px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 40px;
         box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
 
         h1{
@@ -59,6 +59,8 @@
                 gap: 5px;
                 width: 100%;
                 box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                min-height: 250px;
+                height: 100%;
             }
         }
 
@@ -74,6 +76,7 @@
                 gap: 5px;
                 width: 100%;
                 box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                height: 100%;
             }
         }
 
@@ -94,8 +97,9 @@
                 .destaque-site{
 
                     width: 100%;
-                    height: auto;
                     box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                    height: 100%;
+                    min-height: 400px;
                 }
             }
         }

@@ -18,6 +18,8 @@
 
         <div class="linha">
 
+            {{--
+
             <div class="grupo">
 
                 <label for="nivel">
@@ -37,23 +39,7 @@
                     <option value="Sub Categoria" {{ old('nivel') == 'Sub Categoria' ? 'selected' : '' }}>Sub Categoria</option>
                     <option value="Categoria Solo" {{ old('nivel') == 'Categoria Solo' ? 'selected' : '' }}>Categoria Solo</option>
                 </select>
-            </div>
 
-            <div class="grupo">
-
-                <label for="ativo">
-
-                    Categoria ativa?
-
-                    <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Categorias Ativas irão aparecer no menu.">
-                        i
-                    </button>
-
-                </label>
-                <select required name="ativo" id="ativo">
-                    <option value="Ativo" {{ old('ativo') == 'Ativo' ? 'selected' : '' }}>Sim</option>
-                    <option value="Inativo" {{ old('ativo') == 'Inativo' ? 'selected' : '' }}>Não</option>
-                </select>
             </div>
 
             <div class="grupo">
@@ -75,6 +61,8 @@
                 </select>
             </div>
 
+            --}}
+
         </div>
 
         <div class="linha">
@@ -83,6 +71,23 @@
 
                 <label for="nome">Nome da Categoria</label>
                 <input required type="text" name="nome" id="nome" value="{{ old('nome') }}">
+            </div>
+
+            <div class="grupo">
+
+                <label for="ativo">
+
+                    Categoria ativa?
+
+                    <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Categorias Ativas irão aparecer no menu.">
+                        i
+                    </button>
+
+                </label>
+                <select required name="ativo" id="ativo">
+                    <option value="Ativo" {{ old('ativo') == 'Ativo' ? 'selected' : '' }}>Sim</option>
+                    <option value="Inativo" {{ old('ativo') == 'Inativo' ? 'selected' : '' }}>Não</option>
+                </select>
             </div>
 
         </div>

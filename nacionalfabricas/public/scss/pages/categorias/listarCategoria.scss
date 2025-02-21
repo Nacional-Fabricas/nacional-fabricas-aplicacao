@@ -1,59 +1,52 @@
 @import "../../variaveis.scss";
 
-.listar-categorias{
-
+.listar-categorias {
     width: 100vw;
     display: flex;
     justify-content: center;
 
-    .bloco-categorias{
+    .bloco-categorias {
 
         width: 80vw;
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .cabecalho{
-
+        .cabecalho {
             display: flex;
             gap: 10px;
             align-items: flex-end;
 
-            h4{
-
+            h4 {
                 font-size: $fs16;
                 font-weight: 600;
             }
 
-            h1{
-
+            h1 {
                 font-size: $fs28;
                 font-weight: 700;
             }
         }
 
-        .pesquisa{
+        .pesquisa {
 
             display: flex;
             width: 100%;
             gap: 20px;
 
-            input, select{
-
+            input, select {
                 border: none;
                 border-radius: 10px;
                 padding: 10px;
-                box-shadow: -1px 0 7px 1px rgba($preto,.3);
+                box-shadow: -1px 0 7px 1px rgba($preto, .3);
                 width: 100%;
             }
 
-            select{
-
+            select {
                 max-width: 200px;
             }
 
-            .adicionar-categoria{
-
+            .adicionar-categoria {
                 border: 1px solid $verdePrincipal;
                 color: $verdePrincipal;
                 font-size: $fs20;
@@ -65,29 +58,25 @@
                 border-radius: 10px;
                 transition: .3s;
 
-                &:hover{
-
+                &:hover {
                     background-color: $verdePrincipal;
                     color: $branco;
-
                 }
             }
         }
 
-        .categorias{
-
+        .categorias {
             display: flex;
             flex-wrap: wrap;
             gap: calc((100% - (5 * 250px)) / 4);
 
-            .categoria{
-
-                flex: 1 1 250px; // Ajuste o valor 200px para a largura desejada dos produtos
-                max-width: 250px; // Ajuste o valor 200px para a largura desejada dos produtos
+            .categoria {
+                flex: 1 1 250px;
+                max-width: 250px;
                 box-sizing: border-box;
                 display: flex;
                 border-radius: 10px;
-                box-shadow: -1px 0 7px 1px rgba($preto,.3);
+                box-shadow: -1px 0 7px 1px rgba($preto, .3);
                 text-decoration: none;
                 color: $preto;
                 height: auto;
@@ -97,11 +86,63 @@
                 text-align: center;
                 transition: .3s;
 
-                &:hover{
-
+                &:hover {
                     background-color: $verdePrincipal;
                     color: $branco;
                     transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .listar-categorias {
+        .bloco-categorias {
+
+            .pesquisa {
+                flex-direction: column;
+
+                .adicionar-categoria {
+                    max-width: 100%;
+                }
+
+                select {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .listar-categorias {
+        .bloco-categorias {
+            padding: 20px;
+
+            .categorias {
+                gap: 20px;
+
+                .categoria {
+                    flex: 1 1 calc(50% - 20px);
+                    max-width: calc(50% - 20px);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .listar-categorias {
+        .bloco-categorias {
+            padding: 10px;
+
+            .categorias {
+                gap: 10px;
+
+                .categoria {
+                    flex: 1 1 100%;
+                    max-width: 100%;
                 }
             }
         }

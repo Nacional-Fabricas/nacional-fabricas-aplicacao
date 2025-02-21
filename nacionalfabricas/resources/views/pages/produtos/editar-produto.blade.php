@@ -35,11 +35,11 @@
 
                     <div class="linha">
                         <div class="grupo">
-                            <label for="ativo">Produto ativo
+                            <label for="status">Produto ativo
                                 <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Produtos ativos, poderão ser visitados.">i</button>
                             </label>
-                            <select name="ativo">
-                                @foreach (['Sim', 'Não'] as $opcao)
+                            <select name="status">
+                                @foreach (['Ativo', 'Inativo'] as $opcao)
                                     <option value="{{ $opcao }}" {{ $produto->ativo === $opcao ? 'selected' : '' }}>{{ $opcao }}</option>
                                 @endforeach
                             </select>

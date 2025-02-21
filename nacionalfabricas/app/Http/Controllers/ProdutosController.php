@@ -196,37 +196,17 @@ class ProdutosController extends Controller
         }
     }
     public function update(Request $request) {
+
         try {
+
             $data = $request->all();
             $produto = Produto::findOrFail($request->id);
             $produto->update($data);
 
-            $albumProduto = $request->produto_album;
-            $fotosAlbum = Album::where('id_produto', $request->id)->count();
-
-            if ($albumProduto && $fotosAlbum < 6) {
-                foreach ($request->file('produto_album') as $albumImage) {
-                    if ($albumImage->isValid()) {
-                        $extension = $albumImage->extension();
-                        $imagemNome = md5($albumImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-                        $albumImage->move(public_path('/images/album'), $imagemNome);
-
-                        $site = Site::where('id_conta', Auth::id())->first();
-
-                        $image = new Album();
-                        $image->id_conta = Auth::id();
-                        $image->id = $site->id;
-                        $image->id_produto = $produto->id;
-                        $image->url_imagem = $imagemNome;
-                        $image->save();
-                    }
-                }
-            }
-
             return redirect()->back()->with('sucesso', 'Produto atualizado com sucesso');
 
         } catch (\Exception $e) {
-            return redirect()->back()->withInput()->with('error', 'Erro ao atualizar o produto: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('erro', 'Erro ao atualizar o produto: ' . $e->getMessage());
         }
     }
     public function delete(Request $request)

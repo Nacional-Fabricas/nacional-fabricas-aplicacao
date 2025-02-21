@@ -194,12 +194,12 @@
                     <div class="linha">
                         <div class="grupo">
                             <label>Categorias</label>
-                            <select name="categorias" id="categorias">
+                            <select name="categorias" id="categorias" required>
 
 
                                 @foreach($categorias as $categoria)
 
-                                    @if($produto -> categorias != $categoria -> id)
+                                    @if($produto -> categorias == $categoria -> id)
 
                                         <option value="{{ $produto -> categorias }}">{{ $categoria -> nome }}</option>
 

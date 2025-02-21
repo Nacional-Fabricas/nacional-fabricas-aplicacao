@@ -32,7 +32,7 @@ class Produto extends Model
         'preco_max',
         'preco_min',
         'profundidade',
-        'ativo',
+        'status',
         'destaque',
         'produto_album' => 'array',
 

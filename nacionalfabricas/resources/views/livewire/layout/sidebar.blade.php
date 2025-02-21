@@ -45,7 +45,12 @@
                     <div>
                         <li><a href="{{route('meu_site')}}">Meu Site</a></li>
                         <li><a href="{{route('dados_cadastrais')}}">Informações Cadastrais</a></li>
-                        <li><a href="{{route('meu_plano')}}">Meu Plano</a></li>
+                        @if($assinatura)
+                            <li><a href="{{route('meu_plano')}}">Meu Plano</a></li>
+                        @else
+                            <li><a href="{{route('planos')}}">Assinar Plano</a></li>
+                        @endif
+
                         <li><a href="{{route('suporte')}}">Suporte</a></li>
                     </div>
                 </ul>

@@ -50,7 +50,6 @@
                         @else
                             <li><a href="{{route('planos')}}">Assinar Plano</a></li>
                         @endif
-
                         <li><a href="{{route('suporte')}}">Suporte</a></li>
                     </div>
                 </ul>

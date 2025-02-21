@@ -39,8 +39,8 @@
                                 <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Produtos ativos, poderão ser visitados.">i</button>
                             </label>
                             <select name="status">
-                                @foreach (['Ativo', 'Inativo'] as $opcao)
-                                    <option value="{{ $opcao }}" {{ $produto->ativo === $opcao ? 'selected' : '' }}>{{ $opcao }}</option>
+                            @foreach (['Ativo', 'Inativo'] as $opcao)
+                                    <option value="{{ $opcao }}" {{ $produto->status === $opcao ? 'selected' : '' }}>{{ $opcao }}</option>
                                 @endforeach
                             </select>
                         </div>

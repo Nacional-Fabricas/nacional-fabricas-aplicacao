@@ -201,6 +201,7 @@ class ProdutosController extends Controller
 
             $data = $request->all();
             $produto = Produto::findOrFail($request->id);
+
             $produto->update($data);
 
             return redirect()->back()->with('sucesso', 'Produto atualizado com sucesso');

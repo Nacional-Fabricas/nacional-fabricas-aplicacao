@@ -231,14 +231,13 @@ class ProdutosController extends Controller
     }
     public function delete(Request $request)
     {
-
         try {
             $produto = Produto::findOrFail($request -> id);
             $produto->delete();
 
-            return redirect()->route('produtos')->with('sucesso', 'Categoria deletada com sucesso');
+            return redirect()->route('lista_produtos')->with('sucesso', 'Produto deletada com sucesso');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Erro ao deletar categoria: ' . $e->getMessage());
+            return redirect()->back()->with('erro', 'Erro ao deletar Produto: ' . $e->getMessage());
         }
     }
 

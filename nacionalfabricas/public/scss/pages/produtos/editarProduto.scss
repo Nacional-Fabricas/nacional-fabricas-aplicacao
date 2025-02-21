@@ -57,6 +57,16 @@
             }
         }
 
+    .formulario-excluir{
+
+        position: relative;
+        top: 10vh;
+        right: 2vw;
+        width: 80vw;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .formulario{
 
         box-shadow: -1px 0 7px 1px rgba($preto,.3);

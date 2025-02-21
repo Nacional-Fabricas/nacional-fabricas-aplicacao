@@ -13,6 +13,11 @@
 
         </div>
 
+        <form class="formulario-excluir" action="{{ route('excluir_produto', ['id' => $produto->id]) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Excluir Produto</button>
+        </form>
 
         <form action="{{route('salvar_produto')}}" class="formulario" id="form" method="post" enctype="multipart/form-data">
             @csrf

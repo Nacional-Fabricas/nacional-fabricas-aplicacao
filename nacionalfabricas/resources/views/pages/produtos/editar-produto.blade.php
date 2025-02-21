@@ -197,7 +197,7 @@
                             <select name="categorias" id="categorias">
                                 <option value="{{ $produto -> categorias }}">{{ $produto -> categorias }}</option>
                                 @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria-> nome }}">{{ $categoria-> nome }}</option>
+                                    <option value="{{ $categoria-> id }}">{{ $categoria-> nome }}</option>
                                 @endforeach
                             </select>
                         </div>

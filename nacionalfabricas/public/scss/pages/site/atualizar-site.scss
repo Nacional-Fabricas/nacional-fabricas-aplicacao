@@ -1,33 +1,30 @@
 @import "../../variaveis.scss";
 
-.configura-site{
+.configura-site {
 
-    .bloco-imagens{
+    .bloco-imagens {
 
         padding: 15px;
         display: flex;
         flex-direction: column;
         gap: 40px;
-        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+        box-shadow: 0 7px 7px -4px rgba($preto, .57);
 
-        h1{
-
+        h1 {
             width: 100%;
             text-align: center;
         }
 
-        h3{
-
+        h3 {
             font-size: $fs14;
         }
 
-        .linha{
-
+        .linha {
             display: flex;
             gap: 20px;
         }
 
-        .btn-editar-imagem{
+        .btn-editar-imagem {
 
             background-color: $branco;
             color: $verdePrincipal;
@@ -36,56 +33,51 @@
             border-radius: 5px;
             position: absolute;
             top: 3vh;
-            right: 1vw;
+            left: 1vw;
             font-weight: 700;
             transition: .3s;
 
-            &:hover{
-
+            &:hover {
                 background-color: $verdePrincipal;
                 color: $branco;
             }
         }
 
-        .bloco-banner{
-
+        .bloco-banner {
             position: relative;
             width: 100%;
 
-            .banner-site{
-
+            .banner-site {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
                 width: 100%;
-                box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
-                min-height: 250px;
+                box-shadow: 0 7px 7px -4px rgba($preto, .57);
                 height: 100%;
             }
         }
 
-        .bloco-logo{
+        .bloco-logo {
 
             width: 20%;
             position: relative;
 
-            .logo-site{
-
+            .logo-site {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
-                width: 100%;
-                box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
-                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                box-shadow: 0 7px 7px -4px rgba($preto, .57);
             }
         }
 
-        .destaques{
+        .destaques {
 
             display: flex;
             justify-content: space-evenly;
 
-            .bloco-destaque{
+            .bloco-destaque {
 
                 display: flex;
                 flex-direction: column;
@@ -94,115 +86,97 @@
                 max-width: 300px;
                 position: relative;
 
-                .destaque-site{
-
+                .destaque-site {
                     width: 100%;
-                    box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                    box-shadow: 0 7px 7px -4px rgba($preto, .57);
                     height: 100%;
-                    min-height: 400px;
                 }
             }
         }
     }
 
-    .formulario-atualizar-site{
-
+    .formulario-atualizar-site {
         width: 100%;
-        box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+        box-shadow: 0 7px 7px -4px rgba($preto, .57);
         border-radius: 0.5rem;
         border: 1px solid $cinzaBorda;
         position: relative;
 
-        .cabecalho-formulario{
-
+        .cabecalho-formulario {
             padding: 10px;
             color: $preto;
             border-radius: 0.5rem 0.5rem 0 0;
         }
 
-        .conteudo-formulario{
-
-            .bloco{
-
+        .conteudo-formulario {
+            .bloco {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 padding: 25px;
 
-                .linha{
-
+                .linha {
                     display: flex;
                     flex-wrap: wrap;
-
                 }
 
-                .grupo-dias{
-
+                .grupo-dias {
                     align-items: center;
                     display: flex;
                     width: 100%;
                     gap: 10px;
                     flex-direction: column;
 
-                    .horarios{
-
+                    .horarios {
                         display: flex;
                         width: 100%;
                         gap: 10px;
                         align-items: center;
 
-                        .dia{
-
+                        .dia {
                             display: flex;
                             gap: 10px;
                             width: 100%;
                             max-width: 150px;
-
                         }
 
-                        label{
-
+                        label {
                             font-size: $fs14;
                             font-weight: 600;
                             width: 100%;
                         }
 
-                        input{
-
+                        input {
                             height: 40px;
-                            border: 1.5px solid $cinza ;
+                            border: 1.5px solid $cinza;
                             border-radius: 0.5rem;
                             width: 100%;
                             outline: none;
                         }
 
                         input[type="checkbox"] {
-
                             height: 20px;
                             width: 20px;
                         }
                     }
                 }
 
-                .grupo{
-
+                .grupo {
                     align-items: center;
                     display: flex;
                     flex-direction: column;
                     width: 100%;
                     gap: 10px;
 
-                    label{
-
+                    label {
                         font-size: $fs14;
                         font-weight: 600;
                         width: 100%;
                     }
 
-                    input, textarea,select{
-
+                    input, textarea, select {
                         height: 40px;
-                        border: 1.5px solid $cinza ;
+                        border: 1.5px solid $cinza;
                         border-radius: 0.5rem;
                         width: 100%;
                         outline: none;
@@ -210,7 +184,6 @@
                 }
 
                 .botoes {
-
                     display: flex;
                     justify-content: center;
                     gap: 20px;
@@ -234,8 +207,7 @@
             }
         }
 
-        .btn-acessar{
-
+        .btn-acessar {
             position: absolute;
             text-decoration: none;
             top: 10px;
@@ -250,6 +222,44 @@
 
             &:hover {
                 background-color: $verdeLimao;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .bloco-imagens {
+            gap: 20px;
+
+            .linha {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .bloco-logo {
+                width: 100%;
+            }
+
+            .destaques {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        .formulario-atualizar-site {
+            .conteudo-formulario {
+                .bloco {
+                    padding: 15px;
+
+                    .linha {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                }
+            }
+
+            .botoes {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     }

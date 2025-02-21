@@ -186,6 +186,8 @@ a{
     position: absolute;
     top: 10vh;
     right: 0;
+    z-index: 20;
+
 }
 
 .erro{
@@ -207,6 +209,7 @@ a{
     gap: 10px;
     top: 10vh;
     right: 0;
+    z-index: 20;
 
     .erroAviso{
 

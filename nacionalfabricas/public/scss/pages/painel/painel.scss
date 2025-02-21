@@ -1,83 +1,86 @@
 @import "../../variaveis.scss";
 
-.painel{
-
+.painel {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 80vw;
     justify-content: center;
 
-    .nome{
-
+    .nome {
         font-size: $fs20;
         color: $preto;
     }
 
-    .dados-fabrica{
-
+    .dados-fabrica {
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .uso{
-
-            h2{
-
+        .uso {
+            h2 {
                 font-size: $fs20;
                 color: $preto;
             }
         }
 
-        .dados{
-
+        .dados {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             align-items: center;
             padding: 0;
 
-            .dado{
-
+            .dado {
                 display: flex;
                 padding: 20px;
                 gap: 20px;
                 flex-direction: column;
-                box-shadow: 0 7px 7px -4px rgba( $preto ,.57);
+                box-shadow: 0 7px 7px -4px rgba($preto, .57);
                 flex-basis: calc(33.333% - 20px);
                 max-width: calc(33.333% - 20px);
                 align-items: center;
 
-                .label{
-
+                .label {
                     font-size: $fs16;
                     color: $preto;
                     font-weight: 600;
                     text-align: center;
                 }
 
-                .conteudo-dados{
-
+                .conteudo-dados {
                     display: flex;
                     align-items: center;
                     gap: 20px;
 
-                    .icone{
-
+                    .icone {
                         height: 80px;
-
                     }
                 }
 
-                .chamada-acao{
-
-                    .acao{
-
+                .chamada-acao {
+                    .acao {
                         color: $verdePrincipal;
                         font-weight: 700;
                     }
                 }
             }
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+
+        .dados-fabrica .dados .dado {
+            flex-basis: calc(50% - 20px);
+            max-width: calc(50% - 20px);
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .dados-fabrica .dados .dado {
+            flex-basis: 100%;
+            max-width: 100%;
         }
     }
 }

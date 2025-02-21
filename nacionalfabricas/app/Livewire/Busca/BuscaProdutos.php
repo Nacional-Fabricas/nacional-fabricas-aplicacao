@@ -15,6 +15,7 @@ class BuscaProdutos extends Component
 
     public function render()
     {
+
         // Inicializando variáveis
         $produtos = Produto::where('status', 'Ativo');
         $busca = $this->busca;

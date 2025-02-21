@@ -39,18 +39,17 @@
                     &:after {
                         background-color: $roxoLink;
                         color: $branco;
-                        font-size: $fs20;
+                        font-size: $fs14;
                         border-radius: 50%;
-                        padding: 10px 15px;
+                        padding: 10px 12px;
                     }
                 }
             }
 
             .info {
-                .cabecalho {
-                    h3 {
-                        font-size: $fs24;
-                    }
+
+                h3 {
+                    font-size: $fs20;
                 }
 
                 .acoes {

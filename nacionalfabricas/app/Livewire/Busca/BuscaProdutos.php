@@ -8,17 +8,15 @@ use Livewire\Component;
 
 class BuscaProdutos extends Component
 {
-
     public $busca;
     public $estado;
-    public $segmento ;
-    public $cidade ;
+    public $segmento;
+    public $cidade;
 
     public function render()
     {
-
         // Inicializando variáveis
-        $produtos = Produto::query();
+        $produtos = Produto::where('status', 'Ativo');
         $busca = $this->busca;
         $estado = $this->estado;
         $segmento = $this->segmento;
@@ -33,15 +31,16 @@ class BuscaProdutos extends Component
                     ->orWhere('sku', 'like', '%' . $busca . '%');
             });
         })
-        ->when($estado, function ($query) use ($estado) {
-            return $query->where('estado', 'like', '%' . $estado . '%');
-        })
-        ->when($segmento, function ($query) use ($segmento) {
-            return $query->where('segmento', 'like', '%' . $segmento . '%');
-        })
-        ->when($cidade, function ($query) use ($cidade) {
-            return $query->where('cidade', 'like', '%' . $cidade . '%');
-        });
+            ->when($estado, function ($query) use ($estado) {
+                return $query->where('estado', 'like', '%' . $estado . '%');
+            })
+            ->when($segmento, function ($query) use ($segmento) {
+                return $query->where('segmento', 'like', '%' . $segmento . '%');
+            })
+            ->when($cidade, function ($query) use ($cidade) {
+                return $query->where('cidade', 'like', '%' . $cidade . '%');
+            });
+
 
         // Paginação dos produtos com filtros aplicados
         $produtos = $produtos->paginate(10);
@@ -67,6 +66,6 @@ class BuscaProdutos extends Component
         $sites = Site::all();
 
         return view('livewire.busca.busca-produtos',
-            compact('produtos', 'produtosDestaque', 'sites','usuario'));
+            compact('produtos', 'produtosDestaque', 'sites', 'usuario'));
     }
 }

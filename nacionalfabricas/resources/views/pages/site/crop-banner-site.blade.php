@@ -10,7 +10,8 @@
     <button id="editarBanner" class="btn-editar-imagem">
         @if($site->banner)
 
-            Editar Imagem
+            Editar imagem
+
 
         @else
 

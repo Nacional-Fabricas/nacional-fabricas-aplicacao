@@ -10,7 +10,7 @@
     .lista-produtos {
         display: flex;
         flex-wrap: wrap;
-        gap: calc((100% - (3 * 250px)) / 2);
+        gap: 20px calc((100% - (3 * 250px)) / 2);
         padding: 0;
 
         .produto {

@@ -9,6 +9,8 @@
             @csrf
             @method('PUT')
 
+            <input type="hidden" value="{{$categoria -> id}}" name="id">
+
             <div class="cabecalho">
 
                 <h2>Informações da categoria</h2>
@@ -16,6 +18,8 @@
             </div>
 
             <hr>
+
+            {{--
 
             <div class="linha">
 
@@ -58,33 +62,6 @@
 
                 <div class="grupo">
 
-                    <label for="ativo">Categoria ativa?
-
-                        <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Categorias Ativas irão aparecer no menu.">
-                            i
-                        </button>
-
-                    </label>
-                    <select required name="ativo" id="ativo">
-
-                        <option value="{{$categoria -> ativo}}">{{$categoria -> ativo}}</option>
-
-                        @if($categoria -> ativo == "Ativo" )
-
-                            <option value="Inativo">Inativo</option>
-
-                        @elseif($categoria -> ativo == "Inativo" )
-
-                            <option value="Ativo">Ativo</option>
-
-                        @endif
-
-                    </select>
-
-                </div>
-
-                <div class="grupo">
-
                     <label for="categoria_pai">
 
                         Selecione a categoria pai
@@ -109,12 +86,41 @@
 
             </div>
 
+            --}}
+
             <div class="linha">
 
                 <div class="grupo">
 
                     <label for="nome">Nome da Categoria</label>
                     <input type="text" name="nome" value="{{$categoria -> nome}}" id="nome" >
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="ativo">Categoria ativa?
+
+                        <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Categorias Ativas irão aparecer no menu.">
+                            i
+                        </button>
+
+                    </label>
+                    <select required name="ativo" id="ativo">
+
+                        <option value="{{$categoria -> ativo}}">{{$categoria -> ativo}}</option>
+
+                        @if($categoria -> ativo == "Ativo" )
+
+                            <option value="Inativo">Inativo</option>
+
+                        @elseif($categoria -> ativo == "Inativo" )
+
+                            <option value="Ativo">Ativo</option>
+
+                        @endif
+
+                    </select>
 
                 </div>
 

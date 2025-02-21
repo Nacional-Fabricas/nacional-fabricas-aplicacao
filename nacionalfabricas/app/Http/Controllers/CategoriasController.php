@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assinatura;
 use App\Models\Categoria;
 use App\Models\Cadastro;
-use App\Models\Plano;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -121,9 +119,11 @@ class CategoriasController extends Controller
 
     public function update(Request $request)
     {
+
         try {
-            $data = $request->all();
-            Categoria::findOrFail($request->id)->update($data);
+
+            $categoria = Categoria::findOrFail($request->id);
+            $categoria->update($request->all());
 
             return redirect()->route('categorias')->with('sucesso', 'Categoria atualizada com sucesso');
         } catch (\Exception $e) {

@@ -16,7 +16,6 @@ class Categoria extends Model
         'nome',
         'slug',
         'nivel',
-        'categoria_pai',
         'ativo',
         'descricao'
     ];

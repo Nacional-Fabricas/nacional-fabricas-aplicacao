@@ -7,7 +7,7 @@
          alt="Primeiro Destaque">
     <button class="btn-editar-imagem" data-input="inputArquivo_primeiro_destaque">
         @if($site->primeiro_destaque)
-            Editar Imagem
+            <img src="{{asset('icons/pencil.svg')}}" alt="Editar Banner do Produto">
         @else
             Adicionar Primeiro Destaque
         @endif
@@ -24,7 +24,7 @@
          alt="Segundo Destaque">
     <button class="btn-editar-imagem" data-input="inputArquivo_segundo_destaque">
         @if($site->segundo_destaque)
-            Editar Imagem
+            <img src="{{asset('icons/pencil.svg')}}" alt="Editar Banner do Produto">
         @else
             Adicionar Segundo Destaque
         @endif
@@ -41,7 +41,7 @@
          alt="Terceiro Destaque">
     <button class="btn-editar-imagem" data-input="inputArquivo_terceiro_destaque">
         @if($site->terceiro_destaque)
-            Editar Imagem
+            <img src="{{asset('icons/pencil.svg')}}" alt="Editar Banner do Produto">
         @else
             Adicionar Terceiro Destaque
         @endif

@@ -26,9 +26,8 @@
 
         .btn-editar-imagem {
 
-            background-color: $branco;
-            color: $verdePrincipal;
-            border: 1px solid $verdePrincipal;
+            background-color: $verdePrincipal;
+            border: none;
             padding: 10px;
             border-radius: 5px;
             position: absolute;
@@ -37,9 +36,8 @@
             font-weight: 700;
             transition: .3s;
 
-            &:hover {
-                background-color: $verdePrincipal;
-                color: $branco;
+            &:hover{
+                transform: scale(1.05);
             }
         }
 

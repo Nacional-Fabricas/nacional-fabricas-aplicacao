@@ -10,8 +10,7 @@
     <button id="editarBanner" class="btn-editar-imagem">
         @if($site->banner)
 
-            Editar imagem
-
+            <img src="{{asset('icons/pencil.svg')}}" alt="Editar Banner do Produto">
 
         @else
 

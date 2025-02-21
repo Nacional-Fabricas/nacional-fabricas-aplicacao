@@ -104,14 +104,7 @@ class CategoriasController extends Controller
             $categoria -> id_site = $request -> id_site;
             $categoria->nome = $request->nome;
             $categoria->slug = str_replace(" ", "-", $request->nome);
-            $categoria->nivel = $request->nivel;
-
-            if ($request->nivel == "Categoria Solo" || $request->nivel == "Categoria Pai") {
-                $categoria->categoria_pai = "Não Possue";
-            } else {
-                $categoria->categoria_pai = $request->categoria_pai;
-            }
-
+            $categoria->nivel = "Categoria Solo";
             $categoria->ativo = $request->ativo;
             $categoria->descricao = $request->descricao;
 

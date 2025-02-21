@@ -15,20 +15,15 @@
 
     <div class="categorias">
 
-        <ul>
-
+        <label for="categories">Categoria (obrigatório)</label>
+        <select>
+            <option value="">Selecione uma categoria</option>
             @foreach($categorias as $categoria)
 
-                <li>
-
-                    <input type="radio" id="categorias" name="categorias" value="{{ $categoria-> nome }}">
-                    <label for="categories">{{ $categoria-> nome }}</label>
-
-                </li>
+                <option value="{{ $categoria-> nome }}">{{ $categoria-> nome }}</option>
 
             @endforeach
-
-        </ul>
+        </select>
 
     </div>
 

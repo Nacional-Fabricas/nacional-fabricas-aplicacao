@@ -2,7 +2,7 @@
 
     <div class="criar-produtos">
 
-        <form action="{{route('criar_produto')}}" method="post" class="formulario" enctype="multipart/form-data">
+        <form id="formulario-produto" action="{{route('criar_produto')}}" method="post" class="formulario" enctype="multipart/form-data">
             @csrf
             <input name="id_site" value="{{$site -> id}}" type="hidden">
 
@@ -20,7 +20,7 @@
 
                         <div class="grupo">
                             <label for="produto_nome">
-                                Nome do Produto
+                                Nome do Produto (obrigatório)
                                 <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Somente Produtos ativos, poderão ser visitados.">i</button>
 
                             </label>
@@ -74,7 +74,7 @@
                     <div class="linha">
 
                         <div class="grupo">
-                            <label for="quantidade">qtd min.</label>
+                            <label for="quantidade">qtd min. (obrigatório)</label>
                             <input name="quantidade" required type="number" value="{{ old('quantidade') }}">
                         </div>
 
@@ -98,7 +98,7 @@
                     <div class="linha">
                         <div class="grupo">
                             <label for="descricao">
-                                Descrição breve
+                                Descrição breve (obrigatório)
                                 <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Aparecerá logo abaixo dos códigos do Produto.">i</button>
                             </label>
                             <textarea required name="descricao" id="descricao" cols="30" rows="10">{{ old('descricao') }}</textarea>
@@ -107,7 +107,7 @@
 
                     <div class="botoes">
 
-                        <button type="button" class="btn-proximo" onclick="mostrarEtapa(2)">Próximo</button>
+                        <button type="button" class="btn-proximo" onclick="validarEtapa(1, 2)">Próximo</button>
 
                     </div>
 
@@ -157,17 +157,17 @@
                     <div class="linha">
 
                         <div class="grupo">
-                                <label for="largura">largura</label>
-                                <div class="sub-grupo">
-                                    <input name="largura" type="text" value="{{ old('largura') }}">
-                                    <select name="unidade_largura">
-                                        <option value="">Unidade</option>
-                                        <option value="mm">mm</option>
-                                        <option value="cm">cm</option>
-                                        <option value="m">m</option>
-                                    </select>
-                                </div>
+                            <label for="largura">largura</label>
+                            <div class="sub-grupo">
+                                <input name="largura" type="text" value="{{ old('largura') }}">
+                                <select name="unidade_largura">
+                                    <option value="">Unidade</option>
+                                    <option value="mm">mm</option>
+                                    <option value="cm">cm</option>
+                                    <option value="m">m</option>
+                                </select>
                             </div>
+                        </div>
 
                         <div class="grupo">
                             <label for="profundidade">Profundidade/ Diâmetro</label>
@@ -186,7 +186,7 @@
 
                     <div class="botoes">
                         <button type="button" class="btn-anterior" onclick="mostrarEtapa(1)">Anterior</button>
-                        <button type="button" class="btn-proximo" onclick="mostrarEtapa(3)">Próximo</button>
+                        <button type="button" class="btn-proximo" onclick="validarEtapa(2, 3)">Próximo</button>
 
                     </div>
 
@@ -204,22 +204,22 @@
                 <div class="campos-formulario">
 
                     <div class="bloco">
-                            <!-- Fields for step 3 -->
-                            <div class="linha">
-                                <div class="grupo">
-                                    <label for="info_add">
-                                        Adicione informações técnicas, características fisicas ou modo de funcionamento do seu produto.
-                                        <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Será exibido no bloco Informações Adicionais na Página do Produto.">i</button>
-                                    </label>
-                                    <textarea name="info_add" cols="45" rows="10">{{ old('info_add') }}</textarea>
-                                </div>
+                        <!-- Fields for step 3 -->
+                        <div class="linha">
+                            <div class="grupo">
+                                <label for="info_add">
+                                    Adicione informações técnicas, características fisicas ou modo de funcionamento do seu produto.
+                                    <button type="button" class="tooltip-icon" data-toggle="tooltip" data-placement="bottom" title="Será exibido no bloco Informações Adicionais na Página do Produto.">i</button>
+                                </label>
+                                <textarea name="info_add" cols="45" rows="10">{{ old('info_add') }}</textarea>
                             </div>
                         </div>
+                    </div>
 
                     <div class="botoes">
 
                         <button type="button" class="btn-anterior" onclick="mostrarEtapa(2)">Anterior</button>
-                        <button type="button" class="btn-proximo" onclick="mostrarEtapa(4)">Próximo</button>
+                        <button type="button" class="btn-proximo" onclick="validarEtapa(3, 4)">Próximo</button>
 
                     </div>
 
@@ -236,8 +236,22 @@
 
                 <div class="campos-formulario">
 
-                    <div class="bloco">
-                        <livewire:categorias.categorias />
+                    <div class="linha">
+
+                        <div class="grupo">
+
+                            <label for="categories">Categoria (obrigatório)</label>
+                            <select name="categorias" required>
+                                <option value="">Selecione uma categoria</option>
+                                @foreach($categorias as $categoria)
+
+                                    <option value="{{ $categoria-> nome }}">{{ $categoria-> nome }}</option>
+
+                                @endforeach
+                            </select>
+
+                        </div>
+
                     </div>
 
                     <div class="botoes">
@@ -265,6 +279,23 @@
                 etapas.forEach((div, index) => {
                     div.style.display = (index + 1 === etapa) ? 'block' : 'none';
                 });
+            }
+
+            function validarEtapa(etapaAtual, proximaEtapa) {
+                const form = document.getElementById('formulario-produto');
+                const inputs = form.querySelectorAll(`#etapa${etapaAtual} [required]`);
+                let valid = true;
+
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        input.reportValidity();
+                        valid = false;
+                    }
+                });
+
+                if (valid) {
+                    mostrarEtapa(proximaEtapa);
+                }
             }
         </script>
     @endpush

@@ -51,7 +51,8 @@ class CadastrarProduto extends Component
         $usuarioId = $user->current_team_id ?? $user->id;
         $produto = Produto::where('id_conta', $usuarioId)->get();
         $site = Site::where('id_conta', $usuarioId)->first();
+        $categorias = Categoria::where('nivel', 'Categoria Solo') -> get();
 
-        return view('livewire.produtos.cadastrar-produto', compact('user', 'produto', 'site'));
+        return view('livewire.produtos.cadastrar-produto', compact('user', 'categorias', 'produto', 'site'));
     }
 }

@@ -1,14 +1,12 @@
 @import "../../variaveis.scss";
 
-.criar-produtos{
-
+.criar-produtos {
     display: flex;
     justify-content: center;
     width: 100vw;
 
-    .formulario{
-
-        box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
+    .formulario {
+        box-shadow: -1px 0 7px 1px rgba(0, 0, 0, .3);
         padding: 40px 0;
         border-radius: 42px;
         display: flex;
@@ -16,7 +14,7 @@
         gap: 50px;
         width: 80vw;
 
-        .etapa{
+        .etapa {
 
             .campos-formulario {
                 display: flex;
@@ -25,14 +23,12 @@
                 padding: 25px;
 
                 .linha {
-
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
                     align-items: flex-end;
 
                     .criar-categoria {
-
                         padding: 8px 24px;
                         background-color: $verdePrincipal;
                         color: $branco;
@@ -49,27 +45,22 @@
                     }
 
                     .grupo {
-
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
                         flex: 1 1 calc(30% - 20px); // Preenche o máximo possível e mantém o espaço entre os grupos
 
-                        .sub-grupo{
-
+                        .sub-grupo {
                             display: flex;
 
-                            input{
-
+                            input {
                                 width: 80%;
                                 border-radius: 0.5rem 0 0 0.5rem;
                             }
 
-                            select{
-
+                            select {
                                 width: 20%;
                                 border-radius: 0 0.5rem 0.5rem 0;
-
                             }
                         }
 
@@ -90,14 +81,12 @@
                 }
 
                 .botoes {
-
                     display: flex;
                     align-items: flex-end;
                     align-self: flex-end;
                     gap: 20px;
 
                     button {
-
                         padding: 8px 24px;
                         background-color: $verdePrincipal;
                         color: $branco;
@@ -118,246 +107,73 @@
     }
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1024px) {
+    .criar-produtos {
+        .formulario {
+            width: 60vw;
+        }
+    }
+}
 
-    .criarProdutos{
+@media only screen and (max-width: 768px) {
+    .criar-produtos {
+        .formulario {
 
-        padding: 0;
+            padding: 20px;
 
-        .formulario{
+            .etapa {
+                .campos-formulario {
+                    padding: 15px;
 
-            .block{
+                    .linha {
+                        flex-direction: column;
+                        align-items: stretch;
 
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                .blockHeader{
-
-                    text-align: center;
-                    padding: 5px 0;
-
-                }
-
-                .blockContent{
-
-                    padding: 0 10px;
-                    flex-direction: column;
-
-                    .imgsInput{
-
-                        align-items: center;
-
-                        .thumbnail{
-
-                            width: 100%;
-                            max-width: 300px;
-
-                            .thumbInput{
-
-                                height: 265px;
-                                width: 100%;
-                                max-width: 100%;
-                                border: 2px dashed $cinza;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: $fs26;
-                                color: $cinza;
-                                background-size: contain;
-                                background-position: center;
-                                background-repeat: no-repeat;
-                            }
-                        }
-
-                        .galeria{
-
-                            width: 100%;
-
-                            .linha{
-
-                                display: flex;
-                                flex-wrap: wrap;
-                                gap: 10px;
-                                justify-content: stretch;
-
-                                .addFoto{
-
-                                    background-color: $verdePrincipal;
-                                    color: $branco;
-                                    font-size: $fs40;
-                                    width: 65px;
-                                    height: 65px;
-                                    border-radius: 5px;
-                                    text-decoration: none;
-                                    align-items: center;
-                                    justify-content: center;
-                                    display: flex;
-                                }
-
-                                .thumbnail{
-
-                                    width: 100%;
-                                    max-width: 65px;
-
-                                    .albumInput{
-
-
-                                        width: 65px;
-                                        padding: 2px;
-                                        border-radius: 5px;
-                                        height: 65px;
-                                        border: 1px solid $cinzaBorda;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        font-size: $fs14;
-                                        color: $cinza;
-                                        background-size: contain;
-                                        background-position: center;
-                                        background-repeat: no-repeat;
-                                    }
-
-                                }
-                            }
-
+                        .grupo {
+                            flex: 1 1 100%;
                         }
                     }
 
-                    .textsInputs{
-
-                        align-items: center;
-
-                        .row{
-
-                            flex-direction: column;
-                            gap: 10px;
-
-                            .inputField{
-
-                                width: 100%;
-                                display: flex;
-                                flex-direction: column;
-                                gap: 3px;
-
-                                label{
-
-                                    font-size: $fs12;
-                                    color: $cinza;
-                                    font-weight: 400;
-                                }
-
-                                input,select{
-
-                                    width: 100%;
-                                    border: 1px solid $cinzaBorda;
-                                    color: $cinza;
-                                    font-size: $fs14;
-                                    height: 35px;
-                                    padding-left: 10px;
-                                }
-
-                                textarea{
-
-                                    width: 100%;
-                                    border: 1px solid $cinzaBorda;
-                                    color: $cinza;
-                                    font-size: $fs14;
-                                    padding-left: 10px;
-                                }
-
-                            }
-
-                            .newCategory{
-
-                                height: 100%;
-                                display: flex;
-                                align-items: flex-end;
-
-                                a{
-
-                                    background-color: $branco ;
-                                    color:$verdePrincipal ;
-                                    padding: 10px;
-                                    border-radius: 5px;
-                                    transition: .3s;
-                                    border: 1px solid $verdePrincipal;
-                                    text-decoration: none;
-                                    text-align: center;
-                                    width: 100%;
-
-                                    &:hover{
-
-                                        background-color: $verdePrincipal;
-                                        color: $branco;
-                                    }
-                                }
-                            }
-
-                            .category{
-
-                                max-width: 840px;
-                            }
-
-                            .lg{
-
-                                max-width: 100%;
-
-                            }
-
-                            .md{
-
-
-                                max-width: 100%;
-                            }
-
-                            .sm{
-
-                                max-width: 100%;
-                            }
-                        }
-
-                        .categoriasContent{
-
-                            width: 100%;
-                            max-width: 100%;
-
-                            ul{
-
-                                width: 100%;
-                                max-width: 100%;
-                                padding: 0 12px;
-
-                                li{
-
-                                    width: 100%;
-                                    max-width: 100%;
-
-                                    label{
-
-                                        text-transform: capitalize;
-                                        font-size: $fs14;
-                                        font-weight: 600;
-                                    }
-                                }
-                            }
-                        }
+                    .botoes {
+                        align-self: center;
                     }
-                }
-            }
-
-            .botoes{
-
-
-                button{
-
-                    max-width: 100%;
-                    font-size: $fs12;
-
-
                 }
             }
         }
     }
+}
 
+@media only screen and (max-width: 480px) {
+    .criar-produtos {
+        .formulario {
+            padding: 10px;
+
+            .etapa {
+                .campos-formulario {
+                    padding: 10px;
+
+                    .linha {
+                        gap: 10px;
+
+                        .grupo {
+                            gap: 5px;
+
+                            input, select, textarea {
+                                height: 35px;
+                            }
+                        }
+                    }
+
+                    .botoes {
+                        gap: 10px;
+
+                        button {
+                            padding: 6px 20px;
+                            font-size: $fs12;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

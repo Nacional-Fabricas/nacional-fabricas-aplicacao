@@ -21,6 +21,7 @@
 
     @livewireStyles
 </head>
+
 <body class="fadeInUp">
 
     <livewire:registro />

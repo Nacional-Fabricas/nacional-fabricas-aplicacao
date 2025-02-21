@@ -62,11 +62,13 @@
         }
 
         .lista-produtos {
+
             display: flex;
             flex-wrap: wrap;
-            gap: calc((100% - (4 * 250px)) / 3);
+            gap: calc((100% - (3 * 250px)) / 2);
 
             .bloco-produto {
+
                 flex: 1 1 250px;
                 max-width: 250px;
                 box-sizing: border-box;
@@ -83,6 +85,8 @@
                     padding: 5px;
                     border-radius: 10px 0;
                     width: 30%;
+                    height: 100%;
+
                 }
 
                 .Sim {

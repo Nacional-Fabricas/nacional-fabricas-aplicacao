@@ -1,6 +1,7 @@
 @import "../../variaveis.scss";
 
-.bloco-produtos {
+.bloco-produtos{
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -8,12 +9,14 @@
     max-width: 100%;
 
     .lista-produtos {
+
         display: flex;
         flex-wrap: wrap;
         gap: 20px calc((100% - (3 * 250px)) / 2);
         padding: 0;
 
         .produto {
+
             flex: 1 1 250px;
             max-width: 250px;
             box-sizing: border-box;
@@ -24,6 +27,7 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba($preto, .2);
             width: 100%;
+            justify-content: space-between;
 
             .swiper {
                 width: 100% !important;

@@ -195,9 +195,22 @@
                         <div class="grupo">
                             <label>Categorias</label>
                             <select name="categorias" id="categorias">
-                                <option value="{{ $produto -> categorias }}">{{ $produto -> categorias }}</option>
+
+
                                 @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria-> id }}">{{ $categoria-> nome }}</option>
+
+                                    @if($produto -> categorias != $categoria -> id)
+
+                                        <option value="{{ $produto -> categorias }}">{{ $categoria -> nome }}</option>
+
+                                    @endif
+
+                                    @if($produto -> categorias != $categoria -> id)
+
+                                        <option value="{{ $categoria-> id }}">{{ $categoria-> nome }}</option>
+
+                                    @endif
+
                                 @endforeach
                             </select>
                         </div>

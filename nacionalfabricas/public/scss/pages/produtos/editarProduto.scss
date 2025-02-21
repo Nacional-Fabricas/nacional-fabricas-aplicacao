@@ -1,64 +1,55 @@
 @import "../../variaveis.scss";
 
-.editar-produto{
-
+.editar-produto {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 80vw;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 
-    .imagens-produto{
+    .imagens-produto {
+        box-shadow: -1px 0 7px 1px rgba($preto, .3);
+        padding: 40px 25px;
+        border-radius: 42px;
+        display: flex;
+        gap: 50px;
+        width: 80vw;
 
-            box-shadow: -1px 0 7px 1px rgba( $preto ,.3);
-            padding: 40px 25px;
-            border-radius: 42px;
-            display: flex;
-            gap: 50px;
-            width: 80vw;
-
-            .cabecalho{
-
-                h3{
-
-                    font-size: $fs18;
-                }
-            }
-
-            .bloco-logo{
-
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                .foto-produto{
-
-                    width: 250px;
-                    height: 250px;
-                    box-shadow: -1px 0 7px 1px rgba( $preto ,.3);
-                }
-
-                .btn-editar-imagem{
-
-                    background-color: $verdePrincipal;
-                    color: $branco;
-                    border: none;
-                    transition: .3s;
-                    border-radius: 0.25rem;
-                    padding: 10px;
-
-                    &:hover{
-
-                        background-color: $verdeLimao;
-                        transform: scale(1.05);
-                    }
-                }
+        .cabecalho {
+            h3 {
+                font-size: $fs18;
             }
         }
 
-    .formulario-excluir{
+        .bloco-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
 
+            .foto-produto {
+                width: 250px;
+                height: 250px;
+                box-shadow: -1px 0 7px 1px rgba($preto, .3);
+            }
+
+            .btn-editar-imagem {
+                background-color: $verdePrincipal;
+                color: $branco;
+                border: none;
+                transition: .3s;
+                border-radius: 0.25rem;
+                padding: 10px;
+
+                &:hover {
+                    background-color: $verdeLimao;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .formulario-excluir {
         position: relative;
         top: 10vh;
         right: 2vw;
@@ -67,9 +58,8 @@
         justify-content: flex-end;
     }
 
-    .formulario{
-
-        box-shadow: -1px 0 7px 1px rgba($preto,.3);
+    .formulario {
+        box-shadow: -1px 0 7px 1px rgba($preto, .3);
         padding: 40px 0;
         border-radius: 42px;
         display: flex;
@@ -77,8 +67,7 @@
         gap: 50px;
         width: 80vw;
 
-        .etapa{
-
+        .etapa {
             .campos-formulario {
                 display: flex;
                 flex-direction: column;
@@ -86,14 +75,12 @@
                 padding: 25px;
 
                 .linha {
-
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
                     align-items: flex-end;
 
                     .criar-categoria {
-
                         padding: 8px 24px;
                         background-color: $verdePrincipal;
                         color: $branco;
@@ -115,21 +102,17 @@
                         gap: 10px;
                         flex: 1 1 calc(30% - 20px); // Preenche o máximo possível e mantém o espaço entre os grupos
 
-                        .sub-grupo{
-
+                        .sub-grupo {
                             display: flex;
 
-                            input{
-
+                            input {
                                 width: 80%;
                                 border-radius: 0.5rem 0 0 0.5rem;
                             }
 
-                            select{
-
+                            select {
                                 width: 20%;
                                 border-radius: 0 0.5rem 0.5rem 0;
-
                             }
                         }
 
@@ -150,14 +133,12 @@
                 }
 
                 .botoes {
-
                     display: flex;
                     align-items: flex-end;
                     align-self: flex-end;
                     gap: 20px;
 
                     button {
-
                         padding: 8px 24px;
                         background-color: $verdePrincipal;
                         color: $branco;
@@ -170,6 +151,78 @@
 
                         &:hover {
                             background-color: $verdeLimao;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .editar-produto {
+        .imagens-produto, .formulario {
+            width: 80vw;
+            padding: 20px;
+        }
+
+        .imagens-produto {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .formulario {
+            .etapa {
+                .campos-formulario {
+                    padding: 15px;
+
+                    .linha {
+                        flex-direction: column;
+                        align-items: stretch;
+
+                        .grupo {
+                            flex: 1 1 100%;
+                        }
+                    }
+
+                    .botoes {
+                        align-self: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .editar-produto {
+        .imagens-produto, .formulario {
+            padding: 10px;
+        }
+
+        .formulario {
+            .etapa {
+                .campos-formulario {
+                    padding: 10px;
+
+                    .linha {
+                        gap: 10px;
+
+                        .grupo {
+                            gap: 5px;
+
+                            input, select, textarea {
+                                height: 35px;
+                            }
+                        }
+                    }
+
+                    .botoes {
+                        gap: 10px;
+
+                        button {
+                            padding: 6px 20px;
+                            font-size: $fs12;
                         }
                     }
                 }

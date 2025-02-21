@@ -18,11 +18,12 @@
 
                         <div class="swiper-wrapper">
 
-                            <img class="swiper-slide" src="{{asset('storage/images/thumbnails/'. $produto-> produto_thumbnail) }}">
+                            <img class="swiper-slide" src="{{asset('storage/images/thumbnails/'. $produto -> produto_thumbnail) }}">
 
-                            @foreach ($produtos as $produto)
+                            {{--
+                            @foreach ($imagensAlbums as $album)
 
-                                @if( $produto->id_conta )
+                                @if( $album -> id_produto == $produto -> id )
 
                                     <img class="swiper-slide" src="{{asset('storage/images/thumbnails/' .$produto->produto_thumbnail)}}">
 
@@ -30,9 +31,13 @@
 
                             @endforeach
 
+                            --}}
+
                         </div>
+
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
+
                     </div>
 
                     <div class="info">
@@ -86,7 +91,7 @@
 
                             @foreach($sites as $site)
 
-                                @if($site -> id_conta == $produto -> id_conta )
+                                @if($site -> id == $produto -> id_site )
 
                                     <a class="btn-ver-fabricante" href="{{ route('site', [ 'id' => $produto -> id_conta, 'slug' => $site -> slug])}}">Ver Fabricante</a>
 

@@ -37,23 +37,19 @@
 
                 <div class="sobre-cabecalho">
 
+                    {{--
+
                     <h1>A primeira comunidade de <strong>Fabricantes Brasileiros!</strong></h1>
 
                     <h2>Aqui você cria seu <strong>site</strong>, monta sua <strong>vitrine digital</strong> e divulga sua <strong>fábrica.</strong></h2>
+
+                    --}}
 
                     <span>
 
                         Somos a <strong>Nacional Fábricas</strong>, uma startup localizada em Santa Rosa de Viterbo - SP, com o objetivo de oferecer um ambiente exclusivo para fabricantes nacionais.
 
-                    </span>
-
-                    <span>
-
                         Nossa plataforma foi desenvolvida para ampliar a visibilidade das indústrias e facilitar a conexão com novos clientes.
-
-                    </span>
-
-                    <span>
 
                         Além disso, fornecemos uma <strong>divulgação estratégica</strong> para as empresas cadastradas, incluindo reposts nos stories, publicações em carrossel, estáticas e reels em nosso perfil, além de banners em nosso site.
 

@@ -1,13 +1,14 @@
 @import "../../variaveis.scss";
 
 .bloco-produtos {
+
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 800px;
-    max-width: 100%;
+    width: 40vw;
 
     .lista-produtos {
+
         display: flex;
         flex-wrap: wrap;
         gap: 20px calc((100% - (3 * 250px)) / 2);
@@ -83,6 +84,22 @@
     }
 }
 
+@media only screen and (max-width: 1500px) {
+
+    .bloco-produtos {
+
+        .lista-produtos {
+
+            gap: 20px calc((100% - (2 * 250px)) / 2);
+
+            .produto {
+                flex: 1 1 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .bloco-produtos {
 
@@ -110,6 +127,11 @@
             .produto {
                 flex: 1 1 100%;
                 max-width: 100%;
+            }
+
+            .swiper{
+
+                align-self: center;
             }
         }
     }

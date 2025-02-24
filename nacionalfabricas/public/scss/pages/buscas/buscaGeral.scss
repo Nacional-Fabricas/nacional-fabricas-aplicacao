@@ -1,18 +1,15 @@
 @import "../../variaveis.scss", "buscaProdutos", "buscaSite";
 
-.bloco-pesquisa{
-
+.bloco-pesquisa {
     width: 100%;
     padding: 50px 0;
     display: flex;
     justify-content: center;
 
-    .mobileBusca{
-
+    .mobileBusca {
         display: none;
 
-        #pesquisa{
-
+        #pesquisa {
             background-color: $verdePrincipal;
             color: $branco;
             font-size: $fs14;
@@ -20,15 +17,13 @@
             border-radius: 5px;
             transition: .3s;
 
-            &:hover{
-
+            &:hover {
                 transform: scale(1.05);
             }
         }
     }
 
-    #formPesquisa{
-
+    #formPesquisa {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -37,34 +32,29 @@
         gap: 15px;
         align-items: center;
 
-        .linha{
-
+        .linha {
             width: 100%;
             display: flex;
             gap: 40px;
 
-            #mobileAviso{
-
+            #mobileAviso {
                 display: none;
                 justify-content: center;
             }
 
-            button{
-
+            button {
                 background-color: $verdePrincipal;
                 fill: $branco;
                 padding: 10px 20px;
-                border-radius: 8px ;
+                border-radius: 8px;
                 font-size: $fs20;
             }
 
-            .grupo{
-
+            .grupo {
                 width: 100%;
                 display: flex;
 
-                select{
-
+                select {
                     color: $branco;
                     background-color: $verdePrincipal;
                     width: 100%;
@@ -75,8 +65,7 @@
                     padding-left: 1rem;
                     border: none;
 
-                    option{
-
+                    option {
                         background-color: $branco;
                         color: $azulTable;
                         font-size: $fs14;
@@ -84,14 +73,12 @@
                         padding: 10px;
                     }
 
-                    &:focus{
-
+                    &:focus {
                         outline: none;
                     }
                 }
 
-                input{
-
+                input {
                     width: 100%;
                     border: 2px solid $cinzaBorda;
                     border-radius: 10px;
@@ -101,49 +88,122 @@
                     margin: 0;
                     padding-left: 1rem;
 
-                    &:focus{
-
+                    &:focus {
                         outline: none;
                     }
                 }
             }
 
-            .lg{
-
+            .lg {
                 max-width: 600px;
             }
 
-            .md{
-
+            .md {
                 max-width: 330px;
             }
 
-            .sm{
-
+            .sm {
                 max-width: 160px;
             }
         }
-
     }
 }
 
-.resultados{
-
+.resultados {
     display: flex;
     width: 80vw;
     justify-content: space-between;
 
-    .bloco-mapa{
+    .bloco-mapa {
 
         width: 35vw;
+        min-width: 200px;
         height: 100%;
-        min-height: 500px;
 
-        .mapa{
+        .mapa {
 
             width: 100%;
             height: 100%;
+            min-height: 350px;
         }
     }
 }
 
+@media only screen and (max-width: 1024px) {
+
+    .bloco-pesquisa {
+        padding: 30px 0;
+
+        #formPesquisa {
+            .linha {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    }
+
+    .resultados {
+
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .bloco-mapa {
+
+            width: 100%;
+            min-height: 300px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .bloco-pesquisa {
+
+        padding: 20px 0;
+
+        .mobileBusca {
+            display: block;
+        }
+
+        #formPesquisa {
+            max-width: 90%;
+        }
+    }
+
+    .resultados {
+
+        width: 100%;
+
+        .bloco-mapa {
+
+            width: 70vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .bloco-pesquisa {
+
+        padding: 10px 0;
+
+        #formPesquisa {
+
+            max-width: 100%;
+
+            .linha {
+                gap: 10px;
+            }
+        }
+    }
+
+    .resultados {
+
+        width: 80vw;
+
+        .bloco-mapa {
+            width: 100%;
+        }
+    }
+}

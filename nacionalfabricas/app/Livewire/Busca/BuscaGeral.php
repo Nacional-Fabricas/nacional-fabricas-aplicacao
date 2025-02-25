@@ -29,7 +29,8 @@ class BuscaGeral extends Component
 
         $produtos = Produto::where(function ($query) use ($buscar) {
 
-            $query->Where('produto_nome', 'like', '%' . $this->buscar . '%')
+            $query->Where('status', 'like', 'Ativo')
+                ->orWhere('produto_nome', 'like', '%' . $this->buscar . '%')
                 ->orWhere('sku', 'like', '%' . $this->buscar . '%');
 
         })

@@ -1,88 +1,140 @@
 <div>
-
     <div class="bloco-pesquisa">
-
-        <form wire:submit.prevent="buscar" id="formPesquisa" class="formulario-pesquisa">
-
+        <div id="formPesquisa" class="formulario-pesquisa">
             <img id="close" onclick="pesquisaMobile()" src="{{ asset('icons/close.svg') }}" />
 
-                <select wire:model.live="tipo" id="tipo" class="escolha-tipo-busca">
-                    <option value="Fábricas">Fábricas</option>
-                    <option value="Produtos">Produtos</option>
-                </select>
+            <select wire:model.live="tipo" id="tipo" class="escolha-tipo-busca">
+                <option value="Fábricas">Fábricas</option>
+                <option value="Produtos">Produtos</option>
+            </select>
 
-                <input wire:model.defer="busca" type="text" class="busca-texto" placeholder="O que está procurando?" />
+            <input wire:model.live="buscar" class="busca-texto" type="text" placeholder="O que está procurando?"/>
 
-                <select name="estado" class="escolha-estado" wire:model.defer="estado">
+            <select name="estado" class="escolha-estado" wire:model.defer="estado">
+                <option value="">Escolha um estado</option>
+                @foreach($estados as $estado)
+                    <option value="{{ $estado->sigla }}">{{ $estado->sigla }}</option>
+                @endforeach
+            </select>
 
-                    <option value="">Escolha um estado</option>
-
-                    @foreach($estados as $estado)
-
-                        <option value="{{ $estado->sigla }}">{{ $estado->sigla }}</option>
-
-                    @endforeach
-
-                </select>
-
-                <select name="segmento" class="escolha-segmento" wire:model.defer="segmento">
-
-                    <option value="">Escolha um segmento</option>
-
-                    @foreach($segmentos as $segmento)
-
-                        <option value="{{ $segmento -> codigo }}">{{ $segmento -> nomeSegmento }}</option>
-
-                    @endforeach
-
-                </select>
-
-            {{--
-
-            <button type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
-                </svg>
-            </button>
-
-            <div class="grupo">
-                <input list="estados" placeholder="Estados" wire:model.defer="estado" id="estado">
-                <datalist id="estados">
-                    @foreach($estados as $estado)
-                        <option value="{{ $estado->sigla }}">
-                    @endforeach
-                </datalist>
-            </div>
-
-            <div class="grupo">
-                <input list="cities" placeholder="Cidades" wire:model.defer="cidade" id="cidade">
-                <datalist id="cities"></datalist>
-            </div>
-
-            <div class="grupo">
-                <input list="segmentos" placeholder="Segmentos" wire:model.defer="segmento" id="segmento">
-                <datalist id="segmentos">
-                    @foreach ($segmentos as $segmento)
-                        <option value="{{ $segmento->nomeSegmento }}">
-                    @endforeach
-                </datalist>
-            </div>
-             --}}
-
-        </form>
-
+            <select name="segmento" class="escolha-segmento" wire:model.defer="segmento">
+                <option value="">Escolha um segmento</option>
+                @foreach($segmentos as $segmento)
+                    <option value="{{ $segmento->codigo }}">{{ $segmento->nomeSegmento }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
     <div class="resultados">
-
         @if($tipo === "Produtos")
-            <livewire:busca.busca-produtos />
+
+            <div class="bloco-produtos">
+
+                <div class="contador-resultados">
+
+                    <strong>{{$produtos -> count()}}</strong> produtos encontrados
+
+                </div>
+
+                <ul class="lista-produtos">
+
+                    @foreach($produtos as $produto)
+
+                        <li class="produto">
+
+                            <div class="swiper mySwiper">
+
+                                <div class="swiper-wrapper">
+
+                                    <img class="swiper-slide" src="{{asset('storage/images/thumbnails/'. $produto -> produto_thumbnail) }}">
+
+                                </div>
+
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+
+                            </div>
+
+                            <div class="info">
+
+                                <h3>{{$produto -> produto_nome}}</h3>
+
+                                @if($produto -> preco_min != 0 && $produto -> preco_min != null && $produto -> preco_max != 0 && $produto -> preco_max != null )
+
+                                    <div class="preco">
+
+                                        <strong>R${{$produto -> preco_min}} - R${{$produto -> preco_max}}</strong>
+
+                                    </div>
+
+                                @endif
+
+                                <div class="codigos">
+
+                                    <span class="sku"><strong>SKU</strong> {{$produto -> sku}}</span>
+
+                                </div>
+
+                                <div class="acoes">
+
+                                    <a class="btn-ver-produto" href="{{ route('produto', [ 'id' => $produto -> id]) }}">Ver Produto</a>
+
+                                    @if($usuario && $produto -> id_conta != $usuario -> id )
+
+                                        <form action="{{route('adicionar_cotacao')}}" class="formulario-adicionar-cotacao"  method="POST" enctype="multipart/form-data">
+                                            @csrf
+
+                                            <input type="hidden" name="id" value="{{$produto -> id}}">
+                                            <input type="hidden" name="name" value="{{$produto -> produto_nome}}">
+                                            <input type="hidden" name="sku" value="{{$produto -> sku}}">
+                                            <input type="hidden" name="ean" value="{{$produto -> ean}}">
+                                            <input type="hidden" name="id_receptor" value="{{$produto -> id_conta}}">
+                                            <input type="hidden" name="id_produto" value="{{$produto -> id}}">
+                                            <input type="hidden" name="price" value="1">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <input type="hidden" name="image" value="{{$produto-> produto_thumbnail}}">
+
+                                            <button class="addCote full">+ Adicionar cotação</button>
+
+                                        </form>
+
+                                    @else
+
+                                        <a class="btn-editar-produto" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">Editar Produto</a>
+
+                                    @endif
+
+                                    @foreach($sites as $site)
+
+                                        @if($site -> id == $produto -> id_site )
+
+                                            <a class="btn-ver-fabricante" href="{{ route('site', [ 'id' => $produto -> id_site, 'slug' => $site -> slug])}}">Ver Fabricante</a>
+
+                                        @endif
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                    @endforeach
+
+                </ul>
+
+                <div class="paginacao">
+                    {{$produtos->appends(request()->query())->links()}}
+                </div>
+
+            </div>
+
         @elseif($tipo === "Fábricas")
-            <livewire:busca.busca-sites />
+            <livewire:busca.busca-sites :buscar="$buscar" />
         @endif
 
         <livewire:gerais.mapa-busca />
-
     </div>
-
 </div>

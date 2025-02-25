@@ -24,7 +24,7 @@
 
                                 @if( $produto->id_conta == $site->id_conta )
 
-                                    <img class="swiper-slide" src="{{asset('storage/images/thumbnails/' .$produto->produto_thumbnail)}}">
+                                    <img class="swiper-slide" src="{{asset('storage/images/thumbnails/' . $produto-> produto_thumbnail)}} ">
 
                                 @endif
 

@@ -33,11 +33,13 @@
 
                 .swiper-button-next, .swiper-button-prev {
                     &:after {
-                        background-color: $verdePrincipal;
-                        color: $branco;
-                        font-size: $fs20;
+                        background-color: $cinzaClaro;
+                        color: $verdePrincipal;
+                        box-shadow: 0 0 15px rgba($preto, .2);
+                        font-size: $fs14;
                         border-radius: 50%;
-                        padding: 10px 15px;
+                        padding: 10px 12px;
+                        font-weight: 800;
                     }
                 }
             }

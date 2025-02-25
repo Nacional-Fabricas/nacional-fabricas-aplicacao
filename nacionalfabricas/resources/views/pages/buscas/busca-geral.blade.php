@@ -3,7 +3,7 @@
 
 <div class="bloco-pagina">
 
-    <livewire:busca.busca-geral/>
+    <livewire:busca.busca-geral />
 
 </div>
 

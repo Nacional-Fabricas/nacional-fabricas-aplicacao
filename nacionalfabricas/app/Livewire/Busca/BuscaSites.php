@@ -14,7 +14,7 @@ class BuscaSites extends Component
 
         $sites = Site::all();
 
-        $produtos = Produto::all();
+        $produtos = Produto::where('status', 'Ativo')->where('destaque', 'Sim')->get();
 
         $cadastros = Cadastro::all();
 

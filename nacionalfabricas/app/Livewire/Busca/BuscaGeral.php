@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class BuscaGeral extends Component
 {
-    public $tipo = 'Produtos';
+    public $tipo = 'Fábricas';
     public $busca = '';
     public $estado = [];
     public $segmento = [];

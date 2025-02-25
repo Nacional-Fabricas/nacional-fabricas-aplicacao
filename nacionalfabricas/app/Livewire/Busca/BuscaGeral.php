@@ -9,17 +9,21 @@ class BuscaGeral extends Component
 {
     public $tipo = 'Fábricas';
     public $busca = '';
-    public $estados = [];
-    public $segmentos = [];
+    public $estado = [];
+    public $segmento = [];
 
     public function render()
     {
 
         $tipo = $this->tipo;
+        $estados =  Estado::orderBy('sigla', 'asc') -> get();
+        $segmentos = Segmento::orderBy('nomeSegmento', 'asc') -> get();
 
         return view('livewire.busca.busca-geral', [
-            'estados' => $this->estados,
-            'segmentos' => $this->segmentos,
+            'estado' => $this->estado,
+            'estados' => $estados,
+            'segmentos' => $segmentos,
+            'segmento' => $this->segmento,
             'tipo' => $this->tipo,
         ]);
     }

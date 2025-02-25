@@ -2,9 +2,9 @@
 
 .bloco-pesquisa {
     width: 100%;
-    padding: 50px 0;
     display: flex;
     justify-content: center;
+    padding: 10px 0;
 
     .mobileBusca {
         display: none;
@@ -23,87 +23,102 @@
         }
     }
 
-    #formPesquisa {
+    .formulario-pesquisa {
         display: flex;
-        flex-direction: column;
         width: 100%;
-        max-width: 1000px;
         justify-content: center;
         gap: 15px;
         align-items: center;
 
-        .linha {
+        .escolha-tipo-busca {
+            color: $branco;
+            background-color: $verdePrincipal;
             width: 100%;
-            display: flex;
-            gap: 40px;
+            max-width: 10%;
+            border-radius: 10px;
+            font-size: $fs16;
+            margin: 0;
+            height: 50px;
+            padding: 10px;
+            border: none;
+            box-shadow: -1px 0 7px 1px rgba($preto, .3);
 
-            #mobileAviso {
-                display: none;
-                justify-content: center;
+            option {
+                background-color: $branco;
+                color: $azulTable;
+                font-size: $fs14;
+                font-weight: 700;
+                padding: 10px;
             }
 
-            button {
-                background-color: $verdePrincipal;
-                fill: $branco;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-size: $fs20;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .escolha-estado {
+            color: $preto;
+            width: 100%;
+            max-width: 15%;
+            border-radius: 10px;
+            font-size: $fs14;
+            height: 50px;
+            margin: 0;
+            border: none;
+            box-shadow: -1px 0 7px 1px rgba($preto, .3);
+
+            option {
+                background-color: $branco;
+                color: $azulTable;
+                font-size: $fs14;
+                font-weight: 700;
+                padding: 10px;
             }
 
-            .grupo {
-                width: 100%;
-                display: flex;
+            &:focus {
+                outline: none;
+            }
+        }
 
-                select {
-                    color: $branco;
-                    background-color: $verdePrincipal;
-                    width: 100%;
-                    border-radius: 10px;
-                    font-size: $fs18;
-                    height: 50px;
-                    margin: 0;
-                    padding-left: 1rem;
-                    border: none;
+        .escolha-segmento {
+            color: $preto;
+            width: 100%;
+            max-width: 15%;
+            border-radius: 10px;
+            font-size: $fs14;
+            margin: 0;
+            height: 50px;
+            padding: 10px;
+            border: none;
+            box-shadow: -1px 0 7px 1px rgba($preto, .3);
 
-                    option {
-                        background-color: $branco;
-                        color: $azulTable;
-                        font-size: $fs14;
-                        font-weight: 700;
-                        padding: 10px;
-                    }
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
-
-                input {
-                    width: 100%;
-                    border: 2px solid $cinzaBorda;
-                    border-radius: 10px;
-                    color: $cinzaInput;
-                    font-size: $fs18;
-                    height: 50px;
-                    margin: 0;
-                    padding-left: 1rem;
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
+            option {
+                background-color: $branco;
+                color: $azulTable;
+                font-size: $fs14;
+                font-weight: 700;
+                padding: 10px;
             }
 
-            .lg {
-                max-width: 600px;
+            &:focus {
+                outline: none;
             }
+        }
 
-            .md {
-                max-width: 330px;
-            }
+        .busca-texto {
+            width: 100%;
+            max-width: 70%;
+            border: none;
+            box-shadow: -1px 0 7px 1px rgba($preto, .3);
+            border-radius: 10px;
+            color: $cinzaInput;
+            font-size: $fs18;
+            height: 50px;
+            margin: 0;
+            padding-left: 1rem;
 
-            .sm {
-                max-width: 160px;
+            &:focus {
+                outline: none;
             }
         }
     }
@@ -134,10 +149,15 @@
     .bloco-pesquisa {
         padding: 30px 0;
 
-        #formPesquisa {
-            .linha {
-                flex-direction: column;
-                gap: 20px;
+        .formulario-pesquisa {
+            flex-direction: column;
+            gap: 20px;
+
+            .escolha-tipo-busca,
+            .escolha-estado,
+            .escolha-segmento,
+            .busca-texto {
+                max-width: 100%;
             }
         }
     }
@@ -159,14 +179,13 @@
 @media only screen and (max-width: 768px) {
 
     .bloco-pesquisa {
-
         padding: 20px 0;
 
         .mobileBusca {
             display: block;
         }
 
-        #formPesquisa {
+        .formulario-pesquisa {
             max-width: 90%;
         }
     }
@@ -185,16 +204,11 @@
 @media only screen and (max-width: 480px) {
 
     .bloco-pesquisa {
-
         padding: 10px 0;
 
-        #formPesquisa {
-
+        .formulario-pesquisa {
             max-width: 100%;
-
-            .linha {
-                gap: 10px;
-            }
+            gap: 10px;
         }
     }
 

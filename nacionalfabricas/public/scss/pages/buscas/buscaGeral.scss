@@ -131,6 +131,12 @@
     justify-content: space-between;
     gap: 10px;
 
+    .paginacao{
+
+        display: flex;
+        justify-content: center;
+    }
+
     .bloco-mapa {
 
         width: 35vw;

@@ -1,46 +1,38 @@
 @import "../../variaveis.scss";
 
-.bloco-sites{
-
+.bloco-sites {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 45vw;
 
-    .lista-sites{
-
+    .lista-sites {
         display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 0;
 
-        .site{
-
+        .site {
             display: flex;
             gap: 20px;
             padding: 10px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba($preto,.2);
+            box-shadow: 0 0 15px rgba($preto, .2);
             width: 800px;
             max-width: 100%;
 
-            .swiper{
-
+            .swiper {
                 width: 100% !important;
                 max-width: 300px !important;
                 margin: 0;
 
-                .swiper-slide{
-
+                .swiper-slide {
                     width: 100% !important;
                     max-width: 300px !important;
-
                 }
 
-                .swiper-button-next, .swiper-button-prev{
-
-                    &:after{
-
+                .swiper-button-next, .swiper-button-prev {
+                    &:after {
                         background-color: $verdePrincipal;
                         color: $branco;
                         font-size: $fs20;
@@ -50,27 +42,23 @@
                 }
             }
 
-            .site-info{
-
+            .site-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 max-width: 100%;
                 width: 100%;
 
-                .nome{
-
+                .nome {
                     font-size: $fs20;
                     font-weight: 700;
                 }
 
-                .valor{
-
-
+                .valor {
+                    // Add styles for .valor if needed
                 }
 
-                .ver-site{
-
+                .ver-site {
                     background-color: $verdePrincipal;
                     color: $branco;
                     padding: 10px;
@@ -80,12 +68,29 @@
                     transition: .3s;
                     text-decoration: none;
 
-                    &:hover{
-
-
+                    &:hover {
                         transform: scale(1.05);
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bloco-sites {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .bloco-sites {
+        padding: 0 10px;
+
+        .lista-sites {
+            .site {
+                flex-direction: column;
+                align-items: center;
             }
         }
     }

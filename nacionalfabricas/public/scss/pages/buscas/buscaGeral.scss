@@ -125,9 +125,11 @@
 }
 
 .resultados {
+
     display: flex;
     width: 80vw;
     justify-content: space-between;
+    gap: 10px;
 
     .bloco-mapa {
 
@@ -185,9 +187,6 @@
             display: block;
         }
 
-        .formulario-pesquisa {
-            max-width: 90%;
-        }
     }
 
     .resultados {
@@ -196,7 +195,7 @@
 
         .bloco-mapa {
 
-            width: 70vw;
+            width: 80vw;
         }
     }
 }
@@ -215,9 +214,5 @@
     .resultados {
 
         width: 80vw;
-
-        .bloco-mapa {
-            width: 100%;
-        }
     }
 }

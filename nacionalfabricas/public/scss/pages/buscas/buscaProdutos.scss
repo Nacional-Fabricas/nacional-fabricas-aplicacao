@@ -84,6 +84,47 @@
             }
         }
     }
+
+    .paginacao{
+
+        display: flex;
+        justify-content: center;
+
+        .btn {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #45a049;
+            }
+        }
+
+        .btn-disabled {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #e7e7e7;
+            color: #aaa;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+
+        .btn-active {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+
 }
 
 @media only screen and (max-width: 1500px) {

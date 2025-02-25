@@ -5,68 +5,45 @@ namespace App\Livewire\Busca;
 use App\Models\Produto;
 use App\Models\Site;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class BuscaProdutos extends Component
 {
-    public $busca;
+    use WithPagination;
+
+    public $busca = '';
+    public $buscar = '';
     public $estado;
     public $segmento;
     public $cidade;
 
+    protected $queryString = ['buscar']; // Mantém a busca na URL
+
+    public function updatingBuscar()
+    {
+        $this->resetPage(); // Reseta a paginação ao mudar a busca
+    }
+
     public function render()
     {
-
-        // Inicializando variáveis
         $produtos = Produto::where('status', 'Ativo');
-        $busca = $this->busca;
-        $estado = $this->estado;
-        $segmento = $this->segmento;
-        $cidade = $this->cidade;
 
-        // Adicionando filtros à consulta de forma mais limpa usando "when"
-        $produtos->when($busca, function ($query) use ($busca) {
-            return $query->where(function ($queryProdutos) use ($busca) {
-                $queryProdutos->where('produto_nome', 'like', '%' . $busca . '%')
-                    ->orWhere('id', 'like', '%' . $busca . '%')
-                    ->orWhere('categorias', 'like', '%' . $busca . '%')
-                    ->orWhere('sku', 'like', '%' . $busca . '%');
+        if (!empty($this->buscar)) {
+            $produtos = $produtos->where(function ($query) {
+                $query->where('produto_nome', 'like', '%' . $this->buscar . '%')
+                    ->orWhere('quantidade', 'like', '%' . $this->buscar . '%')
+                    ->orWhere('sku', 'like', '%' . $this->buscar . '%');
             });
-        })
-            ->when($estado, function ($query) use ($estado) {
-                return $query->where('estado', 'like', '%' . $estado . '%');
-            })
-            ->when($segmento, function ($query) use ($segmento) {
-                return $query->where('segmento', 'like', '%' . $segmento . '%');
-            })
-            ->when($cidade, function ($query) use ($cidade) {
-                return $query->where('cidade', 'like', '%' . $cidade . '%');
-            });
+        }
 
+        $produtos = $produtos->orderBy('produto_nome')
+            ->orderBy('created_at')
+            ->paginate(10);
 
-        // Paginação dos produtos com filtros aplicados
-        $produtos = $produtos->paginate(10);
-
-        // Anexando os filtros à paginação
-        $produtos->appends([
-            'busca' => $busca,
-            'estado' => $estado,
-            'segmento' => $segmento,
-            'cidade' => $cidade
+        return view('livewire.busca.busca-produtos', [
+            'produtos' => $produtos,
+            'sites' => Site::all(),
+            'usuario' => auth()->user(),
         ]);
-
-        // Verifica se encontrou algum produto
-        $produtosDestaque = Produto::where('destaque', 'Sim')
-            ->where('status', 'Ativo')
-            ->latest('created_at')
-            ->take(4)
-            ->get();
-
-        // Retorna a view com as variáveis necessárias
-        $usuario = auth()->user();
-
-        $sites = Site::all();
-
-        return view('livewire.busca.busca-produtos',
-            compact('produtos', 'produtosDestaque', 'sites', 'usuario'));
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Segmento;
 use App\Models\Site;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Exception;
 
 class BuscaGeral extends Component
 {
@@ -31,34 +32,40 @@ class BuscaGeral extends Component
 
     public function render()
     {
-        $buscar = $this->buscar;
-        $tipo = $this->tipo;
-        $estados = Estado::orderBy('sigla', 'asc')->get();
-        $segmentos = Segmento::orderBy('nomeSegmento', 'asc')->get();
+        try {
+            $buscar = $this->buscar;
+            $tipo = $this->tipo;
+            $estados = Estado::orderBy('sigla', 'asc')->get();
+            $segmentos = Segmento::orderBy('nomeSegmento', 'asc')->get();
 
-        $produtos = Produto::where(function ($query) use ($buscar) {
-            $query->where('status', 'like', 'Ativo')
-                ->where(function ($query) use ($buscar) {
-                    $query->where('produto_nome', 'like', '%' . $buscar . '%')
-                        ->orWhere('sku', 'like', '%' . $buscar . '%');
-                });
-        })
-            ->orderBy('produto_nome')
-            ->orderBy('created_at')
-            ->paginate(4);
+            $produtos = Produto::where(function ($query) use ($buscar) {
+                $query->where('status', 'like', 'Ativo')
+                    ->where(function ($query) use ($buscar) {
+                        $query->where('produto_nome', 'like', '%' . $buscar . '%')
+                            ->orWhere('sku', 'like', '%' . $buscar . '%');
+                    });
+            })
+                ->orderBy('produto_nome')
+                ->orderBy('created_at')
+                ->paginate(4);
 
-        $sites = Site::all();
+            $sites = Site::all();
 
-        return view('livewire.busca.busca-geral', [
-            'estado' => $this->estado,
-            'estados' => $estados,
-            'segmentos' => $segmentos,
-            'buscar' => $buscar,
-            'produtos' => $produtos,
-            'segmento' => $this->segmento,
-            'sites' => $sites,
-            'tipo' => $this->tipo,
-            'usuario' => auth()->user(),
-        ]);
+            return view('livewire.busca.busca-geral', [
+                'estado' => $this->estado,
+                'estados' => $estados,
+                'segmentos' => $segmentos,
+                'buscar' => $buscar,
+                'produtos' => $produtos,
+                'segmento' => $this->segmento,
+                'sites' => $sites,
+                'tipo' => $this->tipo,
+                'usuario' => auth()->user(),
+            ]);
+        } catch (Exception $e) {
+            return view('livewire.busca.busca-geral', [
+                'error' => 'Ocorreu um erro ao realizar a busca. Por favor, tente novamente.',
+            ]);
+        }
     }
 }

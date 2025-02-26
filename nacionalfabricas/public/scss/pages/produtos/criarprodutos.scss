@@ -1,6 +1,7 @@
 @import "../../variaveis.scss";
 
-.criar-produtos {
+.criar-produtos{
+
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -13,6 +14,11 @@
         flex-direction: column;
         gap: 50px;
         width: 80vw;
+
+        .cabecalho-bloco{
+
+            padding-left: 2%;
+        }
 
         .etapa {
 
@@ -117,11 +123,23 @@
 
 @media only screen and (max-width: 768px) {
     .criar-produtos {
+
+        width: 80vw;
+        justify-content: flex-end;
+
         .formulario {
 
+            width: 70vw;
             padding: 20px;
 
+            .cabecalho-bloco{
+
+                padding-left: 0;
+                text-align: center;
+            }
+
             .etapa {
+
                 .campos-formulario {
                     padding: 15px;
 
@@ -131,6 +149,11 @@
 
                         .grupo {
                             flex: 1 1 100%;
+
+                            label{
+
+                                font-size: $fs12;
+                            }
                         }
                     }
 

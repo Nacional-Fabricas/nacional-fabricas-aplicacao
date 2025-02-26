@@ -45,4 +45,11 @@
         <livewire:gerais.mapa-busca />
 
     </div>
+
+    @push('scripts')
+
+        <script src="{{asset('js/buscas/busca-geral.js')}}" type="module" ></script>
+
+    @endpush
+
 </div>

@@ -20,8 +20,16 @@
 
                     </div>
 
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    @php
+                        $produtoPossuiAlbum = $fotosAlbum->contains('id_produto', $produto->id);
+                    @endphp
+
+                    @if($produtoPossuiAlbum)
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    @endif
+
+
 
                 </div>
 

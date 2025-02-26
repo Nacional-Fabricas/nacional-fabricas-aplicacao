@@ -1,6 +1,7 @@
 <?php
 namespace App\Livewire\Busca;
 
+use App\Models\Album;
 use App\Models\Cadastro;
 use App\Models\Estado;
 use App\Models\Produto;
@@ -42,6 +43,7 @@ class BuscaGeral extends Component
 
             $estados = Estado::orderBy('sigla', 'asc')->get();
             $segmentos = Segmento::orderBy('nomeSegmento', 'asc')->get();
+            $fotosAlbum = Album::all();
 
             if ($tipo == "Produtos"){
 
@@ -101,6 +103,7 @@ class BuscaGeral extends Component
 
             return view('livewire.busca.busca-geral', [
                 'estados' => $estados,
+                'fotosAlbum' => $fotosAlbum,
                 'estado' => $this->estado,
                 'cadastros' => $cadastros,
                 'segmentos' => $segmentos,

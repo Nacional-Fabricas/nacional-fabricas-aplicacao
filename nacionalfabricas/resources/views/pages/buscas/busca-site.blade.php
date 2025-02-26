@@ -75,19 +75,3 @@
 
 </div>
 
-@push('scripts')
-
-    <script>
-
-        var swiper = new Swiper(".mySwiper", {
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
-    </script>
-
-    <script src="{{asset('js/buscas/busca-sites.js')}}" type="module" ></script>
-
-@endpush

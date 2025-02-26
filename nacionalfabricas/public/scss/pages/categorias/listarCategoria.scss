@@ -116,7 +116,12 @@
 }
 
 @media only screen and (max-width: 768px) {
+
     .listar-categorias {
+
+        width: 90vw;
+        justify-content: flex-end;
+
         .bloco-categorias {
             padding: 20px;
 

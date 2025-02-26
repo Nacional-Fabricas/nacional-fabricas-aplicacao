@@ -94,7 +94,7 @@ class SitesController extends Controller
 
         $estados =  Estado::all();
 
-        $produtos = Produto::where('destaque', 'Sim')->where('status', 'Ativo')->get();
+        $produtos = Produto::where('destaque', 'Sim')->where('status', 'Ativo')->take(5)->get();
 
         $categorias = Categoria::where('id_conta', $id)->where('nivel', 'Categoria Solo')->where('ativo', 'Ativo') -> get();
 

@@ -166,35 +166,38 @@
 
 @media (max-width: 768px) {
 
-    .produtos {
+    .vitrine-empresa {
 
-        overflow-x: auto;
+        .produtos {
 
-        .lista-produtos {
-
-            justify-content: left !important;
             overflow-x: auto;
 
+            .lista-produtos {
+
+                justify-content: left !important;
+                overflow-x: auto;
+
+            }
         }
-    }
 
-    .destaques-fabrica{
+        .destaques-fabrica {
 
-        .bloco-imagens{
+            .bloco-imagens-destaque{
 
-            flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
         }
-    }
 
-    .informacoes-perfil {
-        overflow-x: auto;
-        justify-content: left !important;
+        .informacoes-perfil {
+            overflow-x: auto;
+            justify-content: left !important;
 
-        .informacao{
+            .informacao {
 
-            width: 100%;
-            max-width: 170px;
-            min-width: 230px;
+                width: 100%;
+                max-width: 170px;
+                min-width: 230px;
+            }
         }
     }
 }

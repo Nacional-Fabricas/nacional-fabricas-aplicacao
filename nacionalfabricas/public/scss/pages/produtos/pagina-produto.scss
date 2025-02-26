@@ -395,8 +395,16 @@
 
     .produtos-relacionados {
 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         overflow-x: auto;
         padding: 20px 0;
+
+        h1{
+
+            text-align: center;
+        }
 
         .lista-produtos {
             display: flex;

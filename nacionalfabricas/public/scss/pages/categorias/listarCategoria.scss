@@ -1,6 +1,7 @@
 @import "../../variaveis.scss";
 
 .listar-categorias {
+
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -66,9 +67,10 @@
         }
 
         .categorias {
+
             display: flex;
             flex-wrap: wrap;
-            gap: calc((100% - (5 * 250px)) / 4);
+            gap: calc((100% - (4 * 250px)) / 3);
 
             .categoria {
                 flex: 1 1 250px;

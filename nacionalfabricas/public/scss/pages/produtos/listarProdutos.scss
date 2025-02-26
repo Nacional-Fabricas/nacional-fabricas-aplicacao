@@ -1,11 +1,14 @@
 @import "../../variaveis.scss";
 
 .listar-produtos {
+
     display: flex;
     justify-content: center;
-    width: 80vw;
+    width: 90vw;
+    align-self: flex-end;
 
     .listar-produtos-fabrica {
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -65,7 +68,7 @@
 
             display: flex;
             flex-wrap: wrap;
-            gap: 20px calc((100% - (3 * 250px)) / 2);
+            gap: 20px calc((100% - (4 * 250px)) / 3);
 
             .bloco-produto {
 

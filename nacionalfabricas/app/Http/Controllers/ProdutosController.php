@@ -93,23 +93,39 @@ class ProdutosController extends Controller
 
         $categorias = Categoria::where('id_conta', $produto -> id_conta)->where('nivel', 'Categoria Solo')->where('ativo', 'Ativo') -> get();
 
-        $categoriasPai = Categoria::where('id_conta', $produto -> id_conta)->where('nivel', 'Categoria Pai')->where('ativo', 'Ativo') -> get();
+        $dataHoje = strftime('%A');
 
-        $categoriasFilho = Categoria::where('id_conta', $produto -> id_conta)->where('nivel', 'Sub Categoria')->where('ativo', 'Ativo') -> get();
+        $diasSemana = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Segunda-feira',
+            'Tuesday' => 'Terça-feira',
+            'Wednesday' => 'Quarta-feira',
+            'Thursday' => 'Quinta-feira',
+            'Friday' => 'Sexta-feira',
+            'Saturday' => 'Sábado'
+        ];
+
+        $horaAtual = date('H:i');
+
+        // Traduz o nome do dia da semana para português
+        $dataHoje = $diasSemana[$dataHoje];
+
+        $atendimento = json_decode($site -> atendimento, true);
 
         $album = Album::where('id_produto', $produto -> id) -> get();
 
-        $produtosRelacionados = Produto::where('id_conta', $produto -> id_conta) -> get();
+        $produtosRelacionados = Produto::where('id_conta', $produto -> id_conta) -> where('status','Ativo') ->take(5) -> get();
 
         return view ('pages.produtos.produto', compact(
 
             'user',
             'produto',
             'categorias',
+            'horaAtual',
+            'dataHoje',
+            'atendimento',
             'album',
             'endereco',
-            'categoriasPai',
-            'categoriasFilho',
             'site',
             'comentarios',
             'users',

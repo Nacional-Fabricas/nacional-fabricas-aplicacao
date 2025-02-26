@@ -7,17 +7,17 @@
 
         <div class="imagens">
 
-            <div class="imagem-destaque" style="background-image: url(/nacionalfabricas/public/images/thumbnails/{{$produto->produto_thumbnail}})"></div>
+            <img class="imagem-destaque" src="{{ asset('storage/images/thumbnails/'. $produto -> produto_thumbnail)}}" onclick="changeHighlightedImg({{asset('thumbnails/' . $produto -> produto_thumbnail)}}, false)">
 
             <div class="galeria">
 
                 @if($album != null)
 
-                    <img class="imagem-destaque" src="{{ asset('images/thumbnails/'. $produto -> produto_thumbnail)}}" onclick="changeHighlightedImg({{asset('thumbnails/' . $produto -> produto_thumbnail)}}, false)">
+                    <img class="imagem-galeria" src="{{ asset('storage/images/thumbnails/'. $produto -> produto_thumbnail)}}" onclick="changeHighlightedImg({{asset('thumbnails/' . $produto -> produto_thumbnail)}}, false)">
 
                     @foreach($album as $imgProduto)
 
-                        <img class="imagem-galeria" src="{{ asset('images/album/' . $imgProduto -> url_imagem) }}" onclick="changeHighlightedImg({{ asset('album/'.$imgProduto -> url_imagem)}}, false)">
+                        <img class="imagem-galeria" src="{{ asset('storage/images/album/' . $imgProduto -> url_imagem) }}" onclick="changeHighlightedImg({{ asset('album/'.$imgProduto -> url_imagem)}}, false)">
 
                     @endforeach
 
@@ -98,13 +98,13 @@
                 <input type="hidden" name="quantity" value="1">
                 <input type="hidden" name="image" value="{{$produto-> produto_thumbnail}}">
 
-                <button class="adicionar-cotacao">+ Adicionar cotação</button>
+                <button class="btn-acao">+ Adicionar cotação</button>
 
             </form>
 
             @else
 
-            <a href="{{ route('editar_produto', [ 'id' => $produto -> id])}}" class="adicionar-cotacao">Editar produto</a>
+            <a href="{{ route('editar_produto', [ 'id' => $produto -> id])}}" class="btn-acao">Editar produto</a>
 
             @endif
 
@@ -140,7 +140,7 @@
 
                     <li class="produto">
 
-                        <img src="/nacionalfabricas/public/images/thumbnails/{{ $produtoRelacionado->produto_thumbnail }}">
+                        <img src="{{ asset('storage/images/thumbnails/'. $produtoRelacionado -> produto_thumbnail)}}" alt="{{ $produtoRelacionado -> produto_nome }}">
 
                         <h3>{{$produtoRelacionado -> produto_nome}}</h3>
 

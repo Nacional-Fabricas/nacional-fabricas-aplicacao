@@ -18,7 +18,7 @@ class BuscaGeral extends Component
     public $busca = '';
     public $buscar;
     public $estado;
-    public $segmento = '';
+    public $segmento;
     public $page = 1;
 
     protected $queryString = [
@@ -35,9 +35,11 @@ class BuscaGeral extends Component
     {
         try {
 
+            $tipo = $this->tipo;
             $buscar = $this->buscar;
             $estado = $this->estado;
-            $tipo = $this->tipo;
+            $segmento = $this->segmento;
+
             $estados = Estado::orderBy('sigla', 'asc')->get();
             $segmentos = Segmento::orderBy('nomeSegmento', 'asc')->get();
 
@@ -49,20 +51,26 @@ class BuscaGeral extends Component
                             $query->where('produto_nome', 'like', '%' . $buscar . '%')
                                 ->orWhere('sku', 'like', '%' . $buscar . '%');
                         });
-                })
-                    ->orderBy('produto_nome')
+                });
+
+                if ($segmento) {
+                     $produtos = $produtos->where('segmento', $segmento);
+                }
+
+                if ($estado) {
+                    $cadastros = Cadastro::where('estado', $estado)->pluck('id_conta')->toArray();
+                    $produtos = $produtos->whereIn('id_conta', $cadastros);
+                }
+
+                $produtos = $produtos->orderBy('produto_nome')
                     ->orderBy('created_at')
                     ->paginate(9);
-
-                if ( $estado){
-                    $produtos->where('estado', $this->estado);
-                }
 
                 $sites = Site::all();
 
                 $cadastros = Cadastro::all();
 
-            }elseif($tipo == "Fábricas"){
+            } elseif ($tipo == "Fábricas") {
 
                 $sites = Site::where(function ($query) use ($buscar) {
                     $query->where('status', 'like', 'Ativo')
@@ -70,10 +78,20 @@ class BuscaGeral extends Component
                             $query->where('nome_industria', 'like', '%' . $buscar . '%')
                                 ->orWhere('produtos_tipo', 'like', '%' . $buscar . '%');
                         });
-                })
-                    ->orderBy('nome_industria')
+                });
+
+                if ($segmento) {
+                    $sites = $sites->where('segmento', $segmento);
+                }
+
+                if ($estado) {
+                    $cadastros = Cadastro::where('estado', $estado)->pluck('id_conta')->toArray();
+                    $sites = $sites->whereIn('id_conta', $cadastros);
+                }
+
+                $sites = $sites->orderBy('nome_industria')
                     ->orderBy('created_at')
-                    ->paginate(9);;
+                    ->paginate(9);
 
                 $produtos = Produto::where('status', 'Ativo')->where('destaque', 'Sim')->get();
 
@@ -82,8 +100,8 @@ class BuscaGeral extends Component
             }
 
             return view('livewire.busca.busca-geral', [
-                'estado' => $this->estado,
                 'estados' => $estados,
+                'estado' => $this->estado,
                 'cadastros' => $cadastros,
                 'segmentos' => $segmentos,
                 'buscar' => $buscar,

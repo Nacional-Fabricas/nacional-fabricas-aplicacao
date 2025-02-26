@@ -68,6 +68,9 @@
 
         @endforeach
 
+        <div class="paginacao">
+            {{$sites->appends(request()->query())->links()}}
+        </div>
     </ul>
 
 </div>

@@ -13,16 +13,16 @@
             <input wire:model.live="buscar" class="busca-texto" type="text" placeholder="O que está procurando?"/>
 
             <select class="escolha-estado" wire:model.live="estado">
-                <option value="">Escolha um estado</option>
+                <option value="">Todo o Brasil</option>
                 @foreach($estados as $estado)
                     <option value="{{ $estado->sigla }}">{{ $estado->sigla }}</option>
                 @endforeach
             </select>
 
             <select name="segmento" class="escolha-segmento" wire:model.live="segmento">
-                <option value="">Escolha um segmento</option>
+                <option value="">Todos Segmentos</option>
                 @foreach($segmentos as $segmento)
-                    <option value="{{ $segmento->codigo }}">{{ $segmento->nomeSegmento }}</option>
+                    <option value="{{ $segmento->nomeSegmento }}">{{ $segmento->nomeSegmento }}</option>
                 @endforeach
             </select>
 

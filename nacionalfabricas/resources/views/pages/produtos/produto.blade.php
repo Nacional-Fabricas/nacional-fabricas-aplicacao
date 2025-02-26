@@ -130,29 +130,53 @@
 
     <div class="produtos-relacionados">
 
-        <h2>Produtos Relacionados</h2>
+        <h1>Produtos Relacionados</h1>
 
-        <ul class="mais-produtos">
+        <div class="lista-produtos">
 
             @foreach($produtosRelacionados as $produtoRelacionado)
 
-                @if($produtoRelacionado -> id != $produto -> id )
+                <div class="produto">
 
-                    <li class="produto">
+                    <img class="thumbnail" src="{{ asset('storage/images/thumbnails/' . $produtoRelacionado -> produto_thumbnail) }}"  alt="{{$produtoRelacionado -> produto_nome}}">
 
-                        <img src="{{ asset('storage/images/thumbnails/'. $produtoRelacionado -> produto_thumbnail)}}" alt="{{ $produtoRelacionado -> produto_nome }}">
+                    <h3>{{ $produtoRelacionado -> produto_nome }}</h3>
 
-                        <h3>{{$produtoRelacionado -> produto_nome}}</h3>
+                    <div class="acoes">
 
-                        <a href="{{ route('produto', ['id' => $produtoRelacionado -> id])}}"> Ver produto </a>
+                        @if($produtoRelacionado -> id_conta != Auth::id())
 
-                    </li>
+                            <form action="{{route('adicionar_cotacao')}}" method="POST" enctype="multipart/form-data" class="formulario-adicionar-orcamento">
 
-                @endif
+                                @csrf
+                                <input type="hidden" name="id" value="{{$produtoRelacionado -> id}}">
+                                <input type="hidden" name="name" value="{{$produtoRelacionado -> produto_nome}}">
+                                <input type="hidden" name="sku" value="{{$produtoRelacionado -> sku}}">
+                                <input type="hidden" name="ean" value="{{$produtoRelacionado -> ean}}">
+                                <input type="hidden" name="id_receptor" value="{{$produtoRelacionado -> id_conta}}">
+                                <input type="hidden" name="id_produto" value="{{$produtoRelacionado -> id}}">
+                                <input type="hidden" name="price" value="1">
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="image" value="{{$produtoRelacionado-> produto_thumbnail}}">
+                                <button class="btn-simples">Cotar produto</button>
+
+                            </form>
+
+                        @else
+
+                            <a class="botao-editar-produto" href="{{ route('editar_produto', ['id' => $produtoRelacionado->id])}}">Editar</a>
+
+                        @endif
+
+                        <a class="botao-ver-produto" href="{{ route('produto', ['id'=>$produtoRelacionado->id])}}">Ver produto</a>
+
+                    </div>
+
+                </div>
 
             @endforeach
 
-        </ul>
+        </div>
 
     </div>
 

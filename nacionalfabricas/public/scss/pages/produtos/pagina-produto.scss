@@ -1,162 +1,136 @@
 @import "../../variaveis.scss";
 
-.produto{
+.produto {
 
     width: 80vw;
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    .breadcrumb{
-
+    .breadcrumb {
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .bc{
-
-            a{
-
+        .bc {
+            a {
                 color: $preto;
-
             }
         }
 
-        .siteInfo{
-
+        .siteInfo {
             display: flex;
             flex-direction: column;
             gap: 50px;
 
-            .informationSite{
-
+            .informationSite {
                 display: flex;
                 gap: 20px;
                 align-items: center;
 
-                .logo{
-
+                .logo {
                     width: 250px;
 
-                    img{
-
+                    img {
                         width: 100%;
                         height: 100%;
                         border-radius: 50%;
-                        box-shadow: -1px 0 7px 1px rgba( $preto,.3);
-
+                        box-shadow: -1px 0 7px 1px rgba($preto, .3);
                     }
                 }
 
-                .infoContents{
-
+                .infoContents {
                     display: flex;
                     flex-direction: column;
                     gap: 25px;
                     width: 100%;
 
-                    .siteInfo{
-
+                    .siteInfo {
                         display: flex;
                         flex-direction: column;
                         gap: 15px;
                         align-items: flex-start;
 
-                        h1{
-
+                        h1 {
                             font-size: $fs28;
                             font-weight: 600;
                             color: $preto;
 
-                            .back{
-
-                                position: relative ;
+                            .back {
+                                position: relative;
                                 top: 0px;
                                 left: 0px;
                                 width: 20px;
-                                padding: 5px ;
+                                padding: 5px;
                             }
                         }
 
-                        .description{
-
+                        .description {
                             display: flex;
                             flex-direction: column;
                             gap: 5px;
                             color: $preto;
 
-                            h3{
-
+                            h3 {
                                 text-align: justify;
                                 font-size: 20px;
                                 font-weight: 500;
-
                             }
 
-                            .desc{
-
+                            .desc {
                                 text-align: justify;
                                 font-size: 14px;
                                 font-weight: 400;
-
                             }
                         }
                     }
 
-                    .mobileInfo{
-
+                    .mobileInfo {
                         display: none;
                     }
 
-                    #infoContato{
-
+                    #infoContato {
                         padding: 0;
                         display: flex;
                         justify-content: space-between;
 
-                        li{
-
+                        li {
                             display: flex;
                             flex-direction: column;
                             gap: 5px;
                             justify-content: space-between;
                             width: 350px;
-                            box-shadow: 6px 5px 19px -5px rgba(0,0,0,0.75);
+                            box-shadow: 6px 5px 19px -5px rgba(0, 0, 0, 0.75);
                             border: 1px solid $cinzaClaro;
                             padding: 15px;
                             border-radius: 5px;
                             transition: .3s;
 
-                            &:hover{
-
+                            &:hover {
                                 transform: scale(1.05);
                             }
 
-                            .headInfo{
-
+                            .headInfo {
                                 display: flex;
                                 gap: 15px;
                                 align-items: center;
 
-                                img{
+                                img {
                                     width: 20px;
                                 }
 
-                                h4{
-
+                                h4 {
                                     font-size: $fs20;
                                     font-weight: 600;
                                 }
                             }
 
-                            .contentInfo{
-
+                            .contentInfo {
                                 display: flex;
                                 flex-direction: column;
                                 gap: 5px;
 
-                                .valueContent{
-
+                                .valueContent {
                                     font-size: $fs12;
                                     font-weight: 400;
                                     color: $cinza;
@@ -166,127 +140,106 @@
                     }
                 }
             }
-
         }
     }
 
-    .cabecalho-produto{
-
+    .cabecalho-produto {
         display: flex;
         align-items: center;
         gap: 100px;
 
-        .imagens{
-
+        .imagens {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 20px;
 
-            .imagem-destaque{
-
+            .imagem-destaque {
                 width: 300px;
                 height: auto;
                 border-radius: 5px;
             }
 
-            .galeria{
-
+            .galeria {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 13px;
                 align-self: center;
                 width: 100%;
 
-                .imagem-galeria{
-
+                .imagem-galeria {
                     width: 100px;
                     height: 100px;
                     background-color: $branco;
                     border-radius: 5px;
                     border: 1px solid $cinzaBorda;
-
                 }
             }
         }
 
-        .informacoes-produto{
-
+        .informacoes-produto {
             display: flex;
             flex-direction: column;
             gap: 20px;
             width: 100%;
 
-            h1{
-
+            h1 {
                 font-size: $fs44;
                 text-transform: capitalize;
             }
 
-            .bloco-preco{
-
+            .bloco-preco {
                 display: flex;
                 flex-direction: column;
 
-                .precos{
-
+                .precos {
                     font-size: $fs36;
                     display: flex;
                     gap: 10px;
 
-                    .preco{
-
+                    .preco {
                         display: flex;
 
-                        strong{
-
+                        strong {
                             display: flex;
 
-                            .menor{
-
+                            .menor {
                                 font-size: $fs20;
                                 padding: 6px 0;
-
                             }
                         }
                     }
                 }
             }
 
-            .verde{
-
+            .verde {
                 text-decoration: none;
                 font-size: $fs30;
                 font-weight: 600;
             }
 
-            .codigos{
-
+            .codigos {
                 display: flex;
                 gap: 20px;
                 background-color: $cinzaClaro;
 
-                .codigo{
-
+                .codigo {
                     font-size: $fs14;
                     display: flex;
                     gap: 10px;
                 }
             }
 
-            .descricao-produto{
-
+            .descricao-produto {
                 font-size: $fs14;
                 text-align: justify;
             }
 
-            .formulario-adicionar-cotacao{
-
+            .formulario-adicionar-cotacao {
                 width: 100%;
             }
 
-            .btn-acao{
-
+            .btn-acao {
                 font-size: $fs18;
                 text-decoration: none;
                 border: 2px solid $verdePrincipal;
@@ -299,21 +252,17 @@
                 font-weight: 700;
                 transition: .3s;
 
-                svg{
-
+                svg {
                     fill: $verdePrincipal;
                     font-size: $fs20;
                     transition: .3s;
-
                 }
 
-                &:hover{
-
+                &:hover {
                     color: $branco;
                     background-color: $verdePrincipal;
 
-                    svg{
-
+                    svg {
                         fill: $branco;
                     }
                 }
@@ -321,45 +270,37 @@
         }
     }
 
-    .informacoes-adicionais{
-
+    .informacoes-adicionais {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 0px;
 
-        .texto{
-
+        .texto {
             font-weight: 600;
             display: flex;
             width: 100%;
             border-bottom: 1px solid $cinza;
 
-            hr{
-
+            hr {
                 transform: rotate(90deg);
                 width: 32px;
-
             }
 
-            #info_add{
-
+            #info_add {
                 background-color: $verdePrincipal;
                 color: $branco;
             }
 
-            a{
-
+            a {
                 text-decoration: none;
                 color: $cinza;
                 font-size: $fs16;
                 padding: 10px;
-
             }
         }
 
-        #information{
-
+        #information {
             text-align: justify;
             display: flex;
             font-size: $fs14;
@@ -372,39 +313,32 @@
             border: 1px solid $cinzaClaro;
         }
 
-        #comentario{
-
+        #comentario {
             display: none;
             flex-direction: column;
             width: 100%;
             max-width: 600px;
             gap: 15px;
 
-            .comentario{
-
+            .comentario {
                 display: flex;
                 flex-direction: column;
 
-                .info{
-
+                .info {
                     display: flex;
                     justify-content: space-between;
                     background-color: $verdeClaro;
                     padding: 10px;
                     border-radius: 5px 5px 0 0;
 
-                    .value{
-
+                    .value {
                         font-size: $fs16;
                         color: $cinza;
                         font-weight: 800;
-
                     }
-
                 }
 
-                .texto{
-
+                .texto {
                     display: flex;
                     justify-content: space-between;
                     background-color: $cinzaClaro;
@@ -416,14 +350,12 @@
                 }
             }
 
-            .grupo{
-
+            .grupo {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
-                button{
-
+                button {
                     color: $verdePrincipal;
                     background-color: $branco;
                     font-size: $fs16;
@@ -434,108 +366,178 @@
                     border-radius: 5px;
                     transition: .3s;
 
-                    &:hover{
-
+                    &:hover {
                         color: $branco;
                         background-color: $verdePrincipal;
-
                     }
-
                 }
 
-                .comentario{
-
+                .comentario {
                     text-align: justify;
                 }
 
-                textarea{
-
+                textarea {
                     border: 1px solid $cinzaBorda;
                     border-radius: 5px;
                     font-size: $fs16;
                     color: $cinza;
                     padding: 15px;
 
-                    &:focus-visible{
-
+                    &:focus-visible {
                         outline: none;
-
                     }
                 }
             }
         }
     }
 
-    .produtos-relacionados{
+    .produtos-relacionados {
 
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        width: 100%;
-        max-width: 100%;
+        overflow-x: auto;
+        padding: 20px 0;
 
-        h2{
-
-            font-size: $fs20;
-            font-weight: 600;
-        }
-
-        .mais-produtos{
-
-            width: 100%;
-            max-width: 100%;
+        .lista-produtos {
             display: flex;
-            padding: 0;
-            gap: 7%;
+            gap: 40px;
+            justify-content: center;
 
-            .produto{
-
-                width: 195px;
-                height: 300px;
-                border: 1px solid $cinzaBorda;
+            .produto {
+                width: 100%;
+                max-width: 200px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                padding: 20px 10px;
-                border-radius: 10px;
-                box-shadow: 8px 7px 7px -4px rgba( $preto ,.57);
+                background-color: $branco;
+                padding: 10px;
                 align-items: center;
+                justify-content: space-between;
+                height: 400px;
+                box-shadow: 5px 5px 5px 3px rgba($cinzaEscuro, 0.3);
+                border: 1px solid $cinzaClaro;
+                border-radius: 5px;
                 transition: .3s;
 
-                img{
-
-                    width: 100%;
-                    max-width: 100%;
-                    height: 150px;
-
+                .thumbnail {
+                    width: 200px;
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
                 }
 
-                h3{
-
+                h3 {
+                    font-size: $fs16;
+                    font-weight: 500;
                     color: $preto;
-                    font-size: $fs16;
-                    font-weight: 600;
-                    text-transform: capitalize;
                 }
 
-                a{
+                .acoes {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: center;
+                    gap: 10px;
 
-                    text-decoration: none;
-                    font-size: $fs16;
-                    font-weight: 700;
-                    border-radius: 5px;
-                    color: $branco;
-                    background-color: $verdePrincipal;
-                    padding: 2px 15px ;
-                }
+                    .botao-editar-produto, .botao-ver-produto {
+                        border: 1px solid $verdePrincipal;
+                        color: $verdePrincipal;
+                        text-decoration: none;
+                        padding: 10px;
+                        font-size: 12px;
+                        border-radius: 5px;
+                        width: 100%;
+                        max-width: 100%;
+                        text-align: center;
+                        transition: .3s;
 
-                &:hover{
+                        &:hover {
+                            background-color: $verdePrincipal;
+                            color: $branco;
+                        }
+                    }
 
-                    transform: scale(1.05);
+                    form {
+                        width: 100%;
+                    }
                 }
             }
         }
     }
-
 }
 
+@media only screen and (max-width: 768px) {
+
+    .produto {
+
+        text-align: center;
+
+        .cabecalho-produto {
+            flex-direction: column;
+            gap: 20px;
+            .imagens {
+                .imagem-destaque {
+                    width: 100%;
+                }
+            }
+        }
+
+        .informacoes-produto {
+
+            h1 {
+                font-size: $fs36;
+            }
+
+            .bloco-preco {
+
+                .precos {
+                    font-size: $fs28;
+                }
+            }
+
+            .verde {
+                font-size: $fs24;
+            }
+
+            .codigos {
+
+                justify-content: space-between;
+                flex-direction: row;
+                gap: 10px;
+            }
+            .descricao-produto {
+                font-size: $fs12;
+            }
+            .btn-acao {
+                font-size: $fs16;
+                padding: 10px 20px;
+            }
+        }
+
+        .informacoes-adicionais {
+
+            .texto {
+
+                justify-content: center;
+
+                a {
+                    font-size: $fs14;
+                }
+            }
+            #information {
+                font-size: $fs12;
+            }
+        }
+
+        .produtos-relacionados{
+
+            overflow-x: auto;
+
+            .lista-produtos {
+
+                justify-content: left !important;
+                overflow-x: auto;
+                padding: 15px 0;
+
+            }
+        }
+    }
+}

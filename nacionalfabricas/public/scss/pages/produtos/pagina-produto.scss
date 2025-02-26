@@ -240,6 +240,8 @@
             }
 
             .btn-acao {
+
+                background-color: $branco;
                 font-size: $fs18;
                 text-decoration: none;
                 border: 2px solid $verdePrincipal;
@@ -437,7 +439,7 @@
                     align-items: center;
                     gap: 10px;
 
-                    .botao-editar-produto, .botao-ver-produto {
+                    .btn-acao {
                         border: 1px solid $verdePrincipal;
                         color: $verdePrincipal;
                         text-decoration: none;

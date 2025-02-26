@@ -158,17 +158,17 @@
                                 <input type="hidden" name="price" value="1">
                                 <input type="hidden" name="quantity" value="1">
                                 <input type="hidden" name="image" value="{{$produtoRelacionado-> produto_thumbnail}}">
-                                <button class="btn-simples">Cotar produto</button>
+                                <button class="btn-acao">Cotar produto</button>
 
                             </form>
 
                         @else
 
-                            <a class="botao-editar-produto" href="{{ route('editar_produto', ['id' => $produtoRelacionado->id])}}">Editar</a>
+                            <a class="btn-acao" href="{{ route('editar_produto', ['id' => $produtoRelacionado->id])}}">Editar</a>
 
                         @endif
 
-                        <a class="botao-ver-produto" href="{{ route('produto', ['id'=>$produtoRelacionado->id])}}">Ver produto</a>
+                        <a class="btn-acao" href="{{ route('produto', ['id'=>$produtoRelacionado->id])}}">Ver produto</a>
 
                     </div>
 

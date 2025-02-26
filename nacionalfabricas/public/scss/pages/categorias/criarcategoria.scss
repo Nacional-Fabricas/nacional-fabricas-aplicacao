@@ -5,7 +5,8 @@
     display: flex;
     justify-content: center;
     padding: 0 50px;
-    width: 100vw;
+    width: 90vw;
+    align-self: flex-end;
 
     .formulario{
 
@@ -15,6 +16,11 @@
         display: flex;
         flex-direction: column;
         width: 80vw;
+
+        .cabecalho{
+
+            padding-left: 2%;
+        }
 
         .linha {
 
@@ -75,71 +81,31 @@
 
 @media only screen and (max-width: 770px) {
 
-    .criarCategoria{
-
-        padding: 0;
+    .criar-categoria{
 
         .formulario{
 
-            box-shadow: -1px 0 7px 1px rgba(0,0,0,.3);
-            padding: 24px 0;
-            border-radius: 42px;
-            display: flex;
-            flex-direction: column;
+            .linha {
 
-            .headerForm{
-
-                padding: 0 25px;
-                text-align: center;
-
+                .grupo {
+                    flex: 1 1 calc(100% - 20px);
+                }
             }
+        }
+    }
+}
 
-            .formContent{
 
-                padding: 20px 25px 25px;
-                align-items: center;
+@media only screen and (max-width: 425px) {
 
-                .row{
+    .criar-categoria{
 
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
+        .formulario{
 
-                    .inputFields{
+            .cabecalho{
 
-                        width: 100%;
-                        display: flex;
-                        gap: 8px;
-                        padding: 0;
-
-                        input, select,textarea{
-
-                            max-width: 100%;
-
-                        }
-
-                    }
-
-                    .md{
-
-                        max-width: 100%;
-                    }
-                }
-
-                .button{
-
-                    justify-content: flex-end;
-
-                    button{
-
-                        max-width: 100%;
-
-                        &:hover{
-
-                            background-color: $verdeLimao;
-                        }
-                    }
-                }
+                padding-left: 0;
+                text-align: center;
             }
         }
     }

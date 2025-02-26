@@ -64,7 +64,9 @@
                     align-items: center;
                     gap: 10px;
 
-                    .botao-editar-produto, .botao-ver-produto {
+                    .btn-acao {
+
+                        background-color: $branco;
                         border: 1px solid $verdePrincipal;
                         color: $verdePrincipal;
                         text-decoration: none;

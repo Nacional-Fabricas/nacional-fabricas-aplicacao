@@ -25,11 +25,9 @@ class SitesController extends Controller
 
         $site = Site::where('id_conta', $id)->first();
 
-        $categorias = Categoria::where('id_conta', $id)->where('nivel', 'Categoria Solo')->where('ativo', 'Ativo')->get();
+        $categorias = Categoria::where('id_conta', $site -> id_conta)->where('nivel', 'Categoria Solo')->where('ativo', 'Ativo')->get();
 
-        $categoriasPai = Categoria::where('id_conta', $id)->where('nivel', 'Categoria Pai')->where('ativo', 'Ativo') -> get();
-
-        $categoriasFilho = Categoria::where('id_conta', $id)->where('nivel', 'Sub Categoria')->where('ativo', 'Ativo') -> get();
+        $endereco = Cadastro::where('id_conta', $site -> id_conta)->first();
 
         if ($busca){
 
@@ -44,6 +42,25 @@ class SitesController extends Controller
 
         }
 
+        $dataHoje = strftime('%A');
+
+        $diasSemana = [
+            'Sunday' => 'Domingo',
+            'Monday' => 'Segunda-feira',
+            'Tuesday' => 'Terça-feira',
+            'Wednesday' => 'Quarta-feira',
+            'Thursday' => 'Quinta-feira',
+            'Friday' => 'Sexta-feira',
+            'Saturday' => 'Sábado'
+        ];
+
+        $horaAtual = date('H:i');
+
+        // Traduz o nome do dia da semana para português
+        $dataHoje = $diasSemana[$dataHoje];
+
+        $atendimento = json_decode($site -> atendimento, true);
+
         $estados =  Estado::all();
 
         return view ('pages.site.busca-site', compact(
@@ -51,10 +68,9 @@ class SitesController extends Controller
             'site',
             'produtos',
             'busca',
+            'atendimento',
             'categorias',
-            'categoriasPai',
-            'categoriasFilho'
-
+            'endereco'
         ));
     }
     public function meuSite(){
@@ -80,7 +96,6 @@ class SitesController extends Controller
 
         $site = Site::where('id_conta', $usuarioId) -> first();
 
-
         if ($cadastro -> fabricante == null) {
 
             return redirect()->route('home')->with('msg', 'Você não tem acesso a  esta página');
@@ -88,7 +103,7 @@ class SitesController extends Controller
 
         return view ('pages.site.meu-site', compact( 'user', 'estados', 'site', 'cadastro', 'site', 'segmentos'));
     }
-    public function site( $id){
+    public function site( $id ){
 
         $user = Auth::user();
 
@@ -96,13 +111,9 @@ class SitesController extends Controller
 
         $produtos = Produto::where('destaque', 'Sim')->where('status', 'Ativo')->take(5)->get();
 
-        $categorias = Categoria::where('id_conta', $id)->where('nivel', 'Categoria Solo')->where('ativo', 'Ativo') -> get();
-
-        $categoriasPai = Categoria::where('id_conta', $id)->where('nivel', 'Categoria Pai')->where('ativo', 'Ativo') -> get();
-
-        $categoriasFilho = Categoria::where('id_conta', $id)->where('nivel', 'Sub Categoria')->where('ativo', 'Ativo') -> get();
-
         $site = Site::where('id' , $id)->first();
+
+        $categorias = Categoria::where('id_conta', $site -> id_conta)->where('ativo', 'Ativo') -> get();
 
         $dataHoje = strftime('%A');
 
@@ -126,7 +137,16 @@ class SitesController extends Controller
         $endereco = Cadastro::where('id_conta', $site -> id_conta )->first();
 
         return view ('pages.site.site',
-            compact('user', 'horaAtual','estados', 'dataHoje', 'atendimento', 'categorias', 'endereco', 'produtos', 'site', 'categoriasPai', 'categoriasFilho') );
+            compact('user',
+                'horaAtual',
+                'estados',
+                'dataHoje',
+                'atendimento',
+                'categorias',
+                'endereco',
+                'produtos',
+                'site')
+        );
     }
     public function create(Request $request)
     {

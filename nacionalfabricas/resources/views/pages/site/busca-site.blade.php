@@ -1,15 +1,10 @@
-@extends('layouts.meuSite')
+@extends('layouts.meu-site')
 @section('content')
 
 <div class="busca-site">
 
     <div class="cabecalho">
 
-        <div class="breadcrumb">
-
-            <a href="{{ route('industria', ['conta_id' => $site -> id_conta, 'slug' => $site -> slug])}}">Início</a> > Categoria > <strong>{{$busca}}</strong>
-
-        </div>
 
         <div class="contagem-produtos">
 

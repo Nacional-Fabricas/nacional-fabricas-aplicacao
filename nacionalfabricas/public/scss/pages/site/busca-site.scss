@@ -1,2 +1,97 @@
 @import "../../variaveis";
 
+.pagina-busca-site{
+
+    width: 80vw;
+
+    .bloco-produtos{
+
+        width: 100%;
+
+        .lista-produtos{
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px calc((100% - (5 * 250px)) / 4);
+            padding: 0;
+
+            .produto {
+
+                flex: 1 1 250px;
+                max-width: 250px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba($preto, .2);
+                width: 100%;
+                justify-content: space-between;
+                transition: .3s;
+
+                .swiper {
+                    width: 100% !important;
+                    max-width: 250px !important;
+                    margin: 0;
+
+                    .swiper-slide {
+                        width: 100% !important;
+                        max-width: 250px !important;
+                    }
+
+                    .swiper-button-next, .swiper-button-prev {
+                        &:after {
+                            background-color: $cinzaClaro;
+                            color: $verdePrincipal;
+                            box-shadow: 0 0 15px rgba($preto, .2);
+                            font-size: $fs14;
+                            border-radius: 50%;
+                            padding: 10px 12px;
+                            font-weight: 800;
+                        }
+                    }
+                }
+
+                .info {
+                    h3 {
+                        font-size: $fs20;
+                    }
+
+                    .acoes {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .btn-ver-fabricante, .btn-ver-produto, .btn-editar-produto {
+                            color: $branco;
+                            padding: 10px;
+                            border-radius: 5px;
+                            text-align: center;
+                            cursor: pointer;
+                            transition: .3s;
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+                        }
+
+                        .btn-ver-produto, .btn-ver-fabricante {
+                            background-color: $verdePrincipal;
+                        }
+
+                        .btn-editar-produto {
+                            background-color: $roxo;
+                        }
+                    }
+                }
+
+                &:hover{
+
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+

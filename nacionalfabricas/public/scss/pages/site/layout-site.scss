@@ -180,12 +180,15 @@
 
             display: flex;
             gap: 10px;
+            align-self: center;
 
             .item-menu{
 
                 color: $cinza;
                 font-size: $fs18;
                 text-decoration: none;
+                border: none;
+                background-color: transparent;
 
                 &:hover{
 

@@ -54,34 +54,42 @@
                 }
 
                 .info {
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
                     h3 {
+
+                        text-align: center;
                         font-size: $fs20;
                     }
 
                     .acoes {
+
                         display: flex;
                         flex-direction: column;
                         gap: 5px;
 
                         .btn-ver-fabricante, .btn-ver-produto, .btn-editar-produto {
-                            color: $branco;
+
+                            color: $verdePrincipal;
+                            background-color: $branco;
+                            border: 1px solid $verdePrincipal;
                             padding: 10px;
                             border-radius: 5px;
                             text-align: center;
                             cursor: pointer;
                             transition: .3s;
+                            text-decoration: none;
+                            font-size: $fs12;
 
                             &:hover {
+
+                                background-color: $verdePrincipal;
+                                color: $branco;
                                 transform: scale(1.05);
                             }
-                        }
-
-                        .btn-ver-produto, .btn-ver-fabricante {
-                            background-color: $verdePrincipal;
-                        }
-
-                        .btn-editar-produto {
-                            background-color: $roxo;
                         }
                     }
                 }

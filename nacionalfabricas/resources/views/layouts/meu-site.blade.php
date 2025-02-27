@@ -117,13 +117,18 @@
 
                             <div class="bloco-horarios" style="display: none">
 
+
                                 <div class="todos-horarios">
 
+                                    <h3>horários de atendimento</h3>
+
                                     @foreach($atendimento as $dia => $info)
-
-                                        <p>{{ ucfirst($dia) }}: {{ $info['entrada'] ?? 'N/A' }} - {{ $info['saida'] ?? 'N/A' }}</p>
-
+                                        @if(isset($info['entrada']) && $info['entrada'] !== 'N/A' && isset($info['saida']) && $info['saida'] !== 'N/A')
+                                            <p class="horario"><span class="dia-semana">{{ ucfirst($dia) }}:</span> <span class="horario-semana">{{ $info['entrada'] }}h - {{ $info['saida'] }}h</span></p>
+                                        @endif
                                     @endforeach
+
+                                    <a class="ver-horarios" onclick="verHorarios()">Fechar</a>
 
                                 </div>
 

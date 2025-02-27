@@ -10,6 +10,7 @@
     }
 
     .informacao-site {
+
         display: flex;
         gap: 20px;
         align-items: center;
@@ -24,6 +25,7 @@
         }
 
         .bloco-informacoes {
+
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -51,11 +53,13 @@
             }
 
             .informacoes-contato {
+
                 display: flex;
                 justify-content: space-between;
                 padding: 0;
 
-                .informacao-contato {
+                .informacao-contato{
+
                     display: flex;
                     flex-direction: column;
                     gap: 5px;
@@ -107,6 +111,50 @@
 
                             &:hover {
                                 background-color: $cinzaBorda;
+                            }
+                        }
+
+                        .bloco-horarios{
+
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100vw;
+                            height: 100vh;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 20;
+                            background-color: rgba( $preto, 0.5);
+
+                            .todos-horarios{
+
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                background-color: $branco;
+                                padding: 20px;
+                                width: 400px;
+
+                                .horario{
+
+                                    display: flex;
+                                    justify-content: space-between;
+                                    gap: 10px;
+                                    padding: 10px;
+                                    border-radius: 5px;
+
+                                    .dia-semana{
+
+                                        font-size: $fs16;
+                                        font-weight: 600;
+                                    }
+
+                                    .horario-semana{
+
+                                        font-size: $fs18;
+                                        font-weight: 700;
+                                    }
+                                }
                             }
                         }
                     }

@@ -1,7 +1,7 @@
 @extends('layouts.meu-site')
 @section('content')
 
-<div class="produto">
+<div class="pagina-produto">
 
     <div class="cabecalho-produto">
 

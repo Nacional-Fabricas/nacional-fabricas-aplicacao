@@ -1,6 +1,6 @@
 @import "../../variaveis.scss";
 
-.produto {
+.pagina-produto {
 
     width: 80vw;
     display: flex;
@@ -412,6 +412,7 @@
             justify-content: center;
 
             .produto {
+
                 width: 100%;
                 max-width: 200px;
                 display: flex;
@@ -470,6 +471,12 @@
                     form {
                         width: 100%;
                     }
+                }
+
+                &:hover{
+
+                    transform: scale(1.05);
+
                 }
             }
         }

@@ -1,4 +1,4 @@
-@import "../../variaveis", "atualizar-site", "criar-site", "vitrine";
+@import "../../variaveis", "atualizar-site", "criar-site", "busca-site", "vitrine";
 
 .meu-site{
 
@@ -167,6 +167,50 @@
             }
         }
     }
+
+    .menu-site{
+
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+        border-bottom: 1px solid $cinzaBorda;
+        padding: 10px 0;
+
+        .menu{
+
+            display: flex;
+            gap: 10px;
+
+            .item-menu{
+
+                color: $cinza;
+                font-size: $fs18;
+                text-decoration: none;
+
+                &:hover{
+
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .buscar{
+
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 5px 10px;
+            border: 1px solid $cinzaBorda;
+            border-radius: 5px;
+            transition: .3s;
+            outline: none;
+            font-size: $fs16;
+            font-weight: 400;
+
+        }
+
+    }
+
 }
 
 .configura-site {
@@ -293,6 +337,11 @@
                     }
                 }
             }
+        }
+
+        .menu-site{
+
+            display: none;
         }
     }
 }

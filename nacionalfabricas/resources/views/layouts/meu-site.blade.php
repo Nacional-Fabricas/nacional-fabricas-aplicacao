@@ -117,7 +117,6 @@
 
                             <div class="bloco-horarios" style="display: none">
 
-
                                 <div class="todos-horarios">
 
                                     <h3>horários de atendimento</h3>
@@ -141,6 +140,26 @@
                 </ul>
 
             </div>
+
+        </div>
+
+        <div class="menu-site">
+
+            <div class="menu">
+
+                @foreach($categorias as $categoria)
+
+                    <a href="{{route('busca_site', ['id' => $categoria -> id_conta, 'industria_nome' => $site -> slug,  ])}}?busca={{$categoria -> nome}}" class="item-menu">{{$categoria -> nome}}</a>
+
+                @endforeach
+
+            </div>
+
+            <form action="{{route('busca_site', ['id' => $categoria -> id_conta, 'industria_nome' => $site -> slug,  ])}}" class="formulario-busca">
+
+                <input class="buscar" type="text" name="busca" placeholder="O que está procurando?">
+
+            </form>
 
         </div>
 

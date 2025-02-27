@@ -4,7 +4,7 @@
 
     display: flex;
     justify-content: center;
-    width: 90vw;
+    width: 100vw;
     align-self: flex-end;
 
     .listar-produtos-fabrica {
@@ -16,22 +16,32 @@
         gap: 20px;
 
         .bloco-pesquisa {
+
             display: flex;
             flex-direction: column;
             gap: 20px;
             background-color: transparent;
 
             .pesquisa {
+
                 display: flex;
                 width: 100%;
                 gap: 20px;
 
-                input {
+                .busca-texto {
                     border: none;
                     border-radius: 10px;
                     padding: 10px;
                     box-shadow: -1px 0 7px 1px rgba($preto, .3);
                     width: 100%;
+                }
+
+                .filtro-status{
+                    border: none;
+                    border-radius: 10px;
+                    padding: 10px;
+                    box-shadow: -1px 0 7px 1px rgba($preto, .3);
+                    width: 15%;
                 }
 
                 .botao-pesquisar {
@@ -143,6 +153,7 @@
 
 @media only screen and (max-width: 1024px) {
     .listar-produtos {
+
         .listar-produtos-fabrica {
 
             .bloco-pesquisa{
@@ -162,11 +173,28 @@
 }
 
 @media only screen and (max-width: 768px) {
+
     .listar-produtos {
+
+        width: 90vw;
+
         .listar-produtos-fabrica {
+
             padding: 20px;
 
+            .bloco-pesquisa{
+
+                .pesquisa{
+
+                    .filtro-status{
+
+                        width: 100%;
+                    }
+                }
+            }
+
             .lista-produtos {
+
                 gap: 20px;
 
                 .bloco-produto {

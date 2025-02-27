@@ -6,7 +6,13 @@
 
             <div class="pesquisa">
 
-                <input wire:model.live="pesquisa" type="text" placeholder="Pesquisar produtos pelo nome"/>
+                <input wire:model.live="buscar" class="busca-texto" type="text" placeholder="Pesquisar produtos pelo nome"/>
+
+                <select class="filtro-status" wire:model.live="status">
+                    <option value="">Todos</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
 
                 <a class="botao-pesquisar" href="{{route('criar_produto')}}">+ Novo Produto</a>
 

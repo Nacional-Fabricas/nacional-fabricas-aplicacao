@@ -1,6 +1,7 @@
 @import "../../variaveis", "atualizar-site", "criar-site", "vitrine";
 
-.meu-site {
+.meu-site{
+
     align-self: center;
     width: 100vw;
     padding: 20px 0;
@@ -208,7 +209,6 @@
                     }
                 }
 
-
                 .informacoes-contato {
 
                     display: none;
@@ -231,6 +231,51 @@
                         max-width: 100% !important;
                         text-align: center !important;
                         align-items: center !important;
+
+                        .conteudo-destaque{
+
+                            .ver-horarios, h3{
+
+                                display: none !important;
+                            }
+
+                            .bloco-horarios{
+
+                                display: flex !important;
+                                position: relative;
+                                width: 100%;
+                                height: auto;
+                                background-color: transparent;
+
+                                .todos-horarios{
+
+                                    background-color: transparent;
+                                    padding: 0;
+                                    width: 100%;
+
+                                    .horario{
+
+                                        display: flex;
+                                        justify-content: space-between;
+                                        gap: 10px;
+                                        padding: 10px;
+                                        border-radius: 5px;
+
+                                        .dia-semana{
+
+                                            font-size: $fs16;
+                                            font-weight: 600;
+                                        }
+
+                                        .horario-semana{
+
+                                            font-size: $fs18;
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     .fechar-informacoes {

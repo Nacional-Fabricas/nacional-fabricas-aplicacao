@@ -21,9 +21,10 @@
 
 body{
 
-    width: 100%;
-    position: absolute;
+    width: 100vw;
+    //position: fixed;
     min-height: 100vh;
+    overflow-y: auto;
     display: block;
     gap: 10px;
     overflow-x: hidden;

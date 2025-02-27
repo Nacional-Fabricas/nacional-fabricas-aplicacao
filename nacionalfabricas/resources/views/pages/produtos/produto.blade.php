@@ -130,7 +130,7 @@
 
     <div class="produtos-relacionados">
 
-        <h1>Produtos Relacionados</h1>
+        <h2>Produtos Relacionados</h2>
 
         <div class="lista-produtos">
 

@@ -229,7 +229,7 @@ h1,h2,h3,h4,p,ul,li{
     margin: 0 !important;
 }
 
-input{
+input, select, textarea{
 
     &:focus-visible,&:focus{
 

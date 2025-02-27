@@ -1,156 +1,128 @@
 @extends('layouts.meu-site')
 @section('content')
 
-<div class="vitrine-empresa">
+    <img class="banner" src="{{asset('storage/images/sites/banners/'. $site -> banner)}}">
 
-    @if( count($produtos) > 0 )
+    <div class="informacao-site">
 
-        <div class="produtos">
+        <img class="logo" src="{{ asset('storage/images/sites/logos/' . $site -> logo)}}" alt="{{$site -> nome_industria}}">
 
-            <h1>Produtos em destaque</h1>
+        <div class="bloco-informacoes">
 
-            <div class="lista-produtos">
+            <div class="cabecalho">
 
-                @foreach($produtos as $produto)
+                <h1>{{$site -> nome_industria}}</h1>
 
-                    <div class="produto">
+                <div class="informacoes-basica">
 
-                        <img class="thumbnail" src="{{ asset('storage/images/thumbnails/' . $produto->produto_thumbnail) }}"  alt="{{$produto -> produto_nome}}">
+                    <h3>Informações básicas</h3>
 
-                        <h3>{{ $produto->produto_nome }}</h3>
+                    <span class="descricao">{{$site -> descricao_industria}}</span>
 
-                        <div class="acoes">
+                </div>
 
-                            @if($produto->id_conta != Auth::id())
+            </div>
 
-                                <form action="{{route('adicionar_cotacao')}}" method="POST" enctype="multipart/form-data" class="formulario-adicionar-orcamento">
+            <button class="ver-informacoes">Ver Informações</button>
 
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$produto -> id}}">
-                                    <input type="hidden" name="name" value="{{$produto -> produto_nome}}">
-                                    <input type="hidden" name="sku" value="{{$produto -> sku}}">
-                                    <input type="hidden" name="ean" value="{{$produto -> ean}}">
-                                    <input type="hidden" name="id_receptor" value="{{$produto -> id_conta}}">
-                                    <input type="hidden" name="id_produto" value="{{$produto -> id}}">
-                                    <input type="hidden" name="price" value="1">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <input type="hidden" name="image" value="{{$produto-> produto_thumbnail}}">
-                                    <button class="btn-acao">Cotar produto</button>
+            <ul class="informacoes-contato">
 
-                                </form>
+                <img id="close" onclick="verInfo()" src="{{ asset('icons/close.svg')}}" />
 
-                            @else
+                <li class="informacao-contato">
 
-                                <a class="btn-acao" href="{{ route('editar_produto', ['id' => $produto->id])}}">Editar</a>
+                    <div class="sobre-info">
 
-                            @endif
+                        <img class="icone" src="{{ asset('icons/location.svg')}}" alt="">
+                        <h4>Endereço</h4>
 
-                            <a class="btn-acao" href="{{ route('produto', ['id'=>$produto->id])}}">Ver produto</a>
+                    </div>
+
+                    <div class="conteudo-destaque">
+
+                            <span class="valor-destaque">
+
+                                {{$endereco -> endereco}}, {{$endereco -> bairro}},{{$endereco -> numero}}, {{$endereco -> cidade}} - {{$endereco -> estado}}
+
+                            </span>
+
+                    </div>
+
+                </li>
+
+                <li class="informacao-contato">
+
+                    <div class="sobre-info">
+
+                        <img src="{{ asset('icons/call.svg')}}" alt="">
+                        <h4>Contato</h4>
+
+                    </div>
+
+                    <div class="conteudo-destaque">
+
+                        <span class="valor-destaque">
+
+                            Email: {{$site -> email}}
+
+                        </span>
+
+                        <span class="valor-destaque">
+
+                            Telefone: {{$site -> telefone}}
+
+                        </span>
+
+                    </div>
+
+                </li>
+
+                <li class="informacao-contato">
+
+                    <div class="sobre-info">
+
+                        <img src="{{ asset('icons/stopwatch.svg')}}" alt="">
+                        <h4>Atendimento</h4>
+                    </div>
+
+                    <div class="conteudo-destaque">
+
+                        <a class="ver-horarios" onclick="verHorarios()">Ver Horários</a>
+
+                        <div class="bloco-horarios" style="display: none">
+
+                            <div class="todos-horarios">
+
+                                <h3>horários de atendimento</h3>
+
+                                @foreach($atendimento as $dia => $info)
+                                    @if(isset($info['entrada']) && $info['entrada'] !== 'N/A' && isset($info['saida']) && $info['saida'] !== 'N/A')
+                                        <p class="horario"><span class="dia-semana">{{ ucfirst($dia) }}:</span> <span class="horario-semana">{{ $info['entrada'] }}h - {{ $info['saida'] }}h</span></p>
+                                    @endif
+                                @endforeach
+
+                                <a class="ver-horarios" onclick="verHorarios()">Fechar</a>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                @endforeach
+                </li>
 
-            </div>
-
-        </div>
-
-        <hr>
-
-    @endif
-
-    @if( $site -> primeiro_destaque )
-
-    <div class="destaques-fabrica">
-
-        <h1>Nossa Fábrica</h1>
-
-        <div class="bloco-imagens-destaque">
-
-            @if( $site -> primeiro_destaque && $site -> primeiro_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> primeiro_destaque)}}" alt="{{$site -> nome_empresa}}">
-            @endif
-
-            @if( $site -> segundo_destaque &&  $site -> segundo_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> segundo_destaque)}}" alt="{{$site -> nome_empresa}}">
-            @endif
-
-            @if( $site -> terceiro_destaque &&  $site -> terceiro_destaque != "sem-imagem" )
-            <img class="img-destaque" src="{{ asset('storage/images/sites/destaques/' . $site -> terceiro_destaque)}}" alt="{{$site -> nome_empresa}}">
-            @endif
+            </ul>
 
         </div>
 
     </div>
 
-    <hr>
-
-    @endif
-
-    <ul class="informacoes-perfil">
-
-        <li class="informacao">
-
-            <span class="label">Local de Atuação</span>
-
-            <span class="valor">{{$site -> local_atuacao}}</span>
-
-        </li>
-
-        <li class="informacao">
-
-            <span class="label">Segmento</span>
-
-            <span class="valor">{{$site -> segmento}}</span>
-
-        </li>
-
-        <li class="informacao">
-
-            <span class="label">Produtos Principais</span>
-
-            <span class="valor">{{$site -> produtos_tipo}}</span>
-
-        </li>
-
-        <li class="informacao">
-
-            <span class="label">Estado</span>
-
-            <span class="valor">{{$endereco -> estado}}</span>
-
-        </li>
-
-        {{--
-        <li class="informacao">
-
-            <span class="label">Tributação</span>
-
-            <span class="valor">{{$site -> tributacao}}</span>
-
-        </li>
-        --}}
-
-        <li class="informacao">
-
-            <span class="label">Tempo de resposta</span>
-
-            <span class="valor">{{$site -> tempo_resposta}}</span>
-
-        </li>
-
-    </ul>
-
-</div>
-
+    <livewire:busca.busca-site :id="$site->id" />
 
     @push('scripts')
 
         <script src="{{asset('js/site/informacoes.js')}}"></script>
 
     @endpush
-
 
 @endsection

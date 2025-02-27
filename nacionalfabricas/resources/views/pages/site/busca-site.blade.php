@@ -1,74 +1,107 @@
-@extends('layouts.meu-site')
-@section('content')
 
-<div class="busca-site">
+<div class="pagina-busca-site">
 
-    <div class="cabecalho">
+    <div class="bloco-produtos">
 
+        <div class="contador-resultados">
 
-        <div class="contagem-produtos">
+            <strong>{{$produtos -> count()}}</strong> produtos encontrados
 
-            <strong>{{count($produtos)}}</strong> resultados encontrados
+        </div>
 
+        <ul class="lista-produtos">
+
+            @forelse($produtos as $produto)
+
+                <li class="produto">
+
+                    <div class="swiper mySwiper">
+
+                        <div class="swiper-wrapper">
+
+                            <img class="swiper-slide" src="{{asset('storage/images/thumbnails/'. $produto -> produto_thumbnail) }}">
+
+                        </div>
+
+                        @php
+                            $produtoPossuiAlbum = $fotosAlbum->contains('id_produto', $produto->id);
+                        @endphp
+
+                        @if($produtoPossuiAlbum)
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        @endif
+
+                    </div>
+
+                    <div class="info">
+
+                        <h3>{{$produto -> produto_nome}}</h3>
+
+                        @if($produto -> preco_min != 0 && $produto -> preco_min != null && $produto -> preco_max != 0 && $produto -> preco_max != null )
+
+                            <div class="preco">
+
+                                <strong>R${{$produto -> preco_min}} - R${{$produto -> preco_max}}</strong>
+
+                            </div>
+
+                        @endif
+
+                        <div class="codigos">
+
+                            <span class="sku"><strong>SKU</strong> {{$produto -> sku}}</span>
+
+                        </div>
+
+                        <div class="acoes">
+
+                            <a class="btn-ver-produto" href="{{ route('produto', [ 'id' => $produto -> id]) }}">Ver Produto</a>
+
+                            @if($usuario && $produto -> id_conta != $usuario -> id )
+
+                                <form action="{{route('adicionar_cotacao')}}" class="formulario-adicionar-cotacao"  method="POST" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <input type="hidden" name="id" value="{{$produto -> id}}">
+                                    <input type="hidden" name="name" value="{{$produto -> produto_nome}}">
+                                    <input type="hidden" name="sku" value="{{$produto -> sku}}">
+                                    <input type="hidden" name="ean" value="{{$produto -> ean}}">
+                                    <input type="hidden" name="id_receptor" value="{{$produto -> id_conta}}">
+                                    <input type="hidden" name="id_produto" value="{{$produto -> id}}">
+                                    <input type="hidden" name="price" value="1">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="image" value="{{$produto-> produto_thumbnail}}">
+
+                                    <button class="addCote full">+ Adicionar cotação</button>
+
+                                </form>
+
+                            @else
+
+                                <a class="btn-editar-produto" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">Editar Produto</a>
+
+                            @endif
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+            @empty
+
+                Nenhum Produto cadastrado nesta Categoria
+
+            @endforelse
+
+        </ul>
+
+        <div class="paginacao">
+            {{$produtos->appends(request()->query())->links()}}
         </div>
 
     </div>
 
-    <ul class="lista-produtos">
-
-        @foreach($produtos as $produto)
-
-        <li class="produto">
-
-            <img class="thumbnail" src="{{ asset('images/thumbnails/'. $produto-> produto_thumbnail) }}">
-
-            <div class="informacoes-produto">
-
-                <span class="titulo">{{$produto -> produto_nome}}</span>
-
-                <span class="codigo"><strong>SKU</strong> {{$produto -> sku}}</span>
-
-                <div class="acoes">
-
-                <a class="ver-produto" href="{{route('produto', [ 'id' => $produto -> id])}}">Ver Produto</a>
-
-                @if($produto -> id_conta != Auth::id() )
-
-                <form action="{{route('adicionar_cotacao')}}" class="formulario-cotacao" method="POST" enctype="multipart/form-data">
-                    @csrf
-
-                    <input type="hidden" name="id" value="{{$produto -> id}}">
-                    <input type="hidden" name="name" value="{{$produto -> produto_nome}}">
-                    <input type="hidden" name="sku" value="{{$produto -> sku}}">
-                    <input type="hidden" name="ean" value="{{$produto -> ean}}">
-                    <input type="hidden" name="id_receptor" value="{{$produto -> id_conta}}">
-                    <input type="hidden" name="id_produto" value="{{$produto -> id}}">
-                    <input type="hidden" name="price" value="1">
-                    <input type="hidden" name="quantity" value="1">
-                    <input type="hidden" name="image" value="{{$produto-> produto_thumbnail}}">
-
-                    <button class="adicionar-cotacao">Cotar produto</button>
-
-                </form>
-
-                @else
-
-                <a class="adicionar-cotacao" href="{{ route('editar_produto', [ 'id' => $produto -> id])}}">Editar Produto</a>
-
-                @endif
-
-                </div>
-
-            </div>
-
-        </li>
-
-        @endforeach
-
-    </ul>
-
-    {{$produtos -> links()}}
 
 </div>
-
-@endsection

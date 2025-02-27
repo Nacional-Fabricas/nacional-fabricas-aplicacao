@@ -34,7 +34,6 @@ class BuscaGeral extends Component
 
     public function render()
     {
-
         try {
 
             $tipo = $this->tipo;

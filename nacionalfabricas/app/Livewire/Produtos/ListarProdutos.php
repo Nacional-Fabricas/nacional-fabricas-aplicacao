@@ -22,9 +22,10 @@ class ListarProdutos extends Component
         'page' => ['except' => 1],
     ];
 
+
     public function updatingBuscar()
     {
-        $this->resetPage();
+        $this->page = 1;
     }
 
     public function render()

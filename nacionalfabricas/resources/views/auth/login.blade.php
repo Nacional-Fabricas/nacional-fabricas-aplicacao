@@ -6,7 +6,7 @@
 <div class="login">
 
     @if (session('status'))
-        <div class="error">
+        <div class="erro">
             {{ session('status') }}
         </div>
     @endif

@@ -1,17 +1,20 @@
 @import "../../variaveis.scss";
 
 .bloco-sites {
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 45vw;
+    gap: 20px;
+    width: 100%;
 
     .lista-sites {
+
         display: flex;
-        flex-direction: column;
-        gap: 20px;
+        flex-wrap: wrap;
+        gap: 20px calc((100% - (5 * 260px)) / 4);
         padding: 0;
 
+        //Layout do site atual
         .site {
             display: flex;
             gap: 20px;
@@ -74,6 +77,74 @@
                         transform: scale(1.05);
                     }
                 }
+            }
+        }
+
+        //Começa as páginas de instagram aqui
+        .pagina{
+
+            position: relative;
+            flex: 1 1 250px;
+            box-shadow: 0 0 15px rgba($preto, .2);
+            padding: 10px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+            max-width: 250px;
+            transition: .3s;
+
+            .foto-perfil{
+
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                bottom: 80%;
+                //position: absolute;
+            }
+
+            .titulo-pagina{
+
+                display: none;
+                font-size: $fs16;
+                font-weight: 700;
+            }
+
+            .usuario-instagram{
+
+                font-size: $fs14;
+                font-weight: 600;
+                box-shadow: 0 0 10px 1px rgba($preto, .2);
+                padding: 5px;
+                border-radius: 5px;
+                rotate: -3deg;
+                position: relative;
+                bottom: 30px;
+                z-index: 100;
+                background-color: $branco;
+            }
+
+            .biografia{
+
+                text-align: center;
+                font-size: $fs14;
+                font-weight: 600;
+            }
+
+            .visitar-pagina{
+
+                padding: 10px;
+                background-color: $verdePrincipal;
+                color: $branco;
+            }
+
+            &:hover{
+
+                color: $preto;
+                transform: scale(1.05);
+                box-shadow: 0 0 5px 5px rgba($verdePrincipal, .2);
             }
         }
     }

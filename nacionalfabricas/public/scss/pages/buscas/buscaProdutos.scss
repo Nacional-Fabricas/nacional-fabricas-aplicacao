@@ -11,10 +11,11 @@
 
         display: flex;
         flex-wrap: wrap;
-        gap: 20px calc((100% - (3 * 250px)) / 2);
+        gap: 20px calc((100% - (3 * 260px)) / 2);
         padding: 0;
 
         .produto {
+
             flex: 1 1 250px;
             max-width: 250px;
             box-sizing: border-box;
@@ -26,6 +27,7 @@
             box-shadow: 0 0 15px rgba($preto, .2);
             width: 100%;
             justify-content: space-between;
+            margin: 0 5px !important;
 
             .swiper {
                 width: 100% !important;

@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 numero.classList.add('show');
                 setTimeout(() => {
                     descricao.classList.add('show');
-                }, 500); // Delay between numero and descricao
-            }, (index + 1) * 1500); // Delay between each etapa
+                }, 200); // Delay between numero and descricao
+            }, (index + 1) * 400); // Delay between each etapa
         });
     }
 

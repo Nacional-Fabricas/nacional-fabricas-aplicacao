@@ -42,7 +42,9 @@
 
         @endif
 
+        {{--
         <livewire:gerais.mapa-busca />
+        --}}
 
     </div>
 

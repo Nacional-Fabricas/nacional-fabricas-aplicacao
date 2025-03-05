@@ -4,6 +4,7 @@ namespace App\Livewire\Busca;
 use App\Models\Album;
 use App\Models\Cadastro;
 use App\Models\Estado;
+use App\Models\PaginaSocial;
 use App\Models\Produto;
 use App\Models\Segmento;
 use App\Models\Site;
@@ -34,6 +35,7 @@ class BuscaGeral extends Component
 
     public function render()
     {
+
         try {
 
             $tipo = $this->tipo;
@@ -44,6 +46,9 @@ class BuscaGeral extends Component
             $estados = Estado::orderBy('sigla', 'asc')->get();
             $segmentos = Segmento::orderBy('nomeSegmento', 'asc')->get();
             $fotosAlbum = Album::all();
+
+            /**
+             * Pesquisa para o Laytout antigo
 
             if ($tipo == "Produtos"){
 
@@ -100,6 +105,22 @@ class BuscaGeral extends Component
                 $cadastros = Cadastro::all();
 
             }
+            */
+
+            $cadastros = Cadastro::all();
+
+            $produtos = Produto::where('status', 'Ativo')->where('destaque', 'Sim')->get();
+
+            $sites = PaginaSocial::where(function ($query) use ($buscar) {
+                $query->where(function ($query) use ($buscar) {
+                    $query->where('nome', 'like', '%' . $buscar . '%')
+                        ->orWhere('biografia', 'like', '%' . $buscar . '%');
+                });
+            });
+
+            $sites = $sites->orderBy('nome')
+                ->orderBy('created_at')
+                ->paginate(9);
 
             return view('livewire.busca.busca-geral', [
                 'estados' => $estados,
